@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Media_Marker
 {
-    public partial class Form1 : Form
+    public partial class MediaMarkerMainWindow : Form
     {
-        public Form1()
+        public MediaMarkerMainWindow()
         {
             InitializeComponent();
         }

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C754EE9F-4CD7-45CA-B8A7-5831F7C4CCF2}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Media_Marker</RootNamespace>
-    <AssemblyName>Media Marker</AssemblyName>
+    <ProjectGuid>{F63BDDC9-069F-4BFE-A980-155EABD5D10F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Possessed_Media_Forms</RootNamespace>
+    <AssemblyName>Possessed Media Forms</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,55 +33,55 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MediaMarkerMainWindow.cs">
+    <Compile Include="newPossessedBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MediaMarkerMainWindow.Designer.cs">
-      <DependentUpon>MediaMarkerMainWindow.cs</DependentUpon>
+    <Compile Include="newPossessedBookForm.Designer.cs">
+      <DependentUpon>newPossessedBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewDesiredBookForm.cs">
+    <Compile Include="newPossessedGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewDesiredBookForm.Designer.cs">
-      <DependentUpon>NewDesiredBookForm.cs</DependentUpon>
+    <Compile Include="newPossessedGameForm.Designer.cs">
+      <DependentUpon>newPossessedGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="newPossessedMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newPossessedMovieForm.Designer.cs">
+      <DependentUpon>newPossessedMovieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="newPossessedShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newPossessedShowForm.Designer.cs">
+      <DependentUpon>newPossessedShowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MediaMarkerMainWindow.resx">
-      <DependentUpon>MediaMarkerMainWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="newPossessedBookForm.resx">
+      <DependentUpon>newPossessedBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newPossessedGameForm.resx">
+      <DependentUpon>newPossessedGameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newPossessedMovieForm.resx">
+      <DependentUpon>newPossessedMovieForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newPossessedShowForm.resx">
+      <DependentUpon>newPossessedShowForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

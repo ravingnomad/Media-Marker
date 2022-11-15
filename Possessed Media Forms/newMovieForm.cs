@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Possessed_Media_Forms
 {
-    public partial class newPossessedBookForm : Form
+    public partial class newMovieForm : Form
     {
-        public newPossessedBookForm()
+        public newMovieForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

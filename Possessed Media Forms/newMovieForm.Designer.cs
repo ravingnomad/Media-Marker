@@ -1,7 +1,7 @@
 ﻿
 namespace Possessed_Media_Forms
 {
-    partial class newPossessedMovieForm
+    partial class newMovieForm
     {
         /// <summary>
         /// Required designer variable.
@@ -111,7 +111,7 @@ namespace Possessed_Media_Forms
             this.newPossessedMovieStudioTextBox.Size = new System.Drawing.Size(255, 45);
             this.newPossessedMovieStudioTextBox.TabIndex = 12;
             // 
-            // newPossessedMovieForm
+            // newMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,8 +124,8 @@ namespace Possessed_Media_Forms
             this.Controls.Add(this.newPossessedMovieDirectorTextBox);
             this.Controls.Add(this.newPossessedMovieTitleLabel);
             this.Controls.Add(this.newPossessedMovieTitleTextBox);
-            this.Name = "newPossessedMovieForm";
-            this.Text = "Add New Possessed Movie";
+            this.Name = "newMovieForm";
+            this.Text = "Add Movie";
             this.ResumeLayout(false);
             this.PerformLayout();
 

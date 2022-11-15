@@ -1,7 +1,7 @@
 ﻿
 namespace Possessed_Media_Forms
 {
-    partial class newPossessedBookForm
+    partial class newBookForm
     {
         /// <summary>
         /// Required designer variable.

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Possessed_Media_Forms
+namespace New_Media_Forms
 {
-    public partial class newPossessedGameForm : Form
+    public partial class newShowForm : Form
     {
-        public newPossessedGameForm()
+        public newShowForm()
         {
             InitializeComponent();
         }

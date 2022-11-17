@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32929.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media Marker", "Media Marker\Media Marker.csproj", "{C754EE9F-4CD7-45CA-B8A7-5831F7C4CCF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Possessed Media Forms", "Possessed Media Forms\Possessed Media Forms.csproj", "{F63BDDC9-069F-4BFE-A980-155EABD5D10F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New Media Forms", "New Media Forms\New Media Forms.csproj", "{F63BDDC9-069F-4BFE-A980-155EABD5D10F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

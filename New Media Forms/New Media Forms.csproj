@@ -7,8 +7,8 @@
     <ProjectGuid>{F63BDDC9-069F-4BFE-A980-155EABD5D10F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Possessed_Media_Forms</RootNamespace>
-    <AssemblyName>Possessed Media Forms</AssemblyName>
+    <RootNamespace>New_Media_Forms</RootNamespace>
+    <AssemblyName>New Media Forms</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,44 +43,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="newPossessedBookForm.cs">
+    <Compile Include="newBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newPossessedBookForm.Designer.cs">
-      <DependentUpon>newPossessedBookForm.cs</DependentUpon>
+    <Compile Include="newBookForm.Designer.cs">
+      <DependentUpon>newBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newPossessedGameForm.cs">
+    <Compile Include="newGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newPossessedGameForm.Designer.cs">
-      <DependentUpon>newPossessedGameForm.cs</DependentUpon>
+    <Compile Include="newGameForm.Designer.cs">
+      <DependentUpon>newGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newPossessedMovieForm.cs">
+    <Compile Include="newMovieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newPossessedMovieForm.Designer.cs">
-      <DependentUpon>newPossessedMovieForm.cs</DependentUpon>
+    <Compile Include="newMovieForm.Designer.cs">
+      <DependentUpon>newMovieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newPossessedShowForm.cs">
+    <Compile Include="newShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newPossessedShowForm.Designer.cs">
-      <DependentUpon>newPossessedShowForm.cs</DependentUpon>
+    <Compile Include="newShowForm.Designer.cs">
+      <DependentUpon>newShowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="newPossessedBookForm.resx">
-      <DependentUpon>newPossessedBookForm.cs</DependentUpon>
+    <EmbeddedResource Include="newBookForm.resx">
+      <DependentUpon>newBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newPossessedGameForm.resx">
-      <DependentUpon>newPossessedGameForm.cs</DependentUpon>
+    <EmbeddedResource Include="newGameForm.resx">
+      <DependentUpon>newGameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newPossessedMovieForm.resx">
-      <DependentUpon>newPossessedMovieForm.cs</DependentUpon>
+    <EmbeddedResource Include="newMovieForm.resx">
+      <DependentUpon>newMovieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newPossessedShowForm.resx">
-      <DependentUpon>newPossessedShowForm.cs</DependentUpon>
+    <EmbeddedResource Include="newShowForm.resx">
+      <DependentUpon>newShowForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

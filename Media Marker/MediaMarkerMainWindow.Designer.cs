@@ -476,6 +476,7 @@ namespace Media_Marker
             this.newPossessedGameRadioButton.TabStop = true;
             this.newPossessedGameRadioButton.Text = "Game";
             this.newPossessedGameRadioButton.UseVisualStyleBackColor = true;
+            this.newPossessedGameRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedGameRadioButton_CheckedChanged);
             // 
             // newPossessedShowRadioButton
             // 
@@ -487,6 +488,7 @@ namespace Media_Marker
             this.newPossessedShowRadioButton.TabStop = true;
             this.newPossessedShowRadioButton.Text = "Show";
             this.newPossessedShowRadioButton.UseVisualStyleBackColor = true;
+            this.newPossessedShowRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedShowRadioButton_CheckedChanged);
             // 
             // newPossessedMovieRadioButton
             // 
@@ -498,6 +500,7 @@ namespace Media_Marker
             this.newPossessedMovieRadioButton.TabStop = true;
             this.newPossessedMovieRadioButton.Text = "Movie";
             this.newPossessedMovieRadioButton.UseVisualStyleBackColor = true;
+            this.newPossessedMovieRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedMovieRadioButton_CheckedChanged);
             // 
             // newPossessedBookRadioButton
             // 
@@ -509,6 +512,7 @@ namespace Media_Marker
             this.newPossessedBookRadioButton.TabStop = true;
             this.newPossessedBookRadioButton.Text = "Book";
             this.newPossessedBookRadioButton.UseVisualStyleBackColor = true;
+            this.newPossessedBookRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedBookRadioButton_CheckedChanged);
             // 
             // desiredMediaTabPage
             // 

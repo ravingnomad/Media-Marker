@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Possessed Media Forms")]
+[assembly: AssemblyTitle("New Media Forms Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Possessed Media Forms")]
+[assembly: AssemblyProduct("New Media Forms Library")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f63bddc9-069f-4bfe-a980-155eabd5d10f")]
+[assembly: Guid("18ec6087-d38d-4779-a93e-f778f2b697a0")]
 
 // Version information for an assembly consists of the following four values:
 //

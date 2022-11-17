@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Possessed_Media_Forms
+namespace New_Media_Forms
 {
     public partial class newBookForm : Form
     {

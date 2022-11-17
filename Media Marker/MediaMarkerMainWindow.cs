@@ -1,4 +1,5 @@
-﻿using System;
+﻿using New_Media_Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,8 @@ namespace Media_Marker
         {
             if (newDesiredBookRadioButton.Checked)
             {
-                Console.WriteLine("Dynamic layout for new desired book entry goes here");
+                newBookForm newBook = new newBookForm();
+                newBook.Show();
             }
         }
 
@@ -29,19 +31,17 @@ namespace Media_Marker
         {
             if (newDesiredMovieRadioButton.Checked)
             {
-                Console.WriteLine("Dynamic layout for new desired movie entry goes here");
+                newMovieForm newMovie = new newMovieForm();
+                newMovie.Show();
             }
-        }
-
-        private void addNewDesiredEntryTabPage_Click(object sender, EventArgs e)
-        {
         }
 
         private void newDesiredShowRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (newDesiredShowRadioButton.Checked)
             {
-                Console.WriteLine("Dynamic layout for new desired show entry goes here");
+                newShowForm newShow = new newShowForm();
+                newShow.Show();
             }
         }
 
@@ -49,7 +49,51 @@ namespace Media_Marker
         {
             if (newDesiredGameRadioButton.Checked)
             {
-                Console.WriteLine("Dynamic layout for new desired game entry goes here");
+                newGameForm newGame = new newGameForm();
+                newGame.Show();
+            }
+        }
+
+
+
+
+        private void addNewDesiredEntryTabPage_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void newPossessedBookRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newPossessedBookRadioButton.Checked)
+            {
+                newBookForm newBook = new newBookForm();
+                newBook.Show();
+            }
+        }
+
+        private void newPossessedMovieRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newPossessedMovieRadioButton.Checked)
+            {
+                newMovieForm newMovie = new newMovieForm();
+                newMovie.Show();
+            }
+        }
+
+        private void newPossessedShowRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newPossessedShowRadioButton.Checked)
+            {
+                newShowForm newShow = new newShowForm();
+                newShow.Show();
+            }
+        }
+
+        private void newPossessedGameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newPossessedGameRadioButton.Checked)
+            {
+                newGameForm newGame = new newGameForm();
+                newGame.Show();
             }
         }
     }

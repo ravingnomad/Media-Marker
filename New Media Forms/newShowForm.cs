@@ -16,5 +16,27 @@ namespace New_Media_Forms
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// This prevents the current form from being moved by the user
+        /// Code gotten from https://stackoverflow.com/questions/907830/how-do-you-prevent-a-windows-from-being-moved
+        /// </summary>
+        /// <param name="message"></param>
+        protected override void WndProc(ref Message message)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_MOVE = 0xF010;
+
+            switch (message.Msg)
+            {
+                case WM_SYSCOMMAND:
+                    int command = message.WParam.ToInt32() & 0xfff0;
+                    if (command == SC_MOVE)
+                        return;
+                    break;
+            }
+
+            base.WndProc(ref message);
+        }
     }
 }

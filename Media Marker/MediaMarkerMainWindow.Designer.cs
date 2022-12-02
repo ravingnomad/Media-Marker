@@ -61,45 +61,47 @@ namespace Media_Marker
             this.possessedGameSearchButton = new System.Windows.Forms.Button();
             this.possessedGameSearchTextBox = new System.Windows.Forms.TextBox();
             this.addNewPossessedEntryTabPage = new System.Windows.Forms.TabPage();
+            this.newPossessedEntryPanel = new System.Windows.Forms.Panel();
             this.newPossessedGameRadioButton = new System.Windows.Forms.RadioButton();
             this.newPossessedShowRadioButton = new System.Windows.Forms.RadioButton();
             this.newPossessedMovieRadioButton = new System.Windows.Forms.RadioButton();
             this.newPossessedBookRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredMediaTabPage = new System.Windows.Forms.TabPage();
             this.desiredMediaTabs = new System.Windows.Forms.TabControl();
-            this.desiredBooksTabPage = new System.Windows.Forms.TabPage();
-            this.desiredBookGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookTitleRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookSearchButton = new System.Windows.Forms.Button();
-            this.desiredButtonSearchTextBox = new System.Windows.Forms.TextBox();
-            this.desiredMoviesTabPage = new System.Windows.Forms.TabPage();
-            this.desiredMovieStudioRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredMovieGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredMovieDirectorRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredMovieTitleRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredMovieSearchButton = new System.Windows.Forms.Button();
-            this.desiredMovieSearchTextBox = new System.Windows.Forms.TextBox();
-            this.desiredShowsTabPage = new System.Windows.Forms.TabPage();
-            this.desiredNetworkRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredShowGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredShowDirectorRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredShowTitleRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredShowSearchButton = new System.Windows.Forms.Button();
-            this.desiredShowSearchTextBox = new System.Windows.Forms.TextBox();
-            this.desiredGamesTabPage = new System.Windows.Forms.TabPage();
-            this.desiredGamePlatformRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredGamePublisherRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredGameGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredGameDeveloperRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredGameTitleRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredGameSearchButton = new System.Windows.Forms.Button();
-            this.desiredGameSearchTextBox = new System.Windows.Forms.TextBox();
             this.addNewDesiredEntryTabPage = new System.Windows.Forms.TabPage();
-            this.newDesiredGameRadioButton = new System.Windows.Forms.RadioButton();
-            this.newDesiredShowRadioButton = new System.Windows.Forms.RadioButton();
-            this.newDesiredMovieRadioButton = new System.Windows.Forms.RadioButton();
             this.newDesiredBookRadioButton = new System.Windows.Forms.RadioButton();
+            this.newDesiredMovieRadioButton = new System.Windows.Forms.RadioButton();
+            this.newDesiredShowRadioButton = new System.Windows.Forms.RadioButton();
+            this.newDesiredGameRadioButton = new System.Windows.Forms.RadioButton();
+            this.newDesiredEntryPanel = new System.Windows.Forms.Panel();
+            this.desiredGamesTabPage = new System.Windows.Forms.TabPage();
+            this.desiredGameSearchTextBox = new System.Windows.Forms.TextBox();
+            this.desiredGameSearchButton = new System.Windows.Forms.Button();
+            this.desiredGameTitleRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredGameDeveloperRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredGameGenreRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredGamePublisherRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredGamePlatformRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredShowsTabPage = new System.Windows.Forms.TabPage();
+            this.desiredShowSearchTextBox = new System.Windows.Forms.TextBox();
+            this.desiredShowSearchButton = new System.Windows.Forms.Button();
+            this.desiredShowTitleRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredShowDirectorRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredShowGenreRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredNetworkRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredMoviesTabPage = new System.Windows.Forms.TabPage();
+            this.desiredMovieSearchTextBox = new System.Windows.Forms.TextBox();
+            this.desiredMovieSearchButton = new System.Windows.Forms.Button();
+            this.desiredMovieTitleRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredMovieDirectorRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredMovieGenreRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredMovieStudioRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBooksTabPage = new System.Windows.Forms.TabPage();
+            this.desiredButtonSearchTextBox = new System.Windows.Forms.TextBox();
+            this.desiredBookSearchButton = new System.Windows.Forms.Button();
+            this.desiredBookTitleRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBookGenreRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredMediaTabPage = new System.Windows.Forms.TabPage();
             this.dataBaseTabs.SuspendLayout();
             this.possessedMediaTabPage.SuspendLayout();
             this.possessedMediaTabs.SuspendLayout();
@@ -108,23 +110,26 @@ namespace Media_Marker
             this.possessedShowsTabPage.SuspendLayout();
             this.possessedGamesTabPage.SuspendLayout();
             this.addNewPossessedEntryTabPage.SuspendLayout();
-            this.desiredMediaTabPage.SuspendLayout();
             this.desiredMediaTabs.SuspendLayout();
-            this.desiredBooksTabPage.SuspendLayout();
-            this.desiredMoviesTabPage.SuspendLayout();
-            this.desiredShowsTabPage.SuspendLayout();
-            this.desiredGamesTabPage.SuspendLayout();
             this.addNewDesiredEntryTabPage.SuspendLayout();
+            this.desiredGamesTabPage.SuspendLayout();
+            this.desiredShowsTabPage.SuspendLayout();
+            this.desiredMoviesTabPage.SuspendLayout();
+            this.desiredBooksTabPage.SuspendLayout();
+            this.desiredMediaTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataBaseTabs
             // 
+            this.dataBaseTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataBaseTabs.Controls.Add(this.possessedMediaTabPage);
             this.dataBaseTabs.Controls.Add(this.desiredMediaTabPage);
             this.dataBaseTabs.Location = new System.Drawing.Point(12, 12);
             this.dataBaseTabs.Name = "dataBaseTabs";
             this.dataBaseTabs.SelectedIndex = 0;
-            this.dataBaseTabs.Size = new System.Drawing.Size(792, 438);
+            this.dataBaseTabs.Size = new System.Drawing.Size(807, 554);
             this.dataBaseTabs.TabIndex = 0;
             // 
             // possessedMediaTabPage
@@ -133,13 +138,16 @@ namespace Media_Marker
             this.possessedMediaTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedMediaTabPage.Name = "possessedMediaTabPage";
             this.possessedMediaTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.possessedMediaTabPage.Size = new System.Drawing.Size(784, 409);
+            this.possessedMediaTabPage.Size = new System.Drawing.Size(799, 525);
             this.possessedMediaTabPage.TabIndex = 0;
             this.possessedMediaTabPage.Text = "Possessed Media";
             this.possessedMediaTabPage.UseVisualStyleBackColor = true;
             // 
             // possessedMediaTabs
             // 
+            this.possessedMediaTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.possessedMediaTabs.Controls.Add(this.possessedBooksTabPage);
             this.possessedMediaTabs.Controls.Add(this.possessedMoviesTabPage);
             this.possessedMediaTabs.Controls.Add(this.possessedShowsTabPage);
@@ -148,7 +156,7 @@ namespace Media_Marker
             this.possessedMediaTabs.Location = new System.Drawing.Point(0, 0);
             this.possessedMediaTabs.Name = "possessedMediaTabs";
             this.possessedMediaTabs.SelectedIndex = 0;
-            this.possessedMediaTabs.Size = new System.Drawing.Size(782, 407);
+            this.possessedMediaTabs.Size = new System.Drawing.Size(800, 548);
             this.possessedMediaTabs.TabIndex = 0;
             // 
             // possessedBooksTabPage
@@ -161,7 +169,7 @@ namespace Media_Marker
             this.possessedBooksTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedBooksTabPage.Name = "possessedBooksTabPage";
             this.possessedBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.possessedBooksTabPage.Size = new System.Drawing.Size(774, 378);
+            this.possessedBooksTabPage.Size = new System.Drawing.Size(795, 519);
             this.possessedBooksTabPage.TabIndex = 0;
             this.possessedBooksTabPage.Text = "Books";
             this.possessedBooksTabPage.UseVisualStyleBackColor = true;
@@ -226,7 +234,7 @@ namespace Media_Marker
             this.possessedMoviesTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedMoviesTabPage.Name = "possessedMoviesTabPage";
             this.possessedMoviesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.possessedMoviesTabPage.Size = new System.Drawing.Size(774, 378);
+            this.possessedMoviesTabPage.Size = new System.Drawing.Size(792, 519);
             this.possessedMoviesTabPage.TabIndex = 1;
             this.possessedMoviesTabPage.Text = "Movies";
             this.possessedMoviesTabPage.UseVisualStyleBackColor = true;
@@ -301,7 +309,7 @@ namespace Media_Marker
             this.possessedShowsTabPage.Controls.Add(this.possessedShowSearchTextBox);
             this.possessedShowsTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedShowsTabPage.Name = "possessedShowsTabPage";
-            this.possessedShowsTabPage.Size = new System.Drawing.Size(774, 378);
+            this.possessedShowsTabPage.Size = new System.Drawing.Size(792, 519);
             this.possessedShowsTabPage.TabIndex = 2;
             this.possessedShowsTabPage.Text = "Shows";
             this.possessedShowsTabPage.UseVisualStyleBackColor = true;
@@ -377,7 +385,7 @@ namespace Media_Marker
             this.possessedGamesTabPage.Controls.Add(this.possessedGameSearchTextBox);
             this.possessedGamesTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedGamesTabPage.Name = "possessedGamesTabPage";
-            this.possessedGamesTabPage.Size = new System.Drawing.Size(774, 378);
+            this.possessedGamesTabPage.Size = new System.Drawing.Size(792, 519);
             this.possessedGamesTabPage.TabIndex = 3;
             this.possessedGamesTabPage.Text = "Games";
             this.possessedGamesTabPage.UseVisualStyleBackColor = true;
@@ -455,21 +463,33 @@ namespace Media_Marker
             // 
             // addNewPossessedEntryTabPage
             // 
+            this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedEntryPanel);
             this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedGameRadioButton);
             this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedShowRadioButton);
             this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedMovieRadioButton);
             this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedBookRadioButton);
             this.addNewPossessedEntryTabPage.Location = new System.Drawing.Point(4, 25);
             this.addNewPossessedEntryTabPage.Name = "addNewPossessedEntryTabPage";
-            this.addNewPossessedEntryTabPage.Size = new System.Drawing.Size(774, 378);
+            this.addNewPossessedEntryTabPage.Size = new System.Drawing.Size(792, 519);
             this.addNewPossessedEntryTabPage.TabIndex = 4;
             this.addNewPossessedEntryTabPage.Text = "Add Entry +";
             this.addNewPossessedEntryTabPage.UseVisualStyleBackColor = true;
             // 
+            // newPossessedEntryPanel
+            // 
+            this.newPossessedEntryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.newPossessedEntryPanel.Location = new System.Drawing.Point(2, 71);
+            this.newPossessedEntryPanel.Name = "newPossessedEntryPanel";
+            this.newPossessedEntryPanel.Size = new System.Drawing.Size(799, 445);
+            this.newPossessedEntryPanel.TabIndex = 8;
+            // 
             // newPossessedGameRadioButton
             // 
+            this.newPossessedGameRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newPossessedGameRadioButton.AutoSize = true;
-            this.newPossessedGameRadioButton.Location = new System.Drawing.Point(397, 32);
+            this.newPossessedGameRadioButton.Location = new System.Drawing.Point(394, 32);
             this.newPossessedGameRadioButton.Name = "newPossessedGameRadioButton";
             this.newPossessedGameRadioButton.Size = new System.Drawing.Size(67, 21);
             this.newPossessedGameRadioButton.TabIndex = 7;
@@ -480,8 +500,9 @@ namespace Media_Marker
             // 
             // newPossessedShowRadioButton
             // 
+            this.newPossessedShowRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newPossessedShowRadioButton.AutoSize = true;
-            this.newPossessedShowRadioButton.Location = new System.Drawing.Point(330, 32);
+            this.newPossessedShowRadioButton.Location = new System.Drawing.Point(327, 32);
             this.newPossessedShowRadioButton.Name = "newPossessedShowRadioButton";
             this.newPossessedShowRadioButton.Size = new System.Drawing.Size(63, 21);
             this.newPossessedShowRadioButton.TabIndex = 6;
@@ -492,8 +513,9 @@ namespace Media_Marker
             // 
             // newPossessedMovieRadioButton
             // 
+            this.newPossessedMovieRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newPossessedMovieRadioButton.AutoSize = true;
-            this.newPossessedMovieRadioButton.Location = new System.Drawing.Point(258, 32);
+            this.newPossessedMovieRadioButton.Location = new System.Drawing.Point(255, 32);
             this.newPossessedMovieRadioButton.Name = "newPossessedMovieRadioButton";
             this.newPossessedMovieRadioButton.Size = new System.Drawing.Size(66, 21);
             this.newPossessedMovieRadioButton.TabIndex = 5;
@@ -504,8 +526,9 @@ namespace Media_Marker
             // 
             // newPossessedBookRadioButton
             // 
+            this.newPossessedBookRadioButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.newPossessedBookRadioButton.AutoSize = true;
-            this.newPossessedBookRadioButton.Location = new System.Drawing.Point(191, 32);
+            this.newPossessedBookRadioButton.Location = new System.Drawing.Point(188, 32);
             this.newPossessedBookRadioButton.Name = "newPossessedBookRadioButton";
             this.newPossessedBookRadioButton.Size = new System.Drawing.Size(61, 21);
             this.newPossessedBookRadioButton.TabIndex = 4;
@@ -513,17 +536,6 @@ namespace Media_Marker
             this.newPossessedBookRadioButton.Text = "Book";
             this.newPossessedBookRadioButton.UseVisualStyleBackColor = true;
             this.newPossessedBookRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedBookRadioButton_CheckedChanged);
-            // 
-            // desiredMediaTabPage
-            // 
-            this.desiredMediaTabPage.Controls.Add(this.desiredMediaTabs);
-            this.desiredMediaTabPage.Location = new System.Drawing.Point(4, 25);
-            this.desiredMediaTabPage.Name = "desiredMediaTabPage";
-            this.desiredMediaTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.desiredMediaTabPage.Size = new System.Drawing.Size(784, 409);
-            this.desiredMediaTabPage.TabIndex = 1;
-            this.desiredMediaTabPage.Text = "Desired Media";
-            this.desiredMediaTabPage.UseVisualStyleBackColor = true;
             // 
             // desiredMediaTabs
             // 
@@ -535,223 +547,81 @@ namespace Media_Marker
             this.desiredMediaTabs.Location = new System.Drawing.Point(0, 0);
             this.desiredMediaTabs.Name = "desiredMediaTabs";
             this.desiredMediaTabs.SelectedIndex = 0;
-            this.desiredMediaTabs.Size = new System.Drawing.Size(782, 407);
+            this.desiredMediaTabs.Size = new System.Drawing.Size(782, 529);
             this.desiredMediaTabs.TabIndex = 1;
             // 
-            // desiredBooksTabPage
+            // addNewDesiredEntryTabPage
             // 
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookGenreRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookAuthorRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookTitleRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookSearchButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredButtonSearchTextBox);
-            this.desiredBooksTabPage.Location = new System.Drawing.Point(4, 25);
-            this.desiredBooksTabPage.Name = "desiredBooksTabPage";
-            this.desiredBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.desiredBooksTabPage.Size = new System.Drawing.Size(774, 378);
-            this.desiredBooksTabPage.TabIndex = 0;
-            this.desiredBooksTabPage.Text = "Books";
-            this.desiredBooksTabPage.UseVisualStyleBackColor = true;
+            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredEntryPanel);
+            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredGameRadioButton);
+            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredShowRadioButton);
+            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredMovieRadioButton);
+            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredBookRadioButton);
+            this.addNewDesiredEntryTabPage.Location = new System.Drawing.Point(4, 25);
+            this.addNewDesiredEntryTabPage.Name = "addNewDesiredEntryTabPage";
+            this.addNewDesiredEntryTabPage.Size = new System.Drawing.Size(774, 500);
+            this.addNewDesiredEntryTabPage.TabIndex = 4;
+            this.addNewDesiredEntryTabPage.Text = "Add Entry +";
+            this.addNewDesiredEntryTabPage.UseVisualStyleBackColor = true;
+            this.addNewDesiredEntryTabPage.Click += new System.EventHandler(this.addNewDesiredEntryTabPage_Click);
             // 
-            // desiredBookGenreRadioButton
+            // newDesiredBookRadioButton
             // 
-            this.desiredBookGenreRadioButton.AutoSize = true;
-            this.desiredBookGenreRadioButton.Location = new System.Drawing.Point(242, 218);
-            this.desiredBookGenreRadioButton.Name = "desiredBookGenreRadioButton";
-            this.desiredBookGenreRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredBookGenreRadioButton.TabIndex = 9;
-            this.desiredBookGenreRadioButton.TabStop = true;
-            this.desiredBookGenreRadioButton.Text = "Search By Genre";
-            this.desiredBookGenreRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredBookRadioButton.AutoSize = true;
+            this.newDesiredBookRadioButton.Location = new System.Drawing.Point(194, 25);
+            this.newDesiredBookRadioButton.Name = "newDesiredBookRadioButton";
+            this.newDesiredBookRadioButton.Size = new System.Drawing.Size(61, 21);
+            this.newDesiredBookRadioButton.TabIndex = 0;
+            this.newDesiredBookRadioButton.TabStop = true;
+            this.newDesiredBookRadioButton.Text = "Book";
+            this.newDesiredBookRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredBookRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredBookRadioButton_CheckedChanged);
             // 
-            // desiredBookAuthorRadioButton
+            // newDesiredMovieRadioButton
             // 
-            this.desiredBookAuthorRadioButton.AutoSize = true;
-            this.desiredBookAuthorRadioButton.Location = new System.Drawing.Point(242, 191);
-            this.desiredBookAuthorRadioButton.Name = "desiredBookAuthorRadioButton";
-            this.desiredBookAuthorRadioButton.Size = new System.Drawing.Size(140, 21);
-            this.desiredBookAuthorRadioButton.TabIndex = 8;
-            this.desiredBookAuthorRadioButton.TabStop = true;
-            this.desiredBookAuthorRadioButton.Text = "Search By Author";
-            this.desiredBookAuthorRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredMovieRadioButton.AutoSize = true;
+            this.newDesiredMovieRadioButton.Location = new System.Drawing.Point(261, 25);
+            this.newDesiredMovieRadioButton.Name = "newDesiredMovieRadioButton";
+            this.newDesiredMovieRadioButton.Size = new System.Drawing.Size(66, 21);
+            this.newDesiredMovieRadioButton.TabIndex = 1;
+            this.newDesiredMovieRadioButton.TabStop = true;
+            this.newDesiredMovieRadioButton.Text = "Movie";
+            this.newDesiredMovieRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredMovieRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredMovieRadioButton_CheckedChanged);
             // 
-            // desiredBookTitleRadioButton
+            // newDesiredShowRadioButton
             // 
-            this.desiredBookTitleRadioButton.AutoSize = true;
-            this.desiredBookTitleRadioButton.Location = new System.Drawing.Point(242, 164);
-            this.desiredBookTitleRadioButton.Name = "desiredBookTitleRadioButton";
-            this.desiredBookTitleRadioButton.Size = new System.Drawing.Size(125, 21);
-            this.desiredBookTitleRadioButton.TabIndex = 7;
-            this.desiredBookTitleRadioButton.TabStop = true;
-            this.desiredBookTitleRadioButton.Text = "Search By Title";
-            this.desiredBookTitleRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredShowRadioButton.AutoSize = true;
+            this.newDesiredShowRadioButton.Location = new System.Drawing.Point(333, 25);
+            this.newDesiredShowRadioButton.Name = "newDesiredShowRadioButton";
+            this.newDesiredShowRadioButton.Size = new System.Drawing.Size(63, 21);
+            this.newDesiredShowRadioButton.TabIndex = 2;
+            this.newDesiredShowRadioButton.TabStop = true;
+            this.newDesiredShowRadioButton.Text = "Show";
+            this.newDesiredShowRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredShowRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredShowRadioButton_CheckedChanged);
             // 
-            // desiredBookSearchButton
+            // newDesiredGameRadioButton
             // 
-            this.desiredBookSearchButton.Location = new System.Drawing.Point(242, 135);
-            this.desiredBookSearchButton.Name = "desiredBookSearchButton";
-            this.desiredBookSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredBookSearchButton.TabIndex = 6;
-            this.desiredBookSearchButton.Text = "Search";
-            this.desiredBookSearchButton.UseVisualStyleBackColor = true;
+            this.newDesiredGameRadioButton.AutoSize = true;
+            this.newDesiredGameRadioButton.Location = new System.Drawing.Point(400, 25);
+            this.newDesiredGameRadioButton.Name = "newDesiredGameRadioButton";
+            this.newDesiredGameRadioButton.Size = new System.Drawing.Size(67, 21);
+            this.newDesiredGameRadioButton.TabIndex = 3;
+            this.newDesiredGameRadioButton.TabStop = true;
+            this.newDesiredGameRadioButton.Text = "Game";
+            this.newDesiredGameRadioButton.UseVisualStyleBackColor = true;
+            this.newDesiredGameRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredGameRadioButton_CheckedChanged);
             // 
-            // desiredButtonSearchTextBox
+            // newDesiredEntryPanel
             // 
-            this.desiredButtonSearchTextBox.Location = new System.Drawing.Point(323, 135);
-            this.desiredButtonSearchTextBox.Name = "desiredButtonSearchTextBox";
-            this.desiredButtonSearchTextBox.Size = new System.Drawing.Size(205, 22);
-            this.desiredButtonSearchTextBox.TabIndex = 5;
-            // 
-            // desiredMoviesTabPage
-            // 
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieStudioRadioButton);
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieGenreRadioButton);
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieDirectorRadioButton);
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieTitleRadioButton);
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieSearchButton);
-            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieSearchTextBox);
-            this.desiredMoviesTabPage.Location = new System.Drawing.Point(4, 25);
-            this.desiredMoviesTabPage.Name = "desiredMoviesTabPage";
-            this.desiredMoviesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.desiredMoviesTabPage.Size = new System.Drawing.Size(774, 378);
-            this.desiredMoviesTabPage.TabIndex = 1;
-            this.desiredMoviesTabPage.Text = "Movies";
-            this.desiredMoviesTabPage.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieStudioRadioButton
-            // 
-            this.desiredMovieStudioRadioButton.AutoSize = true;
-            this.desiredMovieStudioRadioButton.Location = new System.Drawing.Point(228, 222);
-            this.desiredMovieStudioRadioButton.Name = "desiredMovieStudioRadioButton";
-            this.desiredMovieStudioRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredMovieStudioRadioButton.TabIndex = 16;
-            this.desiredMovieStudioRadioButton.TabStop = true;
-            this.desiredMovieStudioRadioButton.Text = "Search By Studio";
-            this.desiredMovieStudioRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieGenreRadioButton
-            // 
-            this.desiredMovieGenreRadioButton.AutoSize = true;
-            this.desiredMovieGenreRadioButton.Location = new System.Drawing.Point(228, 195);
-            this.desiredMovieGenreRadioButton.Name = "desiredMovieGenreRadioButton";
-            this.desiredMovieGenreRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredMovieGenreRadioButton.TabIndex = 15;
-            this.desiredMovieGenreRadioButton.TabStop = true;
-            this.desiredMovieGenreRadioButton.Text = "Search By Genre";
-            this.desiredMovieGenreRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieDirectorRadioButton
-            // 
-            this.desiredMovieDirectorRadioButton.AutoSize = true;
-            this.desiredMovieDirectorRadioButton.Location = new System.Drawing.Point(228, 168);
-            this.desiredMovieDirectorRadioButton.Name = "desiredMovieDirectorRadioButton";
-            this.desiredMovieDirectorRadioButton.Size = new System.Drawing.Size(148, 21);
-            this.desiredMovieDirectorRadioButton.TabIndex = 14;
-            this.desiredMovieDirectorRadioButton.TabStop = true;
-            this.desiredMovieDirectorRadioButton.Text = "Search By Director";
-            this.desiredMovieDirectorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieTitleRadioButton
-            // 
-            this.desiredMovieTitleRadioButton.AutoSize = true;
-            this.desiredMovieTitleRadioButton.Location = new System.Drawing.Point(228, 141);
-            this.desiredMovieTitleRadioButton.Name = "desiredMovieTitleRadioButton";
-            this.desiredMovieTitleRadioButton.Size = new System.Drawing.Size(125, 21);
-            this.desiredMovieTitleRadioButton.TabIndex = 13;
-            this.desiredMovieTitleRadioButton.TabStop = true;
-            this.desiredMovieTitleRadioButton.Text = "Search By Title";
-            this.desiredMovieTitleRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieSearchButton
-            // 
-            this.desiredMovieSearchButton.Location = new System.Drawing.Point(228, 112);
-            this.desiredMovieSearchButton.Name = "desiredMovieSearchButton";
-            this.desiredMovieSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredMovieSearchButton.TabIndex = 12;
-            this.desiredMovieSearchButton.Text = "Search";
-            this.desiredMovieSearchButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredMovieSearchTextBox
-            // 
-            this.desiredMovieSearchTextBox.Location = new System.Drawing.Point(309, 112);
-            this.desiredMovieSearchTextBox.Name = "desiredMovieSearchTextBox";
-            this.desiredMovieSearchTextBox.Size = new System.Drawing.Size(205, 22);
-            this.desiredMovieSearchTextBox.TabIndex = 11;
-            // 
-            // desiredShowsTabPage
-            // 
-            this.desiredShowsTabPage.Controls.Add(this.desiredNetworkRadioButton);
-            this.desiredShowsTabPage.Controls.Add(this.desiredShowGenreRadioButton);
-            this.desiredShowsTabPage.Controls.Add(this.desiredShowDirectorRadioButton);
-            this.desiredShowsTabPage.Controls.Add(this.desiredShowTitleRadioButton);
-            this.desiredShowsTabPage.Controls.Add(this.desiredShowSearchButton);
-            this.desiredShowsTabPage.Controls.Add(this.desiredShowSearchTextBox);
-            this.desiredShowsTabPage.Location = new System.Drawing.Point(4, 25);
-            this.desiredShowsTabPage.Name = "desiredShowsTabPage";
-            this.desiredShowsTabPage.Size = new System.Drawing.Size(774, 378);
-            this.desiredShowsTabPage.TabIndex = 2;
-            this.desiredShowsTabPage.Text = "Shows";
-            this.desiredShowsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // desiredNetworkRadioButton
-            // 
-            this.desiredNetworkRadioButton.AutoSize = true;
-            this.desiredNetworkRadioButton.Location = new System.Drawing.Point(235, 224);
-            this.desiredNetworkRadioButton.Name = "desiredNetworkRadioButton";
-            this.desiredNetworkRadioButton.Size = new System.Drawing.Size(149, 21);
-            this.desiredNetworkRadioButton.TabIndex = 16;
-            this.desiredNetworkRadioButton.TabStop = true;
-            this.desiredNetworkRadioButton.Text = "Search By Network";
-            this.desiredNetworkRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredShowGenreRadioButton
-            // 
-            this.desiredShowGenreRadioButton.AutoSize = true;
-            this.desiredShowGenreRadioButton.Location = new System.Drawing.Point(235, 197);
-            this.desiredShowGenreRadioButton.Name = "desiredShowGenreRadioButton";
-            this.desiredShowGenreRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredShowGenreRadioButton.TabIndex = 15;
-            this.desiredShowGenreRadioButton.TabStop = true;
-            this.desiredShowGenreRadioButton.Text = "Search By Genre";
-            this.desiredShowGenreRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredShowDirectorRadioButton
-            // 
-            this.desiredShowDirectorRadioButton.AutoSize = true;
-            this.desiredShowDirectorRadioButton.Location = new System.Drawing.Point(235, 170);
-            this.desiredShowDirectorRadioButton.Name = "desiredShowDirectorRadioButton";
-            this.desiredShowDirectorRadioButton.Size = new System.Drawing.Size(148, 21);
-            this.desiredShowDirectorRadioButton.TabIndex = 14;
-            this.desiredShowDirectorRadioButton.TabStop = true;
-            this.desiredShowDirectorRadioButton.Text = "Search By Director";
-            this.desiredShowDirectorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredShowTitleRadioButton
-            // 
-            this.desiredShowTitleRadioButton.AutoSize = true;
-            this.desiredShowTitleRadioButton.Location = new System.Drawing.Point(235, 143);
-            this.desiredShowTitleRadioButton.Name = "desiredShowTitleRadioButton";
-            this.desiredShowTitleRadioButton.Size = new System.Drawing.Size(125, 21);
-            this.desiredShowTitleRadioButton.TabIndex = 13;
-            this.desiredShowTitleRadioButton.TabStop = true;
-            this.desiredShowTitleRadioButton.Text = "Search By Title";
-            this.desiredShowTitleRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredShowSearchButton
-            // 
-            this.desiredShowSearchButton.Location = new System.Drawing.Point(235, 114);
-            this.desiredShowSearchButton.Name = "desiredShowSearchButton";
-            this.desiredShowSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredShowSearchButton.TabIndex = 12;
-            this.desiredShowSearchButton.Text = "Search";
-            this.desiredShowSearchButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredShowSearchTextBox
-            // 
-            this.desiredShowSearchTextBox.Location = new System.Drawing.Point(316, 114);
-            this.desiredShowSearchTextBox.Name = "desiredShowSearchTextBox";
-            this.desiredShowSearchTextBox.Size = new System.Drawing.Size(205, 22);
-            this.desiredShowSearchTextBox.TabIndex = 11;
+            this.newDesiredEntryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.newDesiredEntryPanel.Location = new System.Drawing.Point(3, 52);
+            this.newDesiredEntryPanel.Name = "newDesiredEntryPanel";
+            this.newDesiredEntryPanel.Size = new System.Drawing.Size(771, 445);
+            this.newDesiredEntryPanel.TabIndex = 9;
             // 
             // desiredGamesTabPage
             // 
@@ -769,49 +639,21 @@ namespace Media_Marker
             this.desiredGamesTabPage.Text = "Games";
             this.desiredGamesTabPage.UseVisualStyleBackColor = true;
             // 
-            // desiredGamePlatformRadioButton
+            // desiredGameSearchTextBox
             // 
-            this.desiredGamePlatformRadioButton.AutoSize = true;
-            this.desiredGamePlatformRadioButton.Location = new System.Drawing.Point(249, 236);
-            this.desiredGamePlatformRadioButton.Name = "desiredGamePlatformRadioButton";
-            this.desiredGamePlatformRadioButton.Size = new System.Drawing.Size(150, 21);
-            this.desiredGamePlatformRadioButton.TabIndex = 18;
-            this.desiredGamePlatformRadioButton.TabStop = true;
-            this.desiredGamePlatformRadioButton.Text = "Search By Platform";
-            this.desiredGamePlatformRadioButton.UseVisualStyleBackColor = true;
+            this.desiredGameSearchTextBox.Location = new System.Drawing.Point(330, 99);
+            this.desiredGameSearchTextBox.Name = "desiredGameSearchTextBox";
+            this.desiredGameSearchTextBox.Size = new System.Drawing.Size(205, 22);
+            this.desiredGameSearchTextBox.TabIndex = 12;
             // 
-            // desiredGamePublisherRadioButton
+            // desiredGameSearchButton
             // 
-            this.desiredGamePublisherRadioButton.AutoSize = true;
-            this.desiredGamePublisherRadioButton.Location = new System.Drawing.Point(249, 209);
-            this.desiredGamePublisherRadioButton.Name = "desiredGamePublisherRadioButton";
-            this.desiredGamePublisherRadioButton.Size = new System.Drawing.Size(157, 21);
-            this.desiredGamePublisherRadioButton.TabIndex = 17;
-            this.desiredGamePublisherRadioButton.TabStop = true;
-            this.desiredGamePublisherRadioButton.Text = "Search By Publisher";
-            this.desiredGamePublisherRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredGameGenreRadioButton
-            // 
-            this.desiredGameGenreRadioButton.AutoSize = true;
-            this.desiredGameGenreRadioButton.Location = new System.Drawing.Point(249, 182);
-            this.desiredGameGenreRadioButton.Name = "desiredGameGenreRadioButton";
-            this.desiredGameGenreRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredGameGenreRadioButton.TabIndex = 16;
-            this.desiredGameGenreRadioButton.TabStop = true;
-            this.desiredGameGenreRadioButton.Text = "Search By Genre";
-            this.desiredGameGenreRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredGameDeveloperRadioButton
-            // 
-            this.desiredGameDeveloperRadioButton.AutoSize = true;
-            this.desiredGameDeveloperRadioButton.Location = new System.Drawing.Point(249, 155);
-            this.desiredGameDeveloperRadioButton.Name = "desiredGameDeveloperRadioButton";
-            this.desiredGameDeveloperRadioButton.Size = new System.Drawing.Size(163, 21);
-            this.desiredGameDeveloperRadioButton.TabIndex = 15;
-            this.desiredGameDeveloperRadioButton.TabStop = true;
-            this.desiredGameDeveloperRadioButton.Text = "Search By Developer";
-            this.desiredGameDeveloperRadioButton.UseVisualStyleBackColor = true;
+            this.desiredGameSearchButton.Location = new System.Drawing.Point(249, 99);
+            this.desiredGameSearchButton.Name = "desiredGameSearchButton";
+            this.desiredGameSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredGameSearchButton.TabIndex = 13;
+            this.desiredGameSearchButton.Text = "Search";
+            this.desiredGameSearchButton.UseVisualStyleBackColor = true;
             // 
             // desiredGameTitleRadioButton
             // 
@@ -824,89 +666,281 @@ namespace Media_Marker
             this.desiredGameTitleRadioButton.Text = "Search By Title";
             this.desiredGameTitleRadioButton.UseVisualStyleBackColor = true;
             // 
-            // desiredGameSearchButton
+            // desiredGameDeveloperRadioButton
             // 
-            this.desiredGameSearchButton.Location = new System.Drawing.Point(249, 99);
-            this.desiredGameSearchButton.Name = "desiredGameSearchButton";
-            this.desiredGameSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredGameSearchButton.TabIndex = 13;
-            this.desiredGameSearchButton.Text = "Search";
-            this.desiredGameSearchButton.UseVisualStyleBackColor = true;
+            this.desiredGameDeveloperRadioButton.AutoSize = true;
+            this.desiredGameDeveloperRadioButton.Location = new System.Drawing.Point(249, 155);
+            this.desiredGameDeveloperRadioButton.Name = "desiredGameDeveloperRadioButton";
+            this.desiredGameDeveloperRadioButton.Size = new System.Drawing.Size(163, 21);
+            this.desiredGameDeveloperRadioButton.TabIndex = 15;
+            this.desiredGameDeveloperRadioButton.TabStop = true;
+            this.desiredGameDeveloperRadioButton.Text = "Search By Developer";
+            this.desiredGameDeveloperRadioButton.UseVisualStyleBackColor = true;
             // 
-            // desiredGameSearchTextBox
+            // desiredGameGenreRadioButton
             // 
-            this.desiredGameSearchTextBox.Location = new System.Drawing.Point(330, 99);
-            this.desiredGameSearchTextBox.Name = "desiredGameSearchTextBox";
-            this.desiredGameSearchTextBox.Size = new System.Drawing.Size(205, 22);
-            this.desiredGameSearchTextBox.TabIndex = 12;
+            this.desiredGameGenreRadioButton.AutoSize = true;
+            this.desiredGameGenreRadioButton.Location = new System.Drawing.Point(249, 182);
+            this.desiredGameGenreRadioButton.Name = "desiredGameGenreRadioButton";
+            this.desiredGameGenreRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredGameGenreRadioButton.TabIndex = 16;
+            this.desiredGameGenreRadioButton.TabStop = true;
+            this.desiredGameGenreRadioButton.Text = "Search By Genre";
+            this.desiredGameGenreRadioButton.UseVisualStyleBackColor = true;
             // 
-            // addNewDesiredEntryTabPage
+            // desiredGamePublisherRadioButton
             // 
-            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredGameRadioButton);
-            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredShowRadioButton);
-            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredMovieRadioButton);
-            this.addNewDesiredEntryTabPage.Controls.Add(this.newDesiredBookRadioButton);
-            this.addNewDesiredEntryTabPage.Location = new System.Drawing.Point(4, 25);
-            this.addNewDesiredEntryTabPage.Name = "addNewDesiredEntryTabPage";
-            this.addNewDesiredEntryTabPage.Size = new System.Drawing.Size(774, 378);
-            this.addNewDesiredEntryTabPage.TabIndex = 4;
-            this.addNewDesiredEntryTabPage.Text = "Add Entry +";
-            this.addNewDesiredEntryTabPage.UseVisualStyleBackColor = true;
-            this.addNewDesiredEntryTabPage.Click += new System.EventHandler(this.addNewDesiredEntryTabPage_Click);
+            this.desiredGamePublisherRadioButton.AutoSize = true;
+            this.desiredGamePublisherRadioButton.Location = new System.Drawing.Point(249, 209);
+            this.desiredGamePublisherRadioButton.Name = "desiredGamePublisherRadioButton";
+            this.desiredGamePublisherRadioButton.Size = new System.Drawing.Size(157, 21);
+            this.desiredGamePublisherRadioButton.TabIndex = 17;
+            this.desiredGamePublisherRadioButton.TabStop = true;
+            this.desiredGamePublisherRadioButton.Text = "Search By Publisher";
+            this.desiredGamePublisherRadioButton.UseVisualStyleBackColor = true;
             // 
-            // newDesiredGameRadioButton
+            // desiredGamePlatformRadioButton
             // 
-            this.newDesiredGameRadioButton.AutoSize = true;
-            this.newDesiredGameRadioButton.Location = new System.Drawing.Point(397, 87);
-            this.newDesiredGameRadioButton.Name = "newDesiredGameRadioButton";
-            this.newDesiredGameRadioButton.Size = new System.Drawing.Size(67, 21);
-            this.newDesiredGameRadioButton.TabIndex = 3;
-            this.newDesiredGameRadioButton.TabStop = true;
-            this.newDesiredGameRadioButton.Text = "Game";
-            this.newDesiredGameRadioButton.UseVisualStyleBackColor = true;
-            this.newDesiredGameRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredGameRadioButton_CheckedChanged);
+            this.desiredGamePlatformRadioButton.AutoSize = true;
+            this.desiredGamePlatformRadioButton.Location = new System.Drawing.Point(249, 236);
+            this.desiredGamePlatformRadioButton.Name = "desiredGamePlatformRadioButton";
+            this.desiredGamePlatformRadioButton.Size = new System.Drawing.Size(150, 21);
+            this.desiredGamePlatformRadioButton.TabIndex = 18;
+            this.desiredGamePlatformRadioButton.TabStop = true;
+            this.desiredGamePlatformRadioButton.Text = "Search By Platform";
+            this.desiredGamePlatformRadioButton.UseVisualStyleBackColor = true;
             // 
-            // newDesiredShowRadioButton
+            // desiredShowsTabPage
             // 
-            this.newDesiredShowRadioButton.AutoSize = true;
-            this.newDesiredShowRadioButton.Location = new System.Drawing.Point(330, 87);
-            this.newDesiredShowRadioButton.Name = "newDesiredShowRadioButton";
-            this.newDesiredShowRadioButton.Size = new System.Drawing.Size(63, 21);
-            this.newDesiredShowRadioButton.TabIndex = 2;
-            this.newDesiredShowRadioButton.TabStop = true;
-            this.newDesiredShowRadioButton.Text = "Show";
-            this.newDesiredShowRadioButton.UseVisualStyleBackColor = true;
-            this.newDesiredShowRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredShowRadioButton_CheckedChanged);
+            this.desiredShowsTabPage.Controls.Add(this.desiredNetworkRadioButton);
+            this.desiredShowsTabPage.Controls.Add(this.desiredShowGenreRadioButton);
+            this.desiredShowsTabPage.Controls.Add(this.desiredShowDirectorRadioButton);
+            this.desiredShowsTabPage.Controls.Add(this.desiredShowTitleRadioButton);
+            this.desiredShowsTabPage.Controls.Add(this.desiredShowSearchButton);
+            this.desiredShowsTabPage.Controls.Add(this.desiredShowSearchTextBox);
+            this.desiredShowsTabPage.Location = new System.Drawing.Point(4, 25);
+            this.desiredShowsTabPage.Name = "desiredShowsTabPage";
+            this.desiredShowsTabPage.Size = new System.Drawing.Size(774, 500);
+            this.desiredShowsTabPage.TabIndex = 2;
+            this.desiredShowsTabPage.Text = "Shows";
+            this.desiredShowsTabPage.UseVisualStyleBackColor = true;
             // 
-            // newDesiredMovieRadioButton
+            // desiredShowSearchTextBox
             // 
-            this.newDesiredMovieRadioButton.AutoSize = true;
-            this.newDesiredMovieRadioButton.Location = new System.Drawing.Point(258, 87);
-            this.newDesiredMovieRadioButton.Name = "newDesiredMovieRadioButton";
-            this.newDesiredMovieRadioButton.Size = new System.Drawing.Size(66, 21);
-            this.newDesiredMovieRadioButton.TabIndex = 1;
-            this.newDesiredMovieRadioButton.TabStop = true;
-            this.newDesiredMovieRadioButton.Text = "Movie";
-            this.newDesiredMovieRadioButton.UseVisualStyleBackColor = true;
-            this.newDesiredMovieRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredMovieRadioButton_CheckedChanged);
+            this.desiredShowSearchTextBox.Location = new System.Drawing.Point(316, 114);
+            this.desiredShowSearchTextBox.Name = "desiredShowSearchTextBox";
+            this.desiredShowSearchTextBox.Size = new System.Drawing.Size(205, 22);
+            this.desiredShowSearchTextBox.TabIndex = 11;
             // 
-            // newDesiredBookRadioButton
+            // desiredShowSearchButton
             // 
-            this.newDesiredBookRadioButton.AutoSize = true;
-            this.newDesiredBookRadioButton.Location = new System.Drawing.Point(191, 87);
-            this.newDesiredBookRadioButton.Name = "newDesiredBookRadioButton";
-            this.newDesiredBookRadioButton.Size = new System.Drawing.Size(61, 21);
-            this.newDesiredBookRadioButton.TabIndex = 0;
-            this.newDesiredBookRadioButton.TabStop = true;
-            this.newDesiredBookRadioButton.Text = "Book";
-            this.newDesiredBookRadioButton.UseVisualStyleBackColor = true;
-            this.newDesiredBookRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredBookRadioButton_CheckedChanged);
+            this.desiredShowSearchButton.Location = new System.Drawing.Point(235, 114);
+            this.desiredShowSearchButton.Name = "desiredShowSearchButton";
+            this.desiredShowSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredShowSearchButton.TabIndex = 12;
+            this.desiredShowSearchButton.Text = "Search";
+            this.desiredShowSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredShowTitleRadioButton
+            // 
+            this.desiredShowTitleRadioButton.AutoSize = true;
+            this.desiredShowTitleRadioButton.Location = new System.Drawing.Point(235, 143);
+            this.desiredShowTitleRadioButton.Name = "desiredShowTitleRadioButton";
+            this.desiredShowTitleRadioButton.Size = new System.Drawing.Size(125, 21);
+            this.desiredShowTitleRadioButton.TabIndex = 13;
+            this.desiredShowTitleRadioButton.TabStop = true;
+            this.desiredShowTitleRadioButton.Text = "Search By Title";
+            this.desiredShowTitleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredShowDirectorRadioButton
+            // 
+            this.desiredShowDirectorRadioButton.AutoSize = true;
+            this.desiredShowDirectorRadioButton.Location = new System.Drawing.Point(235, 170);
+            this.desiredShowDirectorRadioButton.Name = "desiredShowDirectorRadioButton";
+            this.desiredShowDirectorRadioButton.Size = new System.Drawing.Size(148, 21);
+            this.desiredShowDirectorRadioButton.TabIndex = 14;
+            this.desiredShowDirectorRadioButton.TabStop = true;
+            this.desiredShowDirectorRadioButton.Text = "Search By Director";
+            this.desiredShowDirectorRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredShowGenreRadioButton
+            // 
+            this.desiredShowGenreRadioButton.AutoSize = true;
+            this.desiredShowGenreRadioButton.Location = new System.Drawing.Point(235, 197);
+            this.desiredShowGenreRadioButton.Name = "desiredShowGenreRadioButton";
+            this.desiredShowGenreRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredShowGenreRadioButton.TabIndex = 15;
+            this.desiredShowGenreRadioButton.TabStop = true;
+            this.desiredShowGenreRadioButton.Text = "Search By Genre";
+            this.desiredShowGenreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredNetworkRadioButton
+            // 
+            this.desiredNetworkRadioButton.AutoSize = true;
+            this.desiredNetworkRadioButton.Location = new System.Drawing.Point(235, 224);
+            this.desiredNetworkRadioButton.Name = "desiredNetworkRadioButton";
+            this.desiredNetworkRadioButton.Size = new System.Drawing.Size(149, 21);
+            this.desiredNetworkRadioButton.TabIndex = 16;
+            this.desiredNetworkRadioButton.TabStop = true;
+            this.desiredNetworkRadioButton.Text = "Search By Network";
+            this.desiredNetworkRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMoviesTabPage
+            // 
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieStudioRadioButton);
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieGenreRadioButton);
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieDirectorRadioButton);
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieTitleRadioButton);
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieSearchButton);
+            this.desiredMoviesTabPage.Controls.Add(this.desiredMovieSearchTextBox);
+            this.desiredMoviesTabPage.Location = new System.Drawing.Point(4, 25);
+            this.desiredMoviesTabPage.Name = "desiredMoviesTabPage";
+            this.desiredMoviesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.desiredMoviesTabPage.Size = new System.Drawing.Size(774, 500);
+            this.desiredMoviesTabPage.TabIndex = 1;
+            this.desiredMoviesTabPage.Text = "Movies";
+            this.desiredMoviesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // desiredMovieSearchTextBox
+            // 
+            this.desiredMovieSearchTextBox.Location = new System.Drawing.Point(309, 112);
+            this.desiredMovieSearchTextBox.Name = "desiredMovieSearchTextBox";
+            this.desiredMovieSearchTextBox.Size = new System.Drawing.Size(205, 22);
+            this.desiredMovieSearchTextBox.TabIndex = 11;
+            // 
+            // desiredMovieSearchButton
+            // 
+            this.desiredMovieSearchButton.Location = new System.Drawing.Point(228, 112);
+            this.desiredMovieSearchButton.Name = "desiredMovieSearchButton";
+            this.desiredMovieSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredMovieSearchButton.TabIndex = 12;
+            this.desiredMovieSearchButton.Text = "Search";
+            this.desiredMovieSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMovieTitleRadioButton
+            // 
+            this.desiredMovieTitleRadioButton.AutoSize = true;
+            this.desiredMovieTitleRadioButton.Location = new System.Drawing.Point(228, 141);
+            this.desiredMovieTitleRadioButton.Name = "desiredMovieTitleRadioButton";
+            this.desiredMovieTitleRadioButton.Size = new System.Drawing.Size(125, 21);
+            this.desiredMovieTitleRadioButton.TabIndex = 13;
+            this.desiredMovieTitleRadioButton.TabStop = true;
+            this.desiredMovieTitleRadioButton.Text = "Search By Title";
+            this.desiredMovieTitleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMovieDirectorRadioButton
+            // 
+            this.desiredMovieDirectorRadioButton.AutoSize = true;
+            this.desiredMovieDirectorRadioButton.Location = new System.Drawing.Point(228, 168);
+            this.desiredMovieDirectorRadioButton.Name = "desiredMovieDirectorRadioButton";
+            this.desiredMovieDirectorRadioButton.Size = new System.Drawing.Size(148, 21);
+            this.desiredMovieDirectorRadioButton.TabIndex = 14;
+            this.desiredMovieDirectorRadioButton.TabStop = true;
+            this.desiredMovieDirectorRadioButton.Text = "Search By Director";
+            this.desiredMovieDirectorRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMovieGenreRadioButton
+            // 
+            this.desiredMovieGenreRadioButton.AutoSize = true;
+            this.desiredMovieGenreRadioButton.Location = new System.Drawing.Point(228, 195);
+            this.desiredMovieGenreRadioButton.Name = "desiredMovieGenreRadioButton";
+            this.desiredMovieGenreRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredMovieGenreRadioButton.TabIndex = 15;
+            this.desiredMovieGenreRadioButton.TabStop = true;
+            this.desiredMovieGenreRadioButton.Text = "Search By Genre";
+            this.desiredMovieGenreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMovieStudioRadioButton
+            // 
+            this.desiredMovieStudioRadioButton.AutoSize = true;
+            this.desiredMovieStudioRadioButton.Location = new System.Drawing.Point(228, 222);
+            this.desiredMovieStudioRadioButton.Name = "desiredMovieStudioRadioButton";
+            this.desiredMovieStudioRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredMovieStudioRadioButton.TabIndex = 16;
+            this.desiredMovieStudioRadioButton.TabStop = true;
+            this.desiredMovieStudioRadioButton.Text = "Search By Studio";
+            this.desiredMovieStudioRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBooksTabPage
+            // 
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookGenreRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookAuthorRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookTitleRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookSearchButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredButtonSearchTextBox);
+            this.desiredBooksTabPage.Location = new System.Drawing.Point(4, 25);
+            this.desiredBooksTabPage.Name = "desiredBooksTabPage";
+            this.desiredBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.desiredBooksTabPage.Size = new System.Drawing.Size(774, 378);
+            this.desiredBooksTabPage.TabIndex = 0;
+            this.desiredBooksTabPage.Text = "Books";
+            this.desiredBooksTabPage.UseVisualStyleBackColor = true;
+            // 
+            // desiredButtonSearchTextBox
+            // 
+            this.desiredButtonSearchTextBox.Location = new System.Drawing.Point(323, 135);
+            this.desiredButtonSearchTextBox.Name = "desiredButtonSearchTextBox";
+            this.desiredButtonSearchTextBox.Size = new System.Drawing.Size(205, 22);
+            this.desiredButtonSearchTextBox.TabIndex = 5;
+            // 
+            // desiredBookSearchButton
+            // 
+            this.desiredBookSearchButton.Location = new System.Drawing.Point(242, 135);
+            this.desiredBookSearchButton.Name = "desiredBookSearchButton";
+            this.desiredBookSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredBookSearchButton.TabIndex = 6;
+            this.desiredBookSearchButton.Text = "Search";
+            this.desiredBookSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookTitleRadioButton
+            // 
+            this.desiredBookTitleRadioButton.AutoSize = true;
+            this.desiredBookTitleRadioButton.Location = new System.Drawing.Point(242, 164);
+            this.desiredBookTitleRadioButton.Name = "desiredBookTitleRadioButton";
+            this.desiredBookTitleRadioButton.Size = new System.Drawing.Size(125, 21);
+            this.desiredBookTitleRadioButton.TabIndex = 7;
+            this.desiredBookTitleRadioButton.TabStop = true;
+            this.desiredBookTitleRadioButton.Text = "Search By Title";
+            this.desiredBookTitleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookAuthorRadioButton
+            // 
+            this.desiredBookAuthorRadioButton.AutoSize = true;
+            this.desiredBookAuthorRadioButton.Location = new System.Drawing.Point(242, 191);
+            this.desiredBookAuthorRadioButton.Name = "desiredBookAuthorRadioButton";
+            this.desiredBookAuthorRadioButton.Size = new System.Drawing.Size(140, 21);
+            this.desiredBookAuthorRadioButton.TabIndex = 8;
+            this.desiredBookAuthorRadioButton.TabStop = true;
+            this.desiredBookAuthorRadioButton.Text = "Search By Author";
+            this.desiredBookAuthorRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookGenreRadioButton
+            // 
+            this.desiredBookGenreRadioButton.AutoSize = true;
+            this.desiredBookGenreRadioButton.Location = new System.Drawing.Point(242, 218);
+            this.desiredBookGenreRadioButton.Name = "desiredBookGenreRadioButton";
+            this.desiredBookGenreRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredBookGenreRadioButton.TabIndex = 9;
+            this.desiredBookGenreRadioButton.TabStop = true;
+            this.desiredBookGenreRadioButton.Text = "Search By Genre";
+            this.desiredBookGenreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredMediaTabPage
+            // 
+            this.desiredMediaTabPage.Controls.Add(this.desiredMediaTabs);
+            this.desiredMediaTabPage.Location = new System.Drawing.Point(4, 25);
+            this.desiredMediaTabPage.Name = "desiredMediaTabPage";
+            this.desiredMediaTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.desiredMediaTabPage.Size = new System.Drawing.Size(799, 525);
+            this.desiredMediaTabPage.TabIndex = 1;
+            this.desiredMediaTabPage.Text = "Desired Media";
+            this.desiredMediaTabPage.UseVisualStyleBackColor = true;
             // 
             // MediaMarkerMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(853, 578);
             this.Controls.Add(this.dataBaseTabs);
             this.Name = "MediaMarkerMainWindow";
             this.Text = "Media Marker";
@@ -923,18 +957,18 @@ namespace Media_Marker
             this.possessedGamesTabPage.PerformLayout();
             this.addNewPossessedEntryTabPage.ResumeLayout(false);
             this.addNewPossessedEntryTabPage.PerformLayout();
-            this.desiredMediaTabPage.ResumeLayout(false);
             this.desiredMediaTabs.ResumeLayout(false);
-            this.desiredBooksTabPage.ResumeLayout(false);
-            this.desiredBooksTabPage.PerformLayout();
-            this.desiredMoviesTabPage.ResumeLayout(false);
-            this.desiredMoviesTabPage.PerformLayout();
-            this.desiredShowsTabPage.ResumeLayout(false);
-            this.desiredShowsTabPage.PerformLayout();
-            this.desiredGamesTabPage.ResumeLayout(false);
-            this.desiredGamesTabPage.PerformLayout();
             this.addNewDesiredEntryTabPage.ResumeLayout(false);
             this.addNewDesiredEntryTabPage.PerformLayout();
+            this.desiredGamesTabPage.ResumeLayout(false);
+            this.desiredGamesTabPage.PerformLayout();
+            this.desiredShowsTabPage.ResumeLayout(false);
+            this.desiredShowsTabPage.PerformLayout();
+            this.desiredMoviesTabPage.ResumeLayout(false);
+            this.desiredMoviesTabPage.PerformLayout();
+            this.desiredBooksTabPage.ResumeLayout(false);
+            this.desiredBooksTabPage.PerformLayout();
+            this.desiredMediaTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -943,19 +977,12 @@ namespace Media_Marker
 
         private System.Windows.Forms.TabControl dataBaseTabs;
         private System.Windows.Forms.TabPage possessedMediaTabPage;
-        private System.Windows.Forms.TabPage desiredMediaTabPage;
         private System.Windows.Forms.TabControl possessedMediaTabs;
         private System.Windows.Forms.TabPage possessedBooksTabPage;
         private System.Windows.Forms.TabPage possessedMoviesTabPage;
         private System.Windows.Forms.TabPage possessedShowsTabPage;
         private System.Windows.Forms.TabPage possessedGamesTabPage;
         private System.Windows.Forms.TabPage addNewPossessedEntryTabPage;
-        private System.Windows.Forms.TabControl desiredMediaTabs;
-        private System.Windows.Forms.TabPage desiredBooksTabPage;
-        private System.Windows.Forms.TabPage desiredMoviesTabPage;
-        private System.Windows.Forms.TabPage desiredShowsTabPage;
-        private System.Windows.Forms.TabPage desiredGamesTabPage;
-        private System.Windows.Forms.TabPage addNewDesiredEntryTabPage;
         private System.Windows.Forms.RadioButton possessedBookGenreRadioButton;
         private System.Windows.Forms.RadioButton possessedBookAuthorRadioButton;
         private System.Windows.Forms.RadioButton possessedBookTitleRadioButton;
@@ -980,23 +1007,34 @@ namespace Media_Marker
         private System.Windows.Forms.RadioButton possessedGameTitleRadioButton;
         private System.Windows.Forms.Button possessedGameSearchButton;
         private System.Windows.Forms.TextBox possessedGameSearchTextBox;
+        private System.Windows.Forms.RadioButton newPossessedGameRadioButton;
+        private System.Windows.Forms.RadioButton newPossessedShowRadioButton;
+        private System.Windows.Forms.RadioButton newPossessedMovieRadioButton;
+        private System.Windows.Forms.RadioButton newPossessedBookRadioButton;
+        private System.Windows.Forms.Panel newPossessedEntryPanel;
+        private System.Windows.Forms.TabPage desiredMediaTabPage;
+        private System.Windows.Forms.TabControl desiredMediaTabs;
+        private System.Windows.Forms.TabPage desiredBooksTabPage;
         private System.Windows.Forms.RadioButton desiredBookGenreRadioButton;
         private System.Windows.Forms.RadioButton desiredBookAuthorRadioButton;
         private System.Windows.Forms.RadioButton desiredBookTitleRadioButton;
         private System.Windows.Forms.Button desiredBookSearchButton;
         private System.Windows.Forms.TextBox desiredButtonSearchTextBox;
+        private System.Windows.Forms.TabPage desiredMoviesTabPage;
         private System.Windows.Forms.RadioButton desiredMovieStudioRadioButton;
         private System.Windows.Forms.RadioButton desiredMovieGenreRadioButton;
         private System.Windows.Forms.RadioButton desiredMovieDirectorRadioButton;
         private System.Windows.Forms.RadioButton desiredMovieTitleRadioButton;
         private System.Windows.Forms.Button desiredMovieSearchButton;
         private System.Windows.Forms.TextBox desiredMovieSearchTextBox;
+        private System.Windows.Forms.TabPage desiredShowsTabPage;
         private System.Windows.Forms.RadioButton desiredNetworkRadioButton;
         private System.Windows.Forms.RadioButton desiredShowGenreRadioButton;
         private System.Windows.Forms.RadioButton desiredShowDirectorRadioButton;
         private System.Windows.Forms.RadioButton desiredShowTitleRadioButton;
         private System.Windows.Forms.Button desiredShowSearchButton;
         private System.Windows.Forms.TextBox desiredShowSearchTextBox;
+        private System.Windows.Forms.TabPage desiredGamesTabPage;
         private System.Windows.Forms.RadioButton desiredGamePlatformRadioButton;
         private System.Windows.Forms.RadioButton desiredGamePublisherRadioButton;
         private System.Windows.Forms.RadioButton desiredGameGenreRadioButton;
@@ -1004,10 +1042,8 @@ namespace Media_Marker
         private System.Windows.Forms.RadioButton desiredGameTitleRadioButton;
         private System.Windows.Forms.Button desiredGameSearchButton;
         private System.Windows.Forms.TextBox desiredGameSearchTextBox;
-        private System.Windows.Forms.RadioButton newPossessedGameRadioButton;
-        private System.Windows.Forms.RadioButton newPossessedShowRadioButton;
-        private System.Windows.Forms.RadioButton newPossessedMovieRadioButton;
-        private System.Windows.Forms.RadioButton newPossessedBookRadioButton;
+        private System.Windows.Forms.TabPage addNewDesiredEntryTabPage;
+        private System.Windows.Forms.Panel newDesiredEntryPanel;
         private System.Windows.Forms.RadioButton newDesiredGameRadioButton;
         private System.Windows.Forms.RadioButton newDesiredShowRadioButton;
         private System.Windows.Forms.RadioButton newDesiredMovieRadioButton;

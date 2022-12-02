@@ -22,7 +22,11 @@ namespace Media_Marker
         {
             if (newDesiredBookRadioButton.Checked)
             {
+                newDesiredEntryPanel.Controls.Clear();
                 newBookForm newBook = new newBookForm();
+                newBook.TopLevel = false;
+                newBook.Dock = DockStyle.Fill;
+                newDesiredEntryPanel.Controls.Add(newBook);
                 newBook.Show();
             }
         }
@@ -31,7 +35,11 @@ namespace Media_Marker
         {
             if (newDesiredMovieRadioButton.Checked)
             {
+                newDesiredEntryPanel.Controls.Clear();
                 newMovieForm newMovie = new newMovieForm();
+                newMovie.TopLevel = false;
+                newMovie.Dock = DockStyle.Fill;
+                newDesiredEntryPanel.Controls.Add(newMovie);
                 newMovie.Show();
             }
         }
@@ -40,7 +48,11 @@ namespace Media_Marker
         {
             if (newDesiredShowRadioButton.Checked)
             {
+                newDesiredEntryPanel.Controls.Clear();
                 newShowForm newShow = new newShowForm();
+                newShow.TopLevel = false;
+                newShow.Dock = DockStyle.Fill;
+                newDesiredEntryPanel.Controls.Add(newShow);
                 newShow.Show();
             }
         }
@@ -49,7 +61,11 @@ namespace Media_Marker
         {
             if (newDesiredGameRadioButton.Checked)
             {
+                newDesiredEntryPanel.Controls.Clear();
                 newGameForm newGame = new newGameForm();
+                newGame.TopLevel = false;
+                newGame.Dock = DockStyle.Fill;
+                newDesiredEntryPanel.Controls.Add(newGame);
                 newGame.Show();
             }
         }
@@ -65,16 +81,25 @@ namespace Media_Marker
         {
             if (newPossessedBookRadioButton.Checked)
             {
+                newPossessedEntryPanel.Controls.Clear();
                 newBookForm newBook = new newBookForm();
+                newBook.TopLevel = false;
+                newBook.Dock = DockStyle.Fill;
+                newPossessedEntryPanel.Controls.Add(newBook);
                 newBook.Show();
             }
         }
+
 
         private void newPossessedMovieRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (newPossessedMovieRadioButton.Checked)
             {
+                newPossessedEntryPanel.Controls.Clear();
                 newMovieForm newMovie = new newMovieForm();
+                newMovie.TopLevel = false;
+                newMovie.Dock = DockStyle.Fill;
+                newPossessedEntryPanel.Controls.Add(newMovie);
                 newMovie.Show();
             }
         }
@@ -83,7 +108,11 @@ namespace Media_Marker
         {
             if (newPossessedShowRadioButton.Checked)
             {
+                newPossessedEntryPanel.Controls.Clear();
                 newShowForm newShow = new newShowForm();
+                newShow.TopLevel = false;
+                newShow.Dock = DockStyle.Fill;
+                newPossessedEntryPanel.Controls.Add(newShow);
                 newShow.Show();
             }
         }
@@ -92,7 +121,11 @@ namespace Media_Marker
         {
             if (newPossessedGameRadioButton.Checked)
             {
+                newPossessedEntryPanel.Controls.Clear();
                 newGameForm newGame = new newGameForm();
+                newGame.TopLevel = false;
+                newGame.Dock = DockStyle.Fill;
+                newPossessedEntryPanel.Controls.Add(newGame);
                 newGame.Show();
             }
         }

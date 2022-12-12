@@ -16,6 +16,8 @@ namespace Media_Marker
         public MediaMarkerMainWindow()
         {
             InitializeComponent();
+            possessedBookResultPanel.Controls.Clear();
+            
         }
 
         private void newDesiredBookRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -70,12 +72,6 @@ namespace Media_Marker
             }
         }
 
-
-
-
-        private void addNewDesiredEntryTabPage_Click(object sender, EventArgs e)
-        {
-        }
 
         private void newPossessedBookRadioButton_CheckedChanged(object sender, EventArgs e)
         {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media Marker", "Media Marke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New Media Forms", "New Media Forms\New Media Forms.csproj", "{F63BDDC9-069F-4BFE-A980-155EABD5D10F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media Search Result Forms", "Media Search Result Forms\Media Search Result Forms.csproj", "{11D23F53-13F3-4AA0-8C7B-BC5AF8CAB5C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F63BDDC9-069F-4BFE-A980-155EABD5D10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63BDDC9-069F-4BFE-A980-155EABD5D10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63BDDC9-069F-4BFE-A980-155EABD5D10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D23F53-13F3-4AA0-8C7B-BC5AF8CAB5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D23F53-13F3-4AA0-8C7B-BC5AF8CAB5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D23F53-13F3-4AA0-8C7B-BC5AF8CAB5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D23F53-13F3-4AA0-8C7B-BC5AF8CAB5C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

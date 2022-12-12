@@ -30,15 +30,16 @@ namespace New_Media_Forms
         private void InitializeComponent()
         {
             this.newGamePlatformsLabel = new System.Windows.Forms.Label();
-            this.newGamePlatformsTextBox = new System.Windows.Forms.TextBox();
             this.newGamePublisherLabel = new System.Windows.Forms.Label();
             this.newGamePublisherTextBox = new System.Windows.Forms.TextBox();
             this.newGameGenreLabel = new System.Windows.Forms.Label();
-            this.newGameGenreTextBox = new System.Windows.Forms.TextBox();
             this.newGameDeveloperLabel = new System.Windows.Forms.Label();
             this.newGameDeveloperTextBox = new System.Windows.Forms.TextBox();
             this.newGameTitleLabel = new System.Windows.Forms.Label();
             this.newGameTitleTextBox = new System.Windows.Forms.TextBox();
+            this.addNewGameButton = new System.Windows.Forms.Button();
+            this.gamePlatformListBox = new System.Windows.Forms.CheckedListBox();
+            this.gameGenreListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // newGamePlatformsLabel
@@ -46,28 +47,19 @@ namespace New_Media_Forms
             this.newGamePlatformsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGamePlatformsLabel.AutoSize = true;
             this.newGamePlatformsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePlatformsLabel.Location = new System.Drawing.Point(123, 361);
+            this.newGamePlatformsLabel.Location = new System.Drawing.Point(57, 354);
             this.newGamePlatformsLabel.Name = "newGamePlatformsLabel";
             this.newGamePlatformsLabel.Size = new System.Drawing.Size(169, 39);
             this.newGamePlatformsLabel.TabIndex = 33;
             this.newGamePlatformsLabel.Text = "Platforms:";
             this.newGamePlatformsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // newGamePlatformsTextBox
-            // 
-            this.newGamePlatformsTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newGamePlatformsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePlatformsTextBox.Location = new System.Drawing.Point(319, 361);
-            this.newGamePlatformsTextBox.Name = "newGamePlatformsTextBox";
-            this.newGamePlatformsTextBox.Size = new System.Drawing.Size(255, 45);
-            this.newGamePlatformsTextBox.TabIndex = 32;
-            // 
             // newGamePublisherLabel
             // 
             this.newGamePublisherLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGamePublisherLabel.AutoSize = true;
             this.newGamePublisherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePublisherLabel.Location = new System.Drawing.Point(130, 286);
+            this.newGamePublisherLabel.Location = new System.Drawing.Point(57, 275);
             this.newGamePublisherLabel.Name = "newGamePublisherLabel";
             this.newGamePublisherLabel.Size = new System.Drawing.Size(169, 39);
             this.newGamePublisherLabel.TabIndex = 31;
@@ -78,9 +70,9 @@ namespace New_Media_Forms
             // 
             this.newGamePublisherTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGamePublisherTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePublisherTextBox.Location = new System.Drawing.Point(319, 286);
+            this.newGamePublisherTextBox.Location = new System.Drawing.Point(246, 275);
             this.newGamePublisherTextBox.Name = "newGamePublisherTextBox";
-            this.newGamePublisherTextBox.Size = new System.Drawing.Size(255, 45);
+            this.newGamePublisherTextBox.Size = new System.Drawing.Size(312, 45);
             this.newGamePublisherTextBox.TabIndex = 30;
             // 
             // newGameGenreLabel
@@ -88,28 +80,19 @@ namespace New_Media_Forms
             this.newGameGenreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGameGenreLabel.AutoSize = true;
             this.newGameGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameGenreLabel.Location = new System.Drawing.Point(183, 209);
+            this.newGameGenreLabel.Location = new System.Drawing.Point(106, 169);
             this.newGameGenreLabel.Name = "newGameGenreLabel";
             this.newGameGenreLabel.Size = new System.Drawing.Size(120, 39);
             this.newGameGenreLabel.TabIndex = 29;
             this.newGameGenreLabel.Text = "Genre:";
             this.newGameGenreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // newGameGenreTextBox
-            // 
-            this.newGameGenreTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newGameGenreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameGenreTextBox.Location = new System.Drawing.Point(319, 209);
-            this.newGameGenreTextBox.Name = "newGameGenreTextBox";
-            this.newGameGenreTextBox.Size = new System.Drawing.Size(255, 45);
-            this.newGameGenreTextBox.TabIndex = 28;
-            // 
             // newGameDeveloperLabel
             // 
             this.newGameDeveloperLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGameDeveloperLabel.AutoSize = true;
             this.newGameDeveloperLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameDeveloperLabel.Location = new System.Drawing.Point(91, 130);
+            this.newGameDeveloperLabel.Location = new System.Drawing.Point(44, 99);
             this.newGameDeveloperLabel.Name = "newGameDeveloperLabel";
             this.newGameDeveloperLabel.Size = new System.Drawing.Size(182, 39);
             this.newGameDeveloperLabel.TabIndex = 27;
@@ -120,9 +103,9 @@ namespace New_Media_Forms
             // 
             this.newGameDeveloperTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGameDeveloperTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameDeveloperTextBox.Location = new System.Drawing.Point(319, 130);
+            this.newGameDeveloperTextBox.Location = new System.Drawing.Point(246, 99);
             this.newGameDeveloperTextBox.Name = "newGameDeveloperTextBox";
-            this.newGameDeveloperTextBox.Size = new System.Drawing.Size(255, 45);
+            this.newGameDeveloperTextBox.Size = new System.Drawing.Size(312, 45);
             this.newGameDeveloperTextBox.TabIndex = 26;
             // 
             // newGameTitleLabel
@@ -130,7 +113,7 @@ namespace New_Media_Forms
             this.newGameTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGameTitleLabel.AutoSize = true;
             this.newGameTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameTitleLabel.Location = new System.Drawing.Point(183, 48);
+            this.newGameTitleLabel.Location = new System.Drawing.Point(135, 29);
             this.newGameTitleLabel.Name = "newGameTitleLabel";
             this.newGameTitleLabel.Size = new System.Drawing.Size(91, 39);
             this.newGameTitleLabel.TabIndex = 25;
@@ -141,22 +124,79 @@ namespace New_Media_Forms
             // 
             this.newGameTitleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newGameTitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameTitleTextBox.Location = new System.Drawing.Point(319, 48);
+            this.newGameTitleTextBox.Location = new System.Drawing.Point(246, 29);
             this.newGameTitleTextBox.Name = "newGameTitleTextBox";
-            this.newGameTitleTextBox.Size = new System.Drawing.Size(255, 45);
+            this.newGameTitleTextBox.Size = new System.Drawing.Size(312, 45);
             this.newGameTitleTextBox.TabIndex = 24;
+            // 
+            // addNewGameButton
+            // 
+            this.addNewGameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addNewGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewGameButton.Location = new System.Drawing.Point(246, 461);
+            this.addNewGameButton.Name = "addNewGameButton";
+            this.addNewGameButton.Size = new System.Drawing.Size(179, 61);
+            this.addNewGameButton.TabIndex = 34;
+            this.addNewGameButton.Text = "Add";
+            this.addNewGameButton.UseVisualStyleBackColor = true;
+            // 
+            // gamePlatformListBox
+            // 
+            this.gamePlatformListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gamePlatformListBox.FormattingEnabled = true;
+            this.gamePlatformListBox.Items.AddRange(new object[] {
+            "PS1",
+            "PS2",
+            "PS3",
+            "XBox",
+            "XBox 360",
+            "PC",
+            "GBA",
+            "DS",
+            "3DS"});
+            this.gamePlatformListBox.Location = new System.Drawing.Point(246, 354);
+            this.gamePlatformListBox.Name = "gamePlatformListBox";
+            this.gamePlatformListBox.Size = new System.Drawing.Size(312, 89);
+            this.gamePlatformListBox.TabIndex = 43;
+            // 
+            // gameGenreListBox
+            // 
+            this.gameGenreListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gameGenreListBox.FormattingEnabled = true;
+            this.gameGenreListBox.Items.AddRange(new object[] {
+            "Stealth",
+            "RPG",
+            "Turn-Based RPG",
+            "Action",
+            "Hack-and-Slash",
+            "Beat-em-Up",
+            "Horror",
+            "Survival",
+            "Action",
+            "Strategy",
+            "First Person Shooter",
+            "Third Person Shooter",
+            "Platforming",
+            "Fighting",
+            "Puzzle",
+            "Mecha"});
+            this.gameGenreListBox.Location = new System.Drawing.Point(246, 169);
+            this.gameGenreListBox.Name = "gameGenreListBox";
+            this.gameGenreListBox.Size = new System.Drawing.Size(312, 89);
+            this.gameGenreListBox.TabIndex = 44;
             // 
             // newGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(642, 543);
+            this.Controls.Add(this.gameGenreListBox);
+            this.Controls.Add(this.gamePlatformListBox);
+            this.Controls.Add(this.addNewGameButton);
             this.Controls.Add(this.newGamePlatformsLabel);
-            this.Controls.Add(this.newGamePlatformsTextBox);
             this.Controls.Add(this.newGamePublisherLabel);
             this.Controls.Add(this.newGamePublisherTextBox);
             this.Controls.Add(this.newGameGenreLabel);
-            this.Controls.Add(this.newGameGenreTextBox);
             this.Controls.Add(this.newGameDeveloperLabel);
             this.Controls.Add(this.newGameDeveloperTextBox);
             this.Controls.Add(this.newGameTitleLabel);
@@ -172,14 +212,15 @@ namespace New_Media_Forms
         #endregion
 
         private System.Windows.Forms.Label newGamePlatformsLabel;
-        private System.Windows.Forms.TextBox newGamePlatformsTextBox;
         private System.Windows.Forms.Label newGamePublisherLabel;
         private System.Windows.Forms.TextBox newGamePublisherTextBox;
         private System.Windows.Forms.Label newGameGenreLabel;
-        private System.Windows.Forms.TextBox newGameGenreTextBox;
         private System.Windows.Forms.Label newGameDeveloperLabel;
         private System.Windows.Forms.TextBox newGameDeveloperTextBox;
         private System.Windows.Forms.Label newGameTitleLabel;
         private System.Windows.Forms.TextBox newGameTitleTextBox;
+        private System.Windows.Forms.Button addNewGameButton;
+        private System.Windows.Forms.CheckedListBox gamePlatformListBox;
+        private System.Windows.Forms.CheckedListBox gameGenreListBox;
     }
 }

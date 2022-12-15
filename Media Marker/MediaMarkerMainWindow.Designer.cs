@@ -33,6 +33,7 @@ namespace Media_Marker
             this.possessedMediaTabPage = new System.Windows.Forms.TabPage();
             this.possessedMediaTabs = new System.Windows.Forms.TabControl();
             this.possessedBooksTabPage = new System.Windows.Forms.TabPage();
+            this.possessedBookResultPanel = new System.Windows.Forms.Panel();
             this.possessedBookListAllButton = new System.Windows.Forms.Button();
             this.possessedBookClearButon = new System.Windows.Forms.Button();
             this.possessedBookGenreRadioButton = new System.Windows.Forms.RadioButton();
@@ -76,6 +77,14 @@ namespace Media_Marker
             this.newPossessedBookRadioButton = new System.Windows.Forms.RadioButton();
             this.desiredMediaTabPage = new System.Windows.Forms.TabPage();
             this.desiredMediaTabs = new System.Windows.Forms.TabControl();
+            this.desiredBooksTabPage = new System.Windows.Forms.TabPage();
+            this.desiredBookListAllButton = new System.Windows.Forms.Button();
+            this.desiredBookClearButton = new System.Windows.Forms.Button();
+            this.desiredBookGenreRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBookTitleRadioButton = new System.Windows.Forms.RadioButton();
+            this.desiredBookSearchButton = new System.Windows.Forms.Button();
+            this.desiredButtonSearchTextBox = new System.Windows.Forms.TextBox();
             this.desiredMoviesTabPage = new System.Windows.Forms.TabPage();
             this.desiredMovieListAllButton = new System.Windows.Forms.Button();
             this.desiredMovieClearButton = new System.Windows.Forms.Button();
@@ -110,15 +119,8 @@ namespace Media_Marker
             this.newDesiredShowRadioButton = new System.Windows.Forms.RadioButton();
             this.newDesiredMovieRadioButton = new System.Windows.Forms.RadioButton();
             this.newDesiredBookRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredButtonSearchTextBox = new System.Windows.Forms.TextBox();
-            this.desiredBookSearchButton = new System.Windows.Forms.Button();
-            this.desiredBookTitleRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.desiredBookClearButton = new System.Windows.Forms.Button();
-            this.desiredBookListAllButton = new System.Windows.Forms.Button();
-            this.desiredBooksTabPage = new System.Windows.Forms.TabPage();
-            this.possessedBookResultPanel = new System.Windows.Forms.Panel();
+            this.confirmActionButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataBaseTabs.SuspendLayout();
             this.possessedMediaTabPage.SuspendLayout();
             this.possessedMediaTabs.SuspendLayout();
@@ -129,11 +131,11 @@ namespace Media_Marker
             this.addNewPossessedEntryTabPage.SuspendLayout();
             this.desiredMediaTabPage.SuspendLayout();
             this.desiredMediaTabs.SuspendLayout();
+            this.desiredBooksTabPage.SuspendLayout();
             this.desiredMoviesTabPage.SuspendLayout();
             this.desiredShowsTabPage.SuspendLayout();
             this.desiredGamesTabPage.SuspendLayout();
             this.addNewDesiredEntryTabPage.SuspendLayout();
-            this.desiredBooksTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataBaseTabs
@@ -178,6 +180,8 @@ namespace Media_Marker
             // 
             // possessedBooksTabPage
             // 
+            this.possessedBooksTabPage.Controls.Add(this.comboBox1);
+            this.possessedBooksTabPage.Controls.Add(this.confirmActionButton);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookResultPanel);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookListAllButton);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookClearButon);
@@ -193,6 +197,13 @@ namespace Media_Marker
             this.possessedBooksTabPage.TabIndex = 0;
             this.possessedBooksTabPage.Text = "Books";
             this.possessedBooksTabPage.UseVisualStyleBackColor = true;
+            // 
+            // possessedBookResultPanel
+            // 
+            this.possessedBookResultPanel.Location = new System.Drawing.Point(6, 86);
+            this.possessedBookResultPanel.Name = "possessedBookResultPanel";
+            this.possessedBookResultPanel.Size = new System.Drawing.Size(805, 416);
+            this.possessedBookResultPanel.TabIndex = 15;
             // 
             // possessedBookListAllButton
             // 
@@ -369,7 +380,7 @@ namespace Media_Marker
             this.possessedShowsTabPage.Controls.Add(this.possessedShowSearchTextBox);
             this.possessedShowsTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedShowsTabPage.Name = "possessedShowsTabPage";
-            this.possessedShowsTabPage.Size = new System.Drawing.Size(792, 519);
+            this.possessedShowsTabPage.Size = new System.Drawing.Size(817, 591);
             this.possessedShowsTabPage.TabIndex = 2;
             this.possessedShowsTabPage.Text = "Shows";
             this.possessedShowsTabPage.UseVisualStyleBackColor = true;
@@ -465,7 +476,7 @@ namespace Media_Marker
             this.possessedGamesTabPage.Controls.Add(this.possessedGameSearchTextBox);
             this.possessedGamesTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedGamesTabPage.Name = "possessedGamesTabPage";
-            this.possessedGamesTabPage.Size = new System.Drawing.Size(792, 519);
+            this.possessedGamesTabPage.Size = new System.Drawing.Size(817, 591);
             this.possessedGamesTabPage.TabIndex = 3;
             this.possessedGamesTabPage.Text = "Games";
             this.possessedGamesTabPage.UseVisualStyleBackColor = true;
@@ -658,6 +669,90 @@ namespace Media_Marker
             this.desiredMediaTabs.SelectedIndex = 0;
             this.desiredMediaTabs.Size = new System.Drawing.Size(825, 620);
             this.desiredMediaTabs.TabIndex = 1;
+            // 
+            // desiredBooksTabPage
+            // 
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookListAllButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookClearButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookGenreRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookAuthorRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookTitleRadioButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredBookSearchButton);
+            this.desiredBooksTabPage.Controls.Add(this.desiredButtonSearchTextBox);
+            this.desiredBooksTabPage.Location = new System.Drawing.Point(4, 25);
+            this.desiredBooksTabPage.Name = "desiredBooksTabPage";
+            this.desiredBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.desiredBooksTabPage.Size = new System.Drawing.Size(817, 591);
+            this.desiredBooksTabPage.TabIndex = 0;
+            this.desiredBooksTabPage.Text = "Books";
+            this.desiredBooksTabPage.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookListAllButton
+            // 
+            this.desiredBookListAllButton.Location = new System.Drawing.Point(635, 31);
+            this.desiredBookListAllButton.Name = "desiredBookListAllButton";
+            this.desiredBookListAllButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredBookListAllButton.TabIndex = 14;
+            this.desiredBookListAllButton.Text = "List All";
+            this.desiredBookListAllButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookClearButton
+            // 
+            this.desiredBookClearButton.Location = new System.Drawing.Point(554, 31);
+            this.desiredBookClearButton.Name = "desiredBookClearButton";
+            this.desiredBookClearButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredBookClearButton.TabIndex = 13;
+            this.desiredBookClearButton.Text = "Clear";
+            this.desiredBookClearButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookGenreRadioButton
+            // 
+            this.desiredBookGenreRadioButton.AutoSize = true;
+            this.desiredBookGenreRadioButton.Location = new System.Drawing.Point(329, 59);
+            this.desiredBookGenreRadioButton.Name = "desiredBookGenreRadioButton";
+            this.desiredBookGenreRadioButton.Size = new System.Drawing.Size(138, 21);
+            this.desiredBookGenreRadioButton.TabIndex = 9;
+            this.desiredBookGenreRadioButton.TabStop = true;
+            this.desiredBookGenreRadioButton.Text = "Search By Genre";
+            this.desiredBookGenreRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookAuthorRadioButton
+            // 
+            this.desiredBookAuthorRadioButton.AutoSize = true;
+            this.desiredBookAuthorRadioButton.Location = new System.Drawing.Point(187, 59);
+            this.desiredBookAuthorRadioButton.Name = "desiredBookAuthorRadioButton";
+            this.desiredBookAuthorRadioButton.Size = new System.Drawing.Size(140, 21);
+            this.desiredBookAuthorRadioButton.TabIndex = 8;
+            this.desiredBookAuthorRadioButton.TabStop = true;
+            this.desiredBookAuthorRadioButton.Text = "Search By Author";
+            this.desiredBookAuthorRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookTitleRadioButton
+            // 
+            this.desiredBookTitleRadioButton.AutoSize = true;
+            this.desiredBookTitleRadioButton.Location = new System.Drawing.Point(56, 59);
+            this.desiredBookTitleRadioButton.Name = "desiredBookTitleRadioButton";
+            this.desiredBookTitleRadioButton.Size = new System.Drawing.Size(125, 21);
+            this.desiredBookTitleRadioButton.TabIndex = 7;
+            this.desiredBookTitleRadioButton.TabStop = true;
+            this.desiredBookTitleRadioButton.Text = "Search By Title";
+            this.desiredBookTitleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredBookSearchButton
+            // 
+            this.desiredBookSearchButton.Location = new System.Drawing.Point(473, 31);
+            this.desiredBookSearchButton.Name = "desiredBookSearchButton";
+            this.desiredBookSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.desiredBookSearchButton.TabIndex = 6;
+            this.desiredBookSearchButton.Text = "Search";
+            this.desiredBookSearchButton.UseVisualStyleBackColor = true;
+            // 
+            // desiredButtonSearchTextBox
+            // 
+            this.desiredButtonSearchTextBox.Location = new System.Drawing.Point(56, 31);
+            this.desiredButtonSearchTextBox.Name = "desiredButtonSearchTextBox";
+            this.desiredButtonSearchTextBox.Size = new System.Drawing.Size(411, 22);
+            this.desiredButtonSearchTextBox.TabIndex = 5;
             // 
             // desiredMoviesTabPage
             // 
@@ -863,7 +958,7 @@ namespace Media_Marker
             this.desiredGamesTabPage.Controls.Add(this.desiredGameSearchTextBox);
             this.desiredGamesTabPage.Location = new System.Drawing.Point(4, 25);
             this.desiredGamesTabPage.Name = "desiredGamesTabPage";
-            this.desiredGamesTabPage.Size = new System.Drawing.Size(774, 500);
+            this.desiredGamesTabPage.Size = new System.Drawing.Size(817, 591);
             this.desiredGamesTabPage.TabIndex = 3;
             this.desiredGamesTabPage.Text = "Games";
             this.desiredGamesTabPage.UseVisualStyleBackColor = true;
@@ -1029,96 +1124,24 @@ namespace Media_Marker
             this.newDesiredBookRadioButton.UseVisualStyleBackColor = true;
             this.newDesiredBookRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredBookRadioButton_CheckedChanged);
             // 
-            // desiredButtonSearchTextBox
+            // confirmActionButton
             // 
-            this.desiredButtonSearchTextBox.Location = new System.Drawing.Point(56, 31);
-            this.desiredButtonSearchTextBox.Name = "desiredButtonSearchTextBox";
-            this.desiredButtonSearchTextBox.Size = new System.Drawing.Size(411, 22);
-            this.desiredButtonSearchTextBox.TabIndex = 5;
+            this.confirmActionButton.Location = new System.Drawing.Point(554, 523);
+            this.confirmActionButton.Name = "confirmActionButton";
+            this.confirmActionButton.Size = new System.Drawing.Size(156, 24);
+            this.confirmActionButton.TabIndex = 16;
+            this.confirmActionButton.Text = "Confirm";
+            this.confirmActionButton.UseVisualStyleBackColor = true;
             // 
-            // desiredBookSearchButton
+            // comboBox1
             // 
-            this.desiredBookSearchButton.Location = new System.Drawing.Point(473, 31);
-            this.desiredBookSearchButton.Name = "desiredBookSearchButton";
-            this.desiredBookSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredBookSearchButton.TabIndex = 6;
-            this.desiredBookSearchButton.Text = "Search";
-            this.desiredBookSearchButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBookTitleRadioButton
-            // 
-            this.desiredBookTitleRadioButton.AutoSize = true;
-            this.desiredBookTitleRadioButton.Location = new System.Drawing.Point(56, 59);
-            this.desiredBookTitleRadioButton.Name = "desiredBookTitleRadioButton";
-            this.desiredBookTitleRadioButton.Size = new System.Drawing.Size(125, 21);
-            this.desiredBookTitleRadioButton.TabIndex = 7;
-            this.desiredBookTitleRadioButton.TabStop = true;
-            this.desiredBookTitleRadioButton.Text = "Search By Title";
-            this.desiredBookTitleRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBookAuthorRadioButton
-            // 
-            this.desiredBookAuthorRadioButton.AutoSize = true;
-            this.desiredBookAuthorRadioButton.Location = new System.Drawing.Point(187, 59);
-            this.desiredBookAuthorRadioButton.Name = "desiredBookAuthorRadioButton";
-            this.desiredBookAuthorRadioButton.Size = new System.Drawing.Size(140, 21);
-            this.desiredBookAuthorRadioButton.TabIndex = 8;
-            this.desiredBookAuthorRadioButton.TabStop = true;
-            this.desiredBookAuthorRadioButton.Text = "Search By Author";
-            this.desiredBookAuthorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBookGenreRadioButton
-            // 
-            this.desiredBookGenreRadioButton.AutoSize = true;
-            this.desiredBookGenreRadioButton.Location = new System.Drawing.Point(329, 59);
-            this.desiredBookGenreRadioButton.Name = "desiredBookGenreRadioButton";
-            this.desiredBookGenreRadioButton.Size = new System.Drawing.Size(138, 21);
-            this.desiredBookGenreRadioButton.TabIndex = 9;
-            this.desiredBookGenreRadioButton.TabStop = true;
-            this.desiredBookGenreRadioButton.Text = "Search By Genre";
-            this.desiredBookGenreRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBookClearButton
-            // 
-            this.desiredBookClearButton.Location = new System.Drawing.Point(554, 31);
-            this.desiredBookClearButton.Name = "desiredBookClearButton";
-            this.desiredBookClearButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredBookClearButton.TabIndex = 13;
-            this.desiredBookClearButton.Text = "Clear";
-            this.desiredBookClearButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBookListAllButton
-            // 
-            this.desiredBookListAllButton.Location = new System.Drawing.Point(635, 31);
-            this.desiredBookListAllButton.Name = "desiredBookListAllButton";
-            this.desiredBookListAllButton.Size = new System.Drawing.Size(75, 23);
-            this.desiredBookListAllButton.TabIndex = 14;
-            this.desiredBookListAllButton.Text = "List All";
-            this.desiredBookListAllButton.UseVisualStyleBackColor = true;
-            // 
-            // desiredBooksTabPage
-            // 
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookListAllButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookClearButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookGenreRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookAuthorRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookTitleRadioButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredBookSearchButton);
-            this.desiredBooksTabPage.Controls.Add(this.desiredButtonSearchTextBox);
-            this.desiredBooksTabPage.Location = new System.Drawing.Point(4, 25);
-            this.desiredBooksTabPage.Name = "desiredBooksTabPage";
-            this.desiredBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.desiredBooksTabPage.Size = new System.Drawing.Size(817, 591);
-            this.desiredBooksTabPage.TabIndex = 0;
-            this.desiredBooksTabPage.Text = "Books";
-            this.desiredBooksTabPage.UseVisualStyleBackColor = true;
-            // 
-            // possessedBookResultPanel
-            // 
-            this.possessedBookResultPanel.Location = new System.Drawing.Point(6, 86);
-            this.possessedBookResultPanel.Name = "possessedBookResultPanel";
-            this.possessedBookResultPanel.Size = new System.Drawing.Size(805, 499);
-            this.possessedBookResultPanel.TabIndex = 15;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Delete"});
+            this.comboBox1.Location = new System.Drawing.Point(314, 523);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(234, 24);
+            this.comboBox1.TabIndex = 17;
             // 
             // MediaMarkerMainWindow
             // 
@@ -1128,6 +1151,7 @@ namespace Media_Marker
             this.Controls.Add(this.dataBaseTabs);
             this.Name = "MediaMarkerMainWindow";
             this.Text = "Media Marker";
+            this.Load += new System.EventHandler(this.MediaMarkerMainWindow_Load);
             this.dataBaseTabs.ResumeLayout(false);
             this.possessedMediaTabPage.ResumeLayout(false);
             this.possessedMediaTabs.ResumeLayout(false);
@@ -1143,6 +1167,8 @@ namespace Media_Marker
             this.addNewPossessedEntryTabPage.PerformLayout();
             this.desiredMediaTabPage.ResumeLayout(false);
             this.desiredMediaTabs.ResumeLayout(false);
+            this.desiredBooksTabPage.ResumeLayout(false);
+            this.desiredBooksTabPage.PerformLayout();
             this.desiredMoviesTabPage.ResumeLayout(false);
             this.desiredMoviesTabPage.PerformLayout();
             this.desiredShowsTabPage.ResumeLayout(false);
@@ -1151,8 +1177,6 @@ namespace Media_Marker
             this.desiredGamesTabPage.PerformLayout();
             this.addNewDesiredEntryTabPage.ResumeLayout(false);
             this.addNewDesiredEntryTabPage.PerformLayout();
-            this.desiredBooksTabPage.ResumeLayout(false);
-            this.desiredBooksTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1249,6 +1273,8 @@ namespace Media_Marker
         private System.Windows.Forms.Button desiredBookSearchButton;
         private System.Windows.Forms.TextBox desiredButtonSearchTextBox;
         private System.Windows.Forms.Panel possessedBookResultPanel;
+        private System.Windows.Forms.Button confirmActionButton;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

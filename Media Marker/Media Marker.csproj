@@ -95,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Media Search Result Forms\Media Search Result Forms.csproj">
+      <Project>{11d23f53-13f3-4aa0-8c7b-bc5af8cab5c7}</Project>
+      <Name>Media Search Result Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\New Media Forms\New Media Forms.csproj">
       <Project>{F63BDDC9-069F-4BFE-A980-155EABD5D10F}</Project>
       <Name>New Media Forms</Name>

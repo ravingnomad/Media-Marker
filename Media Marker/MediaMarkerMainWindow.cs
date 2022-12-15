@@ -1,4 +1,5 @@
-﻿using New_Media_Forms;
+﻿using Media_Search_Result_Forms;
+using New_Media_Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,10 @@ namespace Media_Marker
         {
             InitializeComponent();
             possessedBookResultPanel.Controls.Clear();
-            
+            bookSearchResultForm testForm = new bookSearchResultForm();
+            testForm.TopLevel = false;
+            possessedBookResultPanel.Controls.Add(testForm);
+            testForm.Show();
         }
 
         private void newDesiredBookRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -124,6 +128,16 @@ namespace Media_Marker
                 newPossessedEntryPanel.Controls.Add(newGame);
                 newGame.Show();
             }
+        }
+
+        private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
+        {
+            possessedBookResultPanel.Controls.Clear();
+            bookSearchResultForm possessedBookResults = new bookSearchResultForm();
+            possessedBookResults.TopLevel = false;
+            possessedBookResults.Dock = DockStyle.Fill;
+            possessedBookResultPanel.Controls.Add(possessedBookResults);
+            possessedBookResults.Show();
         }
     }
 }

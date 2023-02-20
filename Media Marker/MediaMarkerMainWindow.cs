@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql_Helper;
 
 namespace Media_Marker
 {
@@ -138,6 +139,11 @@ namespace Media_Marker
             possessedBookResults.Dock = DockStyle.Fill;
             possessedBookResultPanel.Controls.Add(possessedBookResults);
             possessedBookResults.Show();
+        }
+
+        private void possessedBookSearchButton_Click(object sender, EventArgs e)
+        {
+            MySql_Helper.mysqlHelper.connect();
         }
     }
 }

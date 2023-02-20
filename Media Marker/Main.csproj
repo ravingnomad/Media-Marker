@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,6 +84,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +102,10 @@
     <ProjectReference Include="..\Media Search Result Forms\Media Search Result Forms.csproj">
       <Project>{11d23f53-13f3-4aa0-8c7b-bc5af8cab5c7}</Project>
       <Name>Media Search Result Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
+      <Project>{7edd91a7-7ae5-45c9-b662-11790209b24a}</Project>
+      <Name>MySql Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\New Media Forms\New Media Forms.csproj">
       <Project>{F63BDDC9-069F-4BFE-A980-155EABD5D10F}</Project>

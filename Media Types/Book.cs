@@ -13,5 +13,8 @@ namespace Media_Types
         public List<string> genre { get; set; }
         public int pages { get; set; }
 
+        public List<string> genres;
+
+        public string fullString { get { return $" { title }  : { author }"; } }
     }
 }

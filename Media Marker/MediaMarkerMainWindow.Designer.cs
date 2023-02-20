@@ -33,6 +33,8 @@ namespace Media_Marker
             this.possessedMediaTabPage = new System.Windows.Forms.TabPage();
             this.possessedMediaTabs = new System.Windows.Forms.TabControl();
             this.possessedBooksTabPage = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.confirmActionButton = new System.Windows.Forms.Button();
             this.possessedBookResultPanel = new System.Windows.Forms.Panel();
             this.possessedBookListAllButton = new System.Windows.Forms.Button();
             this.possessedBookClearButon = new System.Windows.Forms.Button();
@@ -119,8 +121,6 @@ namespace Media_Marker
             this.newDesiredShowRadioButton = new System.Windows.Forms.RadioButton();
             this.newDesiredMovieRadioButton = new System.Windows.Forms.RadioButton();
             this.newDesiredBookRadioButton = new System.Windows.Forms.RadioButton();
-            this.confirmActionButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataBaseTabs.SuspendLayout();
             this.possessedMediaTabPage.SuspendLayout();
             this.possessedMediaTabs.SuspendLayout();
@@ -198,6 +198,25 @@ namespace Media_Marker
             this.possessedBooksTabPage.Text = "Books";
             this.possessedBooksTabPage.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Delete"});
+            this.comboBox1.Location = new System.Drawing.Point(314, 523);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(234, 24);
+            this.comboBox1.TabIndex = 17;
+            // 
+            // confirmActionButton
+            // 
+            this.confirmActionButton.Location = new System.Drawing.Point(554, 523);
+            this.confirmActionButton.Name = "confirmActionButton";
+            this.confirmActionButton.Size = new System.Drawing.Size(156, 24);
+            this.confirmActionButton.TabIndex = 16;
+            this.confirmActionButton.Text = "Confirm";
+            this.confirmActionButton.UseVisualStyleBackColor = true;
+            // 
             // possessedBookResultPanel
             // 
             this.possessedBookResultPanel.Location = new System.Drawing.Point(6, 86);
@@ -264,6 +283,7 @@ namespace Media_Marker
             this.possessedBookSearchButton.TabIndex = 1;
             this.possessedBookSearchButton.Text = "Search";
             this.possessedBookSearchButton.UseVisualStyleBackColor = true;
+            this.possessedBookSearchButton.Click += new System.EventHandler(this.possessedBookSearchButton_Click);
             // 
             // possessedBookSearchTextBox
             // 
@@ -1123,25 +1143,6 @@ namespace Media_Marker
             this.newDesiredBookRadioButton.Text = "Book";
             this.newDesiredBookRadioButton.UseVisualStyleBackColor = true;
             this.newDesiredBookRadioButton.CheckedChanged += new System.EventHandler(this.newDesiredBookRadioButton_CheckedChanged);
-            // 
-            // confirmActionButton
-            // 
-            this.confirmActionButton.Location = new System.Drawing.Point(554, 523);
-            this.confirmActionButton.Name = "confirmActionButton";
-            this.confirmActionButton.Size = new System.Drawing.Size(156, 24);
-            this.confirmActionButton.TabIndex = 16;
-            this.confirmActionButton.Text = "Confirm";
-            this.confirmActionButton.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Delete"});
-            this.comboBox1.Location = new System.Drawing.Point(314, 523);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(234, 24);
-            this.comboBox1.TabIndex = 17;
             // 
             // MediaMarkerMainWindow
             // 

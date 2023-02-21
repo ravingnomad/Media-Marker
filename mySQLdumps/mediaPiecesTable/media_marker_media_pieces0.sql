@@ -16,26 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `possessed_media`
+-- Table structure for table `media_pieces`
 --
 
-DROP TABLE IF EXISTS `possessed_media`;
+DROP TABLE IF EXISTS `media_pieces`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `possessed_media` (
+CREATE TABLE `media_pieces` (
   `media_type_id` int NOT NULL,
   `media_id` int NOT NULL,
+  `status` varchar(45) NOT NULL,
   PRIMARY KEY (`media_type_id`,`media_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `possessed_media`
+-- Dumping data for table `media_pieces`
 --
 
-LOCK TABLES `possessed_media` WRITE;
-/*!40000 ALTER TABLE `possessed_media` DISABLE KEYS */;
-/*!40000 ALTER TABLE `possessed_media` ENABLE KEYS */;
+LOCK TABLES `media_pieces` WRITE;
+/*!40000 ALTER TABLE `media_pieces` DISABLE KEYS */;
+/*!40000 ALTER TABLE `media_pieces` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-02 22:22:06
+-- Dump completed on 2023-02-20 21:59:16

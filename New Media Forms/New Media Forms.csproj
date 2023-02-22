@@ -83,5 +83,11 @@
       <DependentUpon>newShowForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
+      <Project>{7edd91a7-7ae5-45c9-b662-11790209b24a}</Project>
+      <Name>MySql Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

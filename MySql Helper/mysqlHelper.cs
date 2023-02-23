@@ -59,5 +59,32 @@ namespace MySql_Helper
                 connection.Query("insert_media_piece", mediaPieceValue, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public static void addNewMovie(string movieTitle, string movieDirector, List<string> movieGenres, string originTab)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                //Add a new movie into the 'Movies' table
+                var movieValues = new { movieTitle = movieTitle, movieDirector = movieDirector };
+                int newMovieID = connection.Query<int>("insert_movie", movieValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                
+                //Add the list of movie genres into 'media_genre' table
+                foreach (string genre in movieGenres)
+                {
+                    var genreValue = new { mediaType = MediaTypeNames.Movie, mediaID = newMovieID, genre = genre };
+                    connection.Query("insert_genre", genreValue, commandType: System.Data.CommandType.StoredProcedure);
+                }
+
+                //Create a new media piece, and add it to the "media piece" table with appropriate 'possessed' or 'desired' flag
+                var mediaPieceValue = new { mediaType = MediaTypeNames.Movie, mediaID = newMovieID, mediaStatus = originTab };
+                connection.Query("insert_media_piece", mediaPieceValue, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
     }
 }

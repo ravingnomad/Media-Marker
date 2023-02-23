@@ -43,7 +43,7 @@ namespace Media_Marker
             if (newDesiredMovieRadioButton.Checked)
             {
                 newDesiredEntryPanel.Controls.Clear();
-                newMovieForm newMovie = new newMovieForm();
+                newMovieForm newMovie = new newMovieForm("Desired Media");
                 newMovie.TopLevel = false;
                 newMovie.Dock = DockStyle.Fill;
                 newDesiredEntryPanel.Controls.Add(newMovie);
@@ -97,7 +97,7 @@ namespace Media_Marker
             if (newPossessedMovieRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
-                newMovieForm newMovie = new newMovieForm();
+                newMovieForm newMovie = new newMovieForm("Possessed Media");
                 newMovie.TopLevel = false;
                 newMovie.Dock = DockStyle.Fill;
                 newPossessedEntryPanel.Controls.Add(newMovie);
@@ -144,7 +144,6 @@ namespace Media_Marker
         private void possessedBookSearchButton_Click(object sender, EventArgs e)
         {
             
-            MySql_Helper.mysqlHelper.connect();
         }
     }
 }

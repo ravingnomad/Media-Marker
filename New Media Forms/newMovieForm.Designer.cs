@@ -34,12 +34,8 @@ namespace New_Media_Forms
             this.newMovieDirectorTextBox = new System.Windows.Forms.TextBox();
             this.newMovieTitleLabel = new System.Windows.Forms.Label();
             this.newMovieTitleTextBox = new System.Windows.Forms.TextBox();
-            this.newMovieStudioLabel = new System.Windows.Forms.Label();
-            this.newMovieStudioTextBox = new System.Windows.Forms.TextBox();
-            this.newMovieRuntimeLabel = new System.Windows.Forms.Label();
-            this.newMovieRuntimeTextBox = new System.Windows.Forms.TextBox();
             this.addNewMovieButton = new System.Windows.Forms.Button();
-            this.showGenreListBox = new System.Windows.Forms.CheckedListBox();
+            this.newMovieGenreListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // newMovieGenreLabel
@@ -47,7 +43,7 @@ namespace New_Media_Forms
             this.newMovieGenreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newMovieGenreLabel.AutoSize = true;
             this.newMovieGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMovieGenreLabel.Location = new System.Drawing.Point(103, 165);
+            this.newMovieGenreLabel.Location = new System.Drawing.Point(103, 271);
             this.newMovieGenreLabel.Name = "newMovieGenreLabel";
             this.newMovieGenreLabel.Size = new System.Drawing.Size(120, 39);
             this.newMovieGenreLabel.TabIndex = 11;
@@ -96,92 +92,49 @@ namespace New_Media_Forms
             this.newMovieTitleTextBox.Size = new System.Drawing.Size(312, 45);
             this.newMovieTitleTextBox.TabIndex = 6;
             // 
-            // newMovieStudioLabel
-            // 
-            this.newMovieStudioLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newMovieStudioLabel.AutoSize = true;
-            this.newMovieStudioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMovieStudioLabel.Location = new System.Drawing.Point(105, 290);
-            this.newMovieStudioLabel.Name = "newMovieStudioLabel";
-            this.newMovieStudioLabel.Size = new System.Drawing.Size(123, 39);
-            this.newMovieStudioLabel.TabIndex = 13;
-            this.newMovieStudioLabel.Text = "Studio:";
-            this.newMovieStudioLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // newMovieStudioTextBox
-            // 
-            this.newMovieStudioTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newMovieStudioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMovieStudioTextBox.Location = new System.Drawing.Point(246, 290);
-            this.newMovieStudioTextBox.Name = "newMovieStudioTextBox";
-            this.newMovieStudioTextBox.Size = new System.Drawing.Size(312, 45);
-            this.newMovieStudioTextBox.TabIndex = 12;
-            // 
-            // newMovieRuntimeLabel
-            // 
-            this.newMovieRuntimeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newMovieRuntimeLabel.AutoSize = true;
-            this.newMovieRuntimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMovieRuntimeLabel.Location = new System.Drawing.Point(54, 360);
-            this.newMovieRuntimeLabel.Name = "newMovieRuntimeLabel";
-            this.newMovieRuntimeLabel.Size = new System.Drawing.Size(174, 39);
-            this.newMovieRuntimeLabel.TabIndex = 15;
-            this.newMovieRuntimeLabel.Text = "Run Time:";
-            this.newMovieRuntimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // newMovieRuntimeTextBox
-            // 
-            this.newMovieRuntimeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newMovieRuntimeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newMovieRuntimeTextBox.ForeColor = System.Drawing.Color.Wheat;
-            this.newMovieRuntimeTextBox.Location = new System.Drawing.Point(246, 360);
-            this.newMovieRuntimeTextBox.Name = "newMovieRuntimeTextBox";
-            this.newMovieRuntimeTextBox.Size = new System.Drawing.Size(312, 45);
-            this.newMovieRuntimeTextBox.TabIndex = 14;
-            // 
             // addNewMovieButton
             // 
             this.addNewMovieButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addNewMovieButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMovieButton.Location = new System.Drawing.Point(246, 430);
+            this.addNewMovieButton.Location = new System.Drawing.Point(246, 452);
             this.addNewMovieButton.Name = "addNewMovieButton";
             this.addNewMovieButton.Size = new System.Drawing.Size(179, 61);
             this.addNewMovieButton.TabIndex = 27;
             this.addNewMovieButton.Text = "Add";
             this.addNewMovieButton.UseVisualStyleBackColor = true;
+            this.addNewMovieButton.Click += new System.EventHandler(this.addNewMovieButton_Click);
             // 
-            // showGenreListBox
+            // newMovieGenreListBox
             // 
-            this.showGenreListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.showGenreListBox.FormattingEnabled = true;
-            this.showGenreListBox.Items.AddRange(new object[] {
-            "Animated",
+            this.newMovieGenreListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newMovieGenreListBox.FormattingEnabled = true;
+            this.newMovieGenreListBox.Items.AddRange(new object[] {
             "Action",
+            "Animation",
+            "Biographical",
             "Comedy",
             "Documentary",
             "Drama",
             "Fantasy",
+            "Historical Fiction",
             "Horror",
             "Musical",
+            "Mystery",
             "Romance",
-            "Suspense",
-            "Science Fiction"});
-            this.showGenreListBox.Location = new System.Drawing.Point(246, 159);
-            this.showGenreListBox.Name = "showGenreListBox";
-            this.showGenreListBox.Size = new System.Drawing.Size(312, 106);
-            this.showGenreListBox.TabIndex = 28;
+            "Science Fiction",
+            "Thriller"});
+            this.newMovieGenreListBox.Location = new System.Drawing.Point(246, 163);
+            this.newMovieGenreListBox.Name = "newMovieGenreListBox";
+            this.newMovieGenreListBox.Size = new System.Drawing.Size(312, 259);
+            this.newMovieGenreListBox.TabIndex = 28;
             // 
             // newMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 543);
-            this.Controls.Add(this.showGenreListBox);
+            this.Controls.Add(this.newMovieGenreListBox);
             this.Controls.Add(this.addNewMovieButton);
-            this.Controls.Add(this.newMovieRuntimeLabel);
-            this.Controls.Add(this.newMovieRuntimeTextBox);
-            this.Controls.Add(this.newMovieStudioLabel);
-            this.Controls.Add(this.newMovieStudioTextBox);
             this.Controls.Add(this.newMovieGenreLabel);
             this.Controls.Add(this.newMovieDirectorLabel);
             this.Controls.Add(this.newMovieDirectorTextBox);
@@ -202,11 +155,7 @@ namespace New_Media_Forms
         private System.Windows.Forms.TextBox newMovieDirectorTextBox;
         private System.Windows.Forms.Label newMovieTitleLabel;
         private System.Windows.Forms.TextBox newMovieTitleTextBox;
-        private System.Windows.Forms.Label newMovieStudioLabel;
-        private System.Windows.Forms.TextBox newMovieStudioTextBox;
-        private System.Windows.Forms.Label newMovieRuntimeLabel;
-        private System.Windows.Forms.TextBox newMovieRuntimeTextBox;
         private System.Windows.Forms.Button addNewMovieButton;
-        private System.Windows.Forms.CheckedListBox showGenreListBox;
+        private System.Windows.Forms.CheckedListBox newMovieGenreListBox;
     }
 }

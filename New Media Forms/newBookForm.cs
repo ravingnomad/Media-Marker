@@ -28,10 +28,6 @@ namespace New_Media_Forms
 
         private void addNewBookButton_Click(object sender, EventArgs e)
         {
-            /*This method works; simple have a parameter in the constructor of each new form that takes a string describing
-             which tab (possessed or desired) this form was opened from*/
-            Console.WriteLine(originTab);
-
             string bookTitle = newBookTitleTextBox.Text;
             string authorName = newBookAuthorTextBox.Text;
             var newBookGenres = bookGenreListBox.CheckedItems;

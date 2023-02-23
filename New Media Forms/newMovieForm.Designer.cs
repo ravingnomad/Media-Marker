@@ -122,7 +122,8 @@ namespace New_Media_Forms
             "Mystery",
             "Romance",
             "Science Fiction",
-            "Thriller"});
+            "Thriller",
+            "Western"});
             this.newMovieGenreListBox.Location = new System.Drawing.Point(246, 163);
             this.newMovieGenreListBox.Name = "newMovieGenreListBox";
             this.newMovieGenreListBox.Size = new System.Drawing.Size(312, 259);

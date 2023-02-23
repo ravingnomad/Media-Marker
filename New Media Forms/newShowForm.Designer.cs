@@ -29,8 +29,6 @@ namespace New_Media_Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.newShowNetworkLabel = new System.Windows.Forms.Label();
-            this.newShowNetworkTextBox = new System.Windows.Forms.TextBox();
             this.newShowGenreLabel = new System.Windows.Forms.Label();
             this.newShowDirectorLabel = new System.Windows.Forms.Label();
             this.newShowDirectorTextBox = new System.Windows.Forms.TextBox();
@@ -44,33 +42,12 @@ namespace New_Media_Forms
             this.showGenreListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
-            // newShowNetworkLabel
-            // 
-            this.newShowNetworkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newShowNetworkLabel.AutoSize = true;
-            this.newShowNetworkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowNetworkLabel.Location = new System.Drawing.Point(161, 326);
-            this.newShowNetworkLabel.Name = "newShowNetworkLabel";
-            this.newShowNetworkLabel.Size = new System.Drawing.Size(147, 38);
-            this.newShowNetworkLabel.TabIndex = 21;
-            this.newShowNetworkLabel.Text = "Network:";
-            this.newShowNetworkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // newShowNetworkTextBox
-            // 
-            this.newShowNetworkTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newShowNetworkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowNetworkTextBox.Location = new System.Drawing.Point(331, 326);
-            this.newShowNetworkTextBox.Name = "newShowNetworkTextBox";
-            this.newShowNetworkTextBox.Size = new System.Drawing.Size(312, 45);
-            this.newShowNetworkTextBox.TabIndex = 20;
-            // 
             // newShowGenreLabel
             // 
             this.newShowGenreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowGenreLabel.AutoSize = true;
             this.newShowGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowGenreLabel.Location = new System.Drawing.Point(191, 184);
+            this.newShowGenreLabel.Location = new System.Drawing.Point(191, 347);
             this.newShowGenreLabel.Name = "newShowGenreLabel";
             this.newShowGenreLabel.Size = new System.Drawing.Size(117, 38);
             this.newShowGenreLabel.TabIndex = 19;
@@ -124,7 +101,7 @@ namespace New_Media_Forms
             this.newShowSeasonsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowSeasonsLabel.AutoSize = true;
             this.newShowSeasonsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowSeasonsLabel.Location = new System.Drawing.Point(154, 386);
+            this.newShowSeasonsLabel.Location = new System.Drawing.Point(154, 186);
             this.newShowSeasonsLabel.Name = "newShowSeasonsLabel";
             this.newShowSeasonsLabel.Size = new System.Drawing.Size(154, 38);
             this.newShowSeasonsLabel.TabIndex = 23;
@@ -135,7 +112,7 @@ namespace New_Media_Forms
             // 
             this.newShowSeasonTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowSeasonTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowSeasonTextBox.Location = new System.Drawing.Point(331, 386);
+            this.newShowSeasonTextBox.Location = new System.Drawing.Point(331, 186);
             this.newShowSeasonTextBox.Name = "newShowSeasonTextBox";
             this.newShowSeasonTextBox.Size = new System.Drawing.Size(312, 45);
             this.newShowSeasonTextBox.TabIndex = 22;
@@ -145,7 +122,7 @@ namespace New_Media_Forms
             this.newShowEpisodesLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowEpisodesLabel.AutoSize = true;
             this.newShowEpisodesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowEpisodesLabel.Location = new System.Drawing.Point(147, 446);
+            this.newShowEpisodesLabel.Location = new System.Drawing.Point(147, 246);
             this.newShowEpisodesLabel.Name = "newShowEpisodesLabel";
             this.newShowEpisodesLabel.Size = new System.Drawing.Size(161, 38);
             this.newShowEpisodesLabel.TabIndex = 25;
@@ -156,7 +133,7 @@ namespace New_Media_Forms
             // 
             this.newShowEpisodesTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowEpisodesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newShowEpisodesTextBox.Location = new System.Drawing.Point(331, 446);
+            this.newShowEpisodesTextBox.Location = new System.Drawing.Point(331, 246);
             this.newShowEpisodesTextBox.Name = "newShowEpisodesTextBox";
             this.newShowEpisodesTextBox.Size = new System.Drawing.Size(312, 45);
             this.newShowEpisodesTextBox.TabIndex = 24;
@@ -165,12 +142,13 @@ namespace New_Media_Forms
             // 
             this.addNewShowButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addNewShowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewShowButton.Location = new System.Drawing.Point(331, 509);
+            this.addNewShowButton.Location = new System.Drawing.Point(331, 532);
             this.addNewShowButton.Name = "addNewShowButton";
             this.addNewShowButton.Size = new System.Drawing.Size(179, 61);
             this.addNewShowButton.TabIndex = 26;
             this.addNewShowButton.Text = "Add";
             this.addNewShowButton.UseVisualStyleBackColor = true;
+            this.addNewShowButton.Click += new System.EventHandler(this.addNewShowButton_Click);
             // 
             // showGenreListBox
             // 
@@ -178,19 +156,21 @@ namespace New_Media_Forms
             this.showGenreListBox.FormattingEnabled = true;
             this.showGenreListBox.Items.AddRange(new object[] {
             "Action",
-            "Animated",
+            "Animation",
             "Comedy",
             "Documentary",
             "Drama",
             "Fantasy",
+            "Historical Fiction",
             "Horror",
+            "Mystery",
             "Romance",
             "Science Fiction",
-            "Suspense",
-            ""});
-            this.showGenreListBox.Location = new System.Drawing.Point(331, 184);
+            "Thriller",
+            "Western"});
+            this.showGenreListBox.Location = new System.Drawing.Point(331, 313);
             this.showGenreListBox.Name = "showGenreListBox";
-            this.showGenreListBox.Size = new System.Drawing.Size(312, 123);
+            this.showGenreListBox.Size = new System.Drawing.Size(312, 191);
             this.showGenreListBox.TabIndex = 27;
             // 
             // newShowForm
@@ -204,8 +184,6 @@ namespace New_Media_Forms
             this.Controls.Add(this.newShowEpisodesTextBox);
             this.Controls.Add(this.newShowSeasonsLabel);
             this.Controls.Add(this.newShowSeasonTextBox);
-            this.Controls.Add(this.newShowNetworkLabel);
-            this.Controls.Add(this.newShowNetworkTextBox);
             this.Controls.Add(this.newShowGenreLabel);
             this.Controls.Add(this.newShowDirectorLabel);
             this.Controls.Add(this.newShowDirectorTextBox);
@@ -220,9 +198,6 @@ namespace New_Media_Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.Label newShowNetworkLabel;
-        private System.Windows.Forms.TextBox newShowNetworkTextBox;
         private System.Windows.Forms.Label newShowGenreLabel;
         private System.Windows.Forms.Label newShowDirectorLabel;
         private System.Windows.Forms.TextBox newShowDirectorTextBox;

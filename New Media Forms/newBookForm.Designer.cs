@@ -42,7 +42,7 @@ namespace New_Media_Forms
             // 
             this.newBookTitleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookTitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookTitleTextBox.Location = new System.Drawing.Point(240, 94);
+            this.newBookTitleTextBox.Location = new System.Drawing.Point(240, 45);
             this.newBookTitleTextBox.Name = "newBookTitleTextBox";
             this.newBookTitleTextBox.Size = new System.Drawing.Size(312, 45);
             this.newBookTitleTextBox.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace New_Media_Forms
             this.newBookTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookTitleLabel.AutoSize = true;
             this.newBookTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookTitleLabel.Location = new System.Drawing.Point(129, 94);
+            this.newBookTitleLabel.Location = new System.Drawing.Point(129, 45);
             this.newBookTitleLabel.Name = "newBookTitleLabel";
             this.newBookTitleLabel.Size = new System.Drawing.Size(91, 39);
             this.newBookTitleLabel.TabIndex = 1;
@@ -64,7 +64,7 @@ namespace New_Media_Forms
             this.newBookAuthorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookAuthorLabel.AutoSize = true;
             this.newBookAuthorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookAuthorLabel.Location = new System.Drawing.Point(94, 168);
+            this.newBookAuthorLabel.Location = new System.Drawing.Point(94, 119);
             this.newBookAuthorLabel.Name = "newBookAuthorLabel";
             this.newBookAuthorLabel.Size = new System.Drawing.Size(126, 39);
             this.newBookAuthorLabel.TabIndex = 3;
@@ -75,7 +75,7 @@ namespace New_Media_Forms
             // 
             this.newBookAuthorTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookAuthorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookAuthorTextBox.Location = new System.Drawing.Point(240, 168);
+            this.newBookAuthorTextBox.Location = new System.Drawing.Point(240, 119);
             this.newBookAuthorTextBox.Name = "newBookAuthorTextBox";
             this.newBookAuthorTextBox.Size = new System.Drawing.Size(312, 45);
             this.newBookAuthorTextBox.TabIndex = 2;
@@ -128,9 +128,9 @@ namespace New_Media_Forms
             "Science Fiction",
             "Short Story",
             "Tragedy"});
-            this.bookGenreListBox.Location = new System.Drawing.Point(240, 243);
+            this.bookGenreListBox.Location = new System.Drawing.Point(240, 175);
             this.bookGenreListBox.Name = "bookGenreListBox";
-            this.bookGenreListBox.Size = new System.Drawing.Size(312, 208);
+            this.bookGenreListBox.Size = new System.Drawing.Size(312, 276);
             this.bookGenreListBox.TabIndex = 9;
             // 
             // newBookForm

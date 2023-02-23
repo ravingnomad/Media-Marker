@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql_Helper;
 
 namespace New_Media_Forms
 {
     public partial class newShowForm : Form
     {
-        public newShowForm()
+        private string originTab;
+        public newShowForm(string origin)
         {
+            originTab = origin;
             InitializeComponent();
         }
 
@@ -37,6 +40,23 @@ namespace New_Media_Forms
             }
 
             base.WndProc(ref message);
+        }
+
+        private void addNewShowButton_Click(object sender, EventArgs e)
+        {
+            string showTitle = newShowTitleTextBox.Text;
+            string directorName = newShowDirectorTextBox.Text;
+            int seasons = Int32.Parse(newShowSeasonTextBox.Text);
+            int episodes = Int32.Parse(newShowEpisodesTextBox.Text);
+
+            var newShowGenres = showGenreListBox.CheckedItems;
+
+            List<string> newShowGenresList = new List<string>();
+            foreach (string genre in newShowGenres)
+            {
+                newShowGenresList.Add(genre);
+            }
+            mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, originTab);
         }
     }
 }

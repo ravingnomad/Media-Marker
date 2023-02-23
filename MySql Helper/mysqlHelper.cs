@@ -86,5 +86,31 @@ namespace MySql_Helper
             }
         }
 
+
+        public static void addNewShow(string showTitle, string showDirector, int seasons, int episodes, List<string> showGenres, string originTab)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                //Add a new show into the 'show' table
+                var showValues = new { showTitle = showTitle, showDirector = showDirector, showSeasons = seasons, showEpisodes = episodes };
+                int newShowID = connection.Query<int>("insert_show", showValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                
+                //Add the list of movie genres into 'media_genre' table
+                foreach (string genre in showGenres)
+                {
+                    var genreValue = new { mediaType = MediaTypeNames.TV_Show, mediaID = newShowID, genre = genre };
+                    connection.Query("insert_genre", genreValue, commandType: System.Data.CommandType.StoredProcedure);
+                }
+                
+                //Create a new media piece, and add it to the "media piece" table with appropriate 'possessed' or 'desired' flag
+                var mediaPieceValue = new { mediaType = MediaTypeNames.TV_Show, mediaID = newShowID, mediaStatus = originTab };
+                connection.Query("insert_media_piece", mediaPieceValue, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace Media_Marker
             if (newDesiredShowRadioButton.Checked)
             {
                 newDesiredEntryPanel.Controls.Clear();
-                newShowForm newShow = new newShowForm();
+                newShowForm newShow = new newShowForm("Desired Media");
                 newShow.TopLevel = false;
                 newShow.Dock = DockStyle.Fill;
                 newDesiredEntryPanel.Controls.Add(newShow);
@@ -110,7 +110,7 @@ namespace Media_Marker
             if (newPossessedShowRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
-                newShowForm newShow = new newShowForm();
+                newShowForm newShow = new newShowForm("Possessed Media");
                 newShow.TopLevel = false;
                 newShow.Dock = DockStyle.Fill;
                 newPossessedEntryPanel.Controls.Add(newShow);

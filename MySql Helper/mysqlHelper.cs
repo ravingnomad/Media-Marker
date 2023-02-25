@@ -100,7 +100,7 @@ namespace MySql_Helper
                 var showValues = new { showTitle = showTitle, showDirector = showDirector, showSeasons = seasons, showEpisodes = episodes };
                 int newShowID = connection.Query<int>("insert_show", showValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
                 
-                //Add the list of movie genres into 'media_genre' table
+                //Add the list of show genres into 'media_genre' table
                 foreach (string genre in showGenres)
                 {
                     var genreValue = new { mediaType = MediaTypeNames.TV_Show, mediaID = newShowID, genre = genre };
@@ -109,6 +109,40 @@ namespace MySql_Helper
                 
                 //Create a new media piece, and add it to the "media piece" table with appropriate 'possessed' or 'desired' flag
                 var mediaPieceValue = new { mediaType = MediaTypeNames.TV_Show, mediaID = newShowID, mediaStatus = originTab };
+                connection.Query("insert_media_piece", mediaPieceValue, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+
+        public static void addNewGame(string newGameTitle, string newGameDeveloper, List<string> gameGenres, List<string> gamePlatforms, string originTab)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                //Add a new game into the 'video game' table
+                var gameValues = new { gameTitle = newGameTitle, developer = newGameDeveloper };
+                int newGameID = connection.Query<int>("insert_game", gameValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                
+                //Add the list of video game genres into 'media_genre' table
+                foreach (string genre in gameGenres)
+                {
+                    var genreValue = new { mediaType = MediaTypeNames.Video_Game, mediaID = newGameID, genre = genre };
+                    connection.Query("insert_genre", genreValue, commandType: System.Data.CommandType.StoredProcedure);
+                }
+
+                //Add the list of game platforms into 'supported_game_platforms' table
+                foreach (string platform in gamePlatforms)
+                {
+                    var platformValue = new { newGameId = newGameID, supportedPlatform = platform };
+                    connection.Query("insert_supported_game_platform", platformValue, commandType: System.Data.CommandType.StoredProcedure);
+                }
+
+                //Create a new media piece, and add it to the "media piece" table with appropriate 'possessed' or 'desired' flag
+                var mediaPieceValue = new { mediaType = MediaTypeNames.Video_Game, mediaID = newGameID, mediaStatus = originTab };
                 connection.Query("insert_media_piece", mediaPieceValue, commandType: System.Data.CommandType.StoredProcedure);
             }
         }

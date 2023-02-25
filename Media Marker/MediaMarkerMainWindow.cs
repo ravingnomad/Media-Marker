@@ -69,7 +69,7 @@ namespace Media_Marker
             if (newDesiredGameRadioButton.Checked)
             {
                 newDesiredEntryPanel.Controls.Clear();
-                newGameForm newGame = new newGameForm();
+                newGameForm newGame = new newGameForm("Desired Media");
                 newGame.TopLevel = false;
                 newGame.Dock = DockStyle.Fill;
                 newDesiredEntryPanel.Controls.Add(newGame);
@@ -123,7 +123,7 @@ namespace Media_Marker
             if (newPossessedGameRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
-                newGameForm newGame = new newGameForm();
+                newGameForm newGame = new newGameForm("Possessed Media");
                 newGame.TopLevel = false;
                 newGame.Dock = DockStyle.Fill;
                 newPossessedEntryPanel.Controls.Add(newGame);

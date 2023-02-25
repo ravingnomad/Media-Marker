@@ -30,8 +30,6 @@ namespace New_Media_Forms
         private void InitializeComponent()
         {
             this.newGamePlatformsLabel = new System.Windows.Forms.Label();
-            this.newGamePublisherLabel = new System.Windows.Forms.Label();
-            this.newGamePublisherTextBox = new System.Windows.Forms.TextBox();
             this.newGameGenreLabel = new System.Windows.Forms.Label();
             this.newGameDeveloperLabel = new System.Windows.Forms.Label();
             this.newGameDeveloperTextBox = new System.Windows.Forms.TextBox();
@@ -53,27 +51,6 @@ namespace New_Media_Forms
             this.newGamePlatformsLabel.TabIndex = 33;
             this.newGamePlatformsLabel.Text = "Platforms:";
             this.newGamePlatformsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // newGamePublisherLabel
-            // 
-            this.newGamePublisherLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newGamePublisherLabel.AutoSize = true;
-            this.newGamePublisherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePublisherLabel.Location = new System.Drawing.Point(57, 275);
-            this.newGamePublisherLabel.Name = "newGamePublisherLabel";
-            this.newGamePublisherLabel.Size = new System.Drawing.Size(169, 39);
-            this.newGamePublisherLabel.TabIndex = 31;
-            this.newGamePublisherLabel.Text = "Publisher:";
-            this.newGamePublisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // newGamePublisherTextBox
-            // 
-            this.newGamePublisherTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newGamePublisherTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGamePublisherTextBox.Location = new System.Drawing.Point(246, 275);
-            this.newGamePublisherTextBox.Name = "newGamePublisherTextBox";
-            this.newGamePublisherTextBox.Size = new System.Drawing.Size(312, 45);
-            this.newGamePublisherTextBox.TabIndex = 30;
             // 
             // newGameGenreLabel
             // 
@@ -139,24 +116,31 @@ namespace New_Media_Forms
             this.addNewGameButton.TabIndex = 34;
             this.addNewGameButton.Text = "Add";
             this.addNewGameButton.UseVisualStyleBackColor = true;
+            this.addNewGameButton.Click += new System.EventHandler(this.addNewGameButton_Click);
             // 
             // gamePlatformListBox
             // 
             this.gamePlatformListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gamePlatformListBox.FormattingEnabled = true;
             this.gamePlatformListBox.Items.AddRange(new object[] {
-            "PS1",
+            "3DS",
+            "DS",
+            "GBA",
+            "GBC",
+            "NES",
+            "SNES",
+            "Switch",
+            "PS One",
+            "PS Vita",
             "PS2",
             "PS3",
-            "XBox",
-            "XBox 360",
-            "PC",
-            "GBA",
-            "DS",
-            "3DS"});
-            this.gamePlatformListBox.Location = new System.Drawing.Point(246, 354);
+            "PSP",
+            "X-Box",
+            "X-Box 360",
+            "PC"});
+            this.gamePlatformListBox.Location = new System.Drawing.Point(246, 303);
             this.gamePlatformListBox.Name = "gamePlatformListBox";
-            this.gamePlatformListBox.Size = new System.Drawing.Size(312, 89);
+            this.gamePlatformListBox.Size = new System.Drawing.Size(312, 140);
             this.gamePlatformListBox.TabIndex = 43;
             // 
             // gameGenreListBox
@@ -164,25 +148,29 @@ namespace New_Media_Forms
             this.gameGenreListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gameGenreListBox.FormattingEnabled = true;
             this.gameGenreListBox.Items.AddRange(new object[] {
-            "Stealth",
-            "RPG",
-            "Turn-Based RPG",
             "Action",
-            "Hack-and-Slash",
+            "Adventure",
             "Beat-em-Up",
-            "Horror",
-            "Survival",
-            "Action",
-            "Strategy",
-            "First Person Shooter",
-            "Third Person Shooter",
-            "Platforming",
+            "Fantasy",
             "Fighting",
+            "FPS",
+            "Flight Sim",
+            "Hack-and-Slash",
+            "Horror",
+            "JRPG",
+            "Mecha",
+            "Platforming",
             "Puzzle",
-            "Mecha"});
+            "RPG",
+            "Science Fiction",
+            "Stealth",
+            "Strategy",
+            "Survival",
+            "Third-Person Shooter",
+            "Turn-Based RPG"});
             this.gameGenreListBox.Location = new System.Drawing.Point(246, 169);
             this.gameGenreListBox.Name = "gameGenreListBox";
-            this.gameGenreListBox.Size = new System.Drawing.Size(312, 89);
+            this.gameGenreListBox.Size = new System.Drawing.Size(312, 123);
             this.gameGenreListBox.TabIndex = 44;
             // 
             // newGameForm
@@ -194,8 +182,6 @@ namespace New_Media_Forms
             this.Controls.Add(this.gamePlatformListBox);
             this.Controls.Add(this.addNewGameButton);
             this.Controls.Add(this.newGamePlatformsLabel);
-            this.Controls.Add(this.newGamePublisherLabel);
-            this.Controls.Add(this.newGamePublisherTextBox);
             this.Controls.Add(this.newGameGenreLabel);
             this.Controls.Add(this.newGameDeveloperLabel);
             this.Controls.Add(this.newGameDeveloperTextBox);
@@ -212,8 +198,6 @@ namespace New_Media_Forms
         #endregion
 
         private System.Windows.Forms.Label newGamePlatformsLabel;
-        private System.Windows.Forms.Label newGamePublisherLabel;
-        private System.Windows.Forms.TextBox newGamePublisherTextBox;
         private System.Windows.Forms.Label newGameGenreLabel;
         private System.Windows.Forms.Label newGameDeveloperLabel;
         private System.Windows.Forms.TextBox newGameDeveloperTextBox;

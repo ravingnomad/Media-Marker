@@ -12,9 +12,6 @@ namespace MySql_Helper
 {
     public static class mysqlHelper
     {
-        /*static variables are maintained; always check if connString is null before each database connection;
-         for each interaction with the database, connect and close connection when interaction done; don't want to
-        leave it open!*/
         private static string connString;
         private enum MediaTypeNames
         {
@@ -68,13 +65,11 @@ namespace MySql_Helper
             {
                 //Add a new movie and its genre info to the database
                 string movieGenresString = String.Join(",", movieGenres);
-                var movieValues = new
-                {
-                    mediaTypeID = MediaTypeNames.Movie,
-                    movieTitle = movieTitle,
-                    director = director,
-                    movieGenresString = movieGenresString,
-                    mediaStatus = originTab
+                var movieValues = new {mediaTypeID = MediaTypeNames.Movie,
+                                       movieTitle = movieTitle,
+                                       director = director,
+                                       movieGenresString = movieGenresString,
+                                       mediaStatus = originTab
                 };
                 connection.Query("insert_movie", movieValues, commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -91,15 +86,13 @@ namespace MySql_Helper
             {
                 //Add a new show and its genre info to the database
                 string showGenresString = String.Join(",", showGenres);
-                var showValues = new
-                {
-                    mediaTypeID = MediaTypeNames.TV_Show,
-                    showTitle = newShowTitle,
-                    director = showDirector,
-                    seasons = seasons,
-                    episodes = episodes,
-                    showGenresString = showGenresString,
-                    mediaStatus = originTab
+                var showValues = new {mediaTypeID = MediaTypeNames.TV_Show,
+                                      showTitle = newShowTitle,
+                                      director = showDirector,
+                                      seasons = seasons,
+                                      episodes = episodes,
+                                      showGenresString = showGenresString,
+                                      mediaStatus = originTab
                 };
                 connection.Query("insert_show", showValues, commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -127,6 +120,12 @@ namespace MySql_Helper
 
                 connection.Query("insert_game", gameValues, commandType: System.Data.CommandType.StoredProcedure);
             }
+        }
+
+
+        public static void searchMedia(string mediaStatus, string mediaType, string selectedField, string searchQuery)
+        {
+
         }
     }
 }

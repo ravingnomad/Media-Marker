@@ -143,7 +143,17 @@ namespace Media_Marker
 
         private void possessedBookSearchButton_Click(object sender, EventArgs e)
         {
-            
+            //type if System.Windows.Forms.TabPage
+            //get tab page of database tab (whether it is 'possessed' or 'desired'
+            //get tab page of 'desired' or 'possessed' tab (whether it is a 'book', 'movie' 'show' or 'game')
+            string mediaStatusString = dataBaseTabs.SelectedTab.Text;
+            Console.WriteLine($"Status string: { mediaStatusString }");
+
+            string mediaTypeString = possessedMediaTabs.SelectedTab.Text;
+            Console.WriteLine($"Media type string: {mediaTypeString}");
+
+            string checkedButton = possessedBookRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            Console.WriteLine($"Media query category: { checkedButton}");
         }
     }
 }

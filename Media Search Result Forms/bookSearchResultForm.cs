@@ -26,48 +26,48 @@ namespace Media_Search_Result_Forms
             {
                 title = "Hunchback of Notre Dame",
                 author = "Victor Hugo",
-                genre = new List<string>() { "Suspense", "Historical Fiction", "Romance", "Comedy" },
-                pages = 590
+                //genre = new List<string>() { "Suspense", "Historical Fiction", "Romance", "Comedy" },
+                //pages = 590
             });
 
             testDataSource.Add(new Book()
             {
                 title = "Of Mice and men",
                 author = "John Steinbeck",
-                genre = new List<string>() { "Suspense", "Tragedy", "Drama", "Comedy" },
-                pages = 120
+                ///genre = new List<string>() { "Suspense", "Tragedy", "Drama", "Comedy" },
+                //pages = 120
             });
 
             testDataSource.Add(new Book()
             {
                 title = "Dante's Inferno",
                 author = "Dante Alighieri",
-                genre = new List<string>() { "Horror", "Poetry" },
-                pages = 170
+                //genre = new List<string>() { "Horror", "Poetry" },
+                //pages = 170
             });
 
             testDataSource.Add(new Book()
             {
                 title = "The Big Sleep",
                 author = "Raymond Chandler",
-                genre = new List<string>() { "Suspense", "Mystery", "Comedy" },
-                pages = 320
+                //genre = new List<string>() { "Suspense", "Mystery", "Comedy" },
+                //pages = 320
             });
 
             testDataSource.Add(new Book()
             {
                 title = "Lord of the Flies",
                 author = "William Golding",
-                genre = new List<string>() { "Suspense", "Action", "Horror", "Comedy" },
-                pages = 200
+                //genre = new List<string>() { "Suspense", "Action", "Horror", "Comedy" },
+                //pages = 200
             });
 
             testDataSource.Add(new Book()
             {
                 title = "War and Peace",
                 author = "Leo Tolstoy",
-                genre = new List<string>() { "Historical Fiction", "Romance", "Drama" },
-                pages = 1320
+                //genre = new List<string>() { "Historical Fiction", "Romance", "Drama" },
+                //pages = 1320
             });
         }
 

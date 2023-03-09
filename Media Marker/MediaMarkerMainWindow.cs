@@ -147,13 +147,16 @@ namespace Media_Marker
             //get tab page of database tab (whether it is 'possessed' or 'desired'
             //get tab page of 'desired' or 'possessed' tab (whether it is a 'book', 'movie' 'show' or 'game')
             string mediaStatusString = dataBaseTabs.SelectedTab.Text;
-            Console.WriteLine($"Status string: { mediaStatusString }");
+            Console.WriteLine($"Status string: {mediaStatusString}");
 
             string mediaTypeString = possessedMediaTabs.SelectedTab.Text;
-            Console.WriteLine($"Media type string: {mediaTypeString}");
 
+            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string checkedButton = possessedBookRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
-            Console.WriteLine($"Media query category: { checkedButton}");
+
+            string searchQuery = possessedBookSearchTextBox.Text;
+
+            mysqlHelper.searchMedia(mediaStatusString, mediaTypeString, checkedButton, searchQuery);
         }
     }
 }

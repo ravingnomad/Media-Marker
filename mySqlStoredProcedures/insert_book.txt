@@ -1,0 +1,20 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_book`(
+mediaTypeID INT,
+bookTitle VARCHAR(140), 
+author VARCHAR(140),
+bookGenresString VARCHAR(6555),
+mediaStatus VARCHAR(40))
+
+BEGIN
+	START TRANSACTION;
+    
+		INSERT INTO books(title, author)
+		VALUES(bookTitle, author);
+        SET @newBookID = (SELECT LAST_INSERT_ID());
+        
+		CALL insert_genre(mediaTypeID, @newBookID, bookGenresString);
+
+		CALL insert_media_piece(mediaTypeID, @newBookID, mediaStatus);
+        
+    COMMIT;
+END

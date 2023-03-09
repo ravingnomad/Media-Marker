@@ -1,0 +1,19 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_movie`(
+mediaTypeID INT,
+movieTitle VARCHAR(100), 
+director VARCHAR(100),
+movieGenresString VARCHAR(6555),
+mediaStatus VARCHAR(45))
+BEGIN
+	START TRANSACTION;
+    
+		INSERT INTO movies(title, director)
+		VALUES(movieTitle, director);
+        SET @newMovieID = (SELECT LAST_INSERT_ID());
+        
+		CALL insert_genre(mediaTypeID, @newMovieID, movieGenresString);
+
+		CALL insert_media_piece(mediaTypeID, @newMovieID, mediaStatus);
+        
+    COMMIT;
+END

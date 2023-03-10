@@ -4,26 +4,27 @@ searchField VARCHAR(100),
 searchQuery VARCHAR(6555)
 )
 BEGIN
-	IF searchField = "Title" THEN
+	CREATE TABLE temp AS
 		SELECT books.title, books.author, GROUP_CONCAT(genre_name) AS 'genres'
-        FROM books
-        
-        #Join with table that only has books that match the given bookStatus
-        JOIN (
+		FROM books
+		#Join with table that only has books that match the given bookStatus
+		JOIN (
 			SELECT media_id
 			FROM media_pieces
 			WHERE bookStatus = media_pieces.status AND media_type_id = 1) AS matchStatus
-		ON matchStatus.media_id = books.book_id
-        
-        #Join with table that has the genres of the previously specified books
-        JOIN (
+			ON matchStatus.media_id = books.book_id
+		#Join with table that has the genres of the previously specified books
+		JOIN (
 			SELECT genre_types.genre_name, media_genre.media_id, media_genre.media_type_id 
-            FROM genre_types, media_genre
+			FROM genre_types, media_genre
 			WHERE media_genre.genre_id = genre_types.genre_id) AS genre_table
-		ON books.book_id = genre_table.media_id
+			ON books.book_id = genre_table.media_id
+		GROUP BY books.title;
         
-        WHERE books.title LIKE CONCAT('%', searchQuery, '%')
-        GROUP BY books.title;
+	IF searchField = 'Title' THEN
+		SELECT * FROM temp WHERE temp.title LIKE CONCAT('%', searchQuery,'%');
+	ELSEIF searchField = 'Author' THEN
+		SELECT * FROM temp WHERE temp.author LIKE CONCAT('%', searchQuery,'%');
 	END IF;
-
+    DROP TABLE temp;
 END

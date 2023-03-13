@@ -22,9 +22,31 @@ BEGIN
 		GROUP BY books.title;
         
 	IF searchField = 'Title' THEN
-		SELECT * FROM temp WHERE temp.title LIKE CONCAT('%', searchQuery,'%');
+		SELECT * FROM temp WHERE temp.title LIKE CONCAT('%', searchQuery,'%') AND searchQuery != '';
+        
 	ELSEIF searchField = 'Author' THEN
-		SELECT * FROM temp WHERE temp.author LIKE CONCAT('%', searchQuery,'%');
+		SELECT * FROM temp WHERE temp.author LIKE CONCAT('%', searchQuery,'%') AND searchQuery != '';
+        
+	ELSEIF searchField = 'Genre' THEN
+		SET @genreQueryLength = LENGTH(searchQuery);
+        CREATE TABLE tempMatchedGenre(title TEXT, author TEXT, genres TEXT);
+			parseLoop: LOOP
+				#stip leading and trailing white spaces
+				SET @genreName = TRIM(SUBSTRING_INDEX(searchQuery, ',', 1));
+                SET @genreNameLength = LENGTH(@genreName);
+                
+				INSERT INTO tempMatchedGenre 
+                SELECT *
+                FROM temp
+                WHERE temp.genres LIKE CONCAT('%', @genreName, '%') AND @genreName != '';
+                
+                SET searchQuery = MID(searchQuery, @genreNameLength + 2, @genreQueryLength);
+                IF searchQuery IS NULL OR searchQuery = '' THEN
+					LEAVE parseLoop;
+				END IF;
+			END LOOP;
+            SELECT DISTINCT * FROM tempMatchedGenre;
+            DROP TABLE tempMatchedGenre;
 	END IF;
     DROP TABLE temp;
 END

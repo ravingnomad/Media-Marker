@@ -46,8 +46,12 @@ namespace New_Media_Forms
         {
             string showTitle = newShowTitleTextBox.Text;
             string directorName = newShowDirectorTextBox.Text;
-            int seasons = Int32.Parse(newShowSeasonTextBox.Text);
-            int episodes = Int32.Parse(newShowEpisodesTextBox.Text);
+            int seasons = 0;
+            int episodes = 0;
+            if (newShowSeasonTextBox.Text != "")
+                seasons = Int32.Parse(newShowSeasonTextBox.Text);
+            if (newShowEpisodesTextBox.Text != "")
+                episodes = Int32.Parse(newShowEpisodesTextBox.Text);
 
             var newShowGenres = showGenreListBox.CheckedItems;
 

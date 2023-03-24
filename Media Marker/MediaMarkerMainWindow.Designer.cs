@@ -200,6 +200,7 @@ namespace Media_Marker
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Delete"});
@@ -210,15 +211,19 @@ namespace Media_Marker
             // 
             // confirmActionButton
             // 
+            this.confirmActionButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.confirmActionButton.Location = new System.Drawing.Point(554, 523);
             this.confirmActionButton.Name = "confirmActionButton";
-            this.confirmActionButton.Size = new System.Drawing.Size(156, 24);
+            this.confirmActionButton.Size = new System.Drawing.Size(156, 34);
             this.confirmActionButton.TabIndex = 16;
             this.confirmActionButton.Text = "Confirm";
             this.confirmActionButton.UseVisualStyleBackColor = true;
             // 
             // possessedBookResultPanel
             // 
+            this.possessedBookResultPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.possessedBookResultPanel.Location = new System.Drawing.Point(6, 97);
             this.possessedBookResultPanel.Name = "possessedBookResultPanel";
             this.possessedBookResultPanel.Size = new System.Drawing.Size(805, 405);
@@ -300,6 +305,7 @@ namespace Media_Marker
             this.possessedMovieSearchButton.TabIndex = 6;
             this.possessedMovieSearchButton.Text = "Search";
             this.possessedMovieSearchButton.UseVisualStyleBackColor = true;
+            this.possessedMovieSearchButton.Click += new System.EventHandler(this.possessedMovieSearchButton_Click);
             // 
             // possessedMovieSearchTextBox
             // 

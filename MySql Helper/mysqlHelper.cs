@@ -123,7 +123,7 @@ namespace MySql_Helper
         }
 
 
-        public static void searchMedia(string mediaStatus, string mediaType, string selectedField, string searchQuery)
+        public static List<Book> searchMedia(string mediaStatus, string mediaType, string selectedField, string searchQuery)
         {
             if (connString == null)
             {
@@ -138,12 +138,13 @@ namespace MySql_Helper
                     searchQuery = searchQuery
                 };
                 List<Book> result = connection.Query<Book>("search_book", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                //List<Movie> result = connection.Query<Movie>("search_movie", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 
-                foreach (Book book in result)
+                /*foreach (Book book in result)
                 {
                     Console.WriteLine(book.fullString);
-                }
-                
+                }*/
+                return result;
             }
         }
     }

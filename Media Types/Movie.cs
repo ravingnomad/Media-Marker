@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace Media_Types
 {
-    class Movie
+    public class Movie
     {
-       
+        public string title { get; set; }
+        public string director { get; set; }
+        public string genres { get; set; }
+
+        public string fullString { get { return $" { title }  : { director } GENRES: {genres}"; } }
     }
 }

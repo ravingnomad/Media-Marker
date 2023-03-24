@@ -10,8 +10,22 @@ namespace Media_Types
     {
         public string title { get; set; }
         public string author { get; set; }
-        public string genres { get; set; }
 
-        public string fullString { get { return $" { title }  : { author } GENRES: {genres}"; } }
+        private string _genres;
+        public string genres { 
+            get
+            {
+                return _genres;
+            }
+
+            set
+            {
+                StringBuilder sb = new StringBuilder(value);
+                sb.Replace(',', '\n');
+                _genres = sb.ToString();
+            }
+        }
+
+        //public string fullString { get { return $" { title }  : { author } GENRES: {genres}"; } }
     }
 }

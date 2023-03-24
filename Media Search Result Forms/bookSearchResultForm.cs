@@ -13,16 +13,35 @@ namespace Media_Search_Result_Forms
 {
     public partial class bookSearchResultForm : Form
     {
-        private List<Book> testDataSource = new List<Book>();
+        private List<Book> dataSource = new List<Book>();
         public bookSearchResultForm()
         {
             GetExampleBookData();
             InitializeComponent();
+            
+        }
+
+        public void loadSearchResults(List<Book> results)
+        {
+            bookDataGridView.DataSource = results;
+            DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn(); 
+            //buttonCol.Name = "buttonSelectColumn";
+            bookDataGridView.Columns.Add(buttonCol);
+            bookDataGridView.Columns["title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            bookDataGridView.Columns["author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            bookDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //bookDataGridView.Columns["genres"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            //bookDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            //bookDataGridView.Dock = DockStyle.Fill;
+            //bookDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //bookDataGridView.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //bookDataGridView.Refresh();
         }
 
         private void GetExampleBookData()
         {
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "Hunchback of Notre Dame",
                 author = "Victor Hugo",
@@ -30,7 +49,7 @@ namespace Media_Search_Result_Forms
                 //pages = 590
             });
 
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "Of Mice and men",
                 author = "John Steinbeck",
@@ -38,7 +57,7 @@ namespace Media_Search_Result_Forms
                 //pages = 120
             });
 
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "Dante's Inferno",
                 author = "Dante Alighieri",
@@ -46,7 +65,7 @@ namespace Media_Search_Result_Forms
                 //pages = 170
             });
 
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "The Big Sleep",
                 author = "Raymond Chandler",
@@ -54,7 +73,7 @@ namespace Media_Search_Result_Forms
                 //pages = 320
             });
 
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "Lord of the Flies",
                 author = "William Golding",
@@ -62,7 +81,7 @@ namespace Media_Search_Result_Forms
                 //pages = 200
             });
 
-            testDataSource.Add(new Book()
+            dataSource.Add(new Book()
             {
                 title = "War and Peace",
                 author = "Leo Tolstoy",
@@ -81,10 +100,10 @@ namespace Media_Search_Result_Forms
             ///method of creating and adding a column of buttons to the DataGridView came from 
             ///http://csharp.net-informations.com/datagridview/csharp-datagridview-button.htm
             
-            bookDataGridView.DataSource = testDataSource;
-            DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn();
-            bookDataGridView.Columns.Add(buttonCol);
-            buttonCol.Name = "buttonSelectColumn";
+            bookDataGridView.DataSource = dataSource;
+            //DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn();
+            //bookDataGridView.Columns.Add(buttonCol);
+            //buttonCol.Name = "buttonSelectColumn";
         }
     }
 }

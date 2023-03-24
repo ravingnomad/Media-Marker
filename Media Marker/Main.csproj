@@ -103,6 +103,10 @@
       <Project>{11d23f53-13f3-4aa0-8c7b-bc5af8cab5c7}</Project>
       <Name>Media Search Result Forms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Media Types\Media Types.csproj">
+      <Project>{80F0B906-B6D2-47A6-B6F4-C7B07E774B6E}</Project>
+      <Name>Media Types</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
       <Project>{7edd91a7-7ae5-45c9-b662-11790209b24a}</Project>
       <Name>MySql Helper</Name>

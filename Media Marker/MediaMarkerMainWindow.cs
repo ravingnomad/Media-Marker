@@ -183,5 +183,17 @@ namespace Media_Marker
             List<Book> searchResults = mysqlHelper.searchMedia(mediaStatusString, mediaTypeString, checkedButton, searchQuery);
             
         }
+
+        private void possessedBookListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Book> listAllResult = mysqlHelper.listAllBooks("Possessed Book");
+            testForm.loadNewInfo(listAllResult);
+            possessedBookResultPanel.Controls.Clear();
+            testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            testForm.Dock = DockStyle.Fill;
+            testForm.TopLevel = false;
+            possessedBookResultPanel.Controls.Add(testForm);
+            testForm.Show();
+        }
     }
 }

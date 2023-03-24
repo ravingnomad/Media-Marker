@@ -147,5 +147,21 @@ namespace MySql_Helper
                 return result;
             }
         }
+
+        public static List<Book> listAllBooks(string identifierStr)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { identifierString = identifierStr };
+
+                List<Book> result = connection.Query<Book>("list_all_books", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
     }
 }

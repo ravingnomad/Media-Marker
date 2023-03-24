@@ -1,0 +1,27 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `list_all_books`(
+identifierString TEXT)
+BEGIN
+		CREATE TABLE tempMatchedStatus AS
+		SELECT status, books.title, books.author, GROUP_CONCAT(genre_name) AS 'genres'
+		FROM books
+		#Join with table that only has books that match the given movieStatus
+		JOIN (
+			SELECT media_id, status
+			FROM media_pieces
+			WHERE media_type_id = 1) AS matchStatus
+			ON matchStatus.media_id = books.book_id
+		#Join with table that has the genres of the previously specified movies
+		JOIN (
+			SELECT genre_types.genre_name, media_genre.media_id, media_genre.media_type_id 
+			FROM genre_types, media_genre
+			WHERE media_genre.genre_id = genre_types.genre_id) AS genre_table
+			ON books.book_id = genre_table.media_id
+		GROUP BY books.title;
+        
+	IF identifierString = "Possessed Book" THEN
+		SELECT * 
+        FROM tempMatchedStatus
+        WHERE status = "Possessed Media";
+	END IF;
+	DROP TABLE tempMatchedStatus;
+END

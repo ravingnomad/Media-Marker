@@ -105,5 +105,10 @@ namespace Media_Search_Result_Forms
             //bookDataGridView.Columns.Add(buttonCol);
             //buttonCol.Name = "buttonSelectColumn";
         }
+
+        public void loadNewInfo(List<Book> newData)
+        {
+            bookDataGridView.DataSource = newData;
+        }
     }
 }

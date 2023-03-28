@@ -24,12 +24,15 @@ namespace Media_Search_Result_Forms
         public void loadSearchResults(List<Book> results)
         {
             bookDataGridView.DataSource = results;
-            DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn(); 
-            //buttonCol.Name = "buttonSelectColumn";
-            bookDataGridView.Columns.Add(buttonCol);
+            if (bookDataGridView.Columns.Contains("Select") == false)
+            {
+                DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn();
+                buttonCol.Name = "Select";
+                bookDataGridView.Columns.Add(buttonCol);
+            }
             bookDataGridView.Columns["title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             bookDataGridView.Columns["author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            bookDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //bookDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //bookDataGridView.Columns["genres"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             //bookDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -109,6 +112,12 @@ namespace Media_Search_Result_Forms
         public void loadNewInfo(List<Book> newData)
         {
             bookDataGridView.DataSource = newData;
+            if (bookDataGridView.Columns.Contains("Select") == false)
+            {
+                DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn();
+                buttonCol.Name = "Select";
+                bookDataGridView.Columns.Add(buttonCol);
+            }
         }
     }
 }

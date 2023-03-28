@@ -262,6 +262,7 @@ namespace Media_Marker
             this.confirmActionButton.TabIndex = 16;
             this.confirmActionButton.Text = "Confirm";
             this.confirmActionButton.UseVisualStyleBackColor = true;
+            this.confirmActionButton.Click += new System.EventHandler(this.confirmActionButton_Click);
             // 
             // possessedBookResultPanel
             // 

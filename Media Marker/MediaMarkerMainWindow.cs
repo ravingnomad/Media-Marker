@@ -195,5 +195,24 @@ namespace Media_Marker
             possessedBookResultPanel.Controls.Add(testForm);
             testForm.Show();
         }
+
+        //have id displayed so easier to grab the primary key?
+        //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
+        private void confirmActionButton_Click(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
+            foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                {
+                    checkedValues.Add(row);
+                }
+            }
+
+            foreach (DataGridViewRow row in checkedValues)
+            {
+                Console.WriteLine(row.Cells["title"].Value);
+            }
+        }
     }
 }

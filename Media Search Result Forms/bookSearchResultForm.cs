@@ -16,7 +16,7 @@ namespace Media_Search_Result_Forms
         private List<Book> dataSource = new List<Book>();
         public bookSearchResultForm()
         {
-            GetExampleBookData();
+            //GetExampleBookData();
             InitializeComponent();
             
         }

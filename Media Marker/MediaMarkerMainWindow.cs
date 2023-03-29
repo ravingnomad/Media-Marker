@@ -208,7 +208,13 @@ namespace Media_Marker
                     checkedValues.Add(row);
                 }
             }
+            //might have to add media_type_id to all media tables (books, games, movies, shows) in order for child tables to refer to them
+            //and for on delete cascade to work properly
 
+            //get the currently selected action in actionDropDownBox
+            Console.WriteLine(actionDropDownBox.Text);
+
+            //apply action to all selected rows
             foreach (DataGridViewRow row in checkedValues)
             {
                 Console.WriteLine(row.Cells["title"].Value);

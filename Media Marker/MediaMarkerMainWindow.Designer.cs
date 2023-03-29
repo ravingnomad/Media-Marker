@@ -37,7 +37,7 @@ namespace Media_Marker
             this.possessedBookTitleRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedBookGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.actionDropDownBox = new System.Windows.Forms.ComboBox();
             this.confirmActionButton = new System.Windows.Forms.Button();
             this.possessedBookResultPanel = new System.Windows.Forms.Panel();
             this.possessedBookListAllButton = new System.Windows.Forms.Button();
@@ -183,7 +183,7 @@ namespace Media_Marker
             // possessedBooksTabPage
             // 
             this.possessedBooksTabPage.Controls.Add(this.possessedBookRadioGroupBox);
-            this.possessedBooksTabPage.Controls.Add(this.comboBox1);
+            this.possessedBooksTabPage.Controls.Add(this.actionDropDownBox);
             this.possessedBooksTabPage.Controls.Add(this.confirmActionButton);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookResultPanel);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookListAllButton);
@@ -242,16 +242,16 @@ namespace Media_Marker
             this.possessedBookGenreRadioButton.Text = "Genre";
             this.possessedBookGenreRadioButton.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // actionDropDownBox
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.actionDropDownBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.actionDropDownBox.FormattingEnabled = true;
+            this.actionDropDownBox.Items.AddRange(new object[] {
             "Delete"});
-            this.comboBox1.Location = new System.Drawing.Point(314, 523);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(234, 24);
-            this.comboBox1.TabIndex = 17;
+            this.actionDropDownBox.Location = new System.Drawing.Point(314, 523);
+            this.actionDropDownBox.Name = "actionDropDownBox";
+            this.actionDropDownBox.Size = new System.Drawing.Size(234, 24);
+            this.actionDropDownBox.TabIndex = 17;
             // 
             // confirmActionButton
             // 
@@ -1225,7 +1225,7 @@ namespace Media_Marker
         private System.Windows.Forms.Button desiredBookSearchButton;
         private System.Windows.Forms.TextBox desiredButtonSearchTextBox;
         private System.Windows.Forms.TabPage possessedBooksTabPage;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox actionDropDownBox;
         private System.Windows.Forms.Button confirmActionButton;
         private System.Windows.Forms.Panel possessedBookResultPanel;
         private System.Windows.Forms.Button possessedBookListAllButton;

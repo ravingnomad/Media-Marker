@@ -200,25 +200,31 @@ namespace Media_Marker
         //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
         private void confirmActionButton_Click(object sender, EventArgs e)
         {
-            List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
-            foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
+            if (actionDropDownBox.Text == "Delete")
             {
-                if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
+                foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
                 {
-                    checkedValues.Add(row);
+                    if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                    {
+                        checkedValues.Add(row);
+                    }
                 }
-            }
-            //might have to add media_type_id to all media tables (books, games, movies, shows) in order for child tables to refer to them
-            //and for on delete cascade to work properly
+                //might have to add media_type_id to all media tables (books, games, movies, shows) in order for child tables to refer to them
+                //and for on delete cascade to work properly
 
-            //get the currently selected action in actionDropDownBox
-            Console.WriteLine(actionDropDownBox.Text);
+                //get the currently selected action in actionDropDownBox
+                
 
-            //apply action to all selected rows
-            foreach (DataGridViewRow row in checkedValues)
-            {
-                Console.WriteLine(row.Cells["title"].Value);
+                List<int> chosenBooks = new List<int>();
+                //apply action to all selected rows
+                foreach (DataGridViewRow row in checkedValues)
+                {
+                    chosenBooks.Add((int)row.Cells["book_id"].Value);
+                }
+                mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
             }
+
         }
     }
 }

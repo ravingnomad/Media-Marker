@@ -163,5 +163,23 @@ namespace MySql_Helper
                 return result;
             }
         }
+
+        public static void deleteBooks(List<int> bookIDs, string bookStatus)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                foreach (int id in bookIDs)
+                {
+                    Console.WriteLine($"Delete book id {id}");
+                    var values = new { bookID = id, bookStatus = bookStatus };
+                    connection.Query("delete_book", values, commandType: System.Data.CommandType.StoredProcedure);
+                }
+            }
+        }
     }
 }

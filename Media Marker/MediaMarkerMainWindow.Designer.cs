@@ -247,7 +247,9 @@ namespace Media_Marker
             this.actionDropDownBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.actionDropDownBox.FormattingEnabled = true;
             this.actionDropDownBox.Items.AddRange(new object[] {
-            "Delete"});
+            "Delete",
+            "Move to \"Desired\" media",
+            "Move to \"Possessed\" media"});
             this.actionDropDownBox.Location = new System.Drawing.Point(314, 523);
             this.actionDropDownBox.Name = "actionDropDownBox";
             this.actionDropDownBox.Size = new System.Drawing.Size(234, 24);

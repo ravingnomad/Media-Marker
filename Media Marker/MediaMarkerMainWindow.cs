@@ -194,22 +194,28 @@ namespace Media_Marker
             testForm.TopLevel = false;
             possessedBookResultPanel.Controls.Add(testForm);
             testForm.Show();
+            //mysqlHelper.lastProcedure = mysqlHelper.listAllBooks;
         }
 
-        //have id displayed so easier to grab the primary key?
+
         //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
+        //clicking "confirm" should refresh the screen and show the update data table
+        //'refreshing' should mean either completely clearing the results screen (doesn't seem favorable; or just listing all media in
+        //that tab (more preferable); this is because trying to store the previous method call and all its arguments seeems hard to do
+        //with how delegates and func<> is designed (they don't seem to work very well with dynamic number of parameters)
+        //OR find and delete the element in the 'datasource'
         private void confirmActionButton_Click(object sender, EventArgs e)
         {
+            List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
+            foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
+                {
+                    checkedValues.Add(row);
+                }
+            }
             if (actionDropDownBox.Text == "Delete")
             {
-                List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
-                foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
-                {
-                    if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
-                    {
-                        checkedValues.Add(row);
-                    }
-                }
                 //might have to add media_type_id to all media tables (books, games, movies, shows) in order for child tables to refer to them
                 //and for on delete cascade to work properly
 
@@ -222,9 +228,28 @@ namespace Media_Marker
                 {
                     chosenBooks.Add((int)row.Cells["book_id"].Value);
                 }
-                mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
+                //mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
+                testForm.deleteFromDataSource(checkedValues);
+                possessedBookResultPanel.Controls.Clear();
+                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                testForm.Dock = DockStyle.Fill;
+                testForm.TopLevel = false;
+                possessedBookResultPanel.Controls.Add(testForm);
+                testForm.Show();
             }
 
+            else if (actionDropDownBox.Text == "Move to \"Desired\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
+            {
+                Console.WriteLine("Move to desired table!");
+            }
+
+            else if (actionDropDownBox.Text == "Move to \"Possessed\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
+            {
+                Console.WriteLine("Move to possessed table!");
+            }
         }
+
+
+
     }
 }

@@ -13,6 +13,8 @@ namespace MySql_Helper
     public static class mysqlHelper
     {
         private static string connString;
+
+
         private enum MediaTypeNames
         {
             Book = 1,
@@ -138,12 +140,6 @@ namespace MySql_Helper
                     searchQuery = searchQuery
                 };
                 List<Book> result = connection.Query<Book>("search_book", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
-                //List<Movie> result = connection.Query<Movie>("search_movie", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
-                
-                /*foreach (Book book in result)
-                {
-                    Console.WriteLine(book.fullString);
-                }*/
                 return result;
             }
         }

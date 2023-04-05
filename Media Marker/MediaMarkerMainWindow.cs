@@ -199,11 +199,6 @@ namespace Media_Marker
 
 
         //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
-        //clicking "confirm" should refresh the screen and show the update data table
-        //'refreshing' should mean either completely clearing the results screen (doesn't seem favorable; or just listing all media in
-        //that tab (more preferable); this is because trying to store the previous method call and all its arguments seeems hard to do
-        //with how delegates and func<> is designed (they don't seem to work very well with dynamic number of parameters)
-        //OR find and delete the element in the 'datasource'
         private void confirmActionButton_Click(object sender, EventArgs e)
         {
             List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
@@ -216,14 +211,8 @@ namespace Media_Marker
             }
             if (actionDropDownBox.Text == "Delete")
             {
-                //might have to add media_type_id to all media tables (books, games, movies, shows) in order for child tables to refer to them
-                //and for on delete cascade to work properly
-
-                //get the currently selected action in actionDropDownBox
-                
 
                 List<int> chosenBooks = new List<int>();
-                //apply action to all selected rows
                 foreach (DataGridViewRow row in checkedValues)
                 {
                     chosenBooks.Add((int)row.Cells["book_id"].Value);
@@ -240,11 +229,41 @@ namespace Media_Marker
 
             else if (actionDropDownBox.Text == "Move to \"Desired\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
             {
+                foreach (DataGridViewRow row in checkedValues)
+                {
+                    //change this value in database
+                    int bookID = (int)row.Cells["book_id"].Value;
+                    Console.WriteLine(bookID);
+                    mysqlHelper.changeMediaStatus(mysqlHelper.MediaTypeNames.Book, bookID, "Desired Media");
+                    //delete this value in current datasource
+                }
+                testForm.deleteFromDataSource(checkedValues);
+                possessedBookResultPanel.Controls.Clear();
+                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                testForm.Dock = DockStyle.Fill;
+                testForm.TopLevel = false;
+                possessedBookResultPanel.Controls.Add(testForm);
+                testForm.Show();
                 Console.WriteLine("Move to desired table!");
             }
 
-            else if (actionDropDownBox.Text == "Move to \"Possessed\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
+            else if (actionDropDownBox.Text == "Move to \"Possessed\" media" && dataBaseTabs.SelectedTab.Text == "Desired Media")
             {
+                foreach (DataGridViewRow row in checkedValues)
+                {
+                    //change this value in database
+                    int bookID = (int)row.Cells["book_id"].Value;
+                    Console.WriteLine(bookID);
+                    mysqlHelper.changeMediaStatus(mysqlHelper.MediaTypeNames.Book, bookID, "Possessed Media");
+                    //delete this value in current datasource
+                }
+                testForm.deleteFromDataSource(checkedValues);
+                possessedBookResultPanel.Controls.Clear();
+                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                testForm.Dock = DockStyle.Fill;
+                testForm.TopLevel = false;
+                possessedBookResultPanel.Controls.Add(testForm);
+                testForm.Show();
                 Console.WriteLine("Move to possessed table!");
             }
         }

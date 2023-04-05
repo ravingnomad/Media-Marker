@@ -14,8 +14,8 @@ namespace MySql_Helper
     {
         private static string connString;
 
-
-        private enum MediaTypeNames
+        //make this own separate public library so other codes can access it
+        public enum MediaTypeNames
         {
             Book = 1,
             Video_Game = 2,
@@ -175,6 +175,21 @@ namespace MySql_Helper
                     var values = new { bookID = id, bookStatus = bookStatus };
                     connection.Query("delete_book", values, commandType: System.Data.CommandType.StoredProcedure);
                 }
+            }
+        }
+
+
+        public static void changeMediaStatus(MediaTypeNames mediaTypeID, int mediaID, string status)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { mediaTypeID = mediaTypeID, mediaID = mediaID, newStatus = status };
+                connection.Query("change_media_status", values, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
     }

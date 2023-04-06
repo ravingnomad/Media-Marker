@@ -194,7 +194,6 @@ namespace Media_Marker
             testForm.TopLevel = false;
             possessedBookResultPanel.Controls.Add(testForm);
             testForm.Show();
-            //mysqlHelper.lastProcedure = mysqlHelper.listAllBooks;
         }
 
 
@@ -265,6 +264,20 @@ namespace Media_Marker
                 possessedBookResultPanel.Controls.Add(testForm);
                 testForm.Show();
                 Console.WriteLine("Move to possessed table!");
+            }
+
+            else if (actionDropDownBox.Text == "Edit")
+            {
+                if (checkedValues.Count > 1)
+                {
+                    Console.WriteLine("ERROR: Only one media piece can be edited at a time!");
+                }
+
+                else
+                {
+                    DataGridViewRow selectedPiece = checkedValues[0];
+                    Console.WriteLine($"Selected piece to edit: { selectedPiece.Cells["book_id"].Value }    {selectedPiece.Cells["title"].Value }   {selectedPiece.Cells["author"].Value }");
+                }
             }
         }
 

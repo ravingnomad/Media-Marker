@@ -83,5 +83,15 @@
       <DependentUpon>showEditForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Media Search Result Forms\Media Search Result Forms.csproj">
+      <Project>{11d23f53-13f3-4aa0-8c7b-bc5af8cab5c7}</Project>
+      <Name>Media Search Result Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Media Types\Media Types.csproj">
+      <Project>{80f0b906-b6d2-47a6-b6f4-c7b07e774b6e}</Project>
+      <Name>Media Types</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

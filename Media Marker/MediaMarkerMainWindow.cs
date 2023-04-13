@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql_Helper;
 using Media_Types;
+using Media_Edit_Forms;
 
 namespace Media_Marker
 {
@@ -266,6 +267,12 @@ namespace Media_Marker
                 Console.WriteLine("Move to possessed table!");
             }
 
+            //to prevent user from being able to open multiple forms, look into making these forms a 'singleton'
+            //https://stackoverflow.com/questions/2018272/preventing-multiple-instance-of-one-form-from-displaying
+            //above reference might help
+
+            //how would you have the edit window know which genre to make a check mark at? furthermore, how would you save the newly edited
+            //info?
             else if (actionDropDownBox.Text == "Edit")
             {
                 if (checkedValues.Count > 1)
@@ -277,6 +284,11 @@ namespace Media_Marker
                 {
                     DataGridViewRow selectedPiece = checkedValues[0];
                     Console.WriteLine($"Selected piece to edit: { selectedPiece.Cells["book_id"].Value }    {selectedPiece.Cells["title"].Value }   {selectedPiece.Cells["author"].Value }");
+                    //call mysql function to get book(or other media info) and use that to pass into the edit form
+                    Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
+                    //Console.WriteLine(selectedBook.fullString);
+                    bookEditForm editForm = new bookEditForm(selectedBook);
+                    editForm.Show();
                 }
             }
         }

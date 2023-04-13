@@ -144,13 +144,26 @@ namespace MySql_Helper
             }
         }
 
+        public static Book getBook(int bookID)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var value = new {bookID = bookID};
+                Book result = connection.Query<Book>("get_book", value, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                return result;
+            }
+        }
+
         public static List<Book> listAllBooks(string identifierStr)
         {
             if (connString == null)
             {
                 loadConnString();
             }
-
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 var values = new { identifierString = identifierStr };
@@ -159,6 +172,7 @@ namespace MySql_Helper
                 return result;
             }
         }
+
 
         public static void deleteBooks(List<int> bookIDs, string bookStatus)
         {

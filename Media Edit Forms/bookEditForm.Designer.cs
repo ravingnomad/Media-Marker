@@ -144,7 +144,7 @@ namespace Media_Edit_Forms
             this.Controls.Add(this.bookEditAuthorTextBox);
             this.Controls.Add(this.bookEditTitleLabel);
             this.Controls.Add(this.bookEditTitleTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "bookEditForm";
             this.Text = "bookEditForm";
             this.ResumeLayout(false);

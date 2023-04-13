@@ -27,6 +27,6 @@ namespace Media_Types
             }
         }
 
-        //public string fullString { get { return $" { title }  : { author } GENRES: {genres}"; } }
+        public string fullString { get { return $" {book_id}   { title }  : { author } GENRES: {_genres}"; } }
     }
 }

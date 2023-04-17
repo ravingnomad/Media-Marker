@@ -77,6 +77,7 @@ namespace Media_Edit_Forms
             this.bookEditSaveButton.TabIndex = 15;
             this.bookEditSaveButton.Text = "Save";
             this.bookEditSaveButton.UseVisualStyleBackColor = true;
+            this.bookEditSaveButton.Click += new System.EventHandler(this.bookEditSaveButton_Click);
             // 
             // bookEditGenreLabel
             // 

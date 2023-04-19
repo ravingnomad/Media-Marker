@@ -1,0 +1,9 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `change_book_title`(
+book_id INT,
+title TEXT
+)
+BEGIN
+	UPDATE books
+    SET books.title = title
+    WHERE books.book_id = book_id;
+END

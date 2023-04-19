@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Media_Types;
+using MySql_Helper;
 
 namespace Media_Edit_Forms
 {
@@ -29,7 +30,7 @@ namespace Media_Edit_Forms
         //5.) iff changes were made, use the row's media id to pull that same info from the database and populate that row in
         ////main form with the new data; this way data is present on the same page and user will (hopefully) not be lost/confused
         //
-
+        private int bookID;
         private string originalTitle;
         private string originalAuthor;
         private HashSet<string> originalGenres;
@@ -38,6 +39,7 @@ namespace Media_Edit_Forms
         {
             InitializeComponent();
             //used to check if change was made in any of these fields
+            bookID = selectedBook.book_id;
             originalTitle = selectedBook.title;
             originalAuthor = selectedBook.author;
             originalGenres = new HashSet<string> (selectedBook.genres.Split('\n').ToList());
@@ -69,16 +71,26 @@ namespace Media_Edit_Forms
             if (bookEditTitleTextBox.Text != originalTitle)
             {
                 Console.WriteLine("The user changed the title!");
+                mysqlHelper.changeBookTitle(bookID, bookEditTitleTextBox.Text);
             }
 
             else if (bookEditAuthorTextBox.Text != originalAuthor)
             {
                 Console.WriteLine("The user changed the author!");
+                mysqlHelper.changeBookAuthor(bookID, bookEditAuthorTextBox.Text);
             }
 
             else if (genresChanged())
             {
                 Console.WriteLine("The user changed the genre(s)");
+                List<string> genreList = new List<string>();
+                foreach (string genre in bookEditGenreListBox.CheckedItems)
+                {
+                    genreList.Add(genre);
+                }
+
+                string newGenresString = String.Join(",", genreList);
+                mysqlHelper.changeBookGenres(bookID, newGenresString);
             }
         }
 

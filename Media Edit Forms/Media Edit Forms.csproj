@@ -92,6 +92,10 @@
       <Project>{80f0b906-b6d2-47a6-b6f4-c7b07e774b6e}</Project>
       <Name>Media Types</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
+      <Project>{7EDD91A7-7AE5-45C9-B662-11790209B24A}</Project>
+      <Name>MySql Helper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

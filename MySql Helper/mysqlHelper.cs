@@ -206,5 +206,47 @@ namespace MySql_Helper
                 connection.Query("change_media_status", values, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public static void changeBookTitle(int bookID, string newTitle)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { book_id = bookID, title = newTitle };
+                connection.Query("change_book_title", values, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public static void changeBookAuthor(int bookID, string newAuthor)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { book_id = bookID, author = newAuthor };
+                connection.Query("change_book_author", values, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public static void changeBookGenres(int bookID, string newGenres)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { book_id = bookID, genres = newGenres };
+                connection.Query("change_book_genre", values, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }

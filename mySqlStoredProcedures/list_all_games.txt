@@ -1,0 +1,39 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `list_all_games`(
+identifierString TEXT)
+BEGIN
+START TRANSACTION;
+
+		CREATE TABLE tempMatchedStatus AS
+		SELECT status, video_games.video_game_id, video_games.title, video_games.developer, 
+					   GROUP_CONCAT(genre_name) AS 'genres', GROUP_CONCAT(platform_name) AS 'platforms'
+		FROM video_games
+		#Join with table that only has games that match the given bookStatus
+		JOIN (
+			SELECT media_id, status
+			FROM media_pieces
+			WHERE media_type_id = 2) AS matchStatus
+			ON matchStatus.media_id = video_games.video_game_id
+		#Join with table that has the supported platform of the specified game
+        JOIN (
+			SELECT game_platforms.platform_id, game_platforms.platform_name, supported_game_platforms.game_id
+            FROM game_platforms, supported_game_platforms
+            WHERE game_platforms.platform_id = supported_game_platforms.platform_id) AS platformNames
+		ON platformNames.game_id = video_games.video_game_id
+
+		#Join with table that has the genres of the previously specified game
+		JOIN (
+			SELECT genre_types.genre_name, media_genre.media_id, media_genre.media_type_id 
+			FROM genre_types, media_genre
+			WHERE media_genre.genre_id = genre_types.genre_id) AS genre_table
+		ON matchStatus.media_id = genre_table.media_id AND genre_table.media_type_id = 2
+		GROUP BY video_games.title;
+        
+	IF identifierString = "Possessed Game" THEN
+		SELECT * 
+        FROM tempMatchedStatus
+        WHERE status = "Possessed Media";
+	END IF;
+	DROP TABLE tempMatchedStatus;
+    
+COMMIT;
+END

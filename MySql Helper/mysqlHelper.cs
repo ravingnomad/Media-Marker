@@ -173,6 +173,51 @@ namespace MySql_Helper
             }
         }
 
+        public static List<Game> listAllGames(string identifierStr)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { identifierString = identifierStr };
+
+                List<Game> result = connection.Query<Game>("list_all_games", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+        public static List<Movie> listAllMovies(string identifierStr)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { identifierString = identifierStr };
+
+                List<Movie> result = connection.Query<Movie>("list_all_movies", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+        public static List<Show> listAllShows(string identifierStr)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new { identifierString = identifierStr };
+                Console.WriteLine("Clicked in possessed show");
+                List<Show> result = connection.Query<Show>("list_all_shows", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
 
         public static void deleteBooks(List<int> bookIDs, string bookStatus)
         {

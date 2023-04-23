@@ -37,14 +37,13 @@ namespace Media_Marker
             this.possessedBookTitleRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedBookGenreRadioButton = new System.Windows.Forms.RadioButton();
-            this.actionDropDownBox = new System.Windows.Forms.ComboBox();
-            this.confirmActionButton = new System.Windows.Forms.Button();
             this.possessedBookResultPanel = new System.Windows.Forms.Panel();
             this.possessedBookListAllButton = new System.Windows.Forms.Button();
             this.possessedBookClearButon = new System.Windows.Forms.Button();
             this.possessedBookSearchButton = new System.Windows.Forms.Button();
             this.possessedBookSearchTextBox = new System.Windows.Forms.TextBox();
             this.possessedMoviesTabPage = new System.Windows.Forms.TabPage();
+            this.possessedMovieResultPanel = new System.Windows.Forms.Panel();
             this.possessedMoviesRadioGroupBox = new System.Windows.Forms.GroupBox();
             this.possessedMovieTitleRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedMovieDirectorRadioButton = new System.Windows.Forms.RadioButton();
@@ -54,6 +53,7 @@ namespace Media_Marker
             this.possessedMovieSearchButton = new System.Windows.Forms.Button();
             this.possessedMovieSearchTextBox = new System.Windows.Forms.TextBox();
             this.possessedShowsTabPage = new System.Windows.Forms.TabPage();
+            this.possessedShowResultPanel = new System.Windows.Forms.Panel();
             this.possessedShowsRadioGroupBox = new System.Windows.Forms.GroupBox();
             this.possessedShowTitleRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedShowDirectorRadioButton = new System.Windows.Forms.RadioButton();
@@ -63,6 +63,7 @@ namespace Media_Marker
             this.possessedShowSearchButton = new System.Windows.Forms.Button();
             this.possessedShowSearchTextBox = new System.Windows.Forms.TextBox();
             this.possessedGamesTabPage = new System.Windows.Forms.TabPage();
+            this.possessedGameResultPanel = new System.Windows.Forms.Panel();
             this.possessedGamesRadioGroupBox = new System.Windows.Forms.GroupBox();
             this.possessedGamePlatformRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedGameTitleRadioButton = new System.Windows.Forms.RadioButton();
@@ -78,6 +79,8 @@ namespace Media_Marker
             this.newPossessedShowRadioButton = new System.Windows.Forms.RadioButton();
             this.newPossessedMovieRadioButton = new System.Windows.Forms.RadioButton();
             this.newPossessedBookRadioButton = new System.Windows.Forms.RadioButton();
+            this.actionDropDownBox = new System.Windows.Forms.ComboBox();
+            this.confirmActionButton = new System.Windows.Forms.Button();
             this.desiredMediaTabPage = new System.Windows.Forms.TabPage();
             this.desiredMediaTabs = new System.Windows.Forms.TabControl();
             this.desiredBooksTabPage = new System.Windows.Forms.TabPage();
@@ -156,6 +159,8 @@ namespace Media_Marker
             // possessedMediaTabPage
             // 
             this.possessedMediaTabPage.Controls.Add(this.possessedMediaTabs);
+            this.possessedMediaTabPage.Controls.Add(this.actionDropDownBox);
+            this.possessedMediaTabPage.Controls.Add(this.confirmActionButton);
             this.possessedMediaTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedMediaTabPage.Name = "possessedMediaTabPage";
             this.possessedMediaTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -177,14 +182,12 @@ namespace Media_Marker
             this.possessedMediaTabs.Location = new System.Drawing.Point(0, 0);
             this.possessedMediaTabs.Name = "possessedMediaTabs";
             this.possessedMediaTabs.SelectedIndex = 0;
-            this.possessedMediaTabs.Size = new System.Drawing.Size(825, 620);
+            this.possessedMediaTabs.Size = new System.Drawing.Size(825, 557);
             this.possessedMediaTabs.TabIndex = 0;
             // 
             // possessedBooksTabPage
             // 
             this.possessedBooksTabPage.Controls.Add(this.possessedBookRadioGroupBox);
-            this.possessedBooksTabPage.Controls.Add(this.actionDropDownBox);
-            this.possessedBooksTabPage.Controls.Add(this.confirmActionButton);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookResultPanel);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookListAllButton);
             this.possessedBooksTabPage.Controls.Add(this.possessedBookClearButon);
@@ -193,7 +196,7 @@ namespace Media_Marker
             this.possessedBooksTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedBooksTabPage.Name = "possessedBooksTabPage";
             this.possessedBooksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.possessedBooksTabPage.Size = new System.Drawing.Size(817, 591);
+            this.possessedBooksTabPage.Size = new System.Drawing.Size(817, 528);
             this.possessedBooksTabPage.TabIndex = 0;
             this.possessedBooksTabPage.Text = "Books";
             this.possessedBooksTabPage.UseVisualStyleBackColor = true;
@@ -242,31 +245,6 @@ namespace Media_Marker
             this.possessedBookGenreRadioButton.Text = "Genre";
             this.possessedBookGenreRadioButton.UseVisualStyleBackColor = true;
             // 
-            // actionDropDownBox
-            // 
-            this.actionDropDownBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.actionDropDownBox.FormattingEnabled = true;
-            this.actionDropDownBox.Items.AddRange(new object[] {
-            "Edit",
-            "Delete",
-            "Move to \"Desired\" media",
-            "Move to \"Possessed\" media"});
-            this.actionDropDownBox.Location = new System.Drawing.Point(314, 523);
-            this.actionDropDownBox.Name = "actionDropDownBox";
-            this.actionDropDownBox.Size = new System.Drawing.Size(234, 24);
-            this.actionDropDownBox.TabIndex = 17;
-            // 
-            // confirmActionButton
-            // 
-            this.confirmActionButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.confirmActionButton.Location = new System.Drawing.Point(554, 523);
-            this.confirmActionButton.Name = "confirmActionButton";
-            this.confirmActionButton.Size = new System.Drawing.Size(156, 34);
-            this.confirmActionButton.TabIndex = 16;
-            this.confirmActionButton.Text = "Confirm";
-            this.confirmActionButton.UseVisualStyleBackColor = true;
-            this.confirmActionButton.Click += new System.EventHandler(this.confirmActionButton_Click);
-            // 
             // possessedBookResultPanel
             // 
             this.possessedBookResultPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -274,7 +252,7 @@ namespace Media_Marker
             | System.Windows.Forms.AnchorStyles.Right)));
             this.possessedBookResultPanel.Location = new System.Drawing.Point(6, 97);
             this.possessedBookResultPanel.Name = "possessedBookResultPanel";
-            this.possessedBookResultPanel.Size = new System.Drawing.Size(805, 405);
+            this.possessedBookResultPanel.Size = new System.Drawing.Size(805, 425);
             this.possessedBookResultPanel.TabIndex = 15;
             // 
             // possessedBookListAllButton
@@ -315,6 +293,7 @@ namespace Media_Marker
             // 
             // possessedMoviesTabPage
             // 
+            this.possessedMoviesTabPage.Controls.Add(this.possessedMovieResultPanel);
             this.possessedMoviesTabPage.Controls.Add(this.possessedMoviesRadioGroupBox);
             this.possessedMoviesTabPage.Controls.Add(this.possessedMovieListAllButton);
             this.possessedMoviesTabPage.Controls.Add(this.possessedMovieClearButton);
@@ -323,10 +302,20 @@ namespace Media_Marker
             this.possessedMoviesTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedMoviesTabPage.Name = "possessedMoviesTabPage";
             this.possessedMoviesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.possessedMoviesTabPage.Size = new System.Drawing.Size(817, 591);
+            this.possessedMoviesTabPage.Size = new System.Drawing.Size(817, 528);
             this.possessedMoviesTabPage.TabIndex = 1;
             this.possessedMoviesTabPage.Text = "Movies";
             this.possessedMoviesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // possessedMovieResultPanel
+            // 
+            this.possessedMovieResultPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.possessedMovieResultPanel.Location = new System.Drawing.Point(6, 97);
+            this.possessedMovieResultPanel.Name = "possessedMovieResultPanel";
+            this.possessedMovieResultPanel.Size = new System.Drawing.Size(805, 425);
+            this.possessedMovieResultPanel.TabIndex = 14;
             // 
             // possessedMoviesRadioGroupBox
             // 
@@ -380,6 +369,7 @@ namespace Media_Marker
             this.possessedMovieListAllButton.TabIndex = 12;
             this.possessedMovieListAllButton.Text = "List All";
             this.possessedMovieListAllButton.UseVisualStyleBackColor = true;
+            this.possessedMovieListAllButton.Click += new System.EventHandler(this.possessedMovieListAllButton_Click);
             // 
             // possessedMovieClearButton
             // 
@@ -409,6 +399,7 @@ namespace Media_Marker
             // 
             // possessedShowsTabPage
             // 
+            this.possessedShowsTabPage.Controls.Add(this.possessedShowResultPanel);
             this.possessedShowsTabPage.Controls.Add(this.possessedShowsRadioGroupBox);
             this.possessedShowsTabPage.Controls.Add(this.possessedShowListAllButton);
             this.possessedShowsTabPage.Controls.Add(this.possessedShowClearButton);
@@ -416,10 +407,20 @@ namespace Media_Marker
             this.possessedShowsTabPage.Controls.Add(this.possessedShowSearchTextBox);
             this.possessedShowsTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedShowsTabPage.Name = "possessedShowsTabPage";
-            this.possessedShowsTabPage.Size = new System.Drawing.Size(817, 591);
+            this.possessedShowsTabPage.Size = new System.Drawing.Size(817, 528);
             this.possessedShowsTabPage.TabIndex = 2;
             this.possessedShowsTabPage.Text = "Shows";
             this.possessedShowsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // possessedShowResultPanel
+            // 
+            this.possessedShowResultPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.possessedShowResultPanel.Location = new System.Drawing.Point(6, 97);
+            this.possessedShowResultPanel.Name = "possessedShowResultPanel";
+            this.possessedShowResultPanel.Size = new System.Drawing.Size(805, 425);
+            this.possessedShowResultPanel.TabIndex = 16;
             // 
             // possessedShowsRadioGroupBox
             // 
@@ -473,6 +474,7 @@ namespace Media_Marker
             this.possessedShowListAllButton.TabIndex = 14;
             this.possessedShowListAllButton.Text = "List All";
             this.possessedShowListAllButton.UseVisualStyleBackColor = true;
+            this.possessedShowListAllButton.Click += new System.EventHandler(this.possessedShowListAllButton_Click);
             // 
             // possessedShowClearButton
             // 
@@ -501,6 +503,7 @@ namespace Media_Marker
             // 
             // possessedGamesTabPage
             // 
+            this.possessedGamesTabPage.Controls.Add(this.possessedGameResultPanel);
             this.possessedGamesTabPage.Controls.Add(this.possessedGamesRadioGroupBox);
             this.possessedGamesTabPage.Controls.Add(this.possessedGameListAllButton);
             this.possessedGamesTabPage.Controls.Add(this.possessedGameClearButton);
@@ -508,10 +511,20 @@ namespace Media_Marker
             this.possessedGamesTabPage.Controls.Add(this.possessedGameSearchTextBox);
             this.possessedGamesTabPage.Location = new System.Drawing.Point(4, 25);
             this.possessedGamesTabPage.Name = "possessedGamesTabPage";
-            this.possessedGamesTabPage.Size = new System.Drawing.Size(817, 591);
+            this.possessedGamesTabPage.Size = new System.Drawing.Size(817, 528);
             this.possessedGamesTabPage.TabIndex = 3;
             this.possessedGamesTabPage.Text = "Games";
             this.possessedGamesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // possessedGameResultPanel
+            // 
+            this.possessedGameResultPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.possessedGameResultPanel.Location = new System.Drawing.Point(6, 97);
+            this.possessedGameResultPanel.Name = "possessedGameResultPanel";
+            this.possessedGameResultPanel.Size = new System.Drawing.Size(805, 428);
+            this.possessedGameResultPanel.TabIndex = 16;
             // 
             // possessedGamesRadioGroupBox
             // 
@@ -577,6 +590,7 @@ namespace Media_Marker
             this.possessedGameListAllButton.TabIndex = 14;
             this.possessedGameListAllButton.Text = "List All";
             this.possessedGameListAllButton.UseVisualStyleBackColor = true;
+            this.possessedGameListAllButton.Click += new System.EventHandler(this.possessedGameListAllButton_Click);
             // 
             // possessedGameClearButton
             // 
@@ -612,7 +626,7 @@ namespace Media_Marker
             this.addNewPossessedEntryTabPage.Controls.Add(this.newPossessedBookRadioButton);
             this.addNewPossessedEntryTabPage.Location = new System.Drawing.Point(4, 25);
             this.addNewPossessedEntryTabPage.Name = "addNewPossessedEntryTabPage";
-            this.addNewPossessedEntryTabPage.Size = new System.Drawing.Size(817, 591);
+            this.addNewPossessedEntryTabPage.Size = new System.Drawing.Size(817, 528);
             this.addNewPossessedEntryTabPage.TabIndex = 4;
             this.addNewPossessedEntryTabPage.Text = "Add Entry +";
             this.addNewPossessedEntryTabPage.UseVisualStyleBackColor = true;
@@ -624,7 +638,7 @@ namespace Media_Marker
             | System.Windows.Forms.AnchorStyles.Right)));
             this.newPossessedEntryPanel.Location = new System.Drawing.Point(-1, 52);
             this.newPossessedEntryPanel.Name = "newPossessedEntryPanel";
-            this.newPossessedEntryPanel.Size = new System.Drawing.Size(814, 536);
+            this.newPossessedEntryPanel.Size = new System.Drawing.Size(814, 473);
             this.newPossessedEntryPanel.TabIndex = 8;
             // 
             // newPossessedGameRadioButton
@@ -678,6 +692,31 @@ namespace Media_Marker
             this.newPossessedBookRadioButton.Text = "Book";
             this.newPossessedBookRadioButton.UseVisualStyleBackColor = true;
             this.newPossessedBookRadioButton.CheckedChanged += new System.EventHandler(this.newPossessedBookRadioButton_CheckedChanged);
+            // 
+            // actionDropDownBox
+            // 
+            this.actionDropDownBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.actionDropDownBox.FormattingEnabled = true;
+            this.actionDropDownBox.Items.AddRange(new object[] {
+            "Edit",
+            "Delete",
+            "Move to \"Desired\" media",
+            "Move to \"Possessed\" media"});
+            this.actionDropDownBox.Location = new System.Drawing.Point(318, 572);
+            this.actionDropDownBox.Name = "actionDropDownBox";
+            this.actionDropDownBox.Size = new System.Drawing.Size(234, 24);
+            this.actionDropDownBox.TabIndex = 17;
+            // 
+            // confirmActionButton
+            // 
+            this.confirmActionButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.confirmActionButton.Location = new System.Drawing.Point(558, 572);
+            this.confirmActionButton.Name = "confirmActionButton";
+            this.confirmActionButton.Size = new System.Drawing.Size(156, 34);
+            this.confirmActionButton.TabIndex = 16;
+            this.confirmActionButton.Text = "Confirm";
+            this.confirmActionButton.UseVisualStyleBackColor = true;
+            this.confirmActionButton.Click += new System.EventHandler(this.confirmActionButton_Click);
             // 
             // desiredMediaTabPage
             // 
@@ -1252,6 +1291,9 @@ namespace Media_Marker
         private System.Windows.Forms.RadioButton possessedGameTitleRadioButton;
         private System.Windows.Forms.RadioButton possessedGameDeveloperRadioButton;
         private System.Windows.Forms.RadioButton possessedGameGenreRadioButton;
+        private System.Windows.Forms.Panel possessedGameResultPanel;
+        private System.Windows.Forms.Panel possessedMovieResultPanel;
+        private System.Windows.Forms.Panel possessedShowResultPanel;
     }
 }
 

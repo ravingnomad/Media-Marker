@@ -18,15 +18,37 @@ namespace Media_Marker
     public partial class MediaMarkerMainWindow : Form
     {
         bookSearchResultForm testForm;
+        movieSearchResultForm movieTestForm;
+        showSearchResultForm showTestForm;
+        gameSearchResultForm gameTestForm;
         public MediaMarkerMainWindow()
         {
             InitializeComponent();
+
             possessedBookResultPanel.Controls.Clear();
             testForm = new bookSearchResultForm();
             testForm.TopLevel = false;
             possessedBookResultPanel.Controls.Add(testForm);
-            
+
+            possessedGameResultPanel.Controls.Clear();
+            gameTestForm = new gameSearchResultForm();
+            gameTestForm.TopLevel = false;
+            possessedGameResultPanel.Controls.Add(gameTestForm);
+
+            possessedMovieResultPanel.Controls.Clear();
+            movieTestForm = new movieSearchResultForm();
+            movieTestForm.TopLevel = false;
+            possessedMovieResultPanel.Controls.Add(movieTestForm);
+
+            possessedShowResultPanel.Controls.Clear();
+            showTestForm = new showSearchResultForm();
+            showTestForm.TopLevel = false;
+            possessedShowResultPanel.Controls.Add(showTestForm);
+
             testForm.Show();
+            movieTestForm.Show();
+            showTestForm.Show();
+            gameTestForm.Show();
         }
 
         private void newDesiredBookRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -197,6 +219,18 @@ namespace Media_Marker
             testForm.Show();
         }
 
+        private void possessedGameListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Game> listAllResult = mysqlHelper.listAllGames("Possessed Game");
+            gameTestForm.loadNewInfo(listAllResult);
+            possessedGameResultPanel.Controls.Clear();
+            gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            gameTestForm.Dock = DockStyle.Fill;
+            gameTestForm.TopLevel = false;
+            possessedGameResultPanel.Controls.Add(gameTestForm);
+            gameTestForm.Show();
+        }
+
 
         //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
         private void confirmActionButton_Click(object sender, EventArgs e)
@@ -293,7 +327,32 @@ namespace Media_Marker
             }
         }
 
+        private void possessedMovieListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Movie> listAllResult = mysqlHelper.listAllMovies("Possessed Movie");
+            movieTestForm.loadNewInfo(listAllResult);
+            possessedMovieResultPanel.Controls.Clear();
+            movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            movieTestForm.Dock = DockStyle.Fill;
+            movieTestForm.TopLevel = false;
+            possessedMovieResultPanel.Controls.Add(movieTestForm);
+            gameTestForm.Show();
+        }
 
-
+        private void possessedShowListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Show> listAllResult = mysqlHelper.listAllShows("Possessed Show");
+            foreach (Show show in listAllResult)
+            {
+                Console.WriteLine(show.episodes);
+            }
+            showTestForm.loadNewInfo(listAllResult);
+            possessedShowResultPanel.Controls.Clear();
+            showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            showTestForm.Dock = DockStyle.Fill;
+            showTestForm.TopLevel = false;
+            possessedShowResultPanel.Controls.Add(showTestForm);
+            showTestForm.Show();
+        }
     }
 }

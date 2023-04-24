@@ -106,7 +106,7 @@ namespace Media_Marker
 
         private void newPossessedBookRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (newPossessedBookRadioButton.Checked)
+            if (newBookRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
                 newBookForm newBook = new newBookForm("Possessed Media");
@@ -120,7 +120,7 @@ namespace Media_Marker
 
         private void newPossessedMovieRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (newPossessedMovieRadioButton.Checked)
+            if (newMovieRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
                 newMovieForm newMovie = new newMovieForm("Possessed Media");
@@ -133,7 +133,7 @@ namespace Media_Marker
 
         private void newPossessedShowRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (newPossessedShowRadioButton.Checked)
+            if (newShowRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
                 newShowForm newShow = new newShowForm("Possessed Media");
@@ -146,7 +146,7 @@ namespace Media_Marker
 
         private void newPossessedGameRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (newPossessedGameRadioButton.Checked)
+            if (newGameRadioButton.Checked)
             {
                 newPossessedEntryPanel.Controls.Clear();
                 newGameForm newGame = new newGameForm("Possessed Media");
@@ -174,10 +174,10 @@ namespace Media_Marker
             //get tab page of 'desired' or 'possessed' tab (whether it is a 'book', 'movie' 'show' or 'game')
             string mediaStatusString = dataBaseTabs.SelectedTab.Text;
 
-            string mediaTypeString = possessedMediaTabs.SelectedTab.Text;
+            string mediaTypeString = mediaTabs.SelectedTab.Text;
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string checkedButton = possessedBookRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            string checkedButton = bookSearchCriteriaRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
 
             string searchQuery = possessedBookSearchTextBox.Text;
 
@@ -196,7 +196,7 @@ namespace Media_Marker
         {
             string mediaStatusString = dataBaseTabs.SelectedTab.Text;
 
-            string mediaTypeString = possessedMediaTabs.SelectedTab.Text;
+            string mediaTypeString = mediaTabs.SelectedTab.Text;
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string checkedButton = possessedMoviesRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
@@ -243,6 +243,7 @@ namespace Media_Marker
                     checkedValues.Add(row);
                 }
             }
+
             if (actionDropDownBox.Text == "Delete")
             {
 

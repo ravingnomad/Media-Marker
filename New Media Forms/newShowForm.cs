@@ -13,11 +13,12 @@ namespace New_Media_Forms
 {
     public partial class newShowForm : Form
     {
-        private string originTab;
-        public newShowForm(string origin)
+        private string newMediaStatus;
+        public newShowForm(string mediaStatus)
         {
-            originTab = origin;
             InitializeComponent();
+            newMediaStatus = mediaStatus;
+            Console.WriteLine($"Status is { newMediaStatus }");
         }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace New_Media_Forms
             {
                 newShowGenresList.Add(genre);
             }
-            mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, originTab);
+            mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, newMediaStatus);
         }
     }
 }

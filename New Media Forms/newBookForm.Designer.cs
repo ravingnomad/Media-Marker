@@ -36,13 +36,18 @@ namespace New_Media_Forms
             this.newBookGenreLabel = new System.Windows.Forms.Label();
             this.addNewBookButton = new System.Windows.Forms.Button();
             this.bookGenreListBox = new System.Windows.Forms.CheckedListBox();
+            this.newBookPossessedRadioButton = new System.Windows.Forms.RadioButton();
+            this.newBookDesiredRadioButton = new System.Windows.Forms.RadioButton();
+            this.newBookStatusLabel = new System.Windows.Forms.Label();
+            this.newBookStatusGroupBox = new System.Windows.Forms.GroupBox();
+            this.newBookStatusGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // newBookTitleTextBox
             // 
             this.newBookTitleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookTitleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookTitleTextBox.Location = new System.Drawing.Point(240, 45);
+            this.newBookTitleTextBox.Location = new System.Drawing.Point(250, 42);
             this.newBookTitleTextBox.Name = "newBookTitleTextBox";
             this.newBookTitleTextBox.Size = new System.Drawing.Size(312, 45);
             this.newBookTitleTextBox.TabIndex = 0;
@@ -52,7 +57,7 @@ namespace New_Media_Forms
             this.newBookTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookTitleLabel.AutoSize = true;
             this.newBookTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookTitleLabel.Location = new System.Drawing.Point(129, 45);
+            this.newBookTitleLabel.Location = new System.Drawing.Point(139, 48);
             this.newBookTitleLabel.Name = "newBookTitleLabel";
             this.newBookTitleLabel.Size = new System.Drawing.Size(91, 39);
             this.newBookTitleLabel.TabIndex = 1;
@@ -64,7 +69,7 @@ namespace New_Media_Forms
             this.newBookAuthorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookAuthorLabel.AutoSize = true;
             this.newBookAuthorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookAuthorLabel.Location = new System.Drawing.Point(94, 119);
+            this.newBookAuthorLabel.Location = new System.Drawing.Point(104, 136);
             this.newBookAuthorLabel.Name = "newBookAuthorLabel";
             this.newBookAuthorLabel.Size = new System.Drawing.Size(126, 39);
             this.newBookAuthorLabel.TabIndex = 3;
@@ -75,7 +80,7 @@ namespace New_Media_Forms
             // 
             this.newBookAuthorTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookAuthorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookAuthorTextBox.Location = new System.Drawing.Point(240, 119);
+            this.newBookAuthorTextBox.Location = new System.Drawing.Point(250, 130);
             this.newBookAuthorTextBox.Name = "newBookAuthorTextBox";
             this.newBookAuthorTextBox.Size = new System.Drawing.Size(312, 45);
             this.newBookAuthorTextBox.TabIndex = 2;
@@ -85,7 +90,7 @@ namespace New_Media_Forms
             this.newBookGenreLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newBookGenreLabel.AutoSize = true;
             this.newBookGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookGenreLabel.Location = new System.Drawing.Point(100, 294);
+            this.newBookGenreLabel.Location = new System.Drawing.Point(110, 298);
             this.newBookGenreLabel.Name = "newBookGenreLabel";
             this.newBookGenreLabel.Size = new System.Drawing.Size(120, 39);
             this.newBookGenreLabel.TabIndex = 5;
@@ -96,7 +101,7 @@ namespace New_Media_Forms
             // 
             this.addNewBookButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addNewBookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewBookButton.Location = new System.Drawing.Point(240, 470);
+            this.addNewBookButton.Location = new System.Drawing.Point(250, 692);
             this.addNewBookButton.Name = "addNewBookButton";
             this.addNewBookButton.Size = new System.Drawing.Size(179, 61);
             this.addNewBookButton.TabIndex = 8;
@@ -128,16 +133,65 @@ namespace New_Media_Forms
             "Science Fiction",
             "Short Story",
             "Tragedy"});
-            this.bookGenreListBox.Location = new System.Drawing.Point(240, 175);
+            this.bookGenreListBox.Location = new System.Drawing.Point(250, 216);
             this.bookGenreListBox.Name = "bookGenreListBox";
             this.bookGenreListBox.Size = new System.Drawing.Size(312, 276);
             this.bookGenreListBox.TabIndex = 9;
+            // 
+            // newBookPossessedRadioButton
+            // 
+            this.newBookPossessedRadioButton.AutoSize = true;
+            this.newBookPossessedRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newBookPossessedRadioButton.Location = new System.Drawing.Point(15, 12);
+            this.newBookPossessedRadioButton.Name = "newBookPossessedRadioButton";
+            this.newBookPossessedRadioButton.Size = new System.Drawing.Size(205, 43);
+            this.newBookPossessedRadioButton.TabIndex = 10;
+            this.newBookPossessedRadioButton.TabStop = true;
+            this.newBookPossessedRadioButton.Text = "Possessed";
+            this.newBookPossessedRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // newBookDesiredRadioButton
+            // 
+            this.newBookDesiredRadioButton.AutoSize = true;
+            this.newBookDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newBookDesiredRadioButton.Location = new System.Drawing.Point(15, 67);
+            this.newBookDesiredRadioButton.Name = "newBookDesiredRadioButton";
+            this.newBookDesiredRadioButton.Size = new System.Drawing.Size(156, 43);
+            this.newBookDesiredRadioButton.TabIndex = 11;
+            this.newBookDesiredRadioButton.TabStop = true;
+            this.newBookDesiredRadioButton.Text = "Desired";
+            this.newBookDesiredRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // newBookStatusLabel
+            // 
+            this.newBookStatusLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newBookStatusLabel.AutoSize = true;
+            this.newBookStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newBookStatusLabel.Location = new System.Drawing.Point(6, 597);
+            this.newBookStatusLabel.Name = "newBookStatusLabel";
+            this.newBookStatusLabel.Size = new System.Drawing.Size(224, 39);
+            this.newBookStatusLabel.TabIndex = 12;
+            this.newBookStatusLabel.Text = "Media Status:";
+            // 
+            // newBookStatusGroupBox
+            // 
+            this.newBookStatusGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newBookStatusGroupBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.newBookStatusGroupBox.Controls.Add(this.newBookPossessedRadioButton);
+            this.newBookStatusGroupBox.Controls.Add(this.newBookDesiredRadioButton);
+            this.newBookStatusGroupBox.Location = new System.Drawing.Point(250, 526);
+            this.newBookStatusGroupBox.Name = "newBookStatusGroupBox";
+            this.newBookStatusGroupBox.Size = new System.Drawing.Size(312, 116);
+            this.newBookStatusGroupBox.TabIndex = 13;
+            this.newBookStatusGroupBox.TabStop = false;
             // 
             // newBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 543);
+            this.ClientSize = new System.Drawing.Size(662, 782);
+            this.Controls.Add(this.newBookStatusGroupBox);
+            this.Controls.Add(this.newBookStatusLabel);
             this.Controls.Add(this.bookGenreListBox);
             this.Controls.Add(this.addNewBookButton);
             this.Controls.Add(this.newBookGenreLabel);
@@ -148,6 +202,8 @@ namespace New_Media_Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "newBookForm";
             this.Text = "Add Book";
+            this.newBookStatusGroupBox.ResumeLayout(false);
+            this.newBookStatusGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +218,9 @@ namespace New_Media_Forms
         private System.Windows.Forms.Label newBookGenreLabel;
         private System.Windows.Forms.Button addNewBookButton;
         private System.Windows.Forms.CheckedListBox bookGenreListBox;
+        private System.Windows.Forms.RadioButton newBookPossessedRadioButton;
+        private System.Windows.Forms.RadioButton newBookDesiredRadioButton;
+        private System.Windows.Forms.Label newBookStatusLabel;
+        private System.Windows.Forms.GroupBox newBookStatusGroupBox;
     }
 }

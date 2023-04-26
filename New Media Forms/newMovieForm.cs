@@ -14,9 +14,8 @@ namespace New_Media_Forms
     public partial class newMovieForm : Form
     {
         private string originTab;
-        public newMovieForm(string origin)
+        public newMovieForm()
         {
-            originTab = origin;
             InitializeComponent();
         }
 

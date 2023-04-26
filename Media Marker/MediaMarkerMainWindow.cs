@@ -51,112 +51,6 @@ namespace Media_Marker
             gameTestForm.Show();
         }
 
-        private void newDesiredBookRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newDesiredBookRadioButton.Checked)
-            {
-                newDesiredEntryPanel.Controls.Clear();
-                newBookForm newBook = new newBookForm("Desired Media");
-                newBook.TopLevel = false;
-                newBook.Dock = DockStyle.Fill;
-                newDesiredEntryPanel.Controls.Add(newBook);
-                newBook.Show();
-            }
-        }
-
-        private void newDesiredMovieRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newDesiredMovieRadioButton.Checked)
-            {
-                newDesiredEntryPanel.Controls.Clear();
-                newMovieForm newMovie = new newMovieForm("Desired Media");
-                newMovie.TopLevel = false;
-                newMovie.Dock = DockStyle.Fill;
-                newDesiredEntryPanel.Controls.Add(newMovie);
-                newMovie.Show();
-            }
-        }
-
-        private void newDesiredShowRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newDesiredShowRadioButton.Checked)
-            {
-                newDesiredEntryPanel.Controls.Clear();
-                newShowForm newShow = new newShowForm("Desired Media");
-                newShow.TopLevel = false;
-                newShow.Dock = DockStyle.Fill;
-                newDesiredEntryPanel.Controls.Add(newShow);
-                newShow.Show();
-            }
-        }
-
-        private void newDesiredGameRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newDesiredGameRadioButton.Checked)
-            {
-                newDesiredEntryPanel.Controls.Clear();
-                newGameForm newGame = new newGameForm("Desired Media");
-                newGame.TopLevel = false;
-                newGame.Dock = DockStyle.Fill;
-                newDesiredEntryPanel.Controls.Add(newGame);
-                newGame.Show();
-            }
-        }
-
-
-        private void newPossessedBookRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newBookRadioButton.Checked)
-            {
-                newPossessedEntryPanel.Controls.Clear();
-                newBookForm newBook = new newBookForm("Possessed Media");
-                newBook.TopLevel = false;
-                newBook.Dock = DockStyle.Fill;
-                newPossessedEntryPanel.Controls.Add(newBook);
-                newBook.Show();
-            }
-        }
-
-
-        private void newPossessedMovieRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newMovieRadioButton.Checked)
-            {
-                newPossessedEntryPanel.Controls.Clear();
-                newMovieForm newMovie = new newMovieForm("Possessed Media");
-                newMovie.TopLevel = false;
-                newMovie.Dock = DockStyle.Fill;
-                newPossessedEntryPanel.Controls.Add(newMovie);
-                newMovie.Show();
-            }
-        }
-
-        private void newPossessedShowRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newShowRadioButton.Checked)
-            {
-                newPossessedEntryPanel.Controls.Clear();
-                newShowForm newShow = new newShowForm("Possessed Media");
-                newShow.TopLevel = false;
-                newShow.Dock = DockStyle.Fill;
-                newPossessedEntryPanel.Controls.Add(newShow);
-                newShow.Show();
-            }
-        }
-
-        private void newPossessedGameRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (newGameRadioButton.Checked)
-            {
-                newPossessedEntryPanel.Controls.Clear();
-                newGameForm newGame = new newGameForm("Possessed Media");
-                newGame.TopLevel = false;
-                newGame.Dock = DockStyle.Fill;
-                newPossessedEntryPanel.Controls.Add(newGame);
-                newGame.Show();
-            }
-        }
-
         private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
         {
             possessedBookResultPanel.Controls.Clear();
@@ -354,6 +248,80 @@ namespace Media_Marker
             showTestForm.TopLevel = false;
             possessedShowResultPanel.Controls.Add(showTestForm);
             showTestForm.Show();
+        }
+
+        
+        private void newBookRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (newBookRadioButton.Checked)
+            {
+                newBookForm newBook = new newBookForm();
+                newEntryPanel.Controls.Clear();
+                newBook.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                newBook.Dock = DockStyle.Fill;
+                newBook.TopLevel = false;
+                newEntryPanel.Controls.Add(newBook);
+                newBook.Show();
+            }
+        }
+
+        private void newMovieRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newMovieRadioButton.Checked)
+            {
+                newMovieForm newMovie = new newMovieForm();
+                newEntryPanel.Controls.Clear();
+                newMovie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                newMovie.Dock = DockStyle.Fill;
+                newMovie.TopLevel = false;
+                newEntryPanel.Controls.Add(newMovie);
+                newMovie.Show();
+            }
+        }
+
+        private void newShowRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newShowRadioButton.Checked)
+            {
+                newShowForm newShow = new newShowForm("temp");
+                newEntryPanel.Controls.Clear();
+                newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                newShow.Dock = DockStyle.Fill;
+                newShow.TopLevel = false;
+                newEntryPanel.Controls.Add(newShow);
+                newShow.Show();
+            }
+        }
+
+        private void newGameRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newGameRadioButton.Checked)
+            {
+                newGameForm newGame = new newGameForm();
+                newEntryPanel.Controls.Clear();
+                newGame.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                newGame.Dock = DockStyle.Fill;
+                newGame.TopLevel = false;
+                newEntryPanel.Controls.Add(newGame);
+                newGame.Show();
+            }
+        }
+
+        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+        private string getRadioButtonInGroupBox(GroupBox groupBox)
+        {
+            string returnString = "";
+            try
+            {
+                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            }
+
+            catch (NullReferenceException e)
+            {
+            }
+
+            return returnString;
         }
     }
 }

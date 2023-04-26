@@ -13,17 +13,12 @@ namespace New_Media_Forms
 {
     public partial class newBookForm : Form
     {
-        private string originTab;
-        public newBookForm(string origin)
+        private string newMediaStatus;
+        public newBookForm()
         {
-            originTab = origin;
             InitializeComponent();
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            //newMediaStatus = mediaStatus;
+            //Console.WriteLine($"Status is { newMediaStatus }");
         }
 
         private void addNewBookButton_Click(object sender, EventArgs e)
@@ -37,7 +32,7 @@ namespace New_Media_Forms
             {
                 newBookGenresList.Add(genre);
             }
-            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, originTab);
+            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newMediaStatus);
         }
     }
 }

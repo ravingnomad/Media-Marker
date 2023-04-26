@@ -14,9 +14,8 @@ namespace New_Media_Forms
     public partial class newGameForm : Form
     {
         private string originTab;
-        public newGameForm(string origin)
+        public newGameForm()
         {
-            originTab = origin;
             InitializeComponent();
         }
 

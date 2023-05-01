@@ -13,12 +13,9 @@ namespace New_Media_Forms
 {
     public partial class newShowForm : Form
     {
-        private string newMediaStatus;
-        public newShowForm(string mediaStatus)
+        public newShowForm()
         {
             InitializeComponent();
-            newMediaStatus = mediaStatus;
-            Console.WriteLine($"Status is { newMediaStatus }");
         }
 
         /// <summary>
@@ -47,6 +44,7 @@ namespace New_Media_Forms
         {
             string showTitle = newShowTitleTextBox.Text;
             string directorName = newShowDirectorTextBox.Text;
+            string newShowStatus = getRadioButtonInGroupBox(newShowStatusGroupBox);
             int seasons = 0;
             int episodes = 0;
             if (newShowSeasonTextBox.Text != "")
@@ -61,7 +59,23 @@ namespace New_Media_Forms
             {
                 newShowGenresList.Add(genre);
             }
-            mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, newMediaStatus);
+            mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, newShowStatus);
+        }
+
+        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+        private string getRadioButtonInGroupBox(GroupBox groupBox)
+        {
+            string returnString = "";
+            try
+            {
+                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            }
+
+            catch (NullReferenceException e)
+            {
+            }
+
+            return returnString;
         }
     }
 }

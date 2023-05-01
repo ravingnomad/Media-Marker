@@ -96,7 +96,7 @@ namespace Media_Edit_Forms
 
         private bool genresChanged()
         {
-            //Console.WriteLine($"These are the original genres: {originalGenres}");
+            //temporarily stores the genres that are check in the check list box
             List<string> temp = new List<string>();
 
             for (int index = 0; index < bookEditGenreListBox.Items.Count; index++)
@@ -105,8 +105,8 @@ namespace Media_Edit_Forms
                 temp.Add(((string)bookEditGenreListBox.Items[index]).ToLower());
             }
             
+            //use hash set to see if the original set of genres matches this new set of genres
             HashSet<string> placeHolder = new HashSet<string> (temp);
-            //Console.WriteLine($"These are the new genres: {placeHolder}");
             return placeHolder.SetEquals(originalGenres) == false;
 
         }

@@ -38,11 +38,11 @@ namespace New_Media_Forms
             this.addNewGameButton = new System.Windows.Forms.Button();
             this.gamePlatformListBox = new System.Windows.Forms.CheckedListBox();
             this.gameGenreListBox = new System.Windows.Forms.CheckedListBox();
-            this.newBookStatusGroupBox = new System.Windows.Forms.GroupBox();
-            this.newBookPossessedRadioButton = new System.Windows.Forms.RadioButton();
-            this.newBookDesiredRadioButton = new System.Windows.Forms.RadioButton();
-            this.newBookStatusLabel = new System.Windows.Forms.Label();
-            this.newBookStatusGroupBox.SuspendLayout();
+            this.newGameStatusGroupBox = new System.Windows.Forms.GroupBox();
+            this.newGamePossessedRadioButton = new System.Windows.Forms.RadioButton();
+            this.newGameDesiredRadioButton = new System.Windows.Forms.RadioButton();
+            this.newGameStatusLabel = new System.Windows.Forms.Label();
+            this.newGameStatusGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // newGamePlatformsLabel
@@ -178,60 +178,60 @@ namespace New_Media_Forms
             this.gameGenreListBox.Size = new System.Drawing.Size(312, 123);
             this.gameGenreListBox.TabIndex = 44;
             // 
-            // newBookStatusGroupBox
+            // newGameStatusGroupBox
             // 
-            this.newBookStatusGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newBookStatusGroupBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.newBookStatusGroupBox.Controls.Add(this.newBookPossessedRadioButton);
-            this.newBookStatusGroupBox.Controls.Add(this.newBookDesiredRadioButton);
-            this.newBookStatusGroupBox.Location = new System.Drawing.Point(246, 551);
-            this.newBookStatusGroupBox.Name = "newBookStatusGroupBox";
-            this.newBookStatusGroupBox.Size = new System.Drawing.Size(312, 116);
-            this.newBookStatusGroupBox.TabIndex = 46;
-            this.newBookStatusGroupBox.TabStop = false;
+            this.newGameStatusGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newGameStatusGroupBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.newGameStatusGroupBox.Controls.Add(this.newGamePossessedRadioButton);
+            this.newGameStatusGroupBox.Controls.Add(this.newGameDesiredRadioButton);
+            this.newGameStatusGroupBox.Location = new System.Drawing.Point(246, 551);
+            this.newGameStatusGroupBox.Name = "newGameStatusGroupBox";
+            this.newGameStatusGroupBox.Size = new System.Drawing.Size(312, 116);
+            this.newGameStatusGroupBox.TabIndex = 46;
+            this.newGameStatusGroupBox.TabStop = false;
             // 
-            // newBookPossessedRadioButton
+            // newGamePossessedRadioButton
             // 
-            this.newBookPossessedRadioButton.AutoSize = true;
-            this.newBookPossessedRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookPossessedRadioButton.Location = new System.Drawing.Point(15, 12);
-            this.newBookPossessedRadioButton.Name = "newBookPossessedRadioButton";
-            this.newBookPossessedRadioButton.Size = new System.Drawing.Size(205, 43);
-            this.newBookPossessedRadioButton.TabIndex = 10;
-            this.newBookPossessedRadioButton.TabStop = true;
-            this.newBookPossessedRadioButton.Text = "Possessed";
-            this.newBookPossessedRadioButton.UseVisualStyleBackColor = true;
+            this.newGamePossessedRadioButton.AutoSize = true;
+            this.newGamePossessedRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGamePossessedRadioButton.Location = new System.Drawing.Point(15, 12);
+            this.newGamePossessedRadioButton.Name = "newGamePossessedRadioButton";
+            this.newGamePossessedRadioButton.Size = new System.Drawing.Size(205, 43);
+            this.newGamePossessedRadioButton.TabIndex = 10;
+            this.newGamePossessedRadioButton.TabStop = true;
+            this.newGamePossessedRadioButton.Text = "Possessed";
+            this.newGamePossessedRadioButton.UseVisualStyleBackColor = true;
             // 
-            // newBookDesiredRadioButton
+            // newGameDesiredRadioButton
             // 
-            this.newBookDesiredRadioButton.AutoSize = true;
-            this.newBookDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookDesiredRadioButton.Location = new System.Drawing.Point(15, 67);
-            this.newBookDesiredRadioButton.Name = "newBookDesiredRadioButton";
-            this.newBookDesiredRadioButton.Size = new System.Drawing.Size(156, 43);
-            this.newBookDesiredRadioButton.TabIndex = 11;
-            this.newBookDesiredRadioButton.TabStop = true;
-            this.newBookDesiredRadioButton.Text = "Desired";
-            this.newBookDesiredRadioButton.UseVisualStyleBackColor = true;
+            this.newGameDesiredRadioButton.AutoSize = true;
+            this.newGameDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameDesiredRadioButton.Location = new System.Drawing.Point(15, 67);
+            this.newGameDesiredRadioButton.Name = "newGameDesiredRadioButton";
+            this.newGameDesiredRadioButton.Size = new System.Drawing.Size(156, 43);
+            this.newGameDesiredRadioButton.TabIndex = 11;
+            this.newGameDesiredRadioButton.TabStop = true;
+            this.newGameDesiredRadioButton.Text = "Desired";
+            this.newGameDesiredRadioButton.UseVisualStyleBackColor = true;
             // 
-            // newBookStatusLabel
+            // newGameStatusLabel
             // 
-            this.newBookStatusLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newBookStatusLabel.AutoSize = true;
-            this.newBookStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookStatusLabel.Location = new System.Drawing.Point(2, 622);
-            this.newBookStatusLabel.Name = "newBookStatusLabel";
-            this.newBookStatusLabel.Size = new System.Drawing.Size(224, 39);
-            this.newBookStatusLabel.TabIndex = 45;
-            this.newBookStatusLabel.Text = "Media Status:";
+            this.newGameStatusLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newGameStatusLabel.AutoSize = true;
+            this.newGameStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameStatusLabel.Location = new System.Drawing.Point(2, 622);
+            this.newGameStatusLabel.Name = "newGameStatusLabel";
+            this.newGameStatusLabel.Size = new System.Drawing.Size(224, 39);
+            this.newGameStatusLabel.TabIndex = 45;
+            this.newGameStatusLabel.Text = "Media Status:";
             // 
             // newGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 814);
-            this.Controls.Add(this.newBookStatusGroupBox);
-            this.Controls.Add(this.newBookStatusLabel);
+            this.Controls.Add(this.newGameStatusGroupBox);
+            this.Controls.Add(this.newGameStatusLabel);
             this.Controls.Add(this.gameGenreListBox);
             this.Controls.Add(this.gamePlatformListBox);
             this.Controls.Add(this.addNewGameButton);
@@ -244,8 +244,8 @@ namespace New_Media_Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "newGameForm";
             this.Text = "Add Game";
-            this.newBookStatusGroupBox.ResumeLayout(false);
-            this.newBookStatusGroupBox.PerformLayout();
+            this.newGameStatusGroupBox.ResumeLayout(false);
+            this.newGameStatusGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,9 +262,9 @@ namespace New_Media_Forms
         private System.Windows.Forms.Button addNewGameButton;
         private System.Windows.Forms.CheckedListBox gamePlatformListBox;
         private System.Windows.Forms.CheckedListBox gameGenreListBox;
-        private System.Windows.Forms.GroupBox newBookStatusGroupBox;
-        private System.Windows.Forms.RadioButton newBookPossessedRadioButton;
-        private System.Windows.Forms.RadioButton newBookDesiredRadioButton;
-        private System.Windows.Forms.Label newBookStatusLabel;
+        private System.Windows.Forms.GroupBox newGameStatusGroupBox;
+        private System.Windows.Forms.RadioButton newGamePossessedRadioButton;
+        private System.Windows.Forms.RadioButton newGameDesiredRadioButton;
+        private System.Windows.Forms.Label newGameStatusLabel;
     }
 }

@@ -13,18 +13,16 @@ namespace New_Media_Forms
 {
     public partial class newBookForm : Form
     {
-        private string newMediaStatus;
         public newBookForm()
         {
             InitializeComponent();
-            //newMediaStatus = mediaStatus;
-            //Console.WriteLine($"Status is { newMediaStatus }");
         }
 
         private void addNewBookButton_Click(object sender, EventArgs e)
         {
             string bookTitle = newBookTitleTextBox.Text;
             string authorName = newBookAuthorTextBox.Text;
+            string newBookStatus = getRadioButtonInGroupBox(newBookStatusGroupBox);
             var newBookGenres = bookGenreListBox.CheckedItems;
 
             List<string> newBookGenresList = new List<string>();
@@ -32,7 +30,23 @@ namespace New_Media_Forms
             {
                 newBookGenresList.Add(genre);
             }
-            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newMediaStatus);
+            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newBookStatus);
+        }
+
+        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+        private string getRadioButtonInGroupBox(GroupBox groupBox)
+        {
+            string returnString = "";
+            try
+            {
+                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            }
+
+            catch (NullReferenceException e)
+            {
+            }
+
+            return returnString;
         }
     }
 }

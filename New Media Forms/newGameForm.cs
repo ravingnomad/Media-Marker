@@ -13,7 +13,6 @@ namespace New_Media_Forms
 {
     public partial class newGameForm : Form
     {
-        private string originTab;
         public newGameForm()
         {
             InitializeComponent();
@@ -23,6 +22,7 @@ namespace New_Media_Forms
         {
             string gameTitle = newGameTitleTextBox.Text;
             string gameDeveloper = newGameDeveloperTextBox.Text;
+            string newGameStatus = getRadioButtonInGroupBox(newGameStatusGroupBox);
             var gameGenres = gameGenreListBox.CheckedItems;
             var gamePlatforms = gamePlatformListBox.CheckedItems;
 
@@ -37,7 +37,23 @@ namespace New_Media_Forms
                 newGamePlatformsList.Add(platform);
             }
 
-            mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, originTab);
+            mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatus);
+        }
+
+        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+        private string getRadioButtonInGroupBox(GroupBox groupBox)
+        {
+            string returnString = "";
+            try
+            {
+                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            }
+
+            catch (NullReferenceException e)
+            {
+            }
+
+            return returnString;
         }
     }
 }

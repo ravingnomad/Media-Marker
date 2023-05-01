@@ -15,6 +15,14 @@ using Media_Edit_Forms;
 
 namespace Media_Marker
 {
+    /*
+    -see if you can create 'views' that organize the media data; for example, have a view that lists alll books and their
+    genres, all games and their genres, all games and their supported platforms, etc.; that way, you only need to query the view once
+    instead of having a bloated stored procedure, especially when looking for data (searches and such)
+
+    -doesn't look like you can get stored procedures to follow DRY principle; will have to have stored procedure for every
+    field for each media when editing them
+     */
     public partial class MediaMarkerMainWindow : Form
     {
         bookSearchResultForm testForm;
@@ -284,7 +292,7 @@ namespace Media_Marker
         {
             if (newShowRadioButton.Checked)
             {
-                newShowForm newShow = new newShowForm("temp");
+                newShowForm newShow = new newShowForm();
                 newEntryPanel.Controls.Clear();
                 newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newShow.Dock = DockStyle.Fill;
@@ -308,20 +316,6 @@ namespace Media_Marker
             }
         }
 
-        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-        private string getRadioButtonInGroupBox(GroupBox groupBox)
-        {
-            string returnString = "";
-            try
-            {
-                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
-            }
 
-            catch (NullReferenceException e)
-            {
-            }
-
-            return returnString;
-        }
     }
 }

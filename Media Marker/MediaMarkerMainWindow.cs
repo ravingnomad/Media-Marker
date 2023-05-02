@@ -111,7 +111,7 @@ namespace Media_Marker
 
         private void possessedBookListAllButton_Click(object sender, EventArgs e)
         {
-            List<Book> listAllResult = mysqlHelper.listAllBooks("Possessed Book");
+            List<Book> listAllResult = mysqlHelper.listAllBooks("Possessed Media");
             testForm.loadNewInfo(listAllResult);
             possessedBookResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -123,7 +123,7 @@ namespace Media_Marker
 
         private void possessedGameListAllButton_Click(object sender, EventArgs e)
         {
-            List<Game> listAllResult = mysqlHelper.listAllGames("Possessed Game");
+            List<Game> listAllResult = mysqlHelper.listAllGames("Possessed Media");
             gameTestForm.loadNewInfo(listAllResult);
             possessedGameResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -232,7 +232,7 @@ namespace Media_Marker
 
         private void possessedMovieListAllButton_Click(object sender, EventArgs e)
         {
-            List<Movie> listAllResult = mysqlHelper.listAllMovies("Possessed Movie");
+            List<Movie> listAllResult = mysqlHelper.listAllMovies("Possessed Media");
             movieTestForm.loadNewInfo(listAllResult);
             possessedMovieResultPanel.Controls.Clear();
             movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -244,7 +244,7 @@ namespace Media_Marker
 
         private void possessedShowListAllButton_Click(object sender, EventArgs e)
         {
-            List<Show> listAllResult = mysqlHelper.listAllShows("Possessed Show");
+            List<Show> listAllResult = mysqlHelper.listAllShows("Possessed Media");
             foreach (Show show in listAllResult)
             {
                 Console.WriteLine(show.episodes);

@@ -2,32 +2,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `list_all_shows`(
 identifierString Text)
 BEGIN
 START TRANSACTION;
-
-		CREATE TABLE tempMatchedStatus AS
-		SELECT status, tv_shows.tv_show_id, tv_shows.title, tv_shows.director, tv_shows.seasons, tv_shows.episodes, 
-					   GROUP_CONCAT(genre_name) AS 'genres'
-		FROM tv_shows
-		#Join with table that only has games that match the given bookStatus
-		JOIN (
-			SELECT media_id, status
-			FROM media_pieces
-			WHERE media_type_id = 4) AS matchStatus
-			ON matchStatus.media_id = tv_shows.tv_show_id
-
-		#Join with table that has the genres of the previously specified show
-		JOIN (
-			SELECT genre_types.genre_name, media_genre.media_id, media_genre.media_type_id 
-			FROM genre_types, media_genre
-			WHERE media_genre.genre_id = genre_types.genre_id) AS genre_table
-		ON matchStatus.media_id = genre_table.media_id AND genre_table.media_type_id = 4
-		GROUP BY tv_shows.title;
-        
-	IF identifierString = "Possessed Show" THEN
-		SELECT * 
-        FROM tempMatchedStatus
-        WHERE status = "Possessed Media";
-	END IF;
-	DROP TABLE tempMatchedStatus;
-    
+	CREATE TABLE tempAllShowGenreNames AS
+		SELECT tv_shows.tv_show_id, tv_shows.title, tv_shows.director, allMediaGenreNames.genres
+		FROM tv_shows, all_media_piece_genre_names AS allMediaGenreNames
+        WHERE allMediaGenreNames.media_type_id = 4 AND allMediaGenreNames.media_id = tv_shows.tv_show_id;
+	
+    #select * works because dapper will only put data into those variables whose names correctly match the column names; so even though this 
+    #statement also selects all columns in 'media_pieces', user will never see that data because we do not have variables in our 'Movie'
+    #class that matches the column names of 'media_pieces'
+	SELECT *
+    FROM tempAllShowGenreNames, media_pieces
+    WHERE media_pieces.media_type_id = 4 AND media_pieces.media_id = tempAllShowGenreNames.tv_show_id AND media_pieces.status = identifierString;
+	DROP TABLE tempAllShowGenreNames;
 COMMIT;
 END

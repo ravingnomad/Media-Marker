@@ -7,21 +7,13 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Dapper;
 using Media_Types;
+using Enums;
 
 namespace MySql_Helper
 {
     public static class mysqlHelper
     {
         private static string connString;
-
-        //make this own separate public library so other codes can access it
-        public enum MediaTypeNames
-        {
-            Book = 1,
-            Video_Game = 2,
-            Movie = 3,
-            TV_Show = 4
-        }
 
         private static void loadConnString()
         {

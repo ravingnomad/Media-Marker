@@ -99,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{460840f4-5950-4af4-9162-6edc83045ddd}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Media Edit Forms\Media Edit Forms.csproj">
       <Project>{8a4d42b1-a0a2-41d9-b65e-c038740ac238}</Project>
       <Name>Media Edit Forms</Name>

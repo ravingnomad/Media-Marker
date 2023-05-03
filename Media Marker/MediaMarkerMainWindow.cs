@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MySql_Helper;
 using Media_Types;
 using Media_Edit_Forms;
+using Enums;
 
 namespace Media_Marker
 {
@@ -171,7 +172,7 @@ namespace Media_Marker
                     //change this value in database
                     int bookID = (int)row.Cells["book_id"].Value;
                     Console.WriteLine(bookID);
-                    mysqlHelper.changeMediaStatus(mysqlHelper.MediaTypeNames.Book, bookID, "Desired Media");
+                    mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, "Desired Media");
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);
@@ -191,7 +192,7 @@ namespace Media_Marker
                     //change this value in database
                     int bookID = (int)row.Cells["book_id"].Value;
                     Console.WriteLine(bookID);
-                    mysqlHelper.changeMediaStatus(mysqlHelper.MediaTypeNames.Book, bookID, "Possessed Media");
+                    mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, "Possessed Media");
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);

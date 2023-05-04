@@ -1,0 +1,16 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_movie`(
+movie_id INT,
+fieldToChange TEXT,
+newValue TEXT
+)
+BEGIN
+	IF LOWER(fieldToChange) = 'title' THEN
+		UPDATE movies
+		SET movies.title = newValue
+		WHERE movies.movie_id = movie_id;
+	ELSEIF LOWER(fieldToChange) = 'director' THEN
+		UPDATE movies
+		SET movies.director = newValue
+		WHERE movies.movie_id = movie_id;
+    END IF;
+END

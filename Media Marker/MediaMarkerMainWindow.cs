@@ -17,22 +17,6 @@ using Enums;
 namespace Media_Marker
 {
     /*
-     * 
-    EDIT
-    -for changing genres, have a universal stored procedure for that; all media pieces will share the same genre pool; all you
-    have to do to differentiate them is to have the provided enum type and the id of the media piece
-
-    -for other fields, should probably have dedicated stored procedures for each media type; for example, have one stored
-    procedure called 'update_book' and in that stored procedure, have if statement checking the TEXT variable that will
-    dictate what field to change; in each IF block, have its own UPDATE block for each field
-
-    -also, one of the variables should be the new argument to be update with
-
-    -pay attention to media types like 'show' and 'video game'; 'show' has both INT fields and STRING fields; 'video game' has a
-    field similar to 'genre, but that can be solved with a string that is comma separated
-
-
-
     DELETE
     -similar idea as above; have one universal DELETE stored procedure, separated by IF blocks dependant on media types that
     each has their own way of deleting info from database

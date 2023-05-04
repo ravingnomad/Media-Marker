@@ -1,0 +1,28 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_show`(
+show_id INT,
+fieldToChange TEXT,
+newStringValue TEXT,
+newIntValue INT
+)
+BEGIN
+	IF LOWER(fieldToChange) = 'title' THEN
+		UPDATE tv_shows
+		SET tv_shows.title = newStringValue
+		WHERE tv_shows.tv_show_id = show_id;
+        
+	ELSEIF LOWER(fieldToChange) = 'director' THEN
+		UPDATE tv_shows
+		SET tv_shows.director = newValue
+		WHERE tv_shows.tv_show_id = show_id;
+        
+	ELSEIF LOWER(fieldToChange) = 'seasons' THEN
+		UPDATE tv_shows
+		SET tv_shows.seasons = newIntValue
+		WHERE tv_shows.tv_show_id = show_id;
+        
+    ELSEIF LOWER(fieldToChange) = 'episodes' THEN
+		UPDATE tv_shows
+		SET tv_shows.episodes = newIntValue
+		WHERE tv_shows.tv_show_id = show_id;
+    END IF;
+END

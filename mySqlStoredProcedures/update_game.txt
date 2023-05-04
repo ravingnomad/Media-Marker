@@ -1,0 +1,39 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_game`(
+game_id INT,
+fieldToChange TEXT,
+newValue TEXT
+)
+BEGIN
+	IF LOWER(fieldToChange) = 'title' THEN
+		UPDATE video_games
+		SET video_games.title = newValue
+		WHERE video_games.video_game_id = game_id;
+        
+	ELSEIF LOWER(fieldToChange) = 'developer' THEN
+		UPDATE video_games
+		SET video_games.developer = newValue
+		WHERE video_games.video_game_id = game_id;
+        
+	ELSEIF LOWER(fieldToChange) = 'platforms' THEN
+		DELETE
+		FROM supported_game_platforms
+		WHERE supported_game_platforms.game_id = game_id;
+		
+		SET @stringLen = LENGTH(newValue);
+		insertionLoop: LOOP
+			SET @platformName = SUBSTRING_INDEX(newValue, ',', 1);
+			SET @platformID = (SELECT platform_id FROM game_platforms WHERE platform_name = @platformName);
+			SET @substringLen = LENGTH(@platformName);
+			
+			INSERT INTO supported_game_platforms(game_id, platform_id)
+			VALUES(game_id, @platformID);
+			
+			#the +2 is to skip the last letter of the substring along with the comma
+			SET newValue = MID(newValue, @substringLen + 2, @stringLen);
+
+			IF newValue IS NULL OR newValue = '' THEN
+				LEAVE insertionLoop;
+			END IF;
+		END LOOP insertionLoop;
+    END IF;
+END

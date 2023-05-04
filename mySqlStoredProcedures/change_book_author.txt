@@ -1,9 +1,0 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `change_book_author`(
-book_id INT,
-author TEXT
-)
-BEGIN
-	UPDATE books
-    SET books.author = author
-    WHERE books.book_id = book_id;
-END

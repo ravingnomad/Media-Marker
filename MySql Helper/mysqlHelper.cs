@@ -150,7 +150,7 @@ namespace MySql_Helper
             }
         }
 
-        public static List<Book> listAllBooks(string identifierStr)
+        public static List<Book> listAllBooks(Enums.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -158,14 +158,14 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { identifierString = identifierStr };
+                var values = new { bookEnum = Enums.MediaTypeNames.Book, mediaStatusEnum = statusIdentifier };
 
                 List<Book> result = connection.Query<Book>("list_all_books", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }
 
-        public static List<Game> listAllGames(string identifierStr)
+        public static List<Game> listAllGames(Enums.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -173,14 +173,14 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { identifierString = identifierStr };
+                var values = new { gameEnum = Enums.MediaTypeNames.Video_Game, mediaStatusEnum = statusIdentifier};
 
                 List<Game> result = connection.Query<Game>("list_all_games", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }
 
-        public static List<Movie> listAllMovies(string identifierStr)
+        public static List<Movie> listAllMovies(Enums.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -188,14 +188,14 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { identifierString = identifierStr };
+                var values = new { movieEnum = Enums.MediaTypeNames.Movie, mediaStatusEnum = statusIdentifier };
 
                 List<Movie> result = connection.Query<Movie>("list_all_movies", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }
 
-        public static List<Show> listAllShows(string identifierStr)
+        public static List<Show> listAllShows(Enums.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -203,7 +203,7 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { identifierString = identifierStr };
+                var values = new { showEnum = Enums.MediaTypeNames.TV_Show, mediaStatusEnum = statusIdentifier };
                 Console.WriteLine("Clicked in possessed show");
                 List<Show> result = connection.Query<Show>("list_all_shows", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;

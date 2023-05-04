@@ -17,12 +17,39 @@ using Enums;
 namespace Media_Marker
 {
     /*
-    -see if you can create 'views' that organize the media data; for example, have a view that lists alll books and their
-    genres, all games and their genres, all games and their supported platforms, etc.; that way, you only need to query the view once
-    instead of having a bloated stored procedure, especially when looking for data (searches and such)
+     * 
+    EDIT
+    -for changing genres, have a universal stored procedure for that; all media pieces will share the same genre pool; all you
+    have to do to differentiate them is to have the provided enum type and the id of the media piece
 
-    -doesn't look like you can get stored procedures to follow DRY principle; will have to have stored procedure for every
-    field for each media when editing them
+    -for other fields, should probably have dedicated stored procedures for each media type; for example, have one stored
+    procedure called 'update_book' and in that stored procedure, have if statement checking the TEXT variable that will
+    dictate what field to change; in each IF block, have its own UPDATE block for each field
+
+    -also, one of the variables should be the new argument to be update with
+
+    -pay attention to media types like 'show' and 'video game'; 'show' has both INT fields and STRING fields; 'video game' has a
+    field similar to 'genre, but that can be solved with a string that is comma separated
+
+
+
+    DELETE
+    -similar idea as above; have one universal DELETE stored procedure, separated by IF blocks dependant on media types that
+    each has their own way of deleting info from database
+
+
+
+    SEARCH
+    -have View(s) that list all media piece along with relevant info (ID, Title, Creator, Genres, etc.); that way, can use the
+    View(s) for easier look up instead of generating a temporary table
+
+    -each media type should have own search stored procedure because each media type has own fields user can search for, which
+    would make nested IF blocks, which are tedious in MySql
+
+
+
+    INSERT
+    -keep same, but update to reflect new look up tables
      */
     public partial class MediaMarkerMainWindow : Form
     {
@@ -112,7 +139,7 @@ namespace Media_Marker
 
         private void possessedBookListAllButton_Click(object sender, EventArgs e)
         {
-            List<Book> listAllResult = mysqlHelper.listAllBooks("Possessed Media");
+            List<Book> listAllResult = mysqlHelper.listAllBooks(Enums.MediaStatus.Possessed);
             testForm.loadNewInfo(listAllResult);
             possessedBookResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -124,7 +151,7 @@ namespace Media_Marker
 
         private void possessedGameListAllButton_Click(object sender, EventArgs e)
         {
-            List<Game> listAllResult = mysqlHelper.listAllGames("Possessed Media");
+            List<Game> listAllResult = mysqlHelper.listAllGames(Enums.MediaStatus.Possessed);
             gameTestForm.loadNewInfo(listAllResult);
             possessedGameResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -233,7 +260,7 @@ namespace Media_Marker
 
         private void possessedMovieListAllButton_Click(object sender, EventArgs e)
         {
-            List<Movie> listAllResult = mysqlHelper.listAllMovies("Possessed Media");
+            List<Movie> listAllResult = mysqlHelper.listAllMovies(Enums.MediaStatus.Possessed);
             movieTestForm.loadNewInfo(listAllResult);
             possessedMovieResultPanel.Controls.Clear();
             movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -245,7 +272,7 @@ namespace Media_Marker
 
         private void possessedShowListAllButton_Click(object sender, EventArgs e)
         {
-            List<Show> listAllResult = mysqlHelper.listAllShows("Possessed Media");
+            List<Show> listAllResult = mysqlHelper.listAllShows(Enums.MediaStatus.Possessed);
             foreach (Show show in listAllResult)
             {
                 Console.WriteLine(show.episodes);

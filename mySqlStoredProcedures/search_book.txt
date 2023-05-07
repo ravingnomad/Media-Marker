@@ -1,44 +1,31 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `search_book`(
-bookStatus VARCHAR(100),
-searchField VARCHAR(100),
-searchQuery VARCHAR(6555)
+bookStatus INT,
+searchField TEXT,
+searchQuery TEXT
 )
 BEGIN
-	CREATE TABLE temp AS
-		SELECT books.title, books.author, GROUP_CONCAT(genre_name) AS 'genres'
-		FROM books
-		#Join with table that only has books that match the given bookStatus
-		JOIN (
-			SELECT media_id
-			FROM media_pieces
-			WHERE bookStatus = media_pieces.status AND media_type_id = 1) AS matchStatus
-			ON matchStatus.media_id = books.book_id
-		#Join with table that has the genres of the previously specified books
-		JOIN (
-			SELECT genre_types.genre_name, media_genre.media_id, media_genre.media_type_id 
-			FROM genre_types, media_genre
-			WHERE media_genre.genre_id = genre_types.genre_id) AS genre_table
-			ON books.book_id = genre_table.media_id
-		GROUP BY books.title;
-        
 	IF searchField = 'Title' THEN
-		SELECT * FROM temp WHERE temp.title LIKE CONCAT('%', searchQuery,'%') AND searchQuery != '';
+		SELECT all_books.title, all_books.author, all_books.genres
+        FROM all_books
+        WHERE all_books.title LIKE CONCAT('%', searchQuery,'%') AND all_books.status = bookStatus AND searchQuery != '';
         
 	ELSEIF searchField = 'Author' THEN
-		SELECT * FROM temp WHERE temp.author LIKE CONCAT('%', searchQuery,'%') AND searchQuery != '';
+		SELECT all_books.title, all_books.author, all_books.genres
+        FROM all_books 
+        WHERE all_books.author LIKE CONCAT('%', searchQuery,'%') AND all_books.status = bookStatus AND searchQuery != '';
         
 	ELSEIF searchField = 'Genre' THEN
 		SET @genreQueryLength = LENGTH(searchQuery);
         CREATE TABLE tempMatchedGenre(title TEXT, author TEXT, genres TEXT);
 			parseLoop: LOOP
-				#stip leading and trailing white spaces
-				SET @genreName = TRIM(SUBSTRING_INDEX(searchQuery, ',', 1));
+				#strip leading and trailing white spaces
+				SET @genreName = LOWER(TRIM(SUBSTRING_INDEX(searchQuery, ',', 1)));
                 SET @genreNameLength = LENGTH(@genreName);
                 
 				INSERT INTO tempMatchedGenre 
-                SELECT *
-                FROM temp
-                WHERE temp.genres LIKE CONCAT('%', @genreName, '%') AND @genreName != '';
+                SELECT all_books.title, all_books.author, all_books.genres
+                FROM all_books
+                WHERE all_books.genres LIKE CONCAT('%', @genreName, '%') AND all_books.status = bookStatus AND @genreName != '';
                 
                 SET searchQuery = MID(searchQuery, @genreNameLength + 2, @genreQueryLength);
                 IF searchQuery IS NULL OR searchQuery = '' THEN
@@ -48,5 +35,4 @@ BEGIN
             SELECT DISTINCT * FROM tempMatchedGenre;
             DROP TABLE tempMatchedGenre;
 	END IF;
-    DROP TABLE temp;
 END

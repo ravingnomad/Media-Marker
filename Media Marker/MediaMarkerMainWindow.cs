@@ -17,12 +17,6 @@ using Enums;
 namespace Media_Marker
 {
     /*
-    DELETE
-    -similar idea as above; have one universal DELETE stored procedure, separated by IF blocks dependant on media types that
-    each has their own way of deleting info from database
-
-
-
     SEARCH
     -have View(s) that list all media piece along with relevant info (ID, Title, Creator, Genres, etc.); that way, can use the
     View(s) for easier look up instead of generating a temporary table

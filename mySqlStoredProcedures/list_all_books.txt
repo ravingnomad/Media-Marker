@@ -1,18 +1,12 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `list_all_books`(
-identifierString TEXT)
+mediaStatusEnum INT)
 BEGIN
 START TRANSACTION;
-	CREATE TABLE tempAllBookGenreNames AS
-		SELECT books.book_id, books.title, books.author, allMediaGenreNames.genres
-		FROM books, all_media_piece_genre_names AS allMediaGenreNames
-        WHERE allMediaGenreNames.media_type_id = 1 AND allMediaGenreNames.media_id = books.book_id;
-	
     #select * works because dapper will only put data into those variables whose names correctly match the column names; so even though this 
     #statement also selects all columns in 'media_pieces', user will never see that data because we do not have variables in our 'Book'
     #class that matches the column names of 'media_pieces'
 	SELECT *
-    FROM tempAllBookGenreNames, media_pieces
-    WHERE media_pieces.media_type_id = 1 AND media_pieces.media_id = tempAllBookGenreNames.book_id AND media_pieces.status = identifierString;
-	DROP TABLE tempAllBookGenreNames;
+    FROM all_books
+    WHERE all_books.status = mediaStatusEnum;
 COMMIT;
 END

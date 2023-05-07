@@ -173,7 +173,7 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { gameEnum = Enums.MediaTypeNames.Video_Game, mediaStatusEnum = statusIdentifier};
+                var values = new { mediaStatusEnum = statusIdentifier};
 
                 List<Game> result = connection.Query<Game>("list_all_games", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;

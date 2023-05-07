@@ -8,7 +8,7 @@ namespace Media_Types
 {
     public class Game
     {
-        public int game_id { get; set; }
+        public int video_game_id { get; set; }
         public string title { get; set; }
         public string developer { get; set; }
         public string genres { get; set; }

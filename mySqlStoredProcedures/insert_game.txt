@@ -1,11 +1,10 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_game`(
 mediaTypeID INT, 
-gameTitle VARCHAR(100), 
-developer VARCHAR(100), 
-gameGenresString VARCHAR(6555), 
-supportedPlatformsString VARCHAR(6555),
-mediaStatus VARCHAR(45))
-
+gameTitle TEXT, 
+developer TEXT, 
+gameGenresString TEXT, 
+supportedPlatformsString TEXT,
+mediaStatus INT)
 BEGIN
 	START TRANSACTION;
 		

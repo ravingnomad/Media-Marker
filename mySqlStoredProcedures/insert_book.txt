@@ -1,10 +1,9 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_book`(
 mediaTypeID INT,
-bookTitle VARCHAR(140), 
-author VARCHAR(140),
-bookGenresString VARCHAR(6555),
-mediaStatus VARCHAR(40))
-
+bookTitle TEXT, 
+author TEXT,
+bookGenresString TEXT,
+mediaStatus INT)
 BEGIN
 	START TRANSACTION;
     

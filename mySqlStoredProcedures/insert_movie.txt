@@ -1,9 +1,9 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_movie`(
 mediaTypeID INT,
-movieTitle VARCHAR(100), 
-director VARCHAR(100),
-movieGenresString VARCHAR(6555),
-mediaStatus VARCHAR(45))
+movieTitle TEXT, 
+director TEXT,
+movieGenresString TEXT,
+mediaStatus INT)
 BEGIN
 	START TRANSACTION;
     

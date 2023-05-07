@@ -1,11 +1,11 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_show`(
 mediaTypeID INT,
-showTitle VARCHAR(100), 
-director VARCHAR(100), 
+showTitle TEXT, 
+director TEXT, 
 seasons INT, 
 episodes INT,
-showGenresString VARCHAR(6555),
-mediaStatus VARCHAR(45))
+showGenresString TEXT,
+mediaStatus INT)
 BEGIN
 	START TRANSACTION;
 		INSERT INTO tv_shows(title, director, seasons, episodes)

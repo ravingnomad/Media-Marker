@@ -26,7 +26,5 @@ namespace Media_Types
                 _genres = sb.ToString();
             }
         }
-
-        //public string fullString { get { return $" {book_id}   { title }  : { author } GENRES: {_genres}"; } }
     }
 }

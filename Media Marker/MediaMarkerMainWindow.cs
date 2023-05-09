@@ -16,48 +16,36 @@ using Enums;
 
 namespace Media_Marker
 {
-    /*
-    SEARCH
-    -have View(s) that list all media piece along with relevant info (ID, Title, Creator, Genres, etc.); that way, can use the
-    View(s) for easier look up instead of generating a temporary table
-
-    -each media type should have own search stored procedure because each media type has own fields user can search for, which
-    would make nested IF blocks, which are tedious in MySql
-
-
-
-    INSERT
-    -keep same, but update to reflect new look up tables
-     */
     public partial class MediaMarkerMainWindow : Form
     {
         bookSearchResultForm testForm;
         movieSearchResultForm movieTestForm;
         showSearchResultForm showTestForm;
         gameSearchResultForm gameTestForm;
+
         public MediaMarkerMainWindow()
         {
             InitializeComponent();
 
-            possessedBookResultPanel.Controls.Clear();
+            bookResultPanel.Controls.Clear();
             testForm = new bookSearchResultForm();
             testForm.TopLevel = false;
-            possessedBookResultPanel.Controls.Add(testForm);
+            bookResultPanel.Controls.Add(testForm);
 
-            possessedGameResultPanel.Controls.Clear();
+            gameResultPanel.Controls.Clear();
             gameTestForm = new gameSearchResultForm();
             gameTestForm.TopLevel = false;
-            possessedGameResultPanel.Controls.Add(gameTestForm);
+            gameResultPanel.Controls.Add(gameTestForm);
 
-            possessedMovieResultPanel.Controls.Clear();
+            movieResultPanel.Controls.Clear();
             movieTestForm = new movieSearchResultForm();
             movieTestForm.TopLevel = false;
-            possessedMovieResultPanel.Controls.Add(movieTestForm);
+            movieResultPanel.Controls.Add(movieTestForm);
 
-            possessedShowResultPanel.Controls.Clear();
+            showResultPanel.Controls.Clear();
             showTestForm = new showSearchResultForm();
             showTestForm.TopLevel = false;
-            possessedShowResultPanel.Controls.Add(showTestForm);
+            showResultPanel.Controls.Add(showTestForm);
 
             testForm.Show();
             movieTestForm.Show();
@@ -67,76 +55,182 @@ namespace Media_Marker
 
         private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
         {
-            possessedBookResultPanel.Controls.Clear();
+            bookResultPanel.Controls.Clear();
             bookSearchResultForm possessedBookResults = new bookSearchResultForm();
             possessedBookResults.TopLevel = false;
             possessedBookResults.Dock = DockStyle.Fill;
-            possessedBookResultPanel.Controls.Add(possessedBookResults);
+            bookResultPanel.Controls.Add(possessedBookResults);
             possessedBookResults.Show();
+
+            gameResultPanel.Controls.Clear();
+            gameSearchResultForm gameResults = new gameSearchResultForm();
+            gameResults.TopLevel = false;
+            gameResults.Dock = DockStyle.Fill;
+            gameResultPanel.Controls.Add(gameResults);
+            gameResults.Show();
+
+            movieResultPanel.Controls.Clear();
+            movieSearchResultForm movieResults = new movieSearchResultForm();
+            movieResults.TopLevel = false;
+            movieResults.Dock = DockStyle.Fill;
+            movieResultPanel.Controls.Add(movieResults);
+            movieResults.Show();
+
+            showResultPanel.Controls.Clear();
+            showSearchResultForm showResults = new showSearchResultForm();
+            showResults.TopLevel = false;
+            showResults.Dock = DockStyle.Fill;
+            showResultPanel.Controls.Add(showResults);
+            showResults.Show();
         }
 
-        private void possessedBookSearchButton_Click(object sender, EventArgs e)
-        {
-            //type if System.Windows.Forms.TabPage
-            //get tab page of database tab (whether it is 'possessed' or 'desired'
-            //get tab page of 'desired' or 'possessed' tab (whether it is a 'book', 'movie' 'show' or 'game')
-            string mediaStatusString = dataBaseTabs.SelectedTab.Text;
 
-            string mediaTypeString = mediaTabs.SelectedTab.Text;
+        private string getRadioButtonInGroupBox(GroupBox groupBox)
+        {
+            string returnString = "";
+            try
+            {
+                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            }
+
+            catch (NullReferenceException e)
+            {
+            }
+
+            return returnString;
+        }
+
+        private Enums.MediaStatus getMediaStatusEnum(string statusString)
+        {
+            if (statusString == "Possessed")
+                return Enums.MediaStatus.Possessed;
+            return Enums.MediaStatus.Desired;
+        }
+
+
+        private void bookSearchButton_Click(object sender, EventArgs e)
+        {
+            string mediaStatusString = getRadioButtonInGroupBox(bookStatusRadioGroupBox);
+            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string checkedButton = bookSearchCriteriaRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            string searchCriteria = getRadioButtonInGroupBox(bookSearchCriteriaRadioGroupBox);
 
-            string searchQuery = possessedBookSearchTextBox.Text;
+            string searchQuery = bookSearchTextBox.Text;
 
-            List<Book> searchResults = mysqlHelper.searchMedia(mediaStatusString, mediaTypeString, checkedButton, searchQuery);
-
-            possessedBookResultPanel.Controls.Clear();
-            testForm.loadSearchResults(searchResults);
-            testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            testForm.Dock = DockStyle.Fill;
+            List<Book> searchResults = mysqlHelper.searchBook(mediaStatusEnum, Enums.MediaTypeNames.Book, searchCriteria, searchQuery);
+            bookResultPanel.Controls.Clear();
             testForm.TopLevel = false;
-            possessedBookResultPanel.Controls.Add(testForm);
+            testForm.Dock = DockStyle.Fill;
+            bookResultPanel.Controls.Add(testForm);
             testForm.Show();
+            testForm.loadNewInfo(searchResults);
         }
 
-        private void possessedMovieSearchButton_Click(object sender, EventArgs e)
+        private void movieSearchButton_Click(object sender, EventArgs e)
         {
-            string mediaStatusString = dataBaseTabs.SelectedTab.Text;
-
-            string mediaTypeString = mediaTabs.SelectedTab.Text;
+            string mediaStatusString = getRadioButtonInGroupBox(movieStatusRadioGroupBox);
+            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string checkedButton = possessedMoviesRadioGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
+            string searchCriteria = getRadioButtonInGroupBox(movieSearchCriteriaRadioGroupBox);
 
-            string searchQuery = possessedMovieSearchTextBox.Text;
+            string searchQuery = movieSearchTextBox.Text;
 
-            List<Book> searchResults = mysqlHelper.searchMedia(mediaStatusString, mediaTypeString, checkedButton, searchQuery);
-            
+            List<Movie> searchResults = mysqlHelper.searchMovie(mediaStatusEnum, Enums.MediaTypeNames.Movie, searchCriteria, searchQuery);
+            movieResultPanel.Controls.Clear();
+            movieTestForm.TopLevel = false;
+            movieTestForm.Dock = DockStyle.Fill;
+            movieResultPanel.Controls.Add(movieTestForm);
+            movieTestForm.Show();
+            movieTestForm.loadNewInfo(searchResults);
         }
 
-        private void possessedBookListAllButton_Click(object sender, EventArgs e)
+        private void showSearchButton_Click(object sender, EventArgs e)
+        {
+            string mediaStatusString = getRadioButtonInGroupBox(showStatusRadioGroupBox);
+            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+
+            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+            string searchCriteria = getRadioButtonInGroupBox(showSearchCriteriaRadioGroupBox);
+
+            string searchQuery = showSearchTextBox.Text;
+
+            List<Show> searchResults = mysqlHelper.searchShow(mediaStatusEnum, Enums.MediaTypeNames.TV_Show, searchCriteria, searchQuery);
+            showResultPanel.Controls.Clear();
+            showTestForm.TopLevel = false;
+            showTestForm.Dock = DockStyle.Fill;
+            showResultPanel.Controls.Add(showTestForm);
+            showTestForm.Show();
+            showTestForm.loadNewInfo(searchResults);
+        }
+
+        private void gameSearchButton_Click(object sender, EventArgs e)
+        {
+            string mediaStatusString = getRadioButtonInGroupBox(gameStatusRadioGroupBox);
+            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+
+            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
+            string searchCriteria = getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
+
+            string searchQuery = gameSearchTextBox.Text;
+
+            List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, Enums.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
+            gameResultPanel.Controls.Clear();
+            gameTestForm.TopLevel = false;
+            gameTestForm.Dock = DockStyle.Fill;
+            gameResultPanel.Controls.Add(gameTestForm);
+            gameTestForm.Show();
+            gameTestForm.loadNewInfo(searchResults);
+        }
+
+        private void bookListAllButton_Click(object sender, EventArgs e)
         {
             List<Book> listAllResult = mysqlHelper.listAllBooks(Enums.MediaStatus.Possessed);
-            testForm.loadNewInfo(listAllResult);
-            possessedBookResultPanel.Controls.Clear();
+            bookResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             testForm.Dock = DockStyle.Fill;
             testForm.TopLevel = false;
-            possessedBookResultPanel.Controls.Add(testForm);
+            bookResultPanel.Controls.Add(testForm);
             testForm.Show();
+            testForm.loadNewInfo(listAllResult);
         }
 
-        private void possessedGameListAllButton_Click(object sender, EventArgs e)
+        private void gameListAllButton_Click(object sender, EventArgs e)
         {
             List<Game> listAllResult = mysqlHelper.listAllGames(Enums.MediaStatus.Possessed);
-            gameTestForm.loadNewInfo(listAllResult);
-            possessedGameResultPanel.Controls.Clear();
+            gameResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gameTestForm.Dock = DockStyle.Fill;
             gameTestForm.TopLevel = false;
-            possessedGameResultPanel.Controls.Add(gameTestForm);
+            gameResultPanel.Controls.Add(gameTestForm);
             gameTestForm.Show();
+            gameTestForm.loadNewInfo(listAllResult);
+        }
+
+        private void movieListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Movie> listAllResult = mysqlHelper.listAllMovies(Enums.MediaStatus.Possessed);
+            movieResultPanel.Controls.Clear();
+            movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            movieTestForm.Dock = DockStyle.Fill;
+            movieTestForm.TopLevel = false;
+            movieResultPanel.Controls.Add(movieTestForm);
+            gameTestForm.Show();
+            movieTestForm.loadNewInfo(listAllResult);
+        }
+
+        private void showListAllButton_Click(object sender, EventArgs e)
+        {
+            List<Show> listAllResult = mysqlHelper.listAllShows(Enums.MediaStatus.Possessed);
+            showTestForm.loadNewInfo(listAllResult);
+            showResultPanel.Controls.Clear();
+            showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            showTestForm.Dock = DockStyle.Fill;
+            showTestForm.TopLevel = false;
+            showResultPanel.Controls.Add(showTestForm);
+            showTestForm.Show();
+            showTestForm.loadNewInfo(listAllResult);
         }
 
 
@@ -162,11 +256,11 @@ namespace Media_Marker
                 }
                 //mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
                 testForm.deleteFromDataSource(checkedValues);
-                possessedBookResultPanel.Controls.Clear();
+                bookResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                possessedBookResultPanel.Controls.Add(testForm);
+                bookResultPanel.Controls.Add(testForm);
                 testForm.Show();
             }
 
@@ -181,11 +275,11 @@ namespace Media_Marker
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);
-                possessedBookResultPanel.Controls.Clear();
+                bookResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                possessedBookResultPanel.Controls.Add(testForm);
+                bookResultPanel.Controls.Add(testForm);
                 testForm.Show();
                 Console.WriteLine("Move to desired table!");
             }
@@ -201,11 +295,11 @@ namespace Media_Marker
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);
-                possessedBookResultPanel.Controls.Clear();
+                bookResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                possessedBookResultPanel.Controls.Add(testForm);
+                bookResultPanel.Controls.Add(testForm);
                 testForm.Show();
                 Console.WriteLine("Move to possessed table!");
             }
@@ -236,33 +330,9 @@ namespace Media_Marker
             }
         }
 
-        private void possessedMovieListAllButton_Click(object sender, EventArgs e)
-        {
-            List<Movie> listAllResult = mysqlHelper.listAllMovies(Enums.MediaStatus.Possessed);
-            movieTestForm.loadNewInfo(listAllResult);
-            possessedMovieResultPanel.Controls.Clear();
-            movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            movieTestForm.Dock = DockStyle.Fill;
-            movieTestForm.TopLevel = false;
-            possessedMovieResultPanel.Controls.Add(movieTestForm);
-            gameTestForm.Show();
-        }
 
-        private void possessedShowListAllButton_Click(object sender, EventArgs e)
-        {
-            List<Show> listAllResult = mysqlHelper.listAllShows(Enums.MediaStatus.Possessed);
-            foreach (Show show in listAllResult)
-            {
-                Console.WriteLine(show.episodes);
-            }
-            showTestForm.loadNewInfo(listAllResult);
-            possessedShowResultPanel.Controls.Clear();
-            showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            showTestForm.Dock = DockStyle.Fill;
-            showTestForm.TopLevel = false;
-            possessedShowResultPanel.Controls.Add(showTestForm);
-            showTestForm.Show();
-        }
+
+
 
         
         private void newBookRadioButton_CheckedChanged(object sender, EventArgs e)

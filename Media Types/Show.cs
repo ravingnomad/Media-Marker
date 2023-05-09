@@ -13,8 +13,22 @@ namespace Media_Types
         public string director { get; set; }
         public int seasons { get; set; }
         public int episodes { get; set; }
-        public string genres { get; set; }
 
-        //public string fullString { get { return $" {platform_id} : {platform_name}"; } }
+        private string _genres;
+        public string genres
+        {
+            get
+            {
+                return _genres;
+            }
+
+            set
+            {
+                StringBuilder sb = new StringBuilder(value);
+                sb.Replace(',', '\n');
+                _genres = sb.ToString();
+            }
+        }
+
     }
 }

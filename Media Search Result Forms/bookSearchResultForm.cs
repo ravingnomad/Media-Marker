@@ -17,7 +17,6 @@ namespace Media_Search_Result_Forms
         public bookSearchResultForm()
         {
             InitializeComponent();
-            
         }
 
         public void loadSearchResults(List<Book> results)

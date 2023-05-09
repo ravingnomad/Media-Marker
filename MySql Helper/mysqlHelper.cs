@@ -117,7 +117,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Book> searchMedia(string mediaStatus, string mediaType, string selectedField, string searchQuery)
+        public static List<Book> searchBook(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
         {
             if (connString == null)
             {
@@ -128,10 +128,73 @@ namespace MySql_Helper
             {
                 var values = new {
                     bookStatus = mediaStatus,
-                    searchField = selectedField,
+                    searchField = selectedCriteria,
                     searchQuery = searchQuery
                 };
                 List<Book> result = connection.Query<Book>("search_book", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+
+        public static List<Movie> searchMovie(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new
+                {
+                    movieStatus = mediaStatus,
+                    searchField = selectedCriteria,
+                    searchQuery = searchQuery
+                };
+                List<Movie> result = connection.Query<Movie>("search_movie", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+
+        public static List<Show> searchShow(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new
+                {
+                    showStatus = mediaStatus,
+                    searchField = selectedCriteria,
+                    searchQuery = searchQuery
+                };
+                List<Show> result = connection.Query<Show>("search_show", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                return result;
+            }
+        }
+
+
+        public static List<Game> searchGame(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var values = new
+                {
+                    gameStatus = mediaStatus,
+                    searchField = selectedCriteria,
+                    searchQuery = searchQuery
+                };
+                List<Game> result = connection.Query<Game>("search_video_game", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }

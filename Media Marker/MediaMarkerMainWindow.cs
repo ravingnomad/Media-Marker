@@ -237,8 +237,11 @@ namespace Media_Marker
         //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
         private void confirmActionButton_Click(object sender, EventArgs e)
         {
+            Form searchResultsForm = searchResultPanel.Controls.OfType<Form>().ToList()[0];
+            DataGridView activeDataGrid = searchResultsForm.Controls.OfType<DataGridView>().ToList()[0];
             List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
-            foreach (DataGridViewRow row in testForm.bookDataGridView.Rows)
+
+            foreach (DataGridViewRow row in activeDataGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
                 {
@@ -320,7 +323,6 @@ namespace Media_Marker
                 else
                 {
                     DataGridViewRow selectedPiece = checkedValues[0];
-                    Console.WriteLine($"Selected piece to edit: { selectedPiece.Cells["book_id"].Value }    {selectedPiece.Cells["title"].Value }   {selectedPiece.Cells["author"].Value }");
                     //call mysql function to get book(or other media info) and use that to pass into the edit form
                     Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
                     //Console.WriteLine(selectedBook.fullString);
@@ -328,6 +330,7 @@ namespace Media_Marker
                     editForm.Show();
                 }
             }
+            
         }
 
 

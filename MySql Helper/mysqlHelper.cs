@@ -307,7 +307,8 @@ namespace MySql_Helper
             }
         }
 
-        public static void changeBookTitle(int bookID, string newTitle)
+
+        public static void updateBook(int bookID, Dictionary<string, string> updatedValues)
         {
             if (connString == null)
             {
@@ -316,37 +317,22 @@ namespace MySql_Helper
 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { book_id = bookID, title = newTitle };
-                connection.Query("change_book_title", values, commandType: System.Data.CommandType.StoredProcedure);
-            }
-        }
+                foreach (KeyValuePair<string, string> field in updatedValues)
+                {
+                    if (field.Key == "Genre")
+                    {
+                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Book, mediaPieceID = bookID, genres = field.Value };
+                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
 
-        public static void changeBookAuthor(int bookID, string newAuthor)
-        {
-            if (connString == null)
-            {
-                loadConnString();
-            }
-
-            using (MySqlConnection connection = new MySqlConnection(connString))
-            {
-                var values = new { book_id = bookID, author = newAuthor };
-                connection.Query("change_book_author", values, commandType: System.Data.CommandType.StoredProcedure);
-            }
-        }
-
-        public static void changeBookGenres(int bookID, string newGenres)
-        {
-            if (connString == null)
-            {
-                loadConnString();
+                    else
+                    {
+                        var values = new { book_id = bookID, fieldToChange = field.Key, newValue = field.Value };
+                        connection.Query("update_book", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                }
             }
 
-            using (MySqlConnection connection = new MySqlConnection(connString))
-            {
-                var values = new { book_id = bookID, genres = newGenres };
-                connection.Query("change_book_genre", values, commandType: System.Data.CommandType.StoredProcedure);
-            }
         }
     }
 }

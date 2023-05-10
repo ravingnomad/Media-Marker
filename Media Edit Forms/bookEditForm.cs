@@ -68,30 +68,29 @@ namespace Media_Edit_Forms
 
         private void bookEditSaveButton_Click(object sender, EventArgs e)
         {
+            Dictionary<string, string> updatedFields = new Dictionary<string, string>();
+
             if (bookEditTitleTextBox.Text != originalTitle)
             {
-                Console.WriteLine("The user changed the title!");
-                mysqlHelper.changeBookTitle(bookID, bookEditTitleTextBox.Text);
+                updatedFields.Add("Title", bookEditTitleTextBox.Text);
             }
 
-            else if (bookEditAuthorTextBox.Text != originalAuthor)
+            if (bookEditAuthorTextBox.Text != originalAuthor)
             {
-                Console.WriteLine("The user changed the author!");
-                mysqlHelper.changeBookAuthor(bookID, bookEditAuthorTextBox.Text);
+                updatedFields.Add("Author", bookEditAuthorTextBox.Text);
             }
 
-            else if (genresChanged())
+            if (genresChanged())
             {
-                Console.WriteLine("The user changed the genre(s)");
                 List<string> genreList = new List<string>();
                 foreach (string genre in bookEditGenreListBox.CheckedItems)
                 {
                     genreList.Add(genre);
                 }
-
                 string newGenresString = String.Join(",", genreList);
-                mysqlHelper.changeBookGenres(bookID, newGenresString);
+                updatedFields.Add("Genre", newGenresString);
             }
+            mysqlHelper.updateBook(bookID, updatedFields);
         }
 
         private bool genresChanged()

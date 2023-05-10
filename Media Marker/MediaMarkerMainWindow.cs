@@ -27,25 +27,25 @@ namespace Media_Marker
         {
             InitializeComponent();
 
-            bookResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             testForm = new bookSearchResultForm();
             testForm.TopLevel = false;
-            bookResultPanel.Controls.Add(testForm);
+            searchResultPanel.Controls.Add(testForm);
 
-            gameResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             gameTestForm = new gameSearchResultForm();
             gameTestForm.TopLevel = false;
-            gameResultPanel.Controls.Add(gameTestForm);
+            searchResultPanel.Controls.Add(gameTestForm);
 
-            movieResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             movieTestForm = new movieSearchResultForm();
             movieTestForm.TopLevel = false;
-            movieResultPanel.Controls.Add(movieTestForm);
+            searchResultPanel.Controls.Add(movieTestForm);
 
-            showResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             showTestForm = new showSearchResultForm();
             showTestForm.TopLevel = false;
-            showResultPanel.Controls.Add(showTestForm);
+            searchResultPanel.Controls.Add(showTestForm);
 
             testForm.Show();
             movieTestForm.Show();
@@ -55,32 +55,32 @@ namespace Media_Marker
 
         private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
         {
-            bookResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             bookSearchResultForm possessedBookResults = new bookSearchResultForm();
             possessedBookResults.TopLevel = false;
             possessedBookResults.Dock = DockStyle.Fill;
-            bookResultPanel.Controls.Add(possessedBookResults);
+            searchResultPanel.Controls.Add(possessedBookResults);
             possessedBookResults.Show();
 
-            gameResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             gameSearchResultForm gameResults = new gameSearchResultForm();
             gameResults.TopLevel = false;
             gameResults.Dock = DockStyle.Fill;
-            gameResultPanel.Controls.Add(gameResults);
+            searchResultPanel.Controls.Add(gameResults);
             gameResults.Show();
 
-            movieResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             movieSearchResultForm movieResults = new movieSearchResultForm();
             movieResults.TopLevel = false;
             movieResults.Dock = DockStyle.Fill;
-            movieResultPanel.Controls.Add(movieResults);
+            searchResultPanel.Controls.Add(movieResults);
             movieResults.Show();
 
-            showResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             showSearchResultForm showResults = new showSearchResultForm();
             showResults.TopLevel = false;
             showResults.Dock = DockStyle.Fill;
-            showResultPanel.Controls.Add(showResults);
+            searchResultPanel.Controls.Add(showResults);
             showResults.Show();
         }
 
@@ -119,10 +119,10 @@ namespace Media_Marker
             string searchQuery = bookSearchTextBox.Text;
 
             List<Book> searchResults = mysqlHelper.searchBook(mediaStatusEnum, Enums.MediaTypeNames.Book, searchCriteria, searchQuery);
-            bookResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             testForm.TopLevel = false;
             testForm.Dock = DockStyle.Fill;
-            bookResultPanel.Controls.Add(testForm);
+            searchResultPanel.Controls.Add(testForm);
             testForm.Show();
             testForm.loadNewInfo(searchResults);
         }
@@ -138,10 +138,10 @@ namespace Media_Marker
             string searchQuery = movieSearchTextBox.Text;
 
             List<Movie> searchResults = mysqlHelper.searchMovie(mediaStatusEnum, Enums.MediaTypeNames.Movie, searchCriteria, searchQuery);
-            movieResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             movieTestForm.TopLevel = false;
             movieTestForm.Dock = DockStyle.Fill;
-            movieResultPanel.Controls.Add(movieTestForm);
+            searchResultPanel.Controls.Add(movieTestForm);
             movieTestForm.Show();
             movieTestForm.loadNewInfo(searchResults);
         }
@@ -157,10 +157,10 @@ namespace Media_Marker
             string searchQuery = showSearchTextBox.Text;
 
             List<Show> searchResults = mysqlHelper.searchShow(mediaStatusEnum, Enums.MediaTypeNames.TV_Show, searchCriteria, searchQuery);
-            showResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             showTestForm.TopLevel = false;
             showTestForm.Dock = DockStyle.Fill;
-            showResultPanel.Controls.Add(showTestForm);
+            searchResultPanel.Controls.Add(showTestForm);
             showTestForm.Show();
             showTestForm.loadNewInfo(searchResults);
         }
@@ -176,10 +176,10 @@ namespace Media_Marker
             string searchQuery = gameSearchTextBox.Text;
 
             List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, Enums.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
-            gameResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             gameTestForm.TopLevel = false;
             gameTestForm.Dock = DockStyle.Fill;
-            gameResultPanel.Controls.Add(gameTestForm);
+            searchResultPanel.Controls.Add(gameTestForm);
             gameTestForm.Show();
             gameTestForm.loadNewInfo(searchResults);
         }
@@ -187,11 +187,11 @@ namespace Media_Marker
         private void bookListAllButton_Click(object sender, EventArgs e)
         {
             List<Book> listAllResult = mysqlHelper.listAllBooks(Enums.MediaStatus.Possessed);
-            bookResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             testForm.Dock = DockStyle.Fill;
             testForm.TopLevel = false;
-            bookResultPanel.Controls.Add(testForm);
+            searchResultPanel.Controls.Add(testForm);
             testForm.Show();
             testForm.loadNewInfo(listAllResult);
         }
@@ -199,11 +199,11 @@ namespace Media_Marker
         private void gameListAllButton_Click(object sender, EventArgs e)
         {
             List<Game> listAllResult = mysqlHelper.listAllGames(Enums.MediaStatus.Possessed);
-            gameResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gameTestForm.Dock = DockStyle.Fill;
             gameTestForm.TopLevel = false;
-            gameResultPanel.Controls.Add(gameTestForm);
+            searchResultPanel.Controls.Add(gameTestForm);
             gameTestForm.Show();
             gameTestForm.loadNewInfo(listAllResult);
         }
@@ -211,11 +211,11 @@ namespace Media_Marker
         private void movieListAllButton_Click(object sender, EventArgs e)
         {
             List<Movie> listAllResult = mysqlHelper.listAllMovies(Enums.MediaStatus.Possessed);
-            movieResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             movieTestForm.Dock = DockStyle.Fill;
             movieTestForm.TopLevel = false;
-            movieResultPanel.Controls.Add(movieTestForm);
+            searchResultPanel.Controls.Add(movieTestForm);
             gameTestForm.Show();
             movieTestForm.loadNewInfo(listAllResult);
         }
@@ -224,11 +224,11 @@ namespace Media_Marker
         {
             List<Show> listAllResult = mysqlHelper.listAllShows(Enums.MediaStatus.Possessed);
             showTestForm.loadNewInfo(listAllResult);
-            showResultPanel.Controls.Clear();
+            searchResultPanel.Controls.Clear();
             showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             showTestForm.Dock = DockStyle.Fill;
             showTestForm.TopLevel = false;
-            showResultPanel.Controls.Add(showTestForm);
+            searchResultPanel.Controls.Add(showTestForm);
             showTestForm.Show();
             showTestForm.loadNewInfo(listAllResult);
         }
@@ -256,11 +256,11 @@ namespace Media_Marker
                 }
                 //mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
                 testForm.deleteFromDataSource(checkedValues);
-                bookResultPanel.Controls.Clear();
+                searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                bookResultPanel.Controls.Add(testForm);
+                searchResultPanel.Controls.Add(testForm);
                 testForm.Show();
             }
 
@@ -275,11 +275,11 @@ namespace Media_Marker
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);
-                bookResultPanel.Controls.Clear();
+                searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                bookResultPanel.Controls.Add(testForm);
+                searchResultPanel.Controls.Add(testForm);
                 testForm.Show();
                 Console.WriteLine("Move to desired table!");
             }
@@ -295,11 +295,11 @@ namespace Media_Marker
                     //delete this value in current datasource
                 }
                 testForm.deleteFromDataSource(checkedValues);
-                bookResultPanel.Controls.Clear();
+                searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
-                bookResultPanel.Controls.Add(testForm);
+                searchResultPanel.Controls.Add(testForm);
                 testForm.Show();
                 Console.WriteLine("Move to possessed table!");
             }
@@ -340,6 +340,7 @@ namespace Media_Marker
             
             if (newBookRadioButton.Checked)
             {
+                /*
                 newBookForm newBook = new newBookForm();
                 newEntryPanel.Controls.Clear();
                 newBook.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -347,6 +348,7 @@ namespace Media_Marker
                 newBook.TopLevel = false;
                 newEntryPanel.Controls.Add(newBook);
                 newBook.Show();
+                */
             }
         }
 
@@ -354,6 +356,7 @@ namespace Media_Marker
         {
             if (newMovieRadioButton.Checked)
             {
+                /*
                 newMovieForm newMovie = new newMovieForm();
                 newEntryPanel.Controls.Clear();
                 newMovie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -361,6 +364,7 @@ namespace Media_Marker
                 newMovie.TopLevel = false;
                 newEntryPanel.Controls.Add(newMovie);
                 newMovie.Show();
+                */
             }
         }
 
@@ -368,6 +372,7 @@ namespace Media_Marker
         {
             if (newShowRadioButton.Checked)
             {
+                /*
                 newShowForm newShow = new newShowForm();
                 newEntryPanel.Controls.Clear();
                 newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -375,6 +380,7 @@ namespace Media_Marker
                 newShow.TopLevel = false;
                 newEntryPanel.Controls.Add(newShow);
                 newShow.Show();
+                */
             }
         }
 
@@ -382,6 +388,7 @@ namespace Media_Marker
         {
             if (newGameRadioButton.Checked)
             {
+                /*
                 newGameForm newGame = new newGameForm();
                 newEntryPanel.Controls.Clear();
                 newGame.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -389,6 +396,7 @@ namespace Media_Marker
                 newGame.TopLevel = false;
                 newEntryPanel.Controls.Add(newGame);
                 newGame.Show();
+                */
             }
         }
 

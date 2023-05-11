@@ -105,6 +105,7 @@ namespace Media_Edit_Forms
             this.gameEditSaveButton.TabIndex = 51;
             this.gameEditSaveButton.Text = "Save";
             this.gameEditSaveButton.UseVisualStyleBackColor = true;
+            this.gameEditSaveButton.Click += new System.EventHandler(this.gameEditSaveButton_Click);
             // 
             // gameEditPlatformsLabel
             // 
@@ -186,7 +187,6 @@ namespace Media_Edit_Forms
             this.Controls.Add(this.gameEditDeveloperTextBox);
             this.Controls.Add(this.gameEditTitleLabel);
             this.Controls.Add(this.gameEditTitleTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameEditForm";
             this.Text = "gameEditForm";
             this.ResumeLayout(false);

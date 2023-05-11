@@ -59,11 +59,11 @@ namespace MySql_Helper
             {
                 //Add a new movie and its genre info to the database
                 string movieGenresString = String.Join(",", movieGenres);
-                var movieValues = new {mediaTypeID = MediaTypeNames.Movie,
-                                       movieTitle = movieTitle,
-                                       director = director,
-                                       movieGenresString = movieGenresString,
-                                       mediaStatus = originTab
+                var movieValues = new { mediaTypeID = MediaTypeNames.Movie,
+                    movieTitle = movieTitle,
+                    director = director,
+                    movieGenresString = movieGenresString,
+                    mediaStatus = originTab
                 };
                 connection.Query("insert_movie", movieValues, commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -80,13 +80,13 @@ namespace MySql_Helper
             {
                 //Add a new show and its genre info to the database
                 string showGenresString = String.Join(",", showGenres);
-                var showValues = new {mediaTypeID = MediaTypeNames.TV_Show,
-                                      showTitle = newShowTitle,
-                                      director = showDirector,
-                                      seasons = seasons,
-                                      episodes = episodes,
-                                      showGenresString = showGenresString,
-                                      mediaStatus = originTab
+                var showValues = new { mediaTypeID = MediaTypeNames.TV_Show,
+                    showTitle = newShowTitle,
+                    director = showDirector,
+                    seasons = seasons,
+                    episodes = episodes,
+                    showGenresString = showGenresString,
+                    mediaStatus = originTab
                 };
                 connection.Query("insert_show", showValues, commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -106,11 +106,11 @@ namespace MySql_Helper
                 string gameGenresString = String.Join(",", gameGenres);
                 string gamePlatformsString = String.Join(",", gamePlatforms);
                 var gameValues = new { mediaTypeID = MediaTypeNames.Video_Game,
-                                       gameTitle = newGameTitle,
-                                       developer = newGameDeveloper,
-                                       gameGenresString = gameGenresString,
-                                       supportedPlatformsString = gamePlatformsString,
-                                       mediaStatus = originTab};
+                    gameTitle = newGameTitle,
+                    developer = newGameDeveloper,
+                    gameGenresString = gameGenresString,
+                    supportedPlatformsString = gamePlatformsString,
+                    mediaStatus = originTab };
 
                 connection.Query("insert_game", gameValues, commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -207,11 +207,54 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var value = new {bookID = bookID};
+                var value = new { bookID = bookID };
                 Book result = connection.Query<Book>("get_book", value, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
                 return result;
             }
         }
+
+        public static Movie getMovie(int movieID)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var value = new { movieID = movieID };
+                Movie result = connection.Query<Movie>("get_movie", value, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                return result;
+            }
+        }
+
+        public static Game getGame(int gameID)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var value = new { gameID = gameID };
+                Game result = connection.Query<Game>("get_game", value, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                return result;
+            }
+        }
+
+        public static Show getShow(int showID)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                var value = new { showID = showID };
+                Show result = connection.Query<Show>("get_show", value, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
+                return result;
+            }
+        }
+
 
         public static List<Book> listAllBooks(Enums.MediaStatus statusIdentifier)
         {
@@ -332,7 +375,91 @@ namespace MySql_Helper
                     }
                 }
             }
+        }
 
+        public static void updateMovie(int movieID, Dictionary<string, string> updatedValues)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                foreach (KeyValuePair<string, string> field in updatedValues)
+                {
+                    if (field.Key == "Genre")
+                    {
+                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Movie, mediaPieceID = movieID, genres = field.Value };
+                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+
+                    else
+                    {
+                        var values = new { movie_id = movieID, fieldToChange = field.Key, newValue = field.Value };
+                        connection.Query("update_movie", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                }
+            }
+        }
+
+        public static void updateShow(int showID, Dictionary<string, string> updatedValues)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                foreach (KeyValuePair<string, string> field in updatedValues)
+                {
+                    if (field.Key == "Genre")
+                    {
+                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.TV_Show, mediaPieceID = showID, genres = field.Value };
+                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+
+                    else if (field.Key == "Seasons" || field.Key == "Episodes")
+                    {
+                        var values = new { show_id = showID, fieldToChange = field.Key, newStringValue = "", newIntValue = Int32.Parse(field.Value) };
+                        connection.Query("update_show", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+
+                    else
+                    {
+                        var values = new { show_id = showID, fieldToChange = field.Key, newStringValue = field.Value, newIntValue = 0};
+                        connection.Query("update_show", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                }
+            }
+        }
+
+        public static void updateGame(int gameID, Dictionary<string, string> updatedValues)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                foreach (KeyValuePair<string, string> field in updatedValues)
+                {
+                    if (field.Key == "Genre")
+                    {
+                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Video_Game, mediaPieceID = gameID, genres = field.Value };
+                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+
+                    else
+                    {
+                        var values = new { game_id = gameID, fieldToChange = field.Key, newValue = field.Value};
+                        Console.WriteLine($"KEY: {field.Key}    VALUE: {field.Value}");
+                        connection.Query("update_game", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                }
+            }
         }
     }
 }

@@ -73,6 +73,7 @@ namespace Media_Edit_Forms
             this.movieEditSaveButton.TabIndex = 34;
             this.movieEditSaveButton.Text = "Save";
             this.movieEditSaveButton.UseVisualStyleBackColor = true;
+            this.movieEditSaveButton.Click += new System.EventHandler(this.movieEditSaveButton_Click);
             // 
             // movieEditGenreLabel
             // 
@@ -140,7 +141,6 @@ namespace Media_Edit_Forms
             this.Controls.Add(this.movieEditDirectorTextBox);
             this.Controls.Add(this.movieEditTitleLabel);
             this.Controls.Add(this.movieEditTitleTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "movieEditForm";
             this.Text = "movieEditForm";
             this.ResumeLayout(false);

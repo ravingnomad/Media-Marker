@@ -75,6 +75,7 @@ namespace Media_Edit_Forms
             this.showEditSaveButton.TabIndex = 37;
             this.showEditSaveButton.Text = "Save";
             this.showEditSaveButton.UseVisualStyleBackColor = true;
+            this.showEditSaveButton.Click += new System.EventHandler(this.showEditSaveButton_Click);
             // 
             // showEditEpisodesLabel
             // 
@@ -188,7 +189,6 @@ namespace Media_Edit_Forms
             this.Controls.Add(this.showEditDirectorTextBox);
             this.Controls.Add(this.showEditTitleLabel);
             this.Controls.Add(this.showEditTitleTextBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "showEditForm";
             this.Text = "showEditForm";
             this.ResumeLayout(false);

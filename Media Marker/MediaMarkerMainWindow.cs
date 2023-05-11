@@ -304,7 +304,6 @@ namespace Media_Marker
                 testForm.TopLevel = false;
                 searchResultPanel.Controls.Add(testForm);
                 testForm.Show();
-                Console.WriteLine("Move to possessed table!");
             }
 
             //to prevent user from being able to open multiple forms, look into making these forms a 'singleton'
@@ -315,19 +314,47 @@ namespace Media_Marker
             //info?
             else if (actionDropDownBox.Text == "Edit")
             {
-                if (checkedValues.Count > 1)
+                if (checkedValues.Count != 1)
                 {
-                    Console.WriteLine("ERROR: Only one media piece can be edited at a time!");
+                    Console.WriteLine("ERROR: Must select one media piece to edit");
                 }
 
                 else
                 {
                     DataGridViewRow selectedPiece = checkedValues[0];
-                    //call mysql function to get book(or other media info) and use that to pass into the edit form
-                    Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
-                    //Console.WriteLine(selectedBook.fullString);
-                    bookEditForm editForm = new bookEditForm(selectedBook);
-                    editForm.Show();
+                    if (activeDataGrid.Name == "bookDataGridView")
+                    {
+                        
+                        //call mysql function to get book(or other media info) and use that to pass into the edit form
+                        Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
+                        //Console.WriteLine(selectedBook.fullString);
+                        bookEditForm editForm = new bookEditForm(selectedBook);
+                        editForm.Show();
+                    }
+
+                    else if (activeDataGrid.Name == "movieDataGridView")
+                    {
+                        Movie selectedMovie = mysqlHelper.getMovie((int)selectedPiece.Cells["movie_id"].Value);
+                        movieEditForm editForm = new movieEditForm(selectedMovie);
+                        editForm.Show();
+                    }
+
+                    else if (activeDataGrid.Name == "showDataGridView")
+                    {
+                        Show selectedShow = mysqlHelper.getShow((int)selectedPiece.Cells["tv_show_id"].Value);
+                        showEditForm editForm = new showEditForm(selectedShow);
+                        editForm.Show();
+                    }
+
+                    else if (activeDataGrid.Name == "gameDataGridView")
+                    {
+                        Game selectedGame = mysqlHelper.getGame((int)selectedPiece.Cells["video_game_id"].Value);
+                        gameEditForm editForm = new gameEditForm(selectedGame);
+                        editForm.Show();
+                    }
+                    
+                    Console.WriteLine(activeDataGrid.Name);
+
                 }
             }
             

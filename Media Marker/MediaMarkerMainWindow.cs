@@ -186,7 +186,8 @@ namespace Media_Marker
 
         private void bookListAllButton_Click(object sender, EventArgs e)
         {
-            List<Book> listAllResult = mysqlHelper.listAllBooks(Enums.MediaStatus.Possessed);
+            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(bookStatusRadioGroupBox));
+            List<Book> listAllResult = mysqlHelper.listAllBooks(mediaStatus);
             searchResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             testForm.Dock = DockStyle.Fill;
@@ -198,7 +199,8 @@ namespace Media_Marker
 
         private void gameListAllButton_Click(object sender, EventArgs e)
         {
-            List<Game> listAllResult = mysqlHelper.listAllGames(Enums.MediaStatus.Possessed);
+            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(gameStatusRadioGroupBox));
+            List<Game> listAllResult = mysqlHelper.listAllGames(mediaStatus);
             searchResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             gameTestForm.Dock = DockStyle.Fill;
@@ -210,7 +212,8 @@ namespace Media_Marker
 
         private void movieListAllButton_Click(object sender, EventArgs e)
         {
-            List<Movie> listAllResult = mysqlHelper.listAllMovies(Enums.MediaStatus.Possessed);
+            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(movieStatusRadioGroupBox));
+            List<Movie> listAllResult = mysqlHelper.listAllMovies(mediaStatus);
             searchResultPanel.Controls.Clear();
             movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             movieTestForm.Dock = DockStyle.Fill;
@@ -222,7 +225,8 @@ namespace Media_Marker
 
         private void showListAllButton_Click(object sender, EventArgs e)
         {
-            List<Show> listAllResult = mysqlHelper.listAllShows(Enums.MediaStatus.Possessed);
+            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(showStatusRadioGroupBox));
+            List<Show> listAllResult = mysqlHelper.listAllShows(mediaStatus);
             showTestForm.loadNewInfo(listAllResult);
             searchResultPanel.Controls.Clear();
             showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -367,18 +371,15 @@ namespace Media_Marker
         
         private void newBookRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            
             if (newBookRadioButton.Checked)
             {
-                /*
                 newBookForm newBook = new newBookForm();
-                newEntryPanel.Controls.Clear();
+                newBook.TopLevel = false;
+                newMediaEntryPanel.Controls.Clear();
+                newMediaEntryPanel.Controls.Add(newBook);
                 newBook.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newBook.Dock = DockStyle.Fill;
-                newBook.TopLevel = false;
-                newEntryPanel.Controls.Add(newBook);
                 newBook.Show();
-                */
             }
         }
 
@@ -386,15 +387,13 @@ namespace Media_Marker
         {
             if (newMovieRadioButton.Checked)
             {
-                /*
                 newMovieForm newMovie = new newMovieForm();
-                newEntryPanel.Controls.Clear();
+                newMediaEntryPanel.Controls.Clear();
                 newMovie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newMovie.Dock = DockStyle.Fill;
                 newMovie.TopLevel = false;
-                newEntryPanel.Controls.Add(newMovie);
+                newMediaEntryPanel.Controls.Add(newMovie);
                 newMovie.Show();
-                */
             }
         }
 
@@ -402,15 +401,13 @@ namespace Media_Marker
         {
             if (newShowRadioButton.Checked)
             {
-                /*
                 newShowForm newShow = new newShowForm();
-                newEntryPanel.Controls.Clear();
+                newMediaEntryPanel.Controls.Clear();
                 newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newShow.Dock = DockStyle.Fill;
                 newShow.TopLevel = false;
-                newEntryPanel.Controls.Add(newShow);
+                newMediaEntryPanel.Controls.Add(newShow);
                 newShow.Show();
-                */
             }
         }
 
@@ -418,18 +415,14 @@ namespace Media_Marker
         {
             if (newGameRadioButton.Checked)
             {
-                /*
                 newGameForm newGame = new newGameForm();
-                newEntryPanel.Controls.Clear();
+                newMediaEntryPanel.Controls.Clear();
                 newGame.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newGame.Dock = DockStyle.Fill;
                 newGame.TopLevel = false;
-                newEntryPanel.Controls.Add(newGame);
+                newMediaEntryPanel.Controls.Add(newGame);
                 newGame.Show();
-                */
             }
         }
-
-
     }
 }

@@ -25,7 +25,7 @@ namespace MySql_Helper
         }
 
 
-        public static void addNewBook(string bookTitle, string author, List<string> bookGenres, string originTab)
+        public static void addNewBook(string bookTitle, string author, List<string> bookGenres, Enums.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -42,13 +42,13 @@ namespace MySql_Helper
                     bookTitle = bookTitle,
                     author = author,
                     bookGenresString = bookGenresString,
-                    mediaStatus = originTab
+                    mediaStatus = mediaStatus
                 };
                 connection.Query("insert_book", bookValues, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
-        public static void addNewMovie(string movieTitle, string director, List<string> movieGenres, string originTab)
+        public static void addNewMovie(string movieTitle, string director, List<string> movieGenres, Enums.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -63,14 +63,14 @@ namespace MySql_Helper
                     movieTitle = movieTitle,
                     director = director,
                     movieGenresString = movieGenresString,
-                    mediaStatus = originTab
+                    mediaStatus = mediaStatus
                 };
                 connection.Query("insert_movie", movieValues, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
 
-        public static void addNewShow(string newShowTitle, string showDirector, int seasons, int episodes, List<string> showGenres, string originTab)
+        public static void addNewShow(string newShowTitle, string showDirector, int seasons, int episodes, List<string> showGenres, Enums.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -86,14 +86,13 @@ namespace MySql_Helper
                     seasons = seasons,
                     episodes = episodes,
                     showGenresString = showGenresString,
-                    mediaStatus = originTab
+                    mediaStatus = mediaStatus
                 };
                 connection.Query("insert_show", showValues, commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
-
-        public static void addNewGame(string newGameTitle, string newGameDeveloper, List<string> gameGenres, List<string> gamePlatforms, string originTab)
+        public static void addNewGame(string newGameTitle, string newGameDeveloper, List<string> gameGenres, List<string> gamePlatforms, Enums.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -110,7 +109,7 @@ namespace MySql_Helper
                     developer = newGameDeveloper,
                     gameGenresString = gameGenresString,
                     supportedPlatformsString = gamePlatformsString,
-                    mediaStatus = originTab };
+                    mediaStatus = mediaStatus };
 
                 connection.Query("insert_game", gameValues, commandType: System.Data.CommandType.StoredProcedure);
             }

@@ -23,14 +23,15 @@ namespace New_Media_Forms
             string movieTitle = newMovieTitleTextBox.Text;
             string directorName = newMovieDirectorTextBox.Text;
             var newMovieGenres = newMovieGenreListBox.CheckedItems;
-            string newMovieStatus = getRadioButtonInGroupBox(newMovieStatusGroupBox);
+            string newMovieStatusString = getRadioButtonInGroupBox(newMovieStatusGroupBox);
+            Enums.MediaStatus newMovieStatusEnum = (newMovieStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
 
             List<string> newMovieGenresList = new List<string>();
             foreach (string genre in newMovieGenres)
             {
                 newMovieGenresList.Add(genre);
             }
-            mysqlHelper.addNewMovie(movieTitle, directorName, newMovieGenresList, newMovieStatus);
+            mysqlHelper.addNewMovie(movieTitle, directorName, newMovieGenresList, newMovieStatusEnum);
         }
 
         /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/

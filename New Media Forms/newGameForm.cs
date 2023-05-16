@@ -22,7 +22,8 @@ namespace New_Media_Forms
         {
             string gameTitle = newGameTitleTextBox.Text;
             string gameDeveloper = newGameDeveloperTextBox.Text;
-            string newGameStatus = getRadioButtonInGroupBox(newGameStatusGroupBox);
+            string newGameStatusString = getRadioButtonInGroupBox(newGameStatusGroupBox);
+            Enums.MediaStatus newGameStatusEnum = (newGameStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
             var gameGenres = gameGenreListBox.CheckedItems;
             var gamePlatforms = gamePlatformListBox.CheckedItems;
 
@@ -37,7 +38,7 @@ namespace New_Media_Forms
                 newGamePlatformsList.Add(platform);
             }
 
-            mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatus);
+            mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatusEnum);
         }
 
         /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/

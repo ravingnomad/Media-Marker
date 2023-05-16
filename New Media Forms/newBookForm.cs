@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql_Helper;
+using Enums;
 
 namespace New_Media_Forms
 {
@@ -22,7 +23,9 @@ namespace New_Media_Forms
         {
             string bookTitle = newBookTitleTextBox.Text;
             string authorName = newBookAuthorTextBox.Text;
-            string newBookStatus = getRadioButtonInGroupBox(newBookStatusGroupBox);
+            string newBookStatusString = getRadioButtonInGroupBox(newBookStatusGroupBox);
+            Enums.MediaStatus newBookStatusEnum = (newBookStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
+
             var newBookGenres = bookGenreListBox.CheckedItems;
 
             List<string> newBookGenresList = new List<string>();
@@ -30,7 +33,7 @@ namespace New_Media_Forms
             {
                 newBookGenresList.Add(genre);
             }
-            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newBookStatus);
+            mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newBookStatusEnum);
         }
 
         /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/

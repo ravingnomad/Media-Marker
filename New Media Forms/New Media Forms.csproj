@@ -84,6 +84,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{460840f4-5950-4af4-9162-6edc83045ddd}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
       <Project>{7edd91a7-7ae5-45c9-b662-11790209b24a}</Project>
       <Name>MySql Helper</Name>

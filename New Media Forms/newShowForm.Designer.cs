@@ -196,7 +196,7 @@ namespace New_Media_Forms
             this.newShowPossessedRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newShowPossessedRadioButton.Location = new System.Drawing.Point(15, 0);
             this.newShowPossessedRadioButton.Name = "newShowPossessedRadioButton";
-            this.newShowPossessedRadioButton.Size = new System.Drawing.Size(205, 43);
+            this.newShowPossessedRadioButton.Size = new System.Drawing.Size(200, 42);
             this.newShowPossessedRadioButton.TabIndex = 10;
             this.newShowPossessedRadioButton.TabStop = true;
             this.newShowPossessedRadioButton.Text = "Possessed";
@@ -208,7 +208,7 @@ namespace New_Media_Forms
             this.newBookDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newBookDesiredRadioButton.Location = new System.Drawing.Point(15, 57);
             this.newBookDesiredRadioButton.Name = "newBookDesiredRadioButton";
-            this.newBookDesiredRadioButton.Size = new System.Drawing.Size(156, 43);
+            this.newBookDesiredRadioButton.Size = new System.Drawing.Size(151, 42);
             this.newBookDesiredRadioButton.TabIndex = 11;
             this.newBookDesiredRadioButton.TabStop = true;
             this.newBookDesiredRadioButton.Text = "Desired";
@@ -221,7 +221,7 @@ namespace New_Media_Forms
             this.newShowStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newShowStatusLabel.Location = new System.Drawing.Point(8, 646);
             this.newShowStatusLabel.Name = "newShowStatusLabel";
-            this.newShowStatusLabel.Size = new System.Drawing.Size(224, 39);
+            this.newShowStatusLabel.Size = new System.Drawing.Size(216, 38);
             this.newShowStatusLabel.TabIndex = 28;
             this.newShowStatusLabel.Text = "Media Status:";
             // 

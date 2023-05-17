@@ -30,21 +30,25 @@ namespace Media_Marker
             searchResultPanel.Controls.Clear();
             testForm = new bookSearchResultForm();
             testForm.TopLevel = false;
+            testForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(testForm);
 
             searchResultPanel.Controls.Clear();
             gameTestForm = new gameSearchResultForm();
             gameTestForm.TopLevel = false;
+            gameTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(gameTestForm);
 
             searchResultPanel.Controls.Clear();
             movieTestForm = new movieSearchResultForm();
             movieTestForm.TopLevel = false;
+            movieTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(movieTestForm);
 
             searchResultPanel.Controls.Clear();
             showTestForm = new showSearchResultForm();
             showTestForm.TopLevel = false;
+            showTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(showTestForm);
 
             testForm.Show();
@@ -55,6 +59,7 @@ namespace Media_Marker
 
         private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
         {
+            /*
             searchResultPanel.Controls.Clear();
             bookSearchResultForm possessedBookResults = new bookSearchResultForm();
             possessedBookResults.TopLevel = false;
@@ -81,7 +86,7 @@ namespace Media_Marker
             showResults.TopLevel = false;
             showResults.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(showResults);
-            showResults.Show();
+            showResults.Show();*/
         }
 
 
@@ -367,6 +372,7 @@ namespace Media_Marker
             {
                 if (checkedValues.Count != 1)
                 {
+                    MessageBox.Show("Only one media piece can be selected for editing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Console.WriteLine("ERROR: Must select one media piece to edit");
                 }
 
@@ -380,28 +386,28 @@ namespace Media_Marker
                         Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
                         //Console.WriteLine(selectedBook.fullString);
                         bookEditForm editForm = new bookEditForm(selectedBook);
-                        editForm.Show();
+                        editForm.ShowDialog();
                     }
 
                     else if (activeDataGrid.Name == "movieDataGridView")
                     {
                         Movie selectedMovie = mysqlHelper.getMovie((int)selectedPiece.Cells["movie_id"].Value);
                         movieEditForm editForm = new movieEditForm(selectedMovie);
-                        editForm.Show();
+                        editForm.ShowDialog();
                     }
 
                     else if (activeDataGrid.Name == "showDataGridView")
                     {
                         Show selectedShow = mysqlHelper.getShow((int)selectedPiece.Cells["tv_show_id"].Value);
                         showEditForm editForm = new showEditForm(selectedShow);
-                        editForm.Show();
+                        editForm.ShowDialog();
                     }
 
                     else if (activeDataGrid.Name == "gameDataGridView")
                     {
                         Game selectedGame = mysqlHelper.getGame((int)selectedPiece.Cells["video_game_id"].Value);
                         gameEditForm editForm = new gameEditForm(selectedGame);
-                        editForm.Show();
+                        editForm.ShowDialog();
                     }
                 }
             }

@@ -474,5 +474,25 @@ namespace Media_Marker
                 newGame.Show();
             }
         }
+
+        private void bookClearButon_Click(object sender, EventArgs e)
+        {
+            searchResultPanel.Controls.Clear();
+        }
+
+        private void movieClearButton_Click(object sender, EventArgs e)
+        {
+            searchResultPanel.Controls.Clear();
+        }
+
+        private void showClearButton_Click(object sender, EventArgs e)
+        {
+            searchResultPanel.Controls.Clear();
+        }
+
+        private void gameClearButton_Click(object sender, EventArgs e)
+        {
+            searchResultPanel.Controls.Clear();
+        }
     }
 }

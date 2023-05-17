@@ -41,7 +41,7 @@ namespace Media_Marker
             this.possessedBookAuthorRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedBookGenreRadioButton = new System.Windows.Forms.RadioButton();
             this.bookListAllButton = new System.Windows.Forms.Button();
-            this.possessedBookClearButon = new System.Windows.Forms.Button();
+            this.bookClearButon = new System.Windows.Forms.Button();
             this.bookSearchButton = new System.Windows.Forms.Button();
             this.bookSearchTextBox = new System.Windows.Forms.TextBox();
             this.moviesTabPage = new System.Windows.Forms.TabPage();
@@ -53,7 +53,7 @@ namespace Media_Marker
             this.possessedMovieDirectorRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedMovieGenreRadioButton = new System.Windows.Forms.RadioButton();
             this.movieListAllButton = new System.Windows.Forms.Button();
-            this.possessedMovieClearButton = new System.Windows.Forms.Button();
+            this.movieClearButton = new System.Windows.Forms.Button();
             this.movieSearchButton = new System.Windows.Forms.Button();
             this.movieSearchTextBox = new System.Windows.Forms.TextBox();
             this.showsTabPage = new System.Windows.Forms.TabPage();
@@ -65,7 +65,7 @@ namespace Media_Marker
             this.possessedShowDirectorRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedShowGenreRadioButton = new System.Windows.Forms.RadioButton();
             this.showListAllButton = new System.Windows.Forms.Button();
-            this.possessedShowClearButton = new System.Windows.Forms.Button();
+            this.showClearButton = new System.Windows.Forms.Button();
             this.showSearchButton = new System.Windows.Forms.Button();
             this.showSearchTextBox = new System.Windows.Forms.TextBox();
             this.gamesTabPage = new System.Windows.Forms.TabPage();
@@ -78,7 +78,7 @@ namespace Media_Marker
             this.possessedGameDeveloperRadioButton = new System.Windows.Forms.RadioButton();
             this.possessedGameGenreRadioButton = new System.Windows.Forms.RadioButton();
             this.gameListAllButton = new System.Windows.Forms.Button();
-            this.possessedGameClearButton = new System.Windows.Forms.Button();
+            this.gameClearButton = new System.Windows.Forms.Button();
             this.gameSearchButton = new System.Windows.Forms.Button();
             this.gameSearchTextBox = new System.Windows.Forms.TextBox();
             this.searchResultPanel = new System.Windows.Forms.Panel();
@@ -156,7 +156,7 @@ namespace Media_Marker
             this.booksTabPage.Controls.Add(this.bookStatusRadioGroupBox);
             this.booksTabPage.Controls.Add(this.bookSearchCriteriaRadioGroupBox);
             this.booksTabPage.Controls.Add(this.bookListAllButton);
-            this.booksTabPage.Controls.Add(this.possessedBookClearButon);
+            this.booksTabPage.Controls.Add(this.bookClearButon);
             this.booksTabPage.Controls.Add(this.bookSearchButton);
             this.booksTabPage.Controls.Add(this.bookSearchTextBox);
             this.booksTabPage.Location = new System.Drawing.Point(4, 25);
@@ -255,14 +255,15 @@ namespace Media_Marker
             this.bookListAllButton.UseVisualStyleBackColor = true;
             this.bookListAllButton.Click += new System.EventHandler(this.bookListAllButton_Click);
             // 
-            // possessedBookClearButon
+            // bookClearButon
             // 
-            this.possessedBookClearButon.Location = new System.Drawing.Point(554, 31);
-            this.possessedBookClearButon.Name = "possessedBookClearButon";
-            this.possessedBookClearButon.Size = new System.Drawing.Size(75, 23);
-            this.possessedBookClearButon.TabIndex = 13;
-            this.possessedBookClearButon.Text = "Clear";
-            this.possessedBookClearButon.UseVisualStyleBackColor = true;
+            this.bookClearButon.Location = new System.Drawing.Point(554, 31);
+            this.bookClearButon.Name = "bookClearButon";
+            this.bookClearButon.Size = new System.Drawing.Size(75, 23);
+            this.bookClearButon.TabIndex = 13;
+            this.bookClearButon.Text = "Clear";
+            this.bookClearButon.UseVisualStyleBackColor = true;
+            this.bookClearButon.Click += new System.EventHandler(this.bookClearButon_Click);
             // 
             // bookSearchButton
             // 
@@ -286,7 +287,7 @@ namespace Media_Marker
             this.moviesTabPage.Controls.Add(this.movieStatusRadioGroupBox);
             this.moviesTabPage.Controls.Add(this.movieSearchCriteriaRadioGroupBox);
             this.moviesTabPage.Controls.Add(this.movieListAllButton);
-            this.moviesTabPage.Controls.Add(this.possessedMovieClearButton);
+            this.moviesTabPage.Controls.Add(this.movieClearButton);
             this.moviesTabPage.Controls.Add(this.movieSearchButton);
             this.moviesTabPage.Controls.Add(this.movieSearchTextBox);
             this.moviesTabPage.Location = new System.Drawing.Point(4, 25);
@@ -385,14 +386,15 @@ namespace Media_Marker
             this.movieListAllButton.UseVisualStyleBackColor = true;
             this.movieListAllButton.Click += new System.EventHandler(this.movieListAllButton_Click);
             // 
-            // possessedMovieClearButton
+            // movieClearButton
             // 
-            this.possessedMovieClearButton.Location = new System.Drawing.Point(554, 31);
-            this.possessedMovieClearButton.Name = "possessedMovieClearButton";
-            this.possessedMovieClearButton.Size = new System.Drawing.Size(75, 23);
-            this.possessedMovieClearButton.TabIndex = 11;
-            this.possessedMovieClearButton.Text = "Clear";
-            this.possessedMovieClearButton.UseVisualStyleBackColor = true;
+            this.movieClearButton.Location = new System.Drawing.Point(554, 31);
+            this.movieClearButton.Name = "movieClearButton";
+            this.movieClearButton.Size = new System.Drawing.Size(75, 23);
+            this.movieClearButton.TabIndex = 11;
+            this.movieClearButton.Text = "Clear";
+            this.movieClearButton.UseVisualStyleBackColor = true;
+            this.movieClearButton.Click += new System.EventHandler(this.movieClearButton_Click);
             // 
             // movieSearchButton
             // 
@@ -416,7 +418,7 @@ namespace Media_Marker
             this.showsTabPage.Controls.Add(this.showStatusRadioGroupBox);
             this.showsTabPage.Controls.Add(this.showSearchCriteriaRadioGroupBox);
             this.showsTabPage.Controls.Add(this.showListAllButton);
-            this.showsTabPage.Controls.Add(this.possessedShowClearButton);
+            this.showsTabPage.Controls.Add(this.showClearButton);
             this.showsTabPage.Controls.Add(this.showSearchButton);
             this.showsTabPage.Controls.Add(this.showSearchTextBox);
             this.showsTabPage.Location = new System.Drawing.Point(4, 25);
@@ -514,14 +516,15 @@ namespace Media_Marker
             this.showListAllButton.UseVisualStyleBackColor = true;
             this.showListAllButton.Click += new System.EventHandler(this.showListAllButton_Click);
             // 
-            // possessedShowClearButton
+            // showClearButton
             // 
-            this.possessedShowClearButton.Location = new System.Drawing.Point(554, 31);
-            this.possessedShowClearButton.Name = "possessedShowClearButton";
-            this.possessedShowClearButton.Size = new System.Drawing.Size(75, 23);
-            this.possessedShowClearButton.TabIndex = 13;
-            this.possessedShowClearButton.Text = "Clear";
-            this.possessedShowClearButton.UseVisualStyleBackColor = true;
+            this.showClearButton.Location = new System.Drawing.Point(554, 31);
+            this.showClearButton.Name = "showClearButton";
+            this.showClearButton.Size = new System.Drawing.Size(75, 23);
+            this.showClearButton.TabIndex = 13;
+            this.showClearButton.Text = "Clear";
+            this.showClearButton.UseVisualStyleBackColor = true;
+            this.showClearButton.Click += new System.EventHandler(this.showClearButton_Click);
             // 
             // showSearchButton
             // 
@@ -545,7 +548,7 @@ namespace Media_Marker
             this.gamesTabPage.Controls.Add(this.gameStatusRadioGroupBox);
             this.gamesTabPage.Controls.Add(this.gameSearchCriteriaRadioGroupBox);
             this.gamesTabPage.Controls.Add(this.gameListAllButton);
-            this.gamesTabPage.Controls.Add(this.possessedGameClearButton);
+            this.gamesTabPage.Controls.Add(this.gameClearButton);
             this.gamesTabPage.Controls.Add(this.gameSearchButton);
             this.gamesTabPage.Controls.Add(this.gameSearchTextBox);
             this.gamesTabPage.Location = new System.Drawing.Point(4, 25);
@@ -655,14 +658,15 @@ namespace Media_Marker
             this.gameListAllButton.UseVisualStyleBackColor = true;
             this.gameListAllButton.Click += new System.EventHandler(this.gameListAllButton_Click);
             // 
-            // possessedGameClearButton
+            // gameClearButton
             // 
-            this.possessedGameClearButton.Location = new System.Drawing.Point(554, 31);
-            this.possessedGameClearButton.Name = "possessedGameClearButton";
-            this.possessedGameClearButton.Size = new System.Drawing.Size(75, 23);
-            this.possessedGameClearButton.TabIndex = 13;
-            this.possessedGameClearButton.Text = "Clear";
-            this.possessedGameClearButton.UseVisualStyleBackColor = true;
+            this.gameClearButton.Location = new System.Drawing.Point(554, 31);
+            this.gameClearButton.Name = "gameClearButton";
+            this.gameClearButton.Size = new System.Drawing.Size(75, 23);
+            this.gameClearButton.TabIndex = 13;
+            this.gameClearButton.Text = "Clear";
+            this.gameClearButton.UseVisualStyleBackColor = true;
+            this.gameClearButton.Click += new System.EventHandler(this.gameClearButton_Click);
             // 
             // gameSearchButton
             // 
@@ -859,15 +863,15 @@ namespace Media_Marker
         private System.Windows.Forms.Button gameSearchButton;
         private System.Windows.Forms.TextBox gameSearchTextBox;
         private System.Windows.Forms.Button movieListAllButton;
-        private System.Windows.Forms.Button possessedMovieClearButton;
+        private System.Windows.Forms.Button movieClearButton;
         private System.Windows.Forms.Button showListAllButton;
-        private System.Windows.Forms.Button possessedShowClearButton;
+        private System.Windows.Forms.Button showClearButton;
         private System.Windows.Forms.Button gameListAllButton;
-        private System.Windows.Forms.Button possessedGameClearButton;
+        private System.Windows.Forms.Button gameClearButton;
         private System.Windows.Forms.TabPage booksTabPage;
         private System.Windows.Forms.Panel searchResultPanel;
         private System.Windows.Forms.Button bookListAllButton;
-        private System.Windows.Forms.Button possessedBookClearButon;
+        private System.Windows.Forms.Button bookClearButon;
         private System.Windows.Forms.Button bookSearchButton;
         private System.Windows.Forms.TextBox bookSearchTextBox;
         private System.Windows.Forms.RadioButton possessedBookGenreRadioButton;

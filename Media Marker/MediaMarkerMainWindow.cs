@@ -282,43 +282,79 @@ namespace Media_Marker
                 testForm.Show();*/
             }
 
-            else if (actionDropDownBox.Text == "Move to \"Desired\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
+            else if (actionDropDownBox.Text == "Move to \"Desired\" media")
             {
+                List<int> chosenMediaPieces = new List<int>();
+                string mediaType = mediaTabs.SelectedTab.Text;
                 foreach (DataGridViewRow row in checkedValues)
                 {
-                    //change this value in database
-                    int bookID = (int)row.Cells["book_id"].Value;
-                    Console.WriteLine(bookID);
-                    mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, "Desired Media");
-                    //delete this value in current datasource
+                    if (mediaType == "Books")
+                    {
+                        int bookID = Convert.ToInt32(row.Cells["book_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, Enums.MediaStatus.Desired);
+                    }
+                    else if (mediaType == "Movies")
+                    {
+                        int movieID = Convert.ToInt32(row.Cells["movie_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Movie, movieID, Enums.MediaStatus.Desired);
+                    }
+                    else if (mediaType == "Shows")
+                    {
+                        int showID = Convert.ToInt32(row.Cells["tv_show_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.TV_Show, showID, Enums.MediaStatus.Desired);
+                    }
+                    else if (mediaType == "Games")
+                    {
+                        int gameID = Convert.ToInt32(row.Cells["video_game_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Video_Game, gameID, Enums.MediaStatus.Desired);
+                    }
                 }
+                /*
                 testForm.deleteFromDataSource(checkedValues);
                 searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
                 searchResultPanel.Controls.Add(testForm);
-                testForm.Show();
-                Console.WriteLine("Move to desired table!");
+                testForm.Show();*/
             }
 
-            else if (actionDropDownBox.Text == "Move to \"Possessed\" media" && dataBaseTabs.SelectedTab.Text == "Desired Media")
+            else if (actionDropDownBox.Text == "Move to \"Possessed\" media")
             {
+                List<int> chosenMediaPieces = new List<int>();
+                string mediaType = mediaTabs.SelectedTab.Text;
                 foreach (DataGridViewRow row in checkedValues)
                 {
-                    //change this value in database
-                    int bookID = (int)row.Cells["book_id"].Value;
-                    Console.WriteLine(bookID);
-                    mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, "Possessed Media");
-                    //delete this value in current datasource
+                    if (mediaType == "Books")
+                    {
+                        int bookID = Convert.ToInt32(row.Cells["book_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, Enums.MediaStatus.Possessed);
+                    }
+                    else if (mediaType == "Movies")
+                    {
+                        int movieID = Convert.ToInt32(row.Cells["movie_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Movie, movieID, Enums.MediaStatus.Possessed);
+                    }
+                    else if (mediaType == "Shows")
+                    {
+                        int showID = Convert.ToInt32(row.Cells["tv_show_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.TV_Show, showID, Enums.MediaStatus.Possessed);
+                    }
+                    else if (mediaType == "Games")
+                    {
+                        int gameID = Convert.ToInt32(row.Cells["video_game_id"].Value);
+                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Video_Game, gameID, Enums.MediaStatus.Possessed);
+                    }
                 }
+
+                /*
                 testForm.deleteFromDataSource(checkedValues);
                 searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
                 searchResultPanel.Controls.Add(testForm);
-                testForm.Show();
+                testForm.Show();*/
             }
 
             //to prevent user from being able to open multiple forms, look into making these forms a 'singleton'

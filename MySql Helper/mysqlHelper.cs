@@ -366,7 +366,7 @@ namespace MySql_Helper
             return Enums.MediaTypeNames.Video_Game;
         }
 
-        public static void changeMediaStatus(MediaTypeNames mediaTypeID, int mediaID, string status)
+        public static void changeMediaStatus(Enums.MediaTypeNames mediaTypeID, int mediaID, Enums.MediaStatus status)
         {
             if (connString == null)
             {
@@ -375,7 +375,7 @@ namespace MySql_Helper
 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { mediaTypeID = mediaTypeID, mediaID = mediaID, newStatus = status };
+                var values = new { mediaType = mediaTypeID, mediaID = mediaID, newStatus = status };
                 connection.Query("change_media_status", values, commandType: System.Data.CommandType.StoredProcedure);
             }
         }

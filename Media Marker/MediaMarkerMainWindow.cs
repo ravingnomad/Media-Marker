@@ -272,14 +272,14 @@ namespace Media_Marker
                 }
                 
                 mysqlHelper.deleteMediaPieces(chosenMediaPieces, mediaType);
-                /*
-                testForm.deleteFromDataSource(checkedValues);
-                searchResultPanel.Controls.Clear();
-                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                testForm.Dock = DockStyle.Fill;
-                testForm.TopLevel = false;
-                searchResultPanel.Controls.Add(testForm);
-                testForm.Show();*/
+                if (mediaType == "Books")
+                    bookListAllButton.PerformClick();
+                else if (mediaType == "Movies")
+                    movieListAllButton.PerformClick();
+                else if (mediaType == "Shows")
+                    showListAllButton.PerformClick();
+                else if (mediaType == "Games")
+                    gameListAllButton.PerformClick();
             }
 
             else if (actionDropDownBox.Text == "Move to \"Desired\" media")
@@ -292,6 +292,7 @@ namespace Media_Marker
                     {
                         int bookID = Convert.ToInt32(row.Cells["book_id"].Value);
                         mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, Enums.MediaStatus.Desired);
+                        
                     }
                     else if (mediaType == "Movies")
                     {
@@ -309,14 +310,15 @@ namespace Media_Marker
                         mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Video_Game, gameID, Enums.MediaStatus.Desired);
                     }
                 }
-                /*
-                testForm.deleteFromDataSource(checkedValues);
-                searchResultPanel.Controls.Clear();
-                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                testForm.Dock = DockStyle.Fill;
-                testForm.TopLevel = false;
-                searchResultPanel.Controls.Add(testForm);
-                testForm.Show();*/
+
+                if (mediaType == "Books")
+                    bookListAllButton.PerformClick();
+                else if (mediaType == "Movies")
+                    movieListAllButton.PerformClick();
+                else if (mediaType == "Shows")
+                    showListAllButton.PerformClick();
+                else if (mediaType == "Games")
+                    gameListAllButton.PerformClick();
             }
 
             else if (actionDropDownBox.Text == "Move to \"Possessed\" media")
@@ -347,14 +349,14 @@ namespace Media_Marker
                     }
                 }
 
-                /*
-                testForm.deleteFromDataSource(checkedValues);
-                searchResultPanel.Controls.Clear();
-                testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                testForm.Dock = DockStyle.Fill;
-                testForm.TopLevel = false;
-                searchResultPanel.Controls.Add(testForm);
-                testForm.Show();*/
+                if (mediaType == "Books")
+                    bookListAllButton.PerformClick();
+                else if (mediaType == "Movies")
+                    movieListAllButton.PerformClick();
+                else if (mediaType == "Shows")
+                    showListAllButton.PerformClick();
+                else if (mediaType == "Games")
+                    gameListAllButton.PerformClick();
             }
 
             //to prevent user from being able to open multiple forms, look into making these forms a 'singleton'

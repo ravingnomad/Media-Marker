@@ -316,24 +316,55 @@ namespace MySql_Helper
         }
 
 
-        public static void deleteBooks(List<int> bookIDs, string bookStatus)
+        public static void deleteMediaPieces(List<int> mediaIDs, string mediaTypeString)
         {
             if (connString == null)
             {
                 loadConnString();
             }
 
+            Enums.MediaTypeNames mediaTypeEnum = getMediaTypeEnum(mediaTypeString);
+
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                foreach (int id in bookIDs)
+                foreach (int id in mediaIDs)
                 {
-                    Console.WriteLine($"Delete book id {id}");
-                    var values = new { bookID = id, bookStatus = bookStatus };
-                    connection.Query("delete_book", values, commandType: System.Data.CommandType.StoredProcedure);
+                    if (mediaTypeString == "Books")
+                    {
+                        var values = new { bookEnum = mediaTypeEnum, bookID = id };
+                        connection.Query("delete_book", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                    if (mediaTypeString == "Movies")
+                    {
+                        var values = new { movieEnum = mediaTypeEnum, movieID = id };
+                        connection.Query("delete_movie", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                    if (mediaTypeString == "Shows")
+                    {
+                        var values = new { showEnum = mediaTypeEnum, showID = id };
+                        connection.Query("delete_show", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+                    if (mediaTypeString == "Games")
+                    {
+                        var values = new { gameEnum = mediaTypeEnum, gameID = id };
+                        connection.Query("delete_game", values, commandType: System.Data.CommandType.StoredProcedure);
+                    }
+
                 }
             }
         }
 
+
+        private static Enums.MediaTypeNames getMediaTypeEnum(string mediaTypeString)
+        {
+            if (mediaTypeString == "Books")
+                return Enums.MediaTypeNames.Book;
+            else if (mediaTypeString == "Movies")
+                return Enums.MediaTypeNames.Movie;
+            else if (mediaTypeString == "Shows")
+                return Enums.MediaTypeNames.TV_Show;
+            return Enums.MediaTypeNames.Video_Game;
+        }
 
         public static void changeMediaStatus(MediaTypeNames mediaTypeID, int mediaID, string status)
         {

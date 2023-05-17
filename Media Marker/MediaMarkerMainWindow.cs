@@ -256,19 +256,30 @@ namespace Media_Marker
             if (actionDropDownBox.Text == "Delete")
             {
 
-                List<int> chosenBooks = new List<int>();
+                List<int> chosenMediaPieces = new List<int>();
+                string mediaType = mediaTabs.SelectedTab.Text;
+
                 foreach (DataGridViewRow row in checkedValues)
                 {
-                    chosenBooks.Add((int)row.Cells["book_id"].Value);
+                    if (mediaType == "Books")
+                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["book_id"].Value));
+                    else if (mediaType == "Movies")
+                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["movie_id"].Value));
+                    else if (mediaType == "Shows")
+                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["tv_show_id"].Value));
+                    else if (mediaType == "Games")
+                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["video_game_id"].Value));
                 }
-                //mysqlHelper.deleteBooks(chosenBooks, "Possessed Media");
+                
+                mysqlHelper.deleteMediaPieces(chosenMediaPieces, mediaType);
+                /*
                 testForm.deleteFromDataSource(checkedValues);
                 searchResultPanel.Controls.Clear();
                 testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 testForm.Dock = DockStyle.Fill;
                 testForm.TopLevel = false;
                 searchResultPanel.Controls.Add(testForm);
-                testForm.Show();
+                testForm.Show();*/
             }
 
             else if (actionDropDownBox.Text == "Move to \"Desired\" media" && dataBaseTabs.SelectedTab.Text == "Possessed Media")
@@ -314,8 +325,6 @@ namespace Media_Marker
             //https://stackoverflow.com/questions/2018272/preventing-multiple-instance-of-one-form-from-displaying
             //above reference might help
 
-            //how would you have the edit window know which genre to make a check mark at? furthermore, how would you save the newly edited
-            //info?
             else if (actionDropDownBox.Text == "Edit")
             {
                 if (checkedValues.Count != 1)

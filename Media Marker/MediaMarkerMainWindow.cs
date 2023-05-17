@@ -403,12 +403,9 @@ namespace Media_Marker
                         gameEditForm editForm = new gameEditForm(selectedGame);
                         editForm.Show();
                     }
-                    
-                    Console.WriteLine(activeDataGrid.Name);
-
                 }
             }
-            
+            actionDropDownBox.SelectedIndex = -1;
         }
 
 

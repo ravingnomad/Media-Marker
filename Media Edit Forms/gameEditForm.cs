@@ -12,7 +12,7 @@ using MySql_Helper;
 
 namespace Media_Edit_Forms
 {
-    public partial class gameEditForm : Form
+    public partial class GameEditForm : Form
     {
 
         private int gameID;
@@ -21,7 +21,7 @@ namespace Media_Edit_Forms
         private HashSet<string> originalGenres;
         private HashSet<string> originalPlatforms;
 
-        public gameEditForm(Game selectedGame)
+        public GameEditForm(Game selectedGame)
         {
             InitializeComponent();
 

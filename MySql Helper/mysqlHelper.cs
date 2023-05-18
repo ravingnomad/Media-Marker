@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Dapper;
 using Media_Types;
-using Enums;
+using HelperLibrary;
 
 namespace MySql_Helper
 {
@@ -25,7 +25,7 @@ namespace MySql_Helper
         }
 
 
-        public static void addNewBook(string bookTitle, string author, List<string> bookGenres, Enums.MediaStatus mediaStatus)
+        public static void addNewBook(string bookTitle, string author, List<string> bookGenres, HelperLibrary.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -48,7 +48,7 @@ namespace MySql_Helper
             }
         }
 
-        public static void addNewMovie(string movieTitle, string director, List<string> movieGenres, Enums.MediaStatus mediaStatus)
+        public static void addNewMovie(string movieTitle, string director, List<string> movieGenres, HelperLibrary.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -70,7 +70,7 @@ namespace MySql_Helper
         }
 
 
-        public static void addNewShow(string newShowTitle, string showDirector, int seasons, int episodes, List<string> showGenres, Enums.MediaStatus mediaStatus)
+        public static void addNewShow(string newShowTitle, string showDirector, int seasons, int episodes, List<string> showGenres, HelperLibrary.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -92,7 +92,7 @@ namespace MySql_Helper
             }
         }
 
-        public static void addNewGame(string newGameTitle, string newGameDeveloper, List<string> gameGenres, List<string> gamePlatforms, Enums.MediaStatus mediaStatus)
+        public static void addNewGame(string newGameTitle, string newGameDeveloper, List<string> gameGenres, List<string> gamePlatforms, HelperLibrary.MediaStatus mediaStatus)
         {
             if (connString == null)
             {
@@ -116,7 +116,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Book> searchBook(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        public static List<Book> searchBook(HelperLibrary.MediaStatus mediaStatus, HelperLibrary.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
         {
             if (connString == null)
             {
@@ -136,7 +136,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Movie> searchMovie(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        public static List<Movie> searchMovie(HelperLibrary.MediaStatus mediaStatus, HelperLibrary.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
         {
             if (connString == null)
             {
@@ -157,7 +157,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Show> searchShow(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        public static List<Show> searchShow(HelperLibrary.MediaStatus mediaStatus, HelperLibrary.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
         {
             if (connString == null)
             {
@@ -178,7 +178,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Game> searchGame(Enums.MediaStatus mediaStatus, Enums.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
+        public static List<Game> searchGame(HelperLibrary.MediaStatus mediaStatus, HelperLibrary.MediaTypeNames mediaType, string selectedCriteria, string searchQuery)
         {
             if (connString == null)
             {
@@ -255,7 +255,7 @@ namespace MySql_Helper
         }
 
 
-        public static List<Book> listAllBooks(Enums.MediaStatus statusIdentifier)
+        public static List<Book> listAllBooks(HelperLibrary.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -263,14 +263,14 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { bookEnum = Enums.MediaTypeNames.Book, mediaStatusEnum = statusIdentifier };
+                var values = new { bookEnum = HelperLibrary.MediaTypeNames.Book, mediaStatusEnum = statusIdentifier };
 
                 List<Book> result = connection.Query<Book>("list_all_books", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }
 
-        public static List<Game> listAllGames(Enums.MediaStatus statusIdentifier)
+        public static List<Game> listAllGames(HelperLibrary.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -285,7 +285,7 @@ namespace MySql_Helper
             }
         }
 
-        public static List<Movie> listAllMovies(Enums.MediaStatus statusIdentifier)
+        public static List<Movie> listAllMovies(HelperLibrary.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -293,14 +293,14 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { movieEnum = Enums.MediaTypeNames.Movie, mediaStatusEnum = statusIdentifier };
+                var values = new { movieEnum = HelperLibrary.MediaTypeNames.Movie, mediaStatusEnum = statusIdentifier };
 
                 List<Movie> result = connection.Query<Movie>("list_all_movies", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
             }
         }
 
-        public static List<Show> listAllShows(Enums.MediaStatus statusIdentifier)
+        public static List<Show> listAllShows(HelperLibrary.MediaStatus statusIdentifier)
         {
             if (connString == null)
             {
@@ -308,7 +308,7 @@ namespace MySql_Helper
             }
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
-                var values = new { showEnum = Enums.MediaTypeNames.TV_Show, mediaStatusEnum = statusIdentifier };
+                var values = new { showEnum = HelperLibrary.MediaTypeNames.TV_Show, mediaStatusEnum = statusIdentifier };
                 Console.WriteLine("Clicked in possessed show");
                 List<Show> result = connection.Query<Show>("list_all_shows", values, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 return result;
@@ -323,7 +323,7 @@ namespace MySql_Helper
                 loadConnString();
             }
 
-            Enums.MediaTypeNames mediaTypeEnum = getMediaTypeEnum(mediaTypeString);
+            HelperLibrary.MediaTypeNames mediaTypeEnum = getMediaTypeEnum(mediaTypeString);
 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
@@ -355,18 +355,18 @@ namespace MySql_Helper
         }
 
 
-        private static Enums.MediaTypeNames getMediaTypeEnum(string mediaTypeString)
+        private static HelperLibrary.MediaTypeNames getMediaTypeEnum(string mediaTypeString)
         {
             if (mediaTypeString == "Books")
-                return Enums.MediaTypeNames.Book;
+                return HelperLibrary.MediaTypeNames.Book;
             else if (mediaTypeString == "Movies")
-                return Enums.MediaTypeNames.Movie;
+                return HelperLibrary.MediaTypeNames.Movie;
             else if (mediaTypeString == "Shows")
-                return Enums.MediaTypeNames.TV_Show;
-            return Enums.MediaTypeNames.Video_Game;
+                return HelperLibrary.MediaTypeNames.TV_Show;
+            return HelperLibrary.MediaTypeNames.Video_Game;
         }
 
-        public static void changeMediaStatus(Enums.MediaTypeNames mediaTypeID, int mediaID, Enums.MediaStatus status)
+        public static void changeMediaStatus(HelperLibrary.MediaTypeNames mediaTypeID, int mediaID, HelperLibrary.MediaStatus status)
         {
             if (connString == null)
             {
@@ -394,7 +394,7 @@ namespace MySql_Helper
                 {
                     if (field.Key == "Genre")
                     {
-                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Book, mediaPieceID = bookID, genres = field.Value };
+                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Book, mediaPieceID = bookID, genres = field.Value };
                         connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
                     }
 
@@ -420,7 +420,7 @@ namespace MySql_Helper
                 {
                     if (field.Key == "Genre")
                     {
-                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Movie, mediaPieceID = movieID, genres = field.Value };
+                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Movie, mediaPieceID = movieID, genres = field.Value };
                         connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
                     }
 
@@ -446,7 +446,7 @@ namespace MySql_Helper
                 {
                     if (field.Key == "Genre")
                     {
-                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.TV_Show, mediaPieceID = showID, genres = field.Value };
+                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.TV_Show, mediaPieceID = showID, genres = field.Value };
                         connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
                     }
 
@@ -478,7 +478,7 @@ namespace MySql_Helper
                 {
                     if (field.Key == "Genre")
                     {
-                        var values = new { mediaTypeEnum = Enums.MediaTypeNames.Video_Game, mediaPieceID = gameID, genres = field.Value };
+                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Video_Game, mediaPieceID = gameID, genres = field.Value };
                         connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
                     }
 

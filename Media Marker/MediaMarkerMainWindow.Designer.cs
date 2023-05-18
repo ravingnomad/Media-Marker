@@ -813,7 +813,6 @@ namespace Media_Marker
             this.Name = "MediaMarkerMainWindow";
             this.Text = "Media Marker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MediaMarkerMainWindow_Load);
             this.dataBaseTabs.ResumeLayout(false);
             this.mediaTab.ResumeLayout(false);
             this.mediaTabs.ResumeLayout(false);

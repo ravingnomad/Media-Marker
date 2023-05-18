@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql_Helper;
-using Enums;
+using HelperLibrary;
 
 namespace New_Media_Forms
 {
-    public partial class newBookForm : Form
+    public partial class NewBookForm : Form
     {
-        public newBookForm()
+        public NewBookForm()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace New_Media_Forms
             string bookTitle = newBookTitleTextBox.Text;
             string authorName = newBookAuthorTextBox.Text;
             string newBookStatusString = getRadioButtonInGroupBox(newBookStatusGroupBox);
-            Enums.MediaStatus newBookStatusEnum = (newBookStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
+            HelperLibrary.MediaStatus newBookStatusEnum = (newBookStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
 
             var newBookGenres = bookGenreListBox.CheckedItems;
 

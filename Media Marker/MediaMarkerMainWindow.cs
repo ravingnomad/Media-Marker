@@ -12,41 +12,42 @@ using System.Windows.Forms;
 using MySql_Helper;
 using Media_Types;
 using Media_Edit_Forms;
-using Enums;
+using HelperLibrary;
+
 
 namespace Media_Marker
 {
     public partial class MediaMarkerMainWindow : Form
     {
-        bookSearchResultForm testForm;
-        movieSearchResultForm movieTestForm;
-        showSearchResultForm showTestForm;
-        gameSearchResultForm gameTestForm;
+        BookSearchResultForm testForm;
+        MovieSearchResultForm movieTestForm;
+        ShowSearchResultForm showTestForm;
+        GameSearchResultForm gameTestForm;
 
         public MediaMarkerMainWindow()
         {
             InitializeComponent();
 
             searchResultPanel.Controls.Clear();
-            testForm = new bookSearchResultForm();
+            testForm = new BookSearchResultForm();
             testForm.TopLevel = false;
             testForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(testForm);
 
             searchResultPanel.Controls.Clear();
-            gameTestForm = new gameSearchResultForm();
+            gameTestForm = new GameSearchResultForm();
             gameTestForm.TopLevel = false;
             gameTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(gameTestForm);
 
             searchResultPanel.Controls.Clear();
-            movieTestForm = new movieSearchResultForm();
+            movieTestForm = new MovieSearchResultForm();
             movieTestForm.TopLevel = false;
             movieTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(movieTestForm);
 
             searchResultPanel.Controls.Clear();
-            showTestForm = new showSearchResultForm();
+            showTestForm = new ShowSearchResultForm();
             showTestForm.TopLevel = false;
             showTestForm.Dock = DockStyle.Fill;
             searchResultPanel.Controls.Add(showTestForm);
@@ -55,38 +56,6 @@ namespace Media_Marker
             movieTestForm.Show();
             showTestForm.Show();
             gameTestForm.Show();
-        }
-
-        private void MediaMarkerMainWindow_Load(object sender, EventArgs e)
-        {
-            /*
-            searchResultPanel.Controls.Clear();
-            bookSearchResultForm possessedBookResults = new bookSearchResultForm();
-            possessedBookResults.TopLevel = false;
-            possessedBookResults.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(possessedBookResults);
-            possessedBookResults.Show();
-
-            searchResultPanel.Controls.Clear();
-            gameSearchResultForm gameResults = new gameSearchResultForm();
-            gameResults.TopLevel = false;
-            gameResults.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(gameResults);
-            gameResults.Show();
-
-            searchResultPanel.Controls.Clear();
-            movieSearchResultForm movieResults = new movieSearchResultForm();
-            movieResults.TopLevel = false;
-            movieResults.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(movieResults);
-            movieResults.Show();
-
-            searchResultPanel.Controls.Clear();
-            showSearchResultForm showResults = new showSearchResultForm();
-            showResults.TopLevel = false;
-            showResults.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(showResults);
-            showResults.Show();*/
         }
 
 
@@ -105,25 +74,25 @@ namespace Media_Marker
             return returnString;
         }
 
-        private Enums.MediaStatus getMediaStatusEnum(string statusString)
+        private HelperLibrary.MediaStatus getMediaStatusEnum(string statusString)
         {
             if (statusString == "Possessed")
-                return Enums.MediaStatus.Possessed;
-            return Enums.MediaStatus.Desired;
+                return HelperLibrary.MediaStatus.Possessed;
+            return HelperLibrary.MediaStatus.Desired;
         }
 
 
         private void bookSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = getRadioButtonInGroupBox(bookStatusRadioGroupBox);
-            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string searchCriteria = getRadioButtonInGroupBox(bookSearchCriteriaRadioGroupBox);
 
             string searchQuery = bookSearchTextBox.Text;
 
-            List<Book> searchResults = mysqlHelper.searchBook(mediaStatusEnum, Enums.MediaTypeNames.Book, searchCriteria, searchQuery);
+            List<Book> searchResults = mysqlHelper.searchBook(mediaStatusEnum, HelperLibrary.MediaTypeNames.Book, searchCriteria, searchQuery);
             searchResultPanel.Controls.Clear();
             testForm.TopLevel = false;
             testForm.Dock = DockStyle.Fill;
@@ -135,14 +104,14 @@ namespace Media_Marker
         private void movieSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = getRadioButtonInGroupBox(movieStatusRadioGroupBox);
-            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string searchCriteria = getRadioButtonInGroupBox(movieSearchCriteriaRadioGroupBox);
 
             string searchQuery = movieSearchTextBox.Text;
 
-            List<Movie> searchResults = mysqlHelper.searchMovie(mediaStatusEnum, Enums.MediaTypeNames.Movie, searchCriteria, searchQuery);
+            List<Movie> searchResults = mysqlHelper.searchMovie(mediaStatusEnum, HelperLibrary.MediaTypeNames.Movie, searchCriteria, searchQuery);
             searchResultPanel.Controls.Clear();
             movieTestForm.TopLevel = false;
             movieTestForm.Dock = DockStyle.Fill;
@@ -154,14 +123,14 @@ namespace Media_Marker
         private void showSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = getRadioButtonInGroupBox(showStatusRadioGroupBox);
-            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string searchCriteria = getRadioButtonInGroupBox(showSearchCriteriaRadioGroupBox);
 
             string searchQuery = showSearchTextBox.Text;
 
-            List<Show> searchResults = mysqlHelper.searchShow(mediaStatusEnum, Enums.MediaTypeNames.TV_Show, searchCriteria, searchQuery);
+            List<Show> searchResults = mysqlHelper.searchShow(mediaStatusEnum, HelperLibrary.MediaTypeNames.TV_Show, searchCriteria, searchQuery);
             searchResultPanel.Controls.Clear();
             showTestForm.TopLevel = false;
             showTestForm.Dock = DockStyle.Fill;
@@ -173,14 +142,14 @@ namespace Media_Marker
         private void gameSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = getRadioButtonInGroupBox(gameStatusRadioGroupBox);
-            Enums.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
             /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
             string searchCriteria = getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
 
             string searchQuery = gameSearchTextBox.Text;
 
-            List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, Enums.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
+            List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, HelperLibrary.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
             searchResultPanel.Controls.Clear();
             gameTestForm.TopLevel = false;
             gameTestForm.Dock = DockStyle.Fill;
@@ -191,7 +160,7 @@ namespace Media_Marker
 
         private void bookListAllButton_Click(object sender, EventArgs e)
         {
-            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(bookStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(bookStatusRadioGroupBox));
             List<Book> listAllResult = mysqlHelper.listAllBooks(mediaStatus);
             searchResultPanel.Controls.Clear();
             testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -204,7 +173,7 @@ namespace Media_Marker
 
         private void gameListAllButton_Click(object sender, EventArgs e)
         {
-            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(gameStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(gameStatusRadioGroupBox));
             List<Game> listAllResult = mysqlHelper.listAllGames(mediaStatus);
             searchResultPanel.Controls.Clear();
             gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -217,7 +186,7 @@ namespace Media_Marker
 
         private void movieListAllButton_Click(object sender, EventArgs e)
         {
-            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(movieStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(movieStatusRadioGroupBox));
             List<Movie> listAllResult = mysqlHelper.listAllMovies(mediaStatus);
             searchResultPanel.Controls.Clear();
             movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -230,7 +199,7 @@ namespace Media_Marker
 
         private void showListAllButton_Click(object sender, EventArgs e)
         {
-            Enums.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(showStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(showStatusRadioGroupBox));
             List<Show> listAllResult = mysqlHelper.listAllShows(mediaStatus);
             showTestForm.loadNewInfo(listAllResult);
             searchResultPanel.Controls.Clear();
@@ -243,13 +212,40 @@ namespace Media_Marker
         }
 
 
-        //referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
         private void confirmActionButton_Click(object sender, EventArgs e)
+        {
+            List<DataGridViewRow> selectedRows = getSelectedRows();
+            string mediaType = mediaTabs.SelectedTab.Text;
+            switch (actionDropDownBox.Text)
+            {
+                case "Delete":
+                    deleteSelectedRows(selectedRows, mediaType);
+                    break;
+                case "Move to \"Desired\" media":
+                    changeStatusSelectedRows(selectedRows, mediaType, HelperLibrary.MediaStatus.Desired);
+                    break;
+                case "Move to \"Possessed\" media":
+                    changeStatusSelectedRows(selectedRows, mediaType, HelperLibrary.MediaStatus.Possessed);
+                    break;
+                case "Edit":
+                    editSelectedRows(selectedRows, mediaType);
+                    break;
+            }
+            refresh(mediaType);
+            actionDropDownBox.SelectedIndex = -1;
+        }
+
+
+        /// <summary>
+        /// Returns a list of DataGridViewRows in the current DataGridView that has a check mark under the 'Selected' column
+        /// referenced code https://stackoverflow.com/questions/1237829/datagridview-checkbox-column-value-and-functionality
+        /// </summary>
+        /// <returns></returns>
+        private List<DataGridViewRow> getSelectedRows()
         {
             Form searchResultsForm = searchResultPanel.Controls.OfType<Form>().ToList()[0];
             DataGridView activeDataGrid = searchResultsForm.Controls.OfType<DataGridView>().ToList()[0];
             List<DataGridViewRow> checkedValues = new List<DataGridViewRow>();
-
             foreach (DataGridViewRow row in activeDataGrid.Rows)
             {
                 if (Convert.ToBoolean(row.Cells["Select"].Value) == true)
@@ -257,173 +253,124 @@ namespace Media_Marker
                     checkedValues.Add(row);
                 }
             }
+            return checkedValues;
+        }
 
-            if (actionDropDownBox.Text == "Delete")
+
+        /// <summary>
+        /// Deletes the selected rows in the current DataGridView. Checks current type of tab currently opened (Book, Movie, Show, or Game)
+        /// and uses the corresponding string id name to index and locate the numerical id of the selected row. 
+        /// Then queries MySql, using that numerical id, for deletion.
+        /// </summary>
+        /// <param name="checkedValues"></param>
+        private void deleteSelectedRows(List<DataGridViewRow> selectedRows, string mediaType)
+        {
+            List<int> chosenMediaPieces = new List<int>();
+            foreach (DataGridViewRow row in selectedRows)
             {
-
-                List<int> chosenMediaPieces = new List<int>();
-                string mediaType = mediaTabs.SelectedTab.Text;
-
-                foreach (DataGridViewRow row in checkedValues)
+                string mediaID = "";
+                switch (mediaType)
                 {
-                    if (mediaType == "Books")
-                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["book_id"].Value));
-                    else if (mediaType == "Movies")
-                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["movie_id"].Value));
-                    else if (mediaType == "Shows")
-                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["tv_show_id"].Value));
-                    else if (mediaType == "Games")
-                        chosenMediaPieces.Add(Convert.ToInt32(row.Cells["video_game_id"].Value));
+                    case "Books":
+                        mediaID = "book_id";
+                        break;
+                    case "Movies":
+                        mediaID = "movie_id";
+                        break;
+                    case "Shows":
+                        mediaID = "tv_show_id";
+                        break;
+                    case "Games":
+                        mediaID = "video_game_id";
+                        break;
                 }
-                
-                mysqlHelper.deleteMediaPieces(chosenMediaPieces, mediaType);
-                if (mediaType == "Books")
-                    bookListAllButton.PerformClick();
-                else if (mediaType == "Movies")
-                    movieListAllButton.PerformClick();
-                else if (mediaType == "Shows")
-                    showListAllButton.PerformClick();
-                else if (mediaType == "Games")
-                    gameListAllButton.PerformClick();
+                chosenMediaPieces.Add(Convert.ToInt32(row.Cells[mediaID].Value));
             }
+            mysqlHelper.deleteMediaPieces(chosenMediaPieces, mediaType);
+        }
 
-            else if (actionDropDownBox.Text == "Move to \"Desired\" media")
+
+        /// <summary>
+        /// Change the media status to either 'Possessed' or 'Desired', given the value of 'newStatus'.
+        /// </summary>
+        /// <param name="selectedRows"></param>
+        /// <param name="mediaType"></param>
+        private void changeStatusSelectedRows(List<DataGridViewRow> selectedRows, string mediaType, HelperLibrary.MediaStatus newStatus)
+        {
+            foreach (DataGridViewRow row in selectedRows)
             {
-                List<int> chosenMediaPieces = new List<int>();
-                string mediaType = mediaTabs.SelectedTab.Text;
-                foreach (DataGridViewRow row in checkedValues)
+                switch (mediaType)
                 {
-                    if (mediaType == "Books")
-                    {
+                    case "Books":
                         int bookID = Convert.ToInt32(row.Cells["book_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, Enums.MediaStatus.Desired);
-                        
-                    }
-                    else if (mediaType == "Movies")
-                    {
+                        mysqlHelper.changeMediaStatus(HelperLibrary.MediaTypeNames.Book, bookID, newStatus);
+                        break;
+                    case "Movies":
                         int movieID = Convert.ToInt32(row.Cells["movie_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Movie, movieID, Enums.MediaStatus.Desired);
-                    }
-                    else if (mediaType == "Shows")
-                    {
+                        mysqlHelper.changeMediaStatus(HelperLibrary.MediaTypeNames.Movie, movieID, newStatus);
+                        break;
+                    case "Shows":
                         int showID = Convert.ToInt32(row.Cells["tv_show_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.TV_Show, showID, Enums.MediaStatus.Desired);
-                    }
-                    else if (mediaType == "Games")
-                    {
+                        mysqlHelper.changeMediaStatus(HelperLibrary.MediaTypeNames.TV_Show, showID, newStatus);
+                        break;
+                    case "Games":
                         int gameID = Convert.ToInt32(row.Cells["video_game_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Video_Game, gameID, Enums.MediaStatus.Desired);
-                    }
+                        mysqlHelper.changeMediaStatus(HelperLibrary.MediaTypeNames.Video_Game, gameID, newStatus);
+                        break;
                 }
+            }
+        }
 
-                if (mediaType == "Books")
-                    bookListAllButton.PerformClick();
-                else if (mediaType == "Movies")
-                    movieListAllButton.PerformClick();
-                else if (mediaType == "Shows")
-                    showListAllButton.PerformClick();
-                else if (mediaType == "Games")
-                    gameListAllButton.PerformClick();
+
+        /// <summary>
+        /// Allows user to edit the single row that is selected. Does not allow for more than one row being selected.
+        /// </summary>
+        /// <param name="selectedRows"></param>
+        /// <param name="mediaType"></param>
+        private void editSelectedRows(List<DataGridViewRow> selectedRows, string mediaType)
+        {
+            if (selectedRows.Count != 1)
+            {
+                MessageBox.Show("Only one media piece can be selected for editing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            else if (actionDropDownBox.Text == "Move to \"Possessed\" media")
+            else
             {
-                List<int> chosenMediaPieces = new List<int>();
-                string mediaType = mediaTabs.SelectedTab.Text;
-                foreach (DataGridViewRow row in checkedValues)
+                DataGridViewRow selectedPiece = selectedRows[0];
+                switch (mediaType)
                 {
-                    if (mediaType == "Books")
-                    {
-                        int bookID = Convert.ToInt32(row.Cells["book_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Book, bookID, Enums.MediaStatus.Possessed);
-                    }
-                    else if (mediaType == "Movies")
-                    {
-                        int movieID = Convert.ToInt32(row.Cells["movie_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Movie, movieID, Enums.MediaStatus.Possessed);
-                    }
-                    else if (mediaType == "Shows")
-                    {
-                        int showID = Convert.ToInt32(row.Cells["tv_show_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.TV_Show, showID, Enums.MediaStatus.Possessed);
-                    }
-                    else if (mediaType == "Games")
-                    {
-                        int gameID = Convert.ToInt32(row.Cells["video_game_id"].Value);
-                        mysqlHelper.changeMediaStatus(Enums.MediaTypeNames.Video_Game, gameID, Enums.MediaStatus.Possessed);
-                    }
-                }
-
-                if (mediaType == "Books")
-                    bookListAllButton.PerformClick();
-                else if (mediaType == "Movies")
-                    movieListAllButton.PerformClick();
-                else if (mediaType == "Shows")
-                    showListAllButton.PerformClick();
-                else if (mediaType == "Games")
-                    gameListAllButton.PerformClick();
-            }
-
-            //to prevent user from being able to open multiple forms, look into making these forms a 'singleton'
-            //https://stackoverflow.com/questions/2018272/preventing-multiple-instance-of-one-form-from-displaying
-            //above reference might help
-
-            else if (actionDropDownBox.Text == "Edit")
-            {
-                if (checkedValues.Count != 1)
-                {
-                    MessageBox.Show("Only one media piece can be selected for editing", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine("ERROR: Must select one media piece to edit");
-                }
-
-                else
-                {
-                    DataGridViewRow selectedPiece = checkedValues[0];
-                    if (activeDataGrid.Name == "bookDataGridView")
-                    {
-                        
-                        //call mysql function to get book(or other media info) and use that to pass into the edit form
+                    case "Books":
                         Book selectedBook = mysqlHelper.getBook((int)selectedPiece.Cells["book_id"].Value);
-                        //Console.WriteLine(selectedBook.fullString);
-                        bookEditForm editForm = new bookEditForm(selectedBook);
-                        editForm.ShowDialog();
-                    }
-
-                    else if (activeDataGrid.Name == "movieDataGridView")
-                    {
+                        BookEditForm bookEditForm = new BookEditForm(selectedBook);
+                        bookEditForm.ShowDialog();
+                        break;
+                    case "Movies":
                         Movie selectedMovie = mysqlHelper.getMovie((int)selectedPiece.Cells["movie_id"].Value);
-                        movieEditForm editForm = new movieEditForm(selectedMovie);
-                        editForm.ShowDialog();
-                    }
-
-                    else if (activeDataGrid.Name == "showDataGridView")
-                    {
+                        MovieEditForm movieEditForm = new MovieEditForm(selectedMovie);
+                        movieEditForm.ShowDialog();
+                        break;
+                    case "Shows":
                         Show selectedShow = mysqlHelper.getShow((int)selectedPiece.Cells["tv_show_id"].Value);
-                        showEditForm editForm = new showEditForm(selectedShow);
-                        editForm.ShowDialog();
-                    }
-
-                    else if (activeDataGrid.Name == "gameDataGridView")
-                    {
+                        ShowEditForm showEditForm = new ShowEditForm(selectedShow);
+                        showEditForm.ShowDialog();
+                        break;
+                    case "Games":
                         Game selectedGame = mysqlHelper.getGame((int)selectedPiece.Cells["video_game_id"].Value);
-                        gameEditForm editForm = new gameEditForm(selectedGame);
-                        editForm.ShowDialog();
-                    }
+                        GameEditForm gameEditForm = new GameEditForm(selectedGame);
+                        gameEditForm.ShowDialog();
+                        break;
+
                 }
             }
-            actionDropDownBox.SelectedIndex = -1;
         }
 
 
 
-
-
-        
         private void newBookRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (newBookRadioButton.Checked)
             {
-                newBookForm newBook = new newBookForm();
+                NewBookForm newBook = new NewBookForm();
                 newBook.TopLevel = false;
                 newMediaEntryPanel.Controls.Clear();
                 newMediaEntryPanel.Controls.Add(newBook);
@@ -437,7 +384,7 @@ namespace Media_Marker
         {
             if (newMovieRadioButton.Checked)
             {
-                newMovieForm newMovie = new newMovieForm();
+                NewMovieForm newMovie = new NewMovieForm();
                 newMediaEntryPanel.Controls.Clear();
                 newMovie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newMovie.Dock = DockStyle.Fill;
@@ -451,7 +398,7 @@ namespace Media_Marker
         {
             if (newShowRadioButton.Checked)
             {
-                newShowForm newShow = new newShowForm();
+                NewShowForm newShow = new NewShowForm();
                 newMediaEntryPanel.Controls.Clear();
                 newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newShow.Dock = DockStyle.Fill;
@@ -465,7 +412,7 @@ namespace Media_Marker
         {
             if (newGameRadioButton.Checked)
             {
-                newGameForm newGame = new newGameForm();
+                NewGameForm newGame = new NewGameForm();
                 newMediaEntryPanel.Controls.Clear();
                 newGame.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 newGame.Dock = DockStyle.Fill;
@@ -493,6 +440,18 @@ namespace Media_Marker
         private void gameClearButton_Click(object sender, EventArgs e)
         {
             searchResultPanel.Controls.Clear();
+        }
+
+        private void refresh(string mediaType)
+        {
+            if (mediaType == "Books")
+                bookListAllButton.PerformClick();
+            else if (mediaType == "Movies")
+                movieListAllButton.PerformClick();
+            else if (mediaType == "Shows")
+                showListAllButton.PerformClick();
+            else if (mediaType == "Games")
+                gameListAllButton.PerformClick();
         }
     }
 }

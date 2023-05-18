@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Media_Search_Result_Forms
 {
-    public partial class bookSearchResultForm : Form
+    public partial class BookSearchResultForm : Form
     {
         private List<Book> dataSource = new List<Book>();
-        public bookSearchResultForm()
+        public BookSearchResultForm()
         {
             InitializeComponent();
         }

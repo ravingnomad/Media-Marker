@@ -1,7 +1,7 @@
 ﻿
 namespace New_Media_Forms
 {
-    partial class newGameForm
+    partial class NewGameForm
     {
         /// <summary>
         /// Required designer variable.

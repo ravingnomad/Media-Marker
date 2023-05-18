@@ -12,7 +12,7 @@ using MySql_Helper;
 
 namespace Media_Edit_Forms
 {
-    public partial class movieEditForm : Form
+    public partial class MovieEditForm : Form
     {
         private int movieID;
         private string originalTitle;
@@ -20,7 +20,7 @@ namespace Media_Edit_Forms
         private HashSet<string> originalGenres;
 
 
-        public movieEditForm(Movie selectedMovie)
+        public MovieEditForm(Movie selectedMovie)
         {
             InitializeComponent();
             movieID = selectedMovie.movie_id;

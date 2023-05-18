@@ -1,7 +1,7 @@
 ﻿
 namespace Media_Edit_Forms
 {
-    partial class gameEditForm
+    partial class GameEditForm
     {
         /// <summary>
         /// Required designer variable.

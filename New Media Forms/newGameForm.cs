@@ -11,9 +11,9 @@ using MySql_Helper;
 
 namespace New_Media_Forms
 {
-    public partial class newGameForm : Form
+    public partial class NewGameForm : Form
     {
-        public newGameForm()
+        public NewGameForm()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace New_Media_Forms
             string gameTitle = newGameTitleTextBox.Text;
             string gameDeveloper = newGameDeveloperTextBox.Text;
             string newGameStatusString = getRadioButtonInGroupBox(newGameStatusGroupBox);
-            Enums.MediaStatus newGameStatusEnum = (newGameStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
+            HelperLibrary.MediaStatus newGameStatusEnum = (newGameStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
             var gameGenres = gameGenreListBox.CheckedItems;
             var gamePlatforms = gamePlatformListBox.CheckedItems;
 

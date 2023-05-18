@@ -1,7 +1,7 @@
 ﻿
 namespace New_Media_Forms
 {
-    partial class newBookForm
+    partial class NewBookForm
     {
         /// <summary>
         /// Required designer variable.

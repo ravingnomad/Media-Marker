@@ -11,9 +11,9 @@ using MySql_Helper;
 
 namespace New_Media_Forms
 {
-    public partial class newMovieForm : Form
+    public partial class NewMovieForm : Form
     {
-        public newMovieForm()
+        public NewMovieForm()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace New_Media_Forms
             string directorName = newMovieDirectorTextBox.Text;
             var newMovieGenres = newMovieGenreListBox.CheckedItems;
             string newMovieStatusString = getRadioButtonInGroupBox(newMovieStatusGroupBox);
-            Enums.MediaStatus newMovieStatusEnum = (newMovieStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
+            HelperLibrary.MediaStatus newMovieStatusEnum = (newMovieStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
 
             List<string> newMovieGenresList = new List<string>();
             foreach (string genre in newMovieGenres)

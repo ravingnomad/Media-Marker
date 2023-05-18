@@ -12,7 +12,7 @@ using MySql_Helper;
 
 namespace Media_Edit_Forms
 {
-    public partial class showEditForm : Form
+    public partial class ShowEditForm : Form
     {
         private int showID;
         private string originalTitle;
@@ -21,7 +21,7 @@ namespace Media_Edit_Forms
         private int originalEpisodes;
         private HashSet<string> originalGenres;
 
-        public showEditForm(Show selectedShow)
+        public ShowEditForm(Show selectedShow)
         {
             InitializeComponent();
             showID = selectedShow.tv_show_id;

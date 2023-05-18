@@ -43,50 +43,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="newBookForm.cs">
+    <Compile Include="NewBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newBookForm.Designer.cs">
-      <DependentUpon>newBookForm.cs</DependentUpon>
+    <Compile Include="NewBookForm.Designer.cs">
+      <DependentUpon>NewBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newGameForm.cs">
+    <Compile Include="NewGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newGameForm.Designer.cs">
-      <DependentUpon>newGameForm.cs</DependentUpon>
+    <Compile Include="NewGameForm.Designer.cs">
+      <DependentUpon>NewGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newMovieForm.cs">
+    <Compile Include="NewMovieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newMovieForm.Designer.cs">
-      <DependentUpon>newMovieForm.cs</DependentUpon>
+    <Compile Include="NewMovieForm.Designer.cs">
+      <DependentUpon>NewMovieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="newShowForm.cs">
+    <Compile Include="NewShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="newShowForm.Designer.cs">
-      <DependentUpon>newShowForm.cs</DependentUpon>
+    <Compile Include="NewShowForm.Designer.cs">
+      <DependentUpon>NewShowForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="newBookForm.resx">
-      <DependentUpon>newBookForm.cs</DependentUpon>
+    <EmbeddedResource Include="NewBookForm.resx">
+      <DependentUpon>NewBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newGameForm.resx">
-      <DependentUpon>newGameForm.cs</DependentUpon>
+    <EmbeddedResource Include="NewGameForm.resx">
+      <DependentUpon>NewGameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newMovieForm.resx">
-      <DependentUpon>newMovieForm.cs</DependentUpon>
+    <EmbeddedResource Include="NewMovieForm.resx">
+      <DependentUpon>NewMovieForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newShowForm.resx">
-      <DependentUpon>newShowForm.cs</DependentUpon>
+    <EmbeddedResource Include="NewShowForm.resx">
+      <DependentUpon>NewShowForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Enums\Enums.csproj">
+    <ProjectReference Include="..\Enums\HelperLibrary.csproj">
       <Project>{460840f4-5950-4af4-9162-6edc83045ddd}</Project>
-      <Name>Enums</Name>
+      <Name>HelperLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySql Helper\MySql Helper.csproj">
       <Project>{7edd91a7-7ae5-45c9-b662-11790209b24a}</Project>

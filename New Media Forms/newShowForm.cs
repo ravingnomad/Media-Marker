@@ -11,9 +11,9 @@ using MySql_Helper;
 
 namespace New_Media_Forms
 {
-    public partial class newShowForm : Form
+    public partial class NewShowForm : Form
     {
-        public newShowForm()
+        public NewShowForm()
         {
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace New_Media_Forms
             string showTitle = newShowTitleTextBox.Text;
             string directorName = newShowDirectorTextBox.Text;
             string newShowStatusString = getRadioButtonInGroupBox(newShowStatusGroupBox);
-            Enums.MediaStatus newShowStatusEnum = (newShowStatusString == "Possessed") ? Enums.MediaStatus.Possessed : Enums.MediaStatus.Desired;
+            HelperLibrary.MediaStatus newShowStatusEnum = (newShowStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
             int seasons = 0;
             int episodes = 0;
             if (newShowSeasonTextBox.Text != "")

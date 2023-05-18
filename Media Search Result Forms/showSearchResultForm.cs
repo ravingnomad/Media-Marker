@@ -11,11 +11,11 @@ using Media_Types;
 
 namespace Media_Search_Result_Forms
 {
-    public partial class showSearchResultForm : Form
+    public partial class ShowSearchResultForm : Form
     {
         private List<Show> dataSource = new List<Show>();
 
-        public showSearchResultForm()
+        public ShowSearchResultForm()
         {
             InitializeComponent();
         }

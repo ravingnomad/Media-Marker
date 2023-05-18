@@ -1,7 +1,7 @@
 ﻿
 namespace New_Media_Forms
 {
-    partial class newShowForm
+    partial class NewShowForm
     {
         /// <summary>
         /// Required designer variable.

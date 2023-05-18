@@ -52,9 +52,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Enums\Enums.csproj">
+    <ProjectReference Include="..\Enums\HelperLibrary.csproj">
       <Project>{460840f4-5950-4af4-9162-6edc83045ddd}</Project>
-      <Name>Enums</Name>
+      <Name>HelperLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\Media Types\Media Types.csproj">
       <Project>{80f0b906-b6d2-47a6-b6f4-c7b07e774b6e}</Project>

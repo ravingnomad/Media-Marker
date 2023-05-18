@@ -1,7 +1,7 @@
 ﻿
 namespace Media_Search_Result_Forms
 {
-    partial class bookSearchResultForm
+    partial class BookSearchResultForm
     {
         /// <summary>
         /// Required designer variable.

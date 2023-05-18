@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySql Helper", "MySql Helpe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Media Edit Forms", "Media Edit Forms\Media Edit Forms.csproj", "{8A4D42B1-A0A2-41D9-B65E-C038740AC238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enums", "Enums\Enums.csproj", "{460840F4-5950-4AF4-9162-6EDC83045DDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperLibrary", "Enums\HelperLibrary.csproj", "{460840F4-5950-4AF4-9162-6EDC83045DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

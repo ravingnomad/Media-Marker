@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Media_Search_Result_Forms
 {
-    public partial class gameSearchResultForm : Form
+    public partial class GameSearchResultForm : Form
     {
         private List<Game> dataSource = new List<Game>();
-        public gameSearchResultForm()
+        public GameSearchResultForm()
         {
             InitializeComponent();
         }

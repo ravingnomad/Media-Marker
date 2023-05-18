@@ -12,14 +12,14 @@ using MySql_Helper;
 
 namespace Media_Edit_Forms
 {
-    public partial class bookEditForm : Form
+    public partial class BookEditForm : Form
     {
         private int bookID;
         private string originalTitle;
         private string originalAuthor;
         private HashSet<string> originalGenres;
 
-        public bookEditForm(Book selectedBook)
+        public BookEditForm(Book selectedBook)
         {
             InitializeComponent();
             //used to check if change was made in any of these fields
@@ -75,6 +75,7 @@ namespace Media_Edit_Forms
                 updatedFields.Add("Genre", newGenresString);
             }
             mysqlHelper.updateBook(bookID, updatedFields);
+            this.Close();
         }
 
         private bool genresChanged()

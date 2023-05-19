@@ -34,6 +34,19 @@ namespace New_Media_Forms
                 newBookGenresList.Add(genre);
             }
             mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newBookStatusEnum);
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            newBookTitleTextBox.Clear();
+            newBookAuthorTextBox.Clear();
+            newBookPossessedRadioButton.Checked = false;
+            newBookDesiredRadioButton.Checked = false;
+            foreach (int index in bookGenreListBox.CheckedIndices)
+            {
+                bookGenreListBox.SetItemCheckState(index, CheckState.Unchecked);
+            }
         }
     }
 }

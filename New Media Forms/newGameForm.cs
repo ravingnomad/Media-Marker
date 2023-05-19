@@ -40,6 +40,23 @@ namespace New_Media_Forms
             }
 
             mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatusEnum);
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            newGameTitleTextBox.Clear();
+            newGameDeveloperTextBox.Clear();
+            newGamePossessedRadioButton.Checked = false;
+            newGameDesiredRadioButton.Checked = false;
+            foreach (int index in gameGenreListBox.CheckedIndices)
+            {
+                gameGenreListBox.SetItemCheckState(index, CheckState.Unchecked);
+            }
+            foreach (int index in gamePlatformListBox.CheckedIndices)
+            {
+                gamePlatformListBox.SetItemCheckState(index, CheckState.Unchecked);
+            }
         }
     }
 }

@@ -39,6 +39,21 @@ namespace New_Media_Forms
                 newShowGenresList.Add(genre);
             }
             mysqlHelper.addNewShow(showTitle, directorName, seasons, episodes, newShowGenresList, newShowStatusEnum);
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            newShowTitleTextBox.Clear();
+            newShowDirectorTextBox.Clear();
+            foreach (int index in showGenreListBox.CheckedIndices)
+            {
+                showGenreListBox.SetItemCheckState(index, CheckState.Unchecked);
+            }
+            newShowSeasonTextBox.Clear();
+            newShowEpisodesTextBox.Clear();
+            newShowPossessedRadioButton.Checked = false;
+            newShowDesiredRadioButton.Checked = false;
         }
     }
 }

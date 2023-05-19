@@ -92,9 +92,7 @@ namespace Media_Marker
         {
             string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox);
             HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
-
             string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
-
             string searchQuery = gameSearchTextBox.Text;
 
             List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, HelperLibrary.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
@@ -283,7 +281,6 @@ namespace Media_Marker
                         GameEditForm gameEditForm = new GameEditForm(selectedGame);
                         gameEditForm.ShowDialog();
                         break;
-
                 }
             }
         }
@@ -362,6 +359,8 @@ namespace Media_Marker
             basePanel.Controls.Add(formToLoad);
             formToLoad.Show();
         }
+
+
 
         private void bookClearButon_Click(object sender, EventArgs e)
         {

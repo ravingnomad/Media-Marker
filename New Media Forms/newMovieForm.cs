@@ -33,6 +33,19 @@ namespace New_Media_Forms
                 newMovieGenresList.Add(genre);
             }
             mysqlHelper.addNewMovie(movieTitle, directorName, newMovieGenresList, newMovieStatusEnum);
+            resetForm();
+        }
+
+        private void resetForm()
+        {
+            newMovieTitleTextBox.Clear();
+            newMovieDirectorTextBox.Clear();
+            foreach (int index in newMovieGenreListBox.CheckedIndices)
+            {
+                newMovieGenreListBox.SetItemCheckState(index, CheckState.Unchecked);
+            }
+            newMoviePossessedRadioButton.Checked = false;
+            newMovieDesiredRadioButton.Checked = false;
         }
     }
 }

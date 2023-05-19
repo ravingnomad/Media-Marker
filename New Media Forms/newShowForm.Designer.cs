@@ -42,7 +42,7 @@ namespace New_Media_Forms
             this.showGenreListBox = new System.Windows.Forms.CheckedListBox();
             this.newShowStatusGroupBox = new System.Windows.Forms.GroupBox();
             this.newShowPossessedRadioButton = new System.Windows.Forms.RadioButton();
-            this.newBookDesiredRadioButton = new System.Windows.Forms.RadioButton();
+            this.newShowDesiredRadioButton = new System.Windows.Forms.RadioButton();
             this.newShowStatusLabel = new System.Windows.Forms.Label();
             this.newShowStatusGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -183,7 +183,7 @@ namespace New_Media_Forms
             this.newShowStatusGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.newShowStatusGroupBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.newShowStatusGroupBox.Controls.Add(this.newShowPossessedRadioButton);
-            this.newShowStatusGroupBox.Controls.Add(this.newBookDesiredRadioButton);
+            this.newShowStatusGroupBox.Controls.Add(this.newShowDesiredRadioButton);
             this.newShowStatusGroupBox.Location = new System.Drawing.Point(256, 579);
             this.newShowStatusGroupBox.Name = "newShowStatusGroupBox";
             this.newShowStatusGroupBox.Size = new System.Drawing.Size(312, 106);
@@ -202,17 +202,17 @@ namespace New_Media_Forms
             this.newShowPossessedRadioButton.Text = "Possessed";
             this.newShowPossessedRadioButton.UseVisualStyleBackColor = true;
             // 
-            // newBookDesiredRadioButton
+            // newShowDesiredRadioButton
             // 
-            this.newBookDesiredRadioButton.AutoSize = true;
-            this.newBookDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newBookDesiredRadioButton.Location = new System.Drawing.Point(15, 57);
-            this.newBookDesiredRadioButton.Name = "newBookDesiredRadioButton";
-            this.newBookDesiredRadioButton.Size = new System.Drawing.Size(151, 42);
-            this.newBookDesiredRadioButton.TabIndex = 11;
-            this.newBookDesiredRadioButton.TabStop = true;
-            this.newBookDesiredRadioButton.Text = "Desired";
-            this.newBookDesiredRadioButton.UseVisualStyleBackColor = true;
+            this.newShowDesiredRadioButton.AutoSize = true;
+            this.newShowDesiredRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newShowDesiredRadioButton.Location = new System.Drawing.Point(15, 57);
+            this.newShowDesiredRadioButton.Name = "newShowDesiredRadioButton";
+            this.newShowDesiredRadioButton.Size = new System.Drawing.Size(151, 42);
+            this.newShowDesiredRadioButton.TabIndex = 11;
+            this.newShowDesiredRadioButton.TabStop = true;
+            this.newShowDesiredRadioButton.Text = "Desired";
+            this.newShowDesiredRadioButton.UseVisualStyleBackColor = true;
             // 
             // newShowStatusLabel
             // 
@@ -225,7 +225,7 @@ namespace New_Media_Forms
             this.newShowStatusLabel.TabIndex = 28;
             this.newShowStatusLabel.Text = "Media Status:";
             // 
-            // newShowForm
+            // NewShowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -244,7 +244,7 @@ namespace New_Media_Forms
             this.Controls.Add(this.newShowTitleLabel);
             this.Controls.Add(this.newShowTitleTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "newShowForm";
+            this.Name = "NewShowForm";
             this.Text = "Add Show";
             this.newShowStatusGroupBox.ResumeLayout(false);
             this.newShowStatusGroupBox.PerformLayout();
@@ -267,7 +267,7 @@ namespace New_Media_Forms
         private System.Windows.Forms.CheckedListBox showGenreListBox;
         private System.Windows.Forms.GroupBox newShowStatusGroupBox;
         private System.Windows.Forms.RadioButton newShowPossessedRadioButton;
-        private System.Windows.Forms.RadioButton newBookDesiredRadioButton;
+        private System.Windows.Forms.RadioButton newShowDesiredRadioButton;
         private System.Windows.Forms.Label newShowStatusLabel;
     }
 }

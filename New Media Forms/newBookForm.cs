@@ -23,7 +23,7 @@ namespace New_Media_Forms
         {
             string bookTitle = newBookTitleTextBox.Text;
             string authorName = newBookAuthorTextBox.Text;
-            string newBookStatusString = getRadioButtonInGroupBox(newBookStatusGroupBox);
+            string newBookStatusString = HelperFuncs.getRadioButtonInGroupBox(newBookStatusGroupBox);
             HelperLibrary.MediaStatus newBookStatusEnum = (newBookStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
 
             var newBookGenres = bookGenreListBox.CheckedItems;
@@ -34,22 +34,6 @@ namespace New_Media_Forms
                 newBookGenresList.Add(genre);
             }
             mysqlHelper.addNewBook(bookTitle, authorName, newBookGenresList, newBookStatusEnum);
-        }
-
-        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-        private string getRadioButtonInGroupBox(GroupBox groupBox)
-        {
-            string returnString = "";
-            try
-            {
-                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
-            }
-
-            catch (NullReferenceException e)
-            {
-            }
-
-            return returnString;
         }
     }
 }

@@ -19,60 +19,28 @@ namespace Media_Marker
 {
     public partial class MediaMarkerMainWindow : Form
     {
-        BookSearchResultForm testForm;
-        MovieSearchResultForm movieTestForm;
-        ShowSearchResultForm showTestForm;
-        GameSearchResultForm gameTestForm;
+        BookSearchResultForm bookSearchForm;
+        MovieSearchResultForm movieSearchForm;
+        ShowSearchResultForm showSearchForm;
+        GameSearchResultForm gameSearchForm;
 
         public MediaMarkerMainWindow()
         {
             InitializeComponent();
 
-            searchResultPanel.Controls.Clear();
-            testForm = new BookSearchResultForm();
-            testForm.TopLevel = false;
-            testForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(testForm);
+            bookSearchForm = new BookSearchResultForm();
+            loadForm(bookSearchForm, searchResultPanel);
 
-            searchResultPanel.Controls.Clear();
-            gameTestForm = new GameSearchResultForm();
-            gameTestForm.TopLevel = false;
-            gameTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(gameTestForm);
+            gameSearchForm = new GameSearchResultForm();
+            loadForm(gameSearchForm, searchResultPanel);
 
-            searchResultPanel.Controls.Clear();
-            movieTestForm = new MovieSearchResultForm();
-            movieTestForm.TopLevel = false;
-            movieTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(movieTestForm);
+            movieSearchForm = new MovieSearchResultForm();
+            loadForm(movieSearchForm, searchResultPanel);
 
-            searchResultPanel.Controls.Clear();
-            showTestForm = new ShowSearchResultForm();
-            showTestForm.TopLevel = false;
-            showTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(showTestForm);
-
-            testForm.Show();
-            movieTestForm.Show();
-            showTestForm.Show();
-            gameTestForm.Show();
+            showSearchForm = new ShowSearchResultForm();
+            loadForm(showSearchForm, searchResultPanel);
         }
 
-
-        private string getRadioButtonInGroupBox(GroupBox groupBox)
-        {
-            string returnString = "";
-            try
-            {
-                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
-            }
-
-            catch (NullReferenceException e)
-            {
-            }
-
-            return returnString;
-        }
 
         private HelperLibrary.MediaStatus getMediaStatusEnum(string statusString)
         {
@@ -84,131 +52,87 @@ namespace Media_Marker
 
         private void bookSearchButton_Click(object sender, EventArgs e)
         {
-            string mediaStatusString = getRadioButtonInGroupBox(bookStatusRadioGroupBox);
+            string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(bookStatusRadioGroupBox);
             HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
-
-            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string searchCriteria = getRadioButtonInGroupBox(bookSearchCriteriaRadioGroupBox);
-
+            string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(bookSearchCriteriaRadioGroupBox);
             string searchQuery = bookSearchTextBox.Text;
 
             List<Book> searchResults = mysqlHelper.searchBook(mediaStatusEnum, HelperLibrary.MediaTypeNames.Book, searchCriteria, searchQuery);
-            searchResultPanel.Controls.Clear();
-            testForm.TopLevel = false;
-            testForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(testForm);
-            testForm.Show();
-            testForm.loadNewInfo(searchResults);
+            bookSearchForm.loadNewInfo(searchResults);
+            loadForm(bookSearchForm, searchResultPanel); 
         }
 
         private void movieSearchButton_Click(object sender, EventArgs e)
         {
-            string mediaStatusString = getRadioButtonInGroupBox(movieStatusRadioGroupBox);
+            string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(movieStatusRadioGroupBox);
             HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
-
-            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string searchCriteria = getRadioButtonInGroupBox(movieSearchCriteriaRadioGroupBox);
-
+            string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(movieSearchCriteriaRadioGroupBox);
             string searchQuery = movieSearchTextBox.Text;
 
             List<Movie> searchResults = mysqlHelper.searchMovie(mediaStatusEnum, HelperLibrary.MediaTypeNames.Movie, searchCriteria, searchQuery);
-            searchResultPanel.Controls.Clear();
-            movieTestForm.TopLevel = false;
-            movieTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(movieTestForm);
-            movieTestForm.Show();
-            movieTestForm.loadNewInfo(searchResults);
+            movieSearchForm.loadNewInfo(searchResults);
+            loadForm(movieSearchForm, searchResultPanel);
+
         }
 
         private void showSearchButton_Click(object sender, EventArgs e)
         {
-            string mediaStatusString = getRadioButtonInGroupBox(showStatusRadioGroupBox);
+            string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(showStatusRadioGroupBox);
             HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
-
-            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string searchCriteria = getRadioButtonInGroupBox(showSearchCriteriaRadioGroupBox);
-
+            string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(showSearchCriteriaRadioGroupBox);
             string searchQuery = showSearchTextBox.Text;
 
             List<Show> searchResults = mysqlHelper.searchShow(mediaStatusEnum, HelperLibrary.MediaTypeNames.TV_Show, searchCriteria, searchQuery);
-            searchResultPanel.Controls.Clear();
-            showTestForm.TopLevel = false;
-            showTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(showTestForm);
-            showTestForm.Show();
-            showTestForm.loadNewInfo(searchResults);
+            showSearchForm.loadNewInfo(searchResults);
+            loadForm(showSearchForm, searchResultPanel);
+
         }
 
         private void gameSearchButton_Click(object sender, EventArgs e)
         {
-            string mediaStatusString = getRadioButtonInGroupBox(gameStatusRadioGroupBox);
+            string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox);
             HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
 
-            /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-            string searchCriteria = getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
+            string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
 
             string searchQuery = gameSearchTextBox.Text;
 
             List<Game> searchResults = mysqlHelper.searchGame(mediaStatusEnum, HelperLibrary.MediaTypeNames.Video_Game, searchCriteria, searchQuery);
-            searchResultPanel.Controls.Clear();
-            gameTestForm.TopLevel = false;
-            gameTestForm.Dock = DockStyle.Fill;
-            searchResultPanel.Controls.Add(gameTestForm);
-            gameTestForm.Show();
-            gameTestForm.loadNewInfo(searchResults);
+            gameSearchForm.loadNewInfo(searchResults);
+            loadForm(gameSearchForm, searchResultPanel);
+
         }
 
         private void bookListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(bookStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(bookStatusRadioGroupBox));
             List<Book> listAllResult = mysqlHelper.listAllBooks(mediaStatus);
-            searchResultPanel.Controls.Clear();
-            testForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            testForm.Dock = DockStyle.Fill;
-            testForm.TopLevel = false;
-            searchResultPanel.Controls.Add(testForm);
-            testForm.Show();
-            testForm.loadNewInfo(listAllResult);
+            bookSearchForm.loadNewInfo(listAllResult);
+            loadForm(bookSearchForm, searchResultPanel); 
         }
 
         private void gameListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(gameStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox));
             List<Game> listAllResult = mysqlHelper.listAllGames(mediaStatus);
-            searchResultPanel.Controls.Clear();
-            gameTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gameTestForm.Dock = DockStyle.Fill;
-            gameTestForm.TopLevel = false;
-            searchResultPanel.Controls.Add(gameTestForm);
-            gameTestForm.Show();
-            gameTestForm.loadNewInfo(listAllResult);
+            gameSearchForm.loadNewInfo(listAllResult);
+            loadForm(gameSearchForm, searchResultPanel);
         }
 
         private void movieListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(movieStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(movieStatusRadioGroupBox));
             List<Movie> listAllResult = mysqlHelper.listAllMovies(mediaStatus);
-            searchResultPanel.Controls.Clear();
-            movieTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            movieTestForm.Dock = DockStyle.Fill;
-            movieTestForm.TopLevel = false;
-            searchResultPanel.Controls.Add(movieTestForm);
-            gameTestForm.Show();
-            movieTestForm.loadNewInfo(listAllResult);
+            movieSearchForm.loadNewInfo(listAllResult);
+            loadForm(movieSearchForm, searchResultPanel);
         }
 
         private void showListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(getRadioButtonInGroupBox(showStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(showStatusRadioGroupBox));
             List<Show> listAllResult = mysqlHelper.listAllShows(mediaStatus);
-            showTestForm.loadNewInfo(listAllResult);
-            searchResultPanel.Controls.Clear();
-            showTestForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            showTestForm.Dock = DockStyle.Fill;
-            showTestForm.TopLevel = false;
-            searchResultPanel.Controls.Add(showTestForm);
-            showTestForm.Show();
-            showTestForm.loadNewInfo(listAllResult);
+            showSearchForm.loadNewInfo(listAllResult);
+            loadForm(showSearchForm, searchResultPanel);
         }
 
 
@@ -370,13 +294,7 @@ namespace Media_Marker
         {
             if (newBookRadioButton.Checked)
             {
-                NewBookForm newBook = new NewBookForm();
-                newBook.TopLevel = false;
-                newMediaEntryPanel.Controls.Clear();
-                newMediaEntryPanel.Controls.Add(newBook);
-                newBook.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                newBook.Dock = DockStyle.Fill;
-                newBook.Show();
+                loadNewMediaForm(HelperLibrary.MediaTypeNames.Book);
             }
         }
 
@@ -384,13 +302,7 @@ namespace Media_Marker
         {
             if (newMovieRadioButton.Checked)
             {
-                NewMovieForm newMovie = new NewMovieForm();
-                newMediaEntryPanel.Controls.Clear();
-                newMovie.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                newMovie.Dock = DockStyle.Fill;
-                newMovie.TopLevel = false;
-                newMediaEntryPanel.Controls.Add(newMovie);
-                newMovie.Show();
+                loadNewMediaForm(HelperLibrary.MediaTypeNames.Movie);
             }
         }
 
@@ -398,13 +310,7 @@ namespace Media_Marker
         {
             if (newShowRadioButton.Checked)
             {
-                NewShowForm newShow = new NewShowForm();
-                newMediaEntryPanel.Controls.Clear();
-                newShow.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                newShow.Dock = DockStyle.Fill;
-                newShow.TopLevel = false;
-                newMediaEntryPanel.Controls.Add(newShow);
-                newShow.Show();
+                loadNewMediaForm(HelperLibrary.MediaTypeNames.TV_Show);
             }
         }
 
@@ -412,14 +318,49 @@ namespace Media_Marker
         {
             if (newGameRadioButton.Checked)
             {
-                NewGameForm newGame = new NewGameForm();
-                newMediaEntryPanel.Controls.Clear();
-                newGame.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                newGame.Dock = DockStyle.Fill;
-                newGame.TopLevel = false;
-                newMediaEntryPanel.Controls.Add(newGame);
-                newGame.Show();
+                loadNewMediaForm(HelperLibrary.MediaTypeNames.Video_Game);
             }
+        }
+
+
+        private void loadNewMediaForm(HelperLibrary.MediaTypeNames mediaType)
+        {
+            switch(mediaType)
+            {
+                case HelperLibrary.MediaTypeNames.Book:
+                    NewBookForm bookForm = new NewBookForm();
+                    loadForm(bookForm, newMediaEntryPanel);
+                    break;
+                case HelperLibrary.MediaTypeNames.Movie:
+                    NewMovieForm movieForm = new NewMovieForm();
+                    loadForm(movieForm, newMediaEntryPanel);
+                    break;
+                case HelperLibrary.MediaTypeNames.TV_Show:
+                    NewShowForm showForm = new NewShowForm();
+                    loadForm(showForm, newMediaEntryPanel);
+                    break;
+                case HelperLibrary.MediaTypeNames.Video_Game:
+                    NewGameForm gameForm = new NewGameForm();
+                    loadForm(gameForm, newMediaEntryPanel);
+                    break;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Loads a user-given form into the user-given panel
+        /// </summary>
+        /// <param name="formToLoad"></param>
+        /// <param name="basePanel"></param>
+        private void loadForm(Form formToLoad, Panel basePanel)
+        {
+            basePanel.Controls.Clear();
+            formToLoad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            formToLoad.Dock = DockStyle.Fill;
+            formToLoad.TopLevel = false;
+            basePanel.Controls.Add(formToLoad);
+            formToLoad.Show();
         }
 
         private void bookClearButon_Click(object sender, EventArgs e)
@@ -442,6 +383,12 @@ namespace Media_Marker
             searchResultPanel.Controls.Clear();
         }
 
+
+
+        /// <summary>
+        /// Refreshes the current page by clicking the 'List All' button
+        /// </summary>
+        /// <param name="mediaType"></param>
         private void refresh(string mediaType)
         {
             if (mediaType == "Books")

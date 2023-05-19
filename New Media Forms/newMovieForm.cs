@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql_Helper;
+using HelperLibrary;
 
 namespace New_Media_Forms
 {
@@ -23,7 +24,7 @@ namespace New_Media_Forms
             string movieTitle = newMovieTitleTextBox.Text;
             string directorName = newMovieDirectorTextBox.Text;
             var newMovieGenres = newMovieGenreListBox.CheckedItems;
-            string newMovieStatusString = getRadioButtonInGroupBox(newMovieStatusGroupBox);
+            string newMovieStatusString = HelperFuncs.getRadioButtonInGroupBox(newMovieStatusGroupBox);
             HelperLibrary.MediaStatus newMovieStatusEnum = (newMovieStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
 
             List<string> newMovieGenresList = new List<string>();
@@ -32,22 +33,6 @@ namespace New_Media_Forms
                 newMovieGenresList.Add(genre);
             }
             mysqlHelper.addNewMovie(movieTitle, directorName, newMovieGenresList, newMovieStatusEnum);
-        }
-
-        /*Referenced code here: https://stackoverflow.com/questions/1797907/which-radio-button-in-the-group-is-checked*/
-        private string getRadioButtonInGroupBox(GroupBox groupBox)
-        {
-            string returnString = "";
-            try
-            {
-                returnString = groupBox.Controls.OfType<RadioButton>().FirstOrDefault(radio => radio.Checked).Text;
-            }
-
-            catch (NullReferenceException e)
-            {
-            }
-
-            return returnString;
         }
     }
 }

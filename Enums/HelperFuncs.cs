@@ -43,5 +43,20 @@ namespace HelperLibrary
                 return HelperLibrary.MediaStatus.Possessed;
             return HelperLibrary.MediaStatus.Desired;
         }
+
+        public static bool checkListBoxChanged(CheckedListBox currentCheckList, HashSet<string> original)
+        {
+            //temporarily stores the genres that are checked in the check list box
+            List<string> temp = new List<string>();
+
+            for (int index = 0; index < currentCheckList.Items.Count; index++)
+            {
+                if (currentCheckList.GetItemChecked(index) == true)
+                    temp.Add(((string)currentCheckList.Items[index]).ToLower());
+            }
+            //use hash set to see if the original set of genres matches this new set of genres
+            HashSet<string> placeHolder = new HashSet<string>(temp);
+            return placeHolder.SetEquals(original) == false;
+        }
     }
 }

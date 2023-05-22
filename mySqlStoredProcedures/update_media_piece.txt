@@ -66,7 +66,7 @@ BEGIN
 				DELETE
 				FROM supported_game_platforms
 				WHERE supported_game_platforms.game_id = mediaID;
-				SET @stringLen = LENGTH(newValue);
+				SET @stringLen = LENGTH(stringValue);
 				insertionLoop: LOOP
 					SET @platformName = SUBSTRING_INDEX(stringValue, ',', 1);
 					SET @platformID = (SELECT platform_id FROM game_platforms WHERE platform_name = @platformName);

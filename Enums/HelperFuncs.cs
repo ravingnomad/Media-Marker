@@ -36,5 +36,12 @@ namespace HelperLibrary
                 return HelperLibrary.MediaTypeNames.TV_Show;
             return HelperLibrary.MediaTypeNames.Video_Game;
         }
+
+        public static HelperLibrary.MediaStatus getMediaStatusEnum(string statusString)
+        {
+            if (statusString == "Possessed")
+                return HelperLibrary.MediaStatus.Possessed;
+            return HelperLibrary.MediaStatus.Desired;
+        }
     }
 }

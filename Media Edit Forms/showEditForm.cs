@@ -90,6 +90,7 @@ namespace Media_Edit_Forms
                 updatedFields.Add("Genre", newGenresString);
             }
             mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.TV_Show, showID, updatedFields);
+            this.Close();
         }
 
         private bool genresChanged()

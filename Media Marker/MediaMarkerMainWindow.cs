@@ -42,18 +42,13 @@ namespace Media_Marker
         }
 
 
-        private HelperLibrary.MediaStatus getMediaStatusEnum(string statusString)
-        {
-            if (statusString == "Possessed")
-                return HelperLibrary.MediaStatus.Possessed;
-            return HelperLibrary.MediaStatus.Desired;
-        }
+
 
 
         private void bookSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(bookStatusRadioGroupBox);
-            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = HelperLibrary.HelperFuncs.getMediaStatusEnum(mediaStatusString);
             string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(bookSearchCriteriaRadioGroupBox);
             string searchQuery = bookSearchTextBox.Text;
 
@@ -65,7 +60,7 @@ namespace Media_Marker
         private void movieSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(movieStatusRadioGroupBox);
-            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = HelperLibrary.HelperFuncs.getMediaStatusEnum(mediaStatusString);
             string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(movieSearchCriteriaRadioGroupBox);
             string searchQuery = movieSearchTextBox.Text;
 
@@ -78,7 +73,7 @@ namespace Media_Marker
         private void showSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(showStatusRadioGroupBox);
-            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = HelperLibrary.HelperFuncs.getMediaStatusEnum(mediaStatusString);
             string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(showSearchCriteriaRadioGroupBox);
             string searchQuery = showSearchTextBox.Text;
 
@@ -91,7 +86,7 @@ namespace Media_Marker
         private void gameSearchButton_Click(object sender, EventArgs e)
         {
             string mediaStatusString = HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox);
-            HelperLibrary.MediaStatus mediaStatusEnum = getMediaStatusEnum(mediaStatusString);
+            HelperLibrary.MediaStatus mediaStatusEnum = HelperLibrary.HelperFuncs.getMediaStatusEnum(mediaStatusString);
             string searchCriteria = HelperFuncs.getRadioButtonInGroupBox(gameSearchCriteriaRadioGroupBox);
             string searchQuery = gameSearchTextBox.Text;
 
@@ -103,7 +98,7 @@ namespace Media_Marker
 
         private void bookListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(bookStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = HelperLibrary.HelperFuncs.getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(bookStatusRadioGroupBox));
             List<Book> listAllResult = mysqlHelper.listAllBooks(mediaStatus);
             bookSearchForm.loadNewInfo(listAllResult);
             loadForm(bookSearchForm, searchResultPanel); 
@@ -111,7 +106,7 @@ namespace Media_Marker
 
         private void gameListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = HelperLibrary.HelperFuncs.getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(gameStatusRadioGroupBox));
             List<Game> listAllResult = mysqlHelper.listAllGames(mediaStatus);
             gameSearchForm.loadNewInfo(listAllResult);
             loadForm(gameSearchForm, searchResultPanel);
@@ -119,7 +114,7 @@ namespace Media_Marker
 
         private void movieListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(movieStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = HelperLibrary.HelperFuncs.getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(movieStatusRadioGroupBox));
             List<Movie> listAllResult = mysqlHelper.listAllMovies(mediaStatus);
             movieSearchForm.loadNewInfo(listAllResult);
             loadForm(movieSearchForm, searchResultPanel);
@@ -127,7 +122,7 @@ namespace Media_Marker
 
         private void showListAllButton_Click(object sender, EventArgs e)
         {
-            HelperLibrary.MediaStatus mediaStatus = getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(showStatusRadioGroupBox));
+            HelperLibrary.MediaStatus mediaStatus = HelperLibrary.HelperFuncs.getMediaStatusEnum(HelperFuncs.getRadioButtonInGroupBox(showStatusRadioGroupBox));
             List<Show> listAllResult = mysqlHelper.listAllShows(mediaStatus);
             showSearchForm.loadNewInfo(listAllResult);
             loadForm(showSearchForm, searchResultPanel);
@@ -152,6 +147,10 @@ namespace Media_Marker
                 case "Edit":
                     editSelectedRows(selectedRows, mediaType);
                     break;
+                default:
+                    MessageBox.Show("No action selected from dropdown", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+
             }
             refresh(mediaType);
             actionDropDownBox.SelectedIndex = -1;

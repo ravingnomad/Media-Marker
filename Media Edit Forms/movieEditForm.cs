@@ -76,6 +76,7 @@ namespace Media_Edit_Forms
                 updatedFields.Add("Genre", newGenresString);
             }
             mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Movie, movieID, updatedFields);
+            this.Close();
         }
 
         private bool genresChanged()

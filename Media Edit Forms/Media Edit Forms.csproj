@@ -84,6 +84,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Enums\HelperLibrary.csproj">
+      <Project>{460840f4-5950-4af4-9162-6edc83045ddd}</Project>
+      <Name>HelperLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Media Search Result Forms\Media Search Result Forms.csproj">
       <Project>{11d23f53-13f3-4aa0-8c7b-bc5af8cab5c7}</Project>
       <Name>Media Search Result Forms</Name>

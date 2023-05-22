@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Media_Types;
 using MySql_Helper;
+using HelperLibrary;
 
 namespace Media_Edit_Forms
 {
@@ -74,7 +75,7 @@ namespace Media_Edit_Forms
                 string newGenresString = String.Join(",", genreList);
                 updatedFields.Add("Genre", newGenresString);
             }
-            mysqlHelper.updateBook(bookID, updatedFields);
+            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Book, bookID, updatedFields);
             this.Close();
         }
 

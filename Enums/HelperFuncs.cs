@@ -25,5 +25,16 @@ namespace HelperLibrary
 
             return returnString;
         }
+
+        public static HelperLibrary.MediaTypeNames getMediaTypeEnum(string mediaTypeString)
+        {
+            if (mediaTypeString == "Books")
+                return HelperLibrary.MediaTypeNames.Book;
+            else if (mediaTypeString == "Movies")
+                return HelperLibrary.MediaTypeNames.Movie;
+            else if (mediaTypeString == "Shows")
+                return HelperLibrary.MediaTypeNames.TV_Show;
+            return HelperLibrary.MediaTypeNames.Video_Game;
+        }
     }
 }

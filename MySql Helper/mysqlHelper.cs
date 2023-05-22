@@ -323,7 +323,7 @@ namespace MySql_Helper
                 loadConnString();
             }
 
-            HelperLibrary.MediaTypeNames mediaTypeEnum = getMediaTypeEnum(mediaTypeString);
+            HelperLibrary.MediaTypeNames mediaTypeEnum = HelperLibrary.HelperFuncs.getMediaTypeEnum(mediaTypeString);
 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
@@ -354,18 +354,6 @@ namespace MySql_Helper
             }
         }
 
-
-        private static HelperLibrary.MediaTypeNames getMediaTypeEnum(string mediaTypeString)
-        {
-            if (mediaTypeString == "Books")
-                return HelperLibrary.MediaTypeNames.Book;
-            else if (mediaTypeString == "Movies")
-                return HelperLibrary.MediaTypeNames.Movie;
-            else if (mediaTypeString == "Shows")
-                return HelperLibrary.MediaTypeNames.TV_Show;
-            return HelperLibrary.MediaTypeNames.Video_Game;
-        }
-
         public static void changeMediaStatus(HelperLibrary.MediaTypeNames mediaTypeID, int mediaID, HelperLibrary.MediaStatus status)
         {
             if (connString == null)
@@ -381,6 +369,37 @@ namespace MySql_Helper
         }
 
 
+        public static void updateMediaPiece(HelperLibrary.MediaTypeNames mediaTypeEnum, int mediaID, Dictionary<string, string> updatedValues)
+        {
+            if (connString == null)
+            {
+                loadConnString();
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                foreach (KeyValuePair<string, string> field in updatedValues)
+                {
+                    switch (field.Key)
+                    {
+                        case "Genre":
+                            var changeGenreValues = new { mediaTypeEnum = mediaTypeEnum, mediaPieceID = mediaID, genres = field.Value };
+                            connection.Query("change_media_genre", changeGenreValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
+                        case "Seasons":
+                        case "Episodes":
+                            var changeIntValues = new { mediaTypeEnum = mediaTypeEnum, mediaID = mediaID, fieldToChange = field.Key, stringValue = "", intValue = Int32.Parse(field.Value)};
+                            connection.Query("update_media_piece", changeIntValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
+                        default:
+                            var changeFieldValues = new { mediaTypeEnum = mediaTypeEnum, mediaID = mediaID, fieldToChange = field.Key, stringValue = field.Value, intValue = 0 };
+                            connection.Query("update_media_piece", changeFieldValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
+                    }
+                }
+            }
+        }
+        /*
         public static void updateBook(int bookID, Dictionary<string, string> updatedValues)
         {
             if (connString == null)
@@ -392,16 +411,16 @@ namespace MySql_Helper
             {
                 foreach (KeyValuePair<string, string> field in updatedValues)
                 {
-                    if (field.Key == "Genre")
+                    switch(field.Key)
                     {
-                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Book, mediaPieceID = bookID, genres = field.Value };
-                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
-                    }
-
-                    else
-                    {
-                        var values = new { book_id = bookID, fieldToChange = field.Key, newValue = field.Value };
-                        connection.Query("update_book", values, commandType: System.Data.CommandType.StoredProcedure);
+                        case "Genre":
+                            var changeGenreValues = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Book, mediaPieceID = bookID, genres = field.Value };
+                            connection.Query("change_media_genre", changeGenreValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
+                        default:
+                            var changeFieldValues = new { book_id = bookID, fieldToChange = field.Key, newValue = field.Value };
+                            connection.Query("update_book", changeFieldValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
                     }
                 }
             }
@@ -418,16 +437,16 @@ namespace MySql_Helper
             {
                 foreach (KeyValuePair<string, string> field in updatedValues)
                 {
-                    if (field.Key == "Genre")
+                    switch(field.Key)
                     {
-                        var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Movie, mediaPieceID = movieID, genres = field.Value };
-                        connection.Query("change_media_genre", values, commandType: System.Data.CommandType.StoredProcedure);
-                    }
-
-                    else
-                    {
-                        var values = new { movie_id = movieID, fieldToChange = field.Key, newValue = field.Value };
-                        connection.Query("update_movie", values, commandType: System.Data.CommandType.StoredProcedure);
+                        case "Genre":
+                            var changeGenreValues = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.Movie, mediaPieceID = movieID, genres = field.Value };
+                            connection.Query("change_media_genre", changeGenreValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
+                        default:
+                            var changeFieldValues = new { movie_id = movieID, fieldToChange = field.Key, newValue = field.Value };
+                            connection.Query("update_movie", changeFieldValues, commandType: System.Data.CommandType.StoredProcedure);
+                            break;
                     }
                 }
             }
@@ -444,6 +463,16 @@ namespace MySql_Helper
             {
                 foreach (KeyValuePair<string, string> field in updatedValues)
                 {
+                    switch(field.Key)
+                    {
+                        case "Genre":
+                            break;
+                        case "Seasons":
+                        case "Episodes":
+                            break;
+                        default:
+                            break;
+                    }
                     if (field.Key == "Genre")
                     {
                         var values = new { mediaTypeEnum = HelperLibrary.MediaTypeNames.TV_Show, mediaPieceID = showID, genres = field.Value };
@@ -485,11 +514,10 @@ namespace MySql_Helper
                     else
                     {
                         var values = new { game_id = gameID, fieldToChange = field.Key, newValue = field.Value};
-                        Console.WriteLine($"KEY: {field.Key}    VALUE: {field.Value}");
                         connection.Query("update_game", values, commandType: System.Data.CommandType.StoredProcedure);
                     }
                 }
             }
-        }
+        }*/
     }
 }

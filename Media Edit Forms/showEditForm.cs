@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Media_Types;
 using MySql_Helper;
+using HelperLibrary;
 
 namespace Media_Edit_Forms
 {
@@ -88,7 +89,7 @@ namespace Media_Edit_Forms
 
                 updatedFields.Add("Genre", newGenresString);
             }
-            mysqlHelper.updateShow(showID, updatedFields);
+            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.TV_Show, showID, updatedFields);
         }
 
         private bool genresChanged()

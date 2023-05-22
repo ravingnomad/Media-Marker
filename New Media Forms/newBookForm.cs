@@ -27,7 +27,6 @@ namespace New_Media_Forms
             HelperLibrary.MediaStatus newBookStatusEnum = (newBookStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
 
             var newBookGenres = bookGenreListBox.CheckedItems;
-
             List<string> newBookGenresList = new List<string>();
             foreach (string genre in newBookGenres)
             {

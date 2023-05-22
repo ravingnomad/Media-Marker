@@ -78,7 +78,7 @@ namespace Media_Search_Result_Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gameSearchResultForm";
             this.Text = "gameSearchResultForm";
-            this.Load += new System.EventHandler(this.gameSearchResultForm_Load_1);
+            this.Load += new System.EventHandler(this.gameSearchResultForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gameDataGridView)).EndInit();
             this.ResumeLayout(false);
 

@@ -150,7 +150,6 @@ namespace Media_Marker
                 default:
                     MessageBox.Show("No action selected from dropdown", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
-
             }
             refresh(mediaType);
             actionDropDownBox.SelectedIndex = -1;
@@ -364,21 +363,25 @@ namespace Media_Marker
         private void bookClearButon_Click(object sender, EventArgs e)
         {
             searchResultPanel.Controls.Clear();
+            bookSearchTextBox.Clear();
         }
 
         private void movieClearButton_Click(object sender, EventArgs e)
         {
             searchResultPanel.Controls.Clear();
+            movieSearchTextBox.Clear();
         }
 
         private void showClearButton_Click(object sender, EventArgs e)
         {
             searchResultPanel.Controls.Clear();
+            showSearchTextBox.Clear();
         }
 
         private void gameClearButton_Click(object sender, EventArgs e)
         {
             searchResultPanel.Controls.Clear();
+            gameSearchTextBox.Clear();
         }
 
 

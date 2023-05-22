@@ -19,7 +19,7 @@ namespace Media_Search_Result_Forms
             InitializeComponent();
         }
 
-        private void gameSearchResultForm_Load_1(object sender, EventArgs e)
+        private void gameSearchResultForm_Load(object sender, EventArgs e)
         {
             gameDataGridView.DataSource = dataSource;
         }

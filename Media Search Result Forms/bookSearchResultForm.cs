@@ -32,20 +32,12 @@ namespace Media_Search_Result_Forms
             bookDataGridView.Columns["author"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void bookSearchResultForm_Load(object sender, EventArgs e)
         {
             ///method of creating and adding a column of buttons to the DataGridView came from 
             ///http://csharp.net-informations.com/datagridview/csharp-datagridview-button.htm
             
             bookDataGridView.DataSource = dataSource;
-            //DataGridViewCheckBoxColumn buttonCol = new DataGridViewCheckBoxColumn();
-            //bookDataGridView.Columns.Add(buttonCol);
-            //buttonCol.Name = "buttonSelectColumn";
         }
 
         public void loadNewInfo(List<Book> newData)
@@ -57,22 +49,6 @@ namespace Media_Search_Result_Forms
                 buttonCol.Name = "Select";
                 bookDataGridView.Columns.Add(buttonCol);
             }
-        }
-
-        public void deleteFromDataSource(List<DataGridViewRow> toRemove)
-        {
-            List<Book> originalData = new List<Book>((List<Book>)bookDataGridView.DataSource);
-            foreach (DataGridViewRow selected in toRemove)
-            {
-                int toRemoveID = (int)selected.Cells["book_id"].Value;
-                var itemToRemove = originalData.SingleOrDefault(x => x.book_id == toRemoveID);
-                if (itemToRemove != null)
-                {
-                    originalData.Remove(itemToRemove);
-                }
-            }
-            bookDataGridView.DataSource = originalData;
-            Console.WriteLine("Refreshed!");
         }
     }
 }

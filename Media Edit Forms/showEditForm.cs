@@ -57,40 +57,53 @@ namespace Media_Edit_Forms
 
         private void showEditSaveButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> updatedFields = new Dictionary<string, string>();
-            if (showEditTitleTextBox.Text != originalTitle)
+            if (hasError() == false)
             {
-                updatedFields.Add("Title", showEditTitleTextBox.Text);
-            }
-
-            if (showEditDirectorTextBox.Text != originalDirector)
-            {
-                updatedFields.Add("Director", showEditDirectorTextBox.Text);
-            }
-
-            if (Int32.Parse(showEditSeasonTextBox.Text) != originalSeasons)
-            {
-                updatedFields.Add("Seasons", showEditSeasonTextBox.Text);
-            }
-
-            if (Int32.Parse(showEditEpisodesTextBox.Text) != originalEpisodes)
-            {
-                updatedFields.Add("Episodes", showEditEpisodesTextBox.Text);
-            }
-
-            if (genresChanged())
-            {
-                List<string> genreList = new List<string>();
-                foreach (string genre in showEditGenreListBox.CheckedItems)
+                Dictionary<string, string> updatedFields = new Dictionary<string, string>();
+                if (showEditTitleTextBox.Text != originalTitle)
+                    updatedFields.Add("Title", showEditTitleTextBox.Text);
+                if (showEditDirectorTextBox.Text != originalDirector)
+                    updatedFields.Add("Director", showEditDirectorTextBox.Text);
+                if (Int32.Parse(showEditSeasonTextBox.Text) != originalSeasons)
+                    updatedFields.Add("Seasons", showEditSeasonTextBox.Text);
+                if (Int32.Parse(showEditEpisodesTextBox.Text) != originalEpisodes)
+                    updatedFields.Add("Episodes", showEditEpisodesTextBox.Text);
+                if (genresChanged())
                 {
-                    genreList.Add(genre);
-                }
-                string newGenresString = String.Join(",", genreList);
+                    List<string> genreList = new List<string>();
+                    foreach (string genre in showEditGenreListBox.CheckedItems)
+                    {
+                        genreList.Add(genre);
+                    }
+                    string newGenresString = String.Join(",", genreList);
 
-                updatedFields.Add("Genre", newGenresString);
+                    updatedFields.Add("Genre", newGenresString);
+                }
+                mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.TV_Show, showID, updatedFields);
+                this.Close();
             }
-            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.TV_Show, showID, updatedFields);
-            this.Close();
+        }
+
+        private bool hasError()
+        {
+            StringBuilder errorMessage = new StringBuilder();
+            if (HelperLibrary.HelperFuncs.textBoxIsEmpty(showEditTitleTextBox, showEditDirectorTextBox))
+                errorMessage.Append("'Title' and 'Director' fields must both have a value.\n");
+
+            if (HelperLibrary.HelperFuncs.checkListBoxIsEmpty(showEditGenreListBox))
+                errorMessage.Append("There must be at least 1 genre selected.\n");
+
+            if (showEditTitleTextBox.Text != originalTitle &&
+                mysqlHelper.getMediaPieceTitle(HelperLibrary.MediaTypeNames.TV_Show, showEditTitleTextBox.Text) != "")
+                errorMessage.Append("Title must be unique.\n");
+
+            if (int.TryParse(showEditSeasonTextBox.Text.ToString(), out _) == false ||
+                int.TryParse(showEditEpisodesTextBox.Text.ToString(), out _) == false)
+                errorMessage.Append("'Seasons' and 'Episodes' must be an integer.\n");
+
+            if (errorMessage.Length != 0)
+                MessageBox.Show(errorMessage.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return errorMessage.Length != 0;
         }
 
         private bool genresChanged()

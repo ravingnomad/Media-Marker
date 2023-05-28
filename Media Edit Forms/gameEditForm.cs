@@ -72,41 +72,64 @@ namespace Media_Edit_Forms
 
         private void gameEditSaveButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> updatedFields = new Dictionary<string, string>();
-            if (gameEditTitleTextBox.Text != originalTitle)
+            if (hasError() == false)
             {
-                updatedFields.Add("Title", gameEditTitleTextBox.Text);
-            }
-
-            if (gameEditDeveloperTextBox.Text != originalDeveloper)
-            {
-                updatedFields.Add("Developer", gameEditDeveloperTextBox.Text);
-            }
-
-            if (platformsChanged())
-            {
-                List<string> platformList = new List<string>();
-                foreach (string platform in gameEditPlatformListBox.CheckedItems)
+                Dictionary<string, string> updatedFields = new Dictionary<string, string>();
+                if (gameEditTitleTextBox.Text != originalTitle)
                 {
-                    platformList.Add(platform);
+                    updatedFields.Add("Title", gameEditTitleTextBox.Text);
                 }
-                string newPlatformsString = String.Join(",", platformList);
-                updatedFields.Add("Platforms", newPlatformsString);
-            }
 
-            if (genresChanged())
-            {
-                List<string> genreList = new List<string>();
-                foreach (string genre in gameEditGenreListBox.CheckedItems)
+                if (gameEditDeveloperTextBox.Text != originalDeveloper)
                 {
-                    genreList.Add(genre);
+                    updatedFields.Add("Developer", gameEditDeveloperTextBox.Text);
                 }
-                string newGenresString = String.Join(",", genreList);
 
-                updatedFields.Add("Genre", newGenresString);
+                if (platformsChanged())
+                {
+                    List<string> platformList = new List<string>();
+                    foreach (string platform in gameEditPlatformListBox.CheckedItems)
+                    {
+                        platformList.Add(platform);
+                    }
+                    string newPlatformsString = String.Join(",", platformList);
+                    updatedFields.Add("Platforms", newPlatformsString);
+                }
+
+                if (genresChanged())
+                {
+                    List<string> genreList = new List<string>();
+                    foreach (string genre in gameEditGenreListBox.CheckedItems)
+                    {
+                        genreList.Add(genre);
+                    }
+                    string newGenresString = String.Join(",", genreList);
+
+                    updatedFields.Add("Genre", newGenresString);
+                }
+                mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Video_Game, gameID, updatedFields);
+                this.Close();
             }
-            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Video_Game, gameID, updatedFields);
-            this.Close();
+        }
+
+
+        private bool hasError()
+        {
+            StringBuilder errorMessage = new StringBuilder();
+            if (HelperLibrary.HelperFuncs.textBoxIsEmpty(gameEditTitleTextBox, gameEditDeveloperTextBox))
+                errorMessage.Append("'Title' and 'Developer' fields must both have a value.\n");
+
+            if (HelperLibrary.HelperFuncs.checkListBoxIsEmpty(gameEditGenreListBox) ||
+                HelperLibrary.HelperFuncs.checkListBoxIsEmpty(gameEditPlatformListBox))
+                errorMessage.Append("There must be at least 1 'Genre' and 1 'Platform' selected.\n");
+
+            if (gameEditTitleTextBox.Text != originalTitle &&
+                mysqlHelper.getMediaPieceTitle(HelperLibrary.MediaTypeNames.Video_Game, gameEditTitleTextBox.Text) != "")
+                errorMessage.Append("'Title' must be unique.\n");
+
+            if (errorMessage.Length != 0)
+                MessageBox.Show(errorMessage.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return errorMessage.Length != 0;
         }
 
         private bool genresChanged()

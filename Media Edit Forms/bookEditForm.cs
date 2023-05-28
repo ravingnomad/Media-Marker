@@ -53,30 +53,51 @@ namespace Media_Edit_Forms
 
         private void bookEditSaveButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> updatedFields = new Dictionary<string, string>();
-
-            if (bookEditTitleTextBox.Text != originalTitle)
+            if (hasError() == false)
             {
-                updatedFields.Add("Title", bookEditTitleTextBox.Text);
-            }
+                Dictionary<string, string> updatedFields = new Dictionary<string, string>();
 
-            if (bookEditAuthorTextBox.Text != originalAuthor)
-            {
-                updatedFields.Add("Author", bookEditAuthorTextBox.Text);
-            }
-
-            if (genresChanged())
-            {
-                List<string> genreList = new List<string>();
-                foreach (string genre in bookEditGenreListBox.CheckedItems)
+                if (bookEditTitleTextBox.Text != originalTitle)
                 {
-                    genreList.Add(genre);
+                    updatedFields.Add("Title", bookEditTitleTextBox.Text);
                 }
-                string newGenresString = String.Join(",", genreList);
-                updatedFields.Add("Genre", newGenresString);
+
+                if (bookEditAuthorTextBox.Text != originalAuthor)
+                {
+                    updatedFields.Add("Author", bookEditAuthorTextBox.Text);
+                }
+
+                if (genresChanged())
+                {
+                    List<string> genreList = new List<string>();
+                    foreach (string genre in bookEditGenreListBox.CheckedItems)
+                    {
+                        genreList.Add(genre);
+                    }
+                    string newGenresString = String.Join(",", genreList);
+                    updatedFields.Add("Genre", newGenresString);
+                }
+                mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Book, bookID, updatedFields);
+                this.Close();
             }
-            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Book, bookID, updatedFields);
-            this.Close();
+        }
+
+        private bool hasError()
+        {
+            StringBuilder errorMessage = new StringBuilder();
+            if (HelperLibrary.HelperFuncs.textBoxIsEmpty(bookEditTitleTextBox, bookEditAuthorTextBox))
+                errorMessage.Append("'Title' and 'Author' fields must both have a value.\n");
+
+            if (HelperLibrary.HelperFuncs.checkListBoxIsEmpty(bookEditGenreListBox))
+                errorMessage.Append("There must be at least 1 genre selected.\n");
+
+            if (bookEditTitleTextBox.Text != originalTitle &&
+                mysqlHelper.getMediaPieceTitle(HelperLibrary.MediaTypeNames.Book, bookEditTitleTextBox.Text) != "")
+                errorMessage.Append("Title must be unique.\n");
+
+            if (errorMessage.Length != 0)
+                MessageBox.Show(errorMessage.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return errorMessage.Length != 0;
         }
 
         private bool genresChanged()

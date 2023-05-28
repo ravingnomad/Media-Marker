@@ -58,5 +58,28 @@ namespace HelperLibrary
             HashSet<string> placeHolder = new HashSet<string>(temp);
             return placeHolder.SetEquals(original) == false;
         }
+
+        public static bool textBoxIsEmpty(params TextBox[] boxes)
+        {
+            foreach (TextBox box in boxes)
+            {
+                if (box.Text.Trim() == "")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool checkListBoxIsEmpty(params CheckedListBox[] checkLists)
+        {
+            foreach (CheckedListBox checkList in checkLists)
+            {
+                int numberOfChecked = checkList.CheckedItems.Count;
+                if (numberOfChecked <= 0)
+                    return true;
+            }
+            return false;
+        }
     }
 }

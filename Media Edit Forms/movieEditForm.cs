@@ -53,30 +53,47 @@ namespace Media_Edit_Forms
 
         private void movieEditSaveButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> updatedFields = new Dictionary<string, string>();
-            if (movieEditTitleTextBox.Text != originalTitle)
+            if (hasError() == false)
             {
-                updatedFields.Add("Title", movieEditTitleTextBox.Text);
-            }
+                Dictionary<string, string> updatedFields = new Dictionary<string, string>();
+                if (movieEditTitleTextBox.Text != originalTitle)
+                    updatedFields.Add("Title", movieEditTitleTextBox.Text);
+     
+                if (movieEditDirectorTextBox.Text != originalDirector)
+                    updatedFields.Add("Director", movieEditDirectorTextBox.Text);
 
-            if (movieEditDirectorTextBox.Text != originalDirector)
-            {
-                updatedFields.Add("Director", movieEditDirectorTextBox.Text);
-            }
-
-            if (genresChanged())
-            {
-                List<string> genreList = new List<string>();
-                foreach (string genre in movieEditGenreListBox.CheckedItems)
+                if (genresChanged())
                 {
-                    genreList.Add(genre);
+                    List<string> genreList = new List<string>();
+                    foreach (string genre in movieEditGenreListBox.CheckedItems)
+                    {
+                        genreList.Add(genre);
+                    }
+                    string newGenresString = String.Join(",", genreList);
+
+                    updatedFields.Add("Genre", newGenresString);
                 }
-                string newGenresString = String.Join(",", genreList);
-                
-                updatedFields.Add("Genre", newGenresString);
+                mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Movie, movieID, updatedFields);
+                this.Close();
             }
-            mysqlHelper.updateMediaPiece(HelperLibrary.MediaTypeNames.Movie, movieID, updatedFields);
-            this.Close();
+        }
+
+        private bool hasError()
+        {
+            StringBuilder errorMessage = new StringBuilder();
+            if (HelperLibrary.HelperFuncs.textBoxIsEmpty(movieEditTitleTextBox, movieEditDirectorTextBox))
+                errorMessage.Append("'Title' and 'Director' fields must both have a value.\n");
+
+            if (HelperLibrary.HelperFuncs.checkListBoxIsEmpty(movieEditGenreListBox))
+                errorMessage.Append("There must be at least 1 genre selected.\n");
+
+            if (movieEditTitleTextBox.Text != originalTitle &&
+                mysqlHelper.getMediaPieceTitle(HelperLibrary.MediaTypeNames.Movie, movieEditTitleTextBox.Text) != "")
+                errorMessage.Append("Title must be unique.\n");
+
+            if (errorMessage.Length != 0)
+                MessageBox.Show(errorMessage.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return errorMessage.Length != 0;
         }
 
         private bool genresChanged()

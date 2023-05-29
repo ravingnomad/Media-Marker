@@ -21,27 +21,53 @@ namespace New_Media_Forms
 
         private void addNewGameButton_Click(object sender, EventArgs e)
         {
-            string gameTitle = newGameTitleTextBox.Text;
-            string gameDeveloper = newGameDeveloperTextBox.Text;
-            string newGameStatusString = HelperFuncs.getRadioButtonInGroupBox(newGameStatusGroupBox);
-            HelperLibrary.MediaStatus newGameStatusEnum = (newGameStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
-            var gameGenres = gameGenreListBox.CheckedItems;
-            var gamePlatforms = gamePlatformListBox.CheckedItems;
+            if (hasError() == false)
+            { 
+                string gameTitle = newGameTitleTextBox.Text;
+                string gameDeveloper = newGameDeveloperTextBox.Text;
+                string newGameStatusString = HelperFuncs.getRadioButtonInGroupBox(newGameStatusGroupBox);
+                HelperLibrary.MediaStatus newGameStatusEnum = (newGameStatusString == "Possessed") ? HelperLibrary.MediaStatus.Possessed : HelperLibrary.MediaStatus.Desired;
+                var gameGenres = gameGenreListBox.CheckedItems;
+                var gamePlatforms = gamePlatformListBox.CheckedItems;
 
-            List<string> newGameGenresList = new List<string>();
-            List<string> newGamePlatformsList = new List<string>();
-            foreach (string genre in gameGenres)
-            {
-                newGameGenresList.Add(genre);
-            }
-            foreach (string platform in gamePlatforms)
-            {
-                newGamePlatformsList.Add(platform);
-            }
+                List<string> newGameGenresList = new List<string>();
+                List<string> newGamePlatformsList = new List<string>();
+                foreach (string genre in gameGenres)
+                {
+                    newGameGenresList.Add(genre);
+                }
+                foreach (string platform in gamePlatforms)
+                {
+                    newGamePlatformsList.Add(platform);
+                }
 
-            mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatusEnum);
-            resetForm();
+                mysqlHelper.addNewGame(gameTitle, gameDeveloper, newGameGenresList, newGamePlatformsList, newGameStatusEnum);
+                resetForm();
+            }
         }
+
+        private bool hasError()
+        {
+            StringBuilder errorMessage = new StringBuilder();
+            if (HelperLibrary.HelperFuncs.textBoxIsEmpty(newGameTitleTextBox, newGameDeveloperTextBox))
+                errorMessage.Append("'Title' and 'Developer' fields must both have a value.\n");
+
+            if (HelperLibrary.HelperFuncs.checkListBoxIsEmpty(gameGenreListBox) ||
+                HelperLibrary.HelperFuncs.checkListBoxIsEmpty(gamePlatformListBox))
+                errorMessage.Append("There must be at least 1 'Genre' and 1 'Platform' selected.\n");
+
+            if (newGameTitleTextBox.Text != "" &&
+                mysqlHelper.getMediaPieceTitle(HelperLibrary.MediaTypeNames.Video_Game, newGameTitleTextBox.Text) != "")
+                errorMessage.Append("'Title' must be unique.\n");
+
+            if (HelperLibrary.HelperFuncs.getRadioButtonInGroupBox(newGameStatusGroupBox) == "")
+                errorMessage.Append("A 'Status' for this media piece must be selected\n");
+
+            if (errorMessage.Length != 0)
+                MessageBox.Show(errorMessage.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return errorMessage.Length != 0;
+        }
+
 
         private void resetForm()
         {

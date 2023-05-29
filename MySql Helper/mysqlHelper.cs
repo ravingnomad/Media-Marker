@@ -413,23 +413,23 @@ namespace MySql_Helper
                 {
                     case HelperLibrary.MediaTypeNames.Book:
                         var bookValues = new { title = title };
-                        Book tempBook = connection.Query<Book>("get_book_title", bookValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
-                        returnedTitle = tempBook.title;
+                        Book tempBook = connection.QuerySingleOrDefault<Book>("get_book_title", bookValues, commandType: System.Data.CommandType.StoredProcedure);
+                        returnedTitle = (tempBook == null ? "" : tempBook.title);
                         break;
                     case HelperLibrary.MediaTypeNames.Movie:
                         var movieValues = new { title = title };
-                        Movie tempMovie = connection.Query<Movie>("get_movie_title", movieValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
-                        returnedTitle = tempMovie.title;
+                        Movie tempMovie = connection.QuerySingleOrDefault<Movie>("get_movie_title", movieValues, commandType: System.Data.CommandType.StoredProcedure);
+                        returnedTitle = (tempMovie == null ? "" : tempMovie.title);
                         break;
                     case HelperLibrary.MediaTypeNames.TV_Show:
                         var showValues = new { title = title };
-                        Show tempShow = connection.Query<Show>("get_show_title", showValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
-                        returnedTitle = tempShow.title;
+                        Show tempShow = connection.QuerySingleOrDefault<Show>("get_show_title", showValues, commandType: System.Data.CommandType.StoredProcedure);
+                        returnedTitle = (tempShow == null ? "" : tempShow.title);
                         break;
                     case HelperLibrary.MediaTypeNames.Video_Game:
                         var gameValues = new { title = title };
-                        Game tempGame = connection.Query<Game>("get_game_title", gameValues, commandType: System.Data.CommandType.StoredProcedure).ToList()[0];
-                        returnedTitle = tempGame.title;
+                        Game tempGame = connection.QuerySingleOrDefault<Game>("get_game_title", gameValues, commandType: System.Data.CommandType.StoredProcedure);
+                        returnedTitle = (tempGame == null ? "" : tempGame.title);
                         break;
                 }
             }

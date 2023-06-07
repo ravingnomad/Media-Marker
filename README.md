@@ -3,7 +3,4 @@ Media Marker is a windows form program that allows users to input information on
 
 
 ## Demo
-
-
-## Used Technologies
-<small bulletpoint list of what tech you used (C#, .NET Framework 4.8, MySql, Windows Forms, Dapper)>
+![](https://github.com/ravingnomad/Media-Marker/blob/master/Media%20Marker%20Demo.gif)
